@@ -1,0 +1,6 @@
+*.pyc
+!index.pyc
+/target/
+*/__pycache__/
+.vscode/*
+test/

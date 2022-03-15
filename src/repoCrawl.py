@@ -13,8 +13,6 @@ from repoDb import RepoDb
 
 
 repoList = []
-# access_token = '462ba834206b062ac0e596e8969f0987'
-# access_token = '694b8482b84b3704c70bceef66e87606'
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 
 PER_PAGE = 100
