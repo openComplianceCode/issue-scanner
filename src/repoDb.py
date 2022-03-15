@@ -112,18 +112,35 @@ class RepoDb(object):
             traceback.print_exc()
             self.conn.rollback()
 
-    def Query_Repo_ByName(self, repoName):
+    def Query_Repo_ByName(self, repoData):
         '''
         根据repo name 查询repo数据
         '''
         try:
             
-            sql = "SELECT repo_name,sca_json FROM gitee_repo WHERE repo_name = '%s'"
-            self.cur.execute(sql % repoName)
+            sql = "SELECT repo_name,sca_json FROM gitee_repo WHERE repo_name = '%s' and repo_org ='%s'"
+            self.cur.execute(sql % repoData)
 
             repoList = self.cur.fetchone()
 
             self.conn.close()
+            return repoList
+        except:
+            print(self.cur._last_executed)
+            traceback.print_exc()
+
+    
+    def Query_RepoByOrg(self, repoOrg):
+        '''
+        获取repo数据
+        '''
+        try:
+            
+            sql = "SELECT * FROM gitee_repo WHERE repo_org ='%s'"
+            self.cur.execute(sql % repoOrg)
+        
+            repoList = self.cur.fetchall()
+
             return repoList
         except:
             print(self.cur._last_executed)
