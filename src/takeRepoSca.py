@@ -45,6 +45,14 @@ def scaRepo(osUrl,pack,isSrc):
 
     for root,dirs,files in os.walk(packUrl): 
         for dir in tqdm(dirs,desc="SCANING REPO:",total=len(dirs),colour='green'):
+            
+            #检查是否已扫描
+            queryDb = RepoDb()
+
+            repoData = (dir,pack)
+            repo = queryDb.Query_Repo_ByName(repoData)
+            if repo['sca_json'] != None:
+                continue
 
             dirUrl = os.path.join(root,dir)
             dirUrl = formateUrl(dirUrl)
@@ -84,13 +92,7 @@ def scaRepo(osUrl,pack,isSrc):
             if size > 300000000:
                 continue
 
-            #检查是否已扫描
-            queryDb = RepoDb()
-
-            repoData = (dir,pack)
-            repo = queryDb.Query_Repo_ByName(repoData)
-            if repo['sca_json'] != None:
-                continue
+            
 
             #调用scancode
             command = shlex.split('scancode -l -c %s --json %s' % (dirUrl, tempJson))
@@ -120,11 +122,11 @@ def scaRepo(osUrl,pack,isSrc):
 
                 #清空临时解压目录
                 if isSrc == 1:
-                    for root, dirs, files in os.walk(dirUrl, topdown=False):
-                        for name in files:
-                            os.remove(os.path.join(root, name))
-                        for name in dirs:
-                            os.rmdir(os.path.join(root, name))
+                    for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
+                        for delName in delFiles:
+                            os.remove(os.path.join(delRoot, delName))
+                        for delName in delDirs:
+                            os.rmdir(os.path.join(delRoot, delName))
             
 
             #修改数据库
