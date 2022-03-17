@@ -145,3 +145,19 @@ class RepoDb(object):
         except:
             print(self.cur._last_executed)
             traceback.print_exc()
+
+    def Check_license(self, repoData):
+        '''
+        检查license是否认证
+        '''
+        try:
+            
+            sql = "SELECT spdx_name FROM licenses WHERE spdx_name ='%s' and (osi_approved = 1 or fsf_approved = 1)"
+            self.cur.execute(sql % repoData)
+        
+            repoList = self.cur.fetchall()
+
+            return repoList
+        except:
+            print(self.cur._last_executed)
+            traceback.print_exc()

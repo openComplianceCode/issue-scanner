@@ -1,10 +1,14 @@
 
 
+import ctypes
 from genericpath import getsize
 from ntpath import join
 import os
 import shlex
+import shutil
+import stat
 import subprocess
+import sys
 import tarfile
 import time
 import traceback
@@ -45,7 +49,7 @@ def scaRepo(osUrl,pack,isSrc):
 
     for root,dirs,files in os.walk(packUrl): 
         for dir in tqdm(dirs,desc="SCANING REPO:",total=len(dirs),colour='green'):
-            
+
             #检查是否已扫描
             queryDb = RepoDb()
 
@@ -90,6 +94,7 @@ def scaRepo(osUrl,pack,isSrc):
 
             #过滤大文件
             if size > 300000000:
+                cleanTemp(dirUrl)
                 continue
 
             
@@ -119,15 +124,9 @@ def scaRepo(osUrl,pack,isSrc):
 
                 #清空文件
                 f.truncate(0)
-
-                #清空临时解压目录
+                
                 if isSrc == 1:
-                    for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
-                        for delName in delFiles:
-                            os.remove(os.path.join(delRoot, delName))
-                        for delName in delDirs:
-                            os.rmdir(os.path.join(delRoot, delName))
-            
+                    cleanTemp(dirUrl)
 
             #修改数据库
             scaJson = pymysql.escape_string(scaJson)
@@ -140,6 +139,18 @@ def scaRepo(osUrl,pack,isSrc):
 def formateUrl(urlData):
     return urlData.replace("\\", "/")
 
+def cleanTemp(dirUrl):
+    #清空临时解压目录   
+    for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
+        for delName in delFiles:
+            delUrl = os.path.join(delRoot, delName)
+            delUrl = formateUrl(delUrl)
+            #防止文件拒绝访问
+            os.chmod(delUrl, stat.S_IWUSR) 
+            os.remove(delUrl) 
+                            
+        for delName in delDirs:
+            os.rmdir(os.path.join(delRoot, delName))
 
 if __name__ == '__main__':
 
