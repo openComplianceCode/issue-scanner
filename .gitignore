@@ -1,8 +1,8 @@
 *.pyc
 !index.pyc
 /target/
-*/__pycache__/
 .vscode/*
 test/
 src/temp/
 src/json.txt
+src/__pycache__/
