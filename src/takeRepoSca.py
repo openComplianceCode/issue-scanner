@@ -1,18 +1,13 @@
 
-
-import ctypes
 from genericpath import getsize
 from ntpath import join
 import os
 import shlex
-import shutil
 import stat
 import subprocess
-import sys
 import tarfile
 import time
 import traceback
-import zipfile
 import pymysql
 from sqlalchemy import null
 
@@ -50,12 +45,16 @@ def scaRepo(osUrl,pack,isSrc):
     for root,dirs,files in os.walk(packUrl): 
         for dir in tqdm(dirs,desc="SCANING REPO:",total=len(dirs),colour='green'):
 
+            if dir == 'ovirt-ansible-cluster-upgrade':
+                continue
+
             #检查是否已扫描
             queryDb = RepoDb()
 
             repoData = (dir,pack)
             repo = queryDb.Query_Repo_ByName(repoData)
-            if repo['sca_json'] != None:
+
+            if repo is None or repo['sca_json'] != None :
                 continue
 
             dirUrl = os.path.join(root,dir)
@@ -81,6 +80,10 @@ def scaRepo(osUrl,pack,isSrc):
                                 
                             except Exception as e:
                                 traceback.print_exc()
+                            
+                            finally:
+                                t.close()
+
                 
                 if flag == 0:
                     continue
@@ -93,7 +96,8 @@ def scaRepo(osUrl,pack,isSrc):
                 size += sum([getsize(join(r, name)) for name in curFiles])
 
             #过滤大文件
-            if size > 300000000:
+            if size > 200000000:
+
                 cleanTemp(dirUrl)
                 continue
 
@@ -150,7 +154,11 @@ def cleanTemp(dirUrl):
             os.remove(delUrl) 
                             
         for delName in delDirs:
-            os.rmdir(os.path.join(delRoot, delName))
+            delUrl = os.path.join(delRoot, delName)
+            delUrl = formateUrl(delUrl)
+            #防止文件拒绝访问
+            os.chmod(delUrl, stat.S_IWUSR) 
+            os.rmdir(delUrl)
 
 if __name__ == '__main__':
 

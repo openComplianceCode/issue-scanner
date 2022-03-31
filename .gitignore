@@ -5,4 +5,4 @@
 test/
 src/temp/
 src/json.txt
-src/__pycache__/
+*/__pycache__/

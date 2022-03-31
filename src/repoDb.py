@@ -28,7 +28,6 @@ class RepoDb(object):
                 # 创建数据库，返回元祖
                 self.conn = pymysql.connect(host=host_db, user=user_db, password=password_db, db=name_db, port=port_db)
             self.cur = self.conn.cursor()
-            print("输出：%s" % self.cur)
         except pymysql.Error as e:
             print("创建数据库连接失败|Mysql Error %d: %s" % (e.args[0], e.args[1]))
             logging.basicConfig(filename=config.src_path + '/log/syserror.log', level=logging.DEBUG,
