@@ -10,7 +10,7 @@ import tornado.httpserver
 import tornado.options
 from tornado.concurrent import run_on_executor
 import config
-from reposca.prSca import doSca
+from reposca.prSca import PrSca
 
 from tornado import gen
 
@@ -36,7 +36,8 @@ class Main(tornado.web.RequestHandler):
     
     @run_on_executor
     def block(self, prUrl):
-        result = doSca(prUrl)
+        prSca = PrSca()
+        result = prSca.doSca(prUrl)
         return result
 
 
@@ -44,17 +45,8 @@ application = tornado.web.Application([(r"/sca", Main), ])
 
 if __name__ == '__main__':
     sys.path.append(os.path.dirname(sys.path[0]))
-
     httpServer = tornado.httpserver.HTTPServer(application)
- 
-    httpServer.bind(config.options["port"])      #绑定在指定端口
-                        #全局的options对象，所有定义的选项变量都会作为该对象的属性
-                        #这里就可以使用tornado.options.parse_command_line()保存的变量的值
+    httpServer.bind(config.options["port"])   
     httpServer.start(1)
-                                #默认（0）开启一个进程，否则对面开启数值（大于零）进程
-                             #值为None，或者小于0，则开启对应硬件机器的cpu核心数个子进程
-                            #例如 四核八核，就四个进程或者八个进程
     tornado.ioloop.IOLoop.current().start()
-    # application.listen(8868)
-    # tornado.ioloop.IOLoop.instance().start()
     

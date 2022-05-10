@@ -8,3 +8,4 @@ src/json.txt
 */__pycache__/
 *.csv
 src/repoSig.py
+db.cnf
