@@ -83,7 +83,7 @@ class RepoDb(object):
         '''
         try:
             
-            sql = "SELECT repo_name,repo_org, repo_url, sca_json FROM gitee_repo WHERE repo_url IS NOT NULL"
+            sql = "SELECT repo_name,repo_org, repo_url, sca_json, repo_owner FROM gitee_repo WHERE repo_url IS NOT NULL"
             self.cur.execute(sql)
         
             repoList = self.cur.fetchall()
@@ -151,7 +151,7 @@ class RepoDb(object):
         '''
         try:
             
-            sql = "SELECT spdx_name FROM licenses WHERE spdx_name ='%s' and (osi_approved = 1 or fsf_approved = 1)"
+            sql = "SELECT spdx_name FROM spdx_license WHERE spdx_name ='%s' and (osi_approved = 1 or fsf_approved = 1)"
             self.cur.execute(sql % repoData)
         
             repoList = self.cur.fetchall()
@@ -160,3 +160,38 @@ class RepoDb(object):
         except:
             print(self.cur._last_executed)
             traceback.print_exc()
+
+    
+    def Modify_RepoSig(self, repoData):
+        '''
+        更新repo数据的sig组
+        '''
+        try:
+            
+            sql = "UPDATE gitee_repo set repo_owner = '%s' WHERE repo_org = '%s' and repo_name = '%s'"
+            self.cur.execute(sql % repoData)
+            self.conn.commit()
+
+            # self.conn.close()
+        except:
+            print(repoData)
+            print(self.cur._last_executed)
+            traceback.print_exc()
+            self.conn.rollback()
+    
+    def Modify_RepoSca(self, repoData):
+        '''
+        更新repo的扫描结果
+        '''
+        try:
+            
+            sql = "UPDATE gitee_repo set is_pro_license = '%s',spec_license = '%s', is_approve_license = '%s', is_copyright = '%s' WHERE id = %s"
+            self.cur.execute(sql % repoData)
+            self.conn.commit()
+
+            # self.conn.close()
+        except:
+            print(repoData)
+            print(self.cur._last_executed)
+            traceback.print_exc()
+            self.conn.rollback()

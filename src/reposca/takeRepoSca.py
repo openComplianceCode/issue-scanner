@@ -1,5 +1,6 @@
 
 from genericpath import getsize
+import logging
 from ntpath import join
 import os
 import shlex
@@ -8,15 +9,25 @@ import subprocess
 import tarfile
 import time
 import traceback
+from isort import file
 import pymysql
 from sqlalchemy import null
 
 from tqdm import tqdm
 
-from repoDb import RepoDb
+from reposca.repoDb import RepoDb
 
+def catch_error(func):
+    def wrapper(*args, **kw):
+        try:
+            return func(*args, **kw)
+        except Exception as e:
+            logging.exception(e)
 
-def scaRepo(osUrl,pack,isSrc):
+    return wrapper
+
+@catch_error
+def scaRepo(osUrl,pack):
     
     '''
     :param osUrl: 本地存仓库目录
@@ -28,10 +39,8 @@ def scaRepo(osUrl,pack,isSrc):
 
     #创建临时文件
     current_dir = os.path.dirname(os.path.abspath(__file__))
-
     temFileSrc = current_dir+'/temp'
     temFileSrc = formateUrl(temFileSrc)
-
     tempJson = current_dir+'/json.txt'
     tempJson = formateUrl(tempJson)
 
@@ -41,70 +50,66 @@ def scaRepo(osUrl,pack,isSrc):
     if os.path.exists(tempJson) is False:
         open(tempJson,'w')
 
-
     for root,dirs,files in os.walk(packUrl): 
         for dir in tqdm(dirs,desc="SCANING REPO:",total=len(dirs),colour='green'):
 
-            if dir == 'ovirt-ansible-cluster-upgrade':
-                continue
-
+            dirUrl = os.path.join(root,dir)
+            dirUrl = formateUrl(dirUrl)
             #检查是否已扫描
             queryDb = RepoDb()
-
             repoData = (dir,pack)
             repo = queryDb.Query_Repo_ByName(repoData)
 
-            if repo is None or repo['sca_json'] != None :
+            if repo is None or (repo['sca_json'] != None and repo['sca_json'] != ''):
                 continue
 
-            dirUrl = os.path.join(root,dir)
-            dirUrl = formateUrl(dirUrl)
-
-            if isSrc == 1:
-                flag = 0
-                #解压扫描
-                for deRoot,deDir,deFiles in os.walk(dirUrl):  
-                    for defile in deFiles:
+            # if isSrc == 1:
+            #     flag = 0
+            #     #解压扫描
+            #     for deRoot,deDir,deFiles in os.walk(dirUrl):  
+            #         for defile in deFiles:
                         
-                        dePath = os.path.join(deRoot,defile)
-                        dePath = formateUrl(dePath)
+            #             dePath = os.path.join(deRoot,defile)
+            #             dePath = formateUrl(dePath)
 
-                        #判断压缩文件
-                        gzfile = defile.split(".")
-                        if gzfile[len(gzfile) - 1] == 'gz':
-                            flag = 1
+            #             #判断压缩文件
+            #             if checkWrar(defile):
+            #                 flag = 1
 
-                            try:
-                                t = tarfile.open(dePath)
-                                t.extractall(path = temFileSrc)
+            #                 try:
+            #                     t = tarfile.open(dePath)
+            #                     t.extractall(path = temFileSrc)
                                 
-                            except Exception as e:
-                                traceback.print_exc()
+            #                 except Exception as e:
+            #                     traceback.print_exc()
                             
-                            finally:
-                                t.close()
-
+            #                 finally:
+            #                     t.close()
                 
-                if flag == 0:
-                    continue
+            #     if flag == 0:
+            #         continue
 
-                dirUrl = temFileSrc
+            #     dirUrl = temFileSrc
+
+            #调用先解压文件里得压缩文件
+            command = shlex.split('extractcode %s' % (dirUrl))
+            resultCode = subprocess.Popen(command)
+            while subprocess.Popen.poll(resultCode) == None:
+                time.sleep(1)
             
-
-            size = 0
-            for r,currDir,curFiles in os.walk(dirUrl):  
-                size += sum([getsize(join(r, name)) for name in curFiles])
-
-            #过滤大文件
-            if size > 200000000:
-
-                cleanTemp(dirUrl)
-                continue
-
-            
+            if resultCode.stdin:
+                resultCode.stdin.close()
+            if resultCode.stdout:
+                resultCode.stdout.close()
+            if resultCode.stderr:
+                resultCode.stderr.close()
+            try:
+                resultCode.kill()
+            except OSError:
+                pass
 
             #调用scancode
-            command = shlex.split('scancode -l -c %s --json %s' % (dirUrl, tempJson))
+            command = shlex.split('scancode -l -c %s --json %s -n 5 --timeout 3' % (dirUrl, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(10)
@@ -129,8 +134,8 @@ def scaRepo(osUrl,pack,isSrc):
                 #清空文件
                 f.truncate(0)
                 
-                if isSrc == 1:
-                    cleanTemp(dirUrl)
+                # if isSrc == 1:
+                #     cleanTemp(dirUrl)
 
             #修改数据库
             scaJson = pymysql.escape_string(scaJson)
@@ -138,11 +143,28 @@ def scaRepo(osUrl,pack,isSrc):
             repoData = (scaJson, pack, dir)
             dbObject = RepoDb()
             dbObject.Modify_Repo(repoData)
+        
+        #停止遍历子目录
+        break
 
-
+@catch_error
 def formateUrl(urlData):
     return urlData.replace("\\", "/")
 
+@catch_error
+def checkWrar(filePath):
+    if 'tar.gz' in filePath:
+        return True
+    elif 'tar.bz2' in filePath:
+        return True
+    elif 'tar.xz' in filePath:
+        return True
+    elif '.tgz' in filePath:
+        return True
+    else:
+        return False
+
+@catch_error
 def cleanTemp(dirUrl):
     #清空临时解压目录   
     for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
@@ -162,6 +184,6 @@ def cleanTemp(dirUrl):
 
 if __name__ == '__main__':
 
-    # scaRepo("E:/giteeFile/","openEuler",0)
+    # scaRepo("E:/giteeFile/","openEuler")
 
-    scaRepo("E:/giteeFile/","src-openEuler",1)
+    scaRepo("E:/giteeFile/","MindSpore")

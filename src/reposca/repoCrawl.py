@@ -1,34 +1,48 @@
 #-- coding: utf-8 --
 
+import logging
 import os
 import shlex
 import subprocess
 import time
+from tokenize import Number
 import pymysql
+from requests import head
 from tqdm import tqdm
 import urllib3
 import json
 
-from repoDb import RepoDb
+from reposca.repoDb import RepoDb
+from reposca.takeRepoSca import formateUrl
 
 
 repoList = []
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
+GIT_URL = 'https://gitee.com'
 
 PER_PAGE = 100
 
+def catch_error(func):
+    def wrapper(*args, **kw):
+        try:
+            return func(*args, **kw)
+        except Exception as e:
+            logging.exception(e)
+
+    return wrapper
+
+@catch_error
 def refreshToken():
     # 获取token
     http = urllib3.PoolManager() 
     response = http.request('POST','https://gitee.com/oauth/token?grant_type=refresh_token&refresh_token='+ACCESS_TOKEN)
     print(response.data.decode('utf-8'))
+  
 
-    
-
-
+@catch_error
 def getRepoUrl(orgName):
 
-    # 获取url项目下的所有相信
+    # 获取url项目下的所有项目
     start = 1
     repoStr = "Flag"
     http = urllib3.PoolManager() 
@@ -52,35 +66,22 @@ def getRepoUrl(orgName):
     repoData = []
     ownerData = []
     for item in tqdm(repoList,desc="Insert repo And Owner",total=len(repoList)):
-
         tempReData = (item["id"], item["name"], item['namespace']['name'], item['html_url'], item['license'], item['language'], item['forks_count'], item['stargazers_count'])
-
         # 新增repo数据
-        repoData.append(tempReData)
-        # dbObject.Buid_data(tempReData)
-        
-
+        repoData.append(tempReData)     
         # 获取Maintainer
         maintanerList = getMiantainer(orgName, item["name"])
 
         for owner in tqdm(maintanerList,desc="Insert owner",total=len(maintanerList)):          
             ownerName = pymysql.escape_string(owner['name'])
             tempOwnerData = (item["id"], owner['id'], owner['login'], owner['html_url'], ownerName )
-
             #增加owner数据
             ownerData.append(tempOwnerData)
-            # dbObject.Buid_OwnerData(tempOwnerData)
 
     dbObject.Buid_data(repoData)
     dbObject.Buid_OwnerData(ownerData)
         
-
-
-def getRepoDetail():
-
-    # 爬虫
-    print()
-
+@catch_error
 def getMiantainer(orgName, repoName):
     maintanerList = []
     start = 1
@@ -103,18 +104,20 @@ def getMiantainer(orgName, repoName):
     
     return maintanerList
 
+@catch_error
 def getApiResult(url, start):
     http = urllib3.PoolManager() 
     response = http.request('GET',url+'&page='+str(start)+'&per_page='+str(PER_PAGE))
     
     return response
 
-
-def getRepoClone():
+@catch_error
+def getRepoClone(orgName, path):
 
     # 下载repo
     dbObject = RepoDb()
-    allRepo = dbObject.Query_AllRepo()
+    repoOrg = (orgName)
+    allRepo = dbObject.Query_RepoByOrg(repoOrg)
 
     for item in tqdm(allRepo,desc="git clone repo",total=len(allRepo),colour='green'):
 
@@ -123,17 +126,9 @@ def getRepoClone():
             name_space = item['repo_name']
             repoOrg = item['repo_org']
 
-            if 'kernel' in name_space:
+            if os.path.exists(path+'/'+orgName+'/'+name_space):
                 continue
-
-            if repoOrg == 'openEuler':
-                if os.path.exists('E:/giteeFile/openEuler/'+name_space):
-                    continue
-                command = shlex.split('git clone %s %s' % (repoUrl, 'E:/giteeFile/openEuler/'+name_space))
-            else:
-                if os.path.exists('E:/giteeFile/srcOpenEuler/'+name_space):
-                    continue
-                command = shlex.split('git clone %s %s' % (repoUrl, 'E:/giteeFile/srcOpenEuler/'+name_space))
+            command = shlex.split('git clone %s %s' % (repoUrl, path+'/'+orgName+'/'+name_space))
             
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
@@ -153,8 +148,10 @@ def getRepoClone():
         except Exception as e:
             print("Error on %s: %s" % (repoUrl, e.strerror))
 
+
 if __name__ == '__main__':
     
-    # getRepoUrl('src-openEuler')
+    # getRepoUrl('MindSpore')
 
-    getRepoClone()
+    # getRepoClone('MindSpore', 'E:/giteeFile/')
+    refreshToken()
