@@ -37,15 +37,13 @@ class PrSca(object):
         
     def __init__(self):
         #连接数据库
-        sqlconfig = os.path.abspath(os.path.dirname(os.getcwd()))
-        db_config = configparser.ConfigParser()
-        db_config.read_file(open(sqlconfig+'/db.cnf', encoding='utf-8', mode='rt'))
         self._dbObject_ = RepoDb(
-            db_config.get('dbMysql', 'host'), 
-            db_config.get('dbMysql', 'user'), 
-            db_config.get('dbMysql', 'password'), 
-            db_config.get('dbMysql', 'db_name'), 
-            int(db_config.get('dbMysql', 'port')))
+            os.environ.get("MYSQL_HOST"), 
+            os.environ.get("MYSQL_USER"), 
+            os.environ.get("MYSQL_PASS"), 
+            os.environ.get("MYSQL_DB_NAME"), 
+            int(os.environ.get("MYSQL_PORT")))
+        
         self._current_dir_ = os.path.dirname(os.path.abspath(__file__))
 
     @catch_error
