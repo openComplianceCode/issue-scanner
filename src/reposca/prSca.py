@@ -22,7 +22,7 @@ logger = logging.getLogger("reposca")
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-SOURTH_PATH = 'E:/giteeFile'
+SOURTH_PATH = '/home/giteeFile'
 
 class PrSca(object):
 
@@ -40,7 +40,7 @@ class PrSca(object):
         self._dbObject_ = RepoDb(
             os.environ.get("MYSQL_HOST"), 
             os.environ.get("MYSQL_USER"), 
-            os.environ.get("MYSQL_PASS"), 
+            os.environ.get("MYSQL_PASSWORD"), 
             os.environ.get("MYSQL_DB_NAME"), 
             int(os.environ.get("MYSQL_PORT")))
         
