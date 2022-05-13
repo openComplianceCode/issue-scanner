@@ -49,6 +49,7 @@ requirements = [
   'tornado==6.1',
   'tqdm==4.62.3',
   'urllib3==1.25.8'
+  'python-rpm-spec==0.11'
 ]
 
 
