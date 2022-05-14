@@ -5,7 +5,6 @@ jsonpath==0.82
 perceval==0.17.17
 perceval_weblate==0.1.2
 PyMySQL==0.9.3
-pyrpm==0.4
 PyYAML==6.0
 requests==2.26.0
 scipy==1.7.1
