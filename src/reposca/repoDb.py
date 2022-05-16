@@ -4,7 +4,6 @@ import logging
 import traceback
 import pymysql
 
-
 class RepoDb(object):
 
     # 定义初始化数据库连接
@@ -29,10 +28,8 @@ class RepoDb(object):
                 self.conn = pymysql.connect(host=host_db, user=user_db, password=password_db, db=name_db, port=port_db)
             self.cur = self.conn.cursor()
         except pymysql.Error as e:
-            print("创建数据库连接失败|Mysql Error %d: %s" % (e.args[0], e.args[1]))
-            logging.basicConfig(filename=config.src_path + '/log/syserror.log', level=logging.DEBUG,
-                                format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s')
             logger = logging.getLogger(__name__)
+            logger.exception("创建数据库连接失败|Mysql Error %d: %s" % (e.args[0], e.args[1]))        
             logger.exception(e)
 
     def Buid_data(self, repoData):
@@ -46,11 +43,11 @@ class RepoDb(object):
             # self.cur.execute(sql, repoData)
             self.conn.commit() 
 
-        except:
+        except pymysql.Error as e:
             # Rollback in case there is any error
             # 输出异常信息
-            print(repoData)
-            print(self.cur._last_executed)
+            logger = logging.getLogger(__name__)      
+            logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()  
 
@@ -69,11 +66,11 @@ class RepoDb(object):
             self.cur.executemany(sql, ownerData)
             self.conn.commit()
 
-        except:
+        except pymysql.Error as e:
             # Rollback in case there is any error
             # 输出异常信息
-            print(ownerData)
-            print(self.cur._last_executed)
+            logger = logging.getLogger(__name__)      
+            logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()  
 
@@ -89,8 +86,9 @@ class RepoDb(object):
             repoList = self.cur.fetchall()
 
             return repoList
-        except:
-            print(self.cur._last_executed)
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)      
+            logger.exception(e)
             traceback.print_exc()
 
 
@@ -105,9 +103,9 @@ class RepoDb(object):
             self.conn.commit()
 
             self.conn.close()
-        except:
-            print(repoData)
-            print(self.cur._last_executed)
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)      
+            logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
 
@@ -124,8 +122,9 @@ class RepoDb(object):
 
             self.conn.close()
             return repoList
-        except:
-            print(self.cur._last_executed)
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)      
+            logger.exception(e)
             traceback.print_exc()
 
     
@@ -141,8 +140,9 @@ class RepoDb(object):
             repoList = self.cur.fetchall()
 
             return repoList
-        except:
-            print(self.cur._last_executed)
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)      
+            logger.exception(e)
             traceback.print_exc()
 
     def Check_license(self, repoData):
@@ -157,8 +157,9 @@ class RepoDb(object):
             repoList = self.cur.fetchall()
 
             return repoList
-        except:
-            print(self.cur._last_executed)
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)      
+            logger.exception(e)
             traceback.print_exc()
 
     
@@ -173,9 +174,9 @@ class RepoDb(object):
             self.conn.commit()
 
             # self.conn.close()
-        except:
-            print(repoData)
-            print(self.cur._last_executed)
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)      
+            logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
     
@@ -190,8 +191,8 @@ class RepoDb(object):
             self.conn.commit()
 
             # self.conn.close()
-        except:
-            print(repoData)
-            print(self.cur._last_executed)
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)      
+            logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()

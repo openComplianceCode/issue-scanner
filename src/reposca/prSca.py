@@ -17,12 +17,13 @@ from reposca.makeRepoCsv import checkNotice, checkRepoLicense
 from reposca.repoDb import RepoDb
 from reposca.takeRepoSca import cleanTemp
 from reposca.licenseCheck import LicenseCheck
-
-logger = logging.getLogger("reposca")
+from util.postOrdered import infixToPostfix
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-SOURTH_PATH = '/home/giteeFile'
+# SOURTH_PATH = '/home/giteeFile'
+SOURTH_PATH = 'E:/giteeFile'
+
 
 class PrSca(object):
 
@@ -125,7 +126,8 @@ class PrSca(object):
             return scaResult
 
         except Exception as e:
-            print("Error on %s: %s" % (command, e.strerror))
+            logger = logging.getLogger(__name__)      
+            logger.exception("Error on %s: %s" % (command, e.strerror))
 
 
     @catch_error   
@@ -258,14 +260,15 @@ class PrSca(object):
         specLicenseList = []
         pathList = []
 
-        haveLicense = "FALSE"    
-        isCopyright = "FALSE"
-        approved = 'YES'
-        specLicense = 'YES'
+        haveLicense = False    
+        isCopyright = False
+        approved = True
+        specLicense = True
         noticeLicense = '缺少项目级License声明文件'
         noticeScope = ''
         noticeSpec = '无spec文件'
         noticeCopyright = '缺少项目级Copyright声明文件'
+        speLicDetial = {}
 
         jsonData = json.loads(scaJson)
         itemPath = jsonpath.jsonpath(jsonData, '$.files[*].path')
@@ -275,7 +278,6 @@ class PrSca(object):
         #获取所有数据
         # dbObject = RepoDb()
         licenseCheck = LicenseCheck()
-        licenseCheck.load_config()
     
         for i,var in enumerate(licenseList):
 
@@ -283,8 +285,8 @@ class PrSca(object):
 
             #判断是否含有notice文件
             if checkNotice(path) and len(copyrightList[i]) > 0 :
-                if isCopyright == 'FALSE':
-                    isCopyright = "YES"
+                if isCopyright is False:
+                    isCopyright = True
                     noticeCopyright = ""
 
                 noticeCopyright = noticeCopyright + "("+path + "), "
@@ -294,17 +296,11 @@ class PrSca(object):
                 fileUrl = self._anlyzeSrc_ +"/"+ itemPath[i]
                 spec = Spec.from_file(fileUrl)
                 if spec.license is not None:
-                    licenses = licenseCheck.split_license(spec.license)
-                    licenses = licenseCheck.translate_license(licenses)
+                    licenses = infixToPostfix(spec.license)
                     isSpecLicense = licenseCheck.check_license_safe(licenses)
-                    if isSpecLicense == 'TRUE':
-                        noticeSpec = 'spec_license: '+ spec.license
-                    elif isSpecLicense == 'FALSE':
-                        specLicense = 'FALSE'
-                        noticeSpec = 'spec_license: '+ spec.license + ' 声明不规范或非认可License'
-                    else:
-                        specLicense = 'FALSE'
-                        noticeSpec = 'spec_license: '+ spec.license + ' 需要Review'
+                    specLicense = isSpecLicense.get('result')
+                    noticeSpec = isSpecLicense.get('notice')
+                    speLicDetial = isSpecLicense.get('detail')
 
                     specLicenseList.append(spec.license)
 
@@ -316,8 +312,8 @@ class PrSca(object):
                 isLicenseText = pathLicense['matched_rule']['is_license_text']
                 #判断是否有项目license
                 if checkRepoLicense(path) and isLicenseText is True and path not in pathList:
-                    if haveLicense == "FALSE":
-                        haveLicense = "YES"
+                    if haveLicense is False:
+                        haveLicense = True
                         noticeLicense = ""
                         
                     noticeLicense = noticeLicense + "("+path+"), "
@@ -329,14 +325,12 @@ class PrSca(object):
                 reLicense = self._dbObject_.Check_license(spdx_name)
 
                 if len(reLicense) == 0 and pathLicense['start_line'] != pathLicense['end_line'] and 'LicenseRef-scancode-' not in spdx_name:
-                    approved = "FALSE"
+                    approved = False
                     noticeScope = noticeScope + spdx_name + "("+path + ", start_line: "+str(pathLicense['start_line'])+", end_line: "+str(pathLicense['end_line'])+"), "
 
         noticeLicense = noticeLicense.strip(', ')
-        isCopyright = isCopyright.strip( ', ' )
-        approved = approved.strip(', ')
-        noticeSpec = noticeSpec.strip(', ')
         noticeCopyright = noticeCopyright.strip(', ')
+        noticeScope = noticeScope.strip(', ')
         if noticeScope == '':
             noticeScope = 'OSI/FSF认证License'
         else:
@@ -345,30 +339,29 @@ class PrSca(object):
         sca_result = {
             "repo_license_legal": {
                 "pass": haveLicense,
-                "result_type" : "string",
+                "result_code" : "",
                 "notice" : noticeLicense
             },
             "spec_license_legal": {
                 "pass": specLicense,
-                "result_type" : "string",
-                "notice" : noticeSpec
+                "result_code" : "",
+                "notice" : noticeSpec,
+                "detail" : speLicDetial
             },
             "license_in_scope": {
                 "pass": approved,
-                "result_type" : "string",
+                "result_code" : "",
                 "notice" : noticeScope        
             },
             "repo_copyright_legal": {
                 "pass": isCopyright,
-                "result_type" : "string",
+                "result_code" : "",
                 "notice" : noticeCopyright
             }
         }
 
         return sca_result
-
-
-
+        
 
     @catch_error
     def formateUrl(self, urlData):

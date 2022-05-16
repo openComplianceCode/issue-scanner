@@ -10,9 +10,12 @@ import tornado.httpserver
 import tornado.options
 from tornado.concurrent import run_on_executor
 import config
+from reposca.licenseCheck import LicenseCheck
 from reposca.prSca import PrSca
 
 from tornado import gen
+
+from util.postOrdered import infixToPostfix
 
 class Main(tornado.web.RequestHandler):
     executor = ThreadPoolExecutor(1000)
@@ -20,7 +23,7 @@ class Main(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
-        prUrl = self.get_argument('prUrl')
+        prUrl = self.get_argument('prUrl')    
         result = yield self.block(prUrl)
         self.finish(str(result))
 
@@ -44,6 +47,7 @@ class Main(tornado.web.RequestHandler):
 application = tornado.web.Application([(r"/sca", Main), ])
 
 if __name__ == '__main__':
+
     sys.path.append(os.path.dirname(sys.path[0]))
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   

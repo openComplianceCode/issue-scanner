@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
+from email import message
 import logging
 import os
 import re
 
 import yaml
+
+from util.stack import Stack
 
 logger = logging.getLogger("reposca")
 
@@ -30,6 +33,7 @@ class LicenseCheck(object):
         self._white_black_list = {}
         self._license_translation = {}
         self._later_support_license = {}
+        self.load_config()
     
 
     @catch_error
@@ -62,6 +66,7 @@ class LicenseCheck(object):
                 return
         soft_license = data.get("Software Licenses", {})
         if soft_license:
+            self._parse_tag_license(soft_license.get("Nonstandard Licenses"), "nonstandard")
             self._parse_tag_license(soft_license.get("Not Free Licenses"), "black")
             self._parse_tag_license(soft_license.get("Free Licenses"), "white")
             self._parse_tag_license(soft_license.get("Need Review Licenses"), "need review")
@@ -86,44 +91,148 @@ class LicenseCheck(object):
             if lic["identifier"] not in self._white_black_list:
                 self._white_black_list[lic["identifier"]] = tag
             for oname in lic["alias"]:
-                if oname not in self._license_translation:
-                    self._license_translation[oname] = lic["identifier"]
+                if oname not in self._white_black_list:
+                    self._white_black_list[oname] = tag
 
     @catch_error
     def check_license_safe(self, licenses):
         """
         Check if the license is in the blacklist
         """
-        result = 'TRUE'
+        result = {}
+        result_stack = Stack()
         for lic in licenses:
-            res = self._white_black_list.get(lic, "unknow")
-            if res == "white":
-                logger.info("This license: %s is free", lic)
-            elif res == "black":
-                logger.error("This license: %s is not free", lic)
-                result = 'FALSE'
-            else: 
-                logger.warning("This license: %s need to be review", lic)
-                result = 'REVIEW'
+            if lic in ['and', 'or', 'with']:
+                licBack = result_stack.pop()
+                licHead = result_stack.pop()
+                if isinstance(licHead, dict):
+                    reHead = licHead
+                else:
+                    reHead = self.check_license(licHead)
+                if isinstance(licBack, dict):
+                    reBack = licBack
+                else:
+                    reBack = self.check_license(licBack)
+                res = self.analyze_detial(reHead, reBack, lic)
+                result_stack.push(res)
+            else:
+                reLic = self.check_license(lic)
+                result_stack.push(reLic)
+
+        while not result_stack.is_empty():
+            result = result_stack.pop()
+
+        result = self.analyze_result(result)
+        
         return result
+
 
     @catch_error
-    def translate_license(self, licenses):
-        """
-        Convert license to uniform format
-        """
-        result = set()
-        for lic in licenses:
-            real_license = self._license_translation.get(lic, lic)
-            result.add(real_license)
-        return result
+    def analyze_result(self, result):
+        resImp = result.get('is_white')
+        resNstd = result.get('is_standard')
+        resReivew = result.get('is_review')
 
-    @staticmethod
-    def split_license(licenses):
-        """
-        分割spec license字段的license 按() and -or- or / 进行全字匹配进行分割
-        """
-        license_set = re.split(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?or-?\s+|\s+/\s+', licenses)
-        for index in range(len(license_set)):  # 去除字符串首尾空格
-            license_set[index] = license_set[index].strip()
-        return set(filter(None, license_set))  # 去除list中空字符串
+        notice = ''
+        res = resImp.get('pass') & resNstd.get('pass') & resReivew.get('pass')
+    
+        impRisks = '、'.join(resImp.get('risks'))
+        nstdRisks = '、'.join(resNstd.get('risks'))
+        revRisks = '、'.join(resReivew.get('risks'))
+
+        if impRisks != '':
+            notice += impRisks + " 不可引入, "
+        if nstdRisks != '':
+            notice += nstdRisks + " 声明不规范, "
+        if revRisks != '':
+            notice += revRisks + " 需要Review, "
+
+        notice = notice.strip(", ")
+        finalResult = {
+            'result': res,
+            'notice': notice,
+            'detail': result
+        }
+
+        return finalResult
+
+    @catch_error
+    def check_license(self, license):
+        impResult = True
+        impLic = []
+        nstdResult = True
+        nstdLic = []
+        reviewResult = True
+        reviewLic = []
+        res = self._white_black_list.get(license, "unknow")
+        if res == "white":
+            impResult = True
+        elif res == "black":
+            impResult = False
+            impLic.append(license)          
+        elif res == "nonstandard":
+            nstdResult = False    
+            nstdLic.append(license)      
+        else: 
+            reviewResult = False
+            reviewLic.append(license)            
+
+        detail = {
+            'is_standard' : {
+                'pass': nstdResult,
+                'risks' : nstdLic,
+            },
+            'is_white' : {
+                'pass': impResult,
+                'risks' : impLic,
+            },
+            'is_review' : {
+                'pass': reviewResult,
+                'risks' : reviewLic,
+            }
+        }
+
+        return detail
+    
+    @catch_error
+    def analyze_detial(self, reHead, reBack, connector):
+        res = {}
+        impResult = True
+        impLic = []
+        nstdResult = True
+        nstdLic = []
+        reviewResult = True
+        reviewLic = []
+        if reHead.get('is_standard').get('pass') is False or reBack.get('is_standard').get('pass') is False:
+            nstdResult = False
+            nstdLic = reHead.get('is_standard').get('risks') + reBack.get('is_standard').get('risks')
+
+        if connector == 'and' and (reHead.get('is_white').get('pass') is False or reBack.get('is_white').get('pass') is False):
+            impResult = False
+        elif connector == 'or' and (reHead.get('is_white').get('pass') is False and reBack.get('is_white').get('pass') is False):
+            impResult = False
+        elif connector == 'with' and reHead.get('is_white').get('pass') is False:
+            impResult = False
+        impLic = reHead.get('is_white').get('risks') + reBack.get('is_white').get('risks')
+                
+        if reHead.get('is_review').get('pass') is False or reBack.get('is_review').get('pass') is False:
+            reviewResult = False
+            reviewLic = reHead.get('is_review').get('risks') + reBack.get('is_review').get('risks')
+
+        res = {
+            'is_standard' : {
+                'pass': nstdResult,
+                'risks' : nstdLic,
+            },
+            'is_white' : {
+                'pass': impResult,
+                'risks' : impLic,
+            },
+            'is_review' : {
+                'pass': reviewResult,
+                'risks' : reviewLic,
+            }
+        }
+
+        return res
+

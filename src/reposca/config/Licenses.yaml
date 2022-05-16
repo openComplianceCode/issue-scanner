@@ -1,4 +1,130 @@
 Software Licenses:
+  #声明不规范
+  Nonstandard Licenses:
+  - alias:
+    - BSD
+    identifier: BSD
+  - alias:
+    - '%{all_license}'
+    identifier: '%{all_license}' 
+  - alias:
+    - '%{ffmpeg_license}'
+    identifier: '%{ffmpeg_license}' 
+  - alias:
+    - Apache
+    identifier: Apache
+  - alias:
+    - Apache Software License
+    identifier: Apache Software License  
+  - alias:
+    - Arphic
+    identifier: Arphic 
+  - alias:
+    - Artistic
+    identifier: Artistic
+  - alias:
+    - BSD License
+    identifier: BSD License
+  - alias:
+    - BSD like
+    - BSD-like
+    identifier: BSD like
+  - alias:
+    - BSD-2
+    identifier: BSD-2
+  - alias:
+    - BSD3
+    identifier: BSD3
+  - alias:
+    - BSD-3
+    identifier: BSD-3
+  - alias:
+    - CC-BY
+    identifier: CC-BY
+  - alias:
+    - CC-BY-SA
+    identifier: CC-BY-SA
+  - alias:
+    - CDDL
+    identifier: CDDL
+  - alias:
+    - EPL
+    identifier: EPL
+  - alias:
+    - GFDL
+    identifier: GFDL
+  - alias:
+    - GNU GPL
+    identifier: GNU GPL
+  - alias:
+    - GNU LGPL
+    identifier: GNU LGPL
+  - alias:
+    - GNU3
+    identifier: GNU3
+  - alias:
+    - GPL
+    identifier: GPL
+  - alias:
+    - Lab Software License
+    identifier: Lab Software License
+  - alias:
+    - LGPL
+    identifier: LGPL
+  - alias:
+    - Liberation
+    identifier: Liberation
+  - alias:
+    - LPPL
+    identifier: LPPL
+  - alias:
+    - Multiple
+    identifier: Multiple
+  - alias:
+    - NA
+    identifier: NA
+  - alias:
+    - Nmap
+    identifier: Nmap
+  - alias:
+    - OFL
+    identifier: OFL
+  - alias:
+    - OpenLDAP
+    identifier: OpenLDAP
+  - alias:
+    - OSI-Approved
+    identifier: OSI-Approved
+  - alias:
+    - PHP
+    identifier: PHP
+  - alias:
+    - Python 2.1.1
+    identifier: Python 2.1.1
+  - alias:
+    - Sequence
+    identifier: Sequence
+  - alias:
+    - SIL OFL 1.1
+    identifier: SIL OFL 1.1
+  - alias:
+    - SSPL
+    identifier: SSPL
+  - alias:
+    - TTWL
+    identifier: TTWL
+  - alias:
+    - Unicode
+    identifier: Unicode
+  - alias:
+    - UNKNOWN
+    identifier: UNKNOWN
+  - alias:
+    - wxWidgets
+    identifier: wxWidgets
+
+
+  #Not Free
   Not Free Licenses:
   - alias:
     - Abstyles License
@@ -773,132 +899,10 @@ Software Licenses:
     - Academic Free License version 2.1
     - AFLv2.1
     identifier: AFL-2.1
-  #声明不规范
-  - alias:
-    - BSD
-    identifier: BSD
-  - alias:
-    - '%{all_license}'
-    identifier: '%{all_license}' 
-  - alias:
-    - '%{ffmpeg_license}'
-    identifier: '%{ffmpeg_license}' 
-  - alias:
-    - Apache
-    identifier: Apache
-  - alias:
-    - Apache
-    identifier: Apache
-  - alias:
-    - Apache Software License
-    identifier: Apache Software License  
-  - alias:
-    - Arphic
-    identifier: Arphic 
-  - alias:
-    - Artistic
-    identifier: Artistic
-  - alias:
-    - BSD License
-    identifier: BSD License
-  - alias:
-    - BSD like
-    - BSD-like
-    identifier: BSD like
-  - alias:
-    - BSD-2
-    identifier: BSD-2
-  - alias:
-    - BSD3
-    identifier: BSD3
-  - alias:
-    - BSD-3
-    identifier: BSD-3
-  - alias:
-    - CC-BY
-    identifier: CC-BY
-  - alias:
-    - CC-BY-SA
-    identifier: CC-BY-SA
-  - alias:
-    - CDDL
-    identifier: CDDL
-  - alias:
-    - EPL
-    identifier: EPL
-  - alias:
-    - GFDL
-    identifier: GFDL
-  - alias:
-    - GNU GPL
-    identifier: GNU GPL
-  - alias:
-    - GNU LGPL
-    identifier: GNU LGPL
-  - alias:
-    - GNU3
-    identifier: GNU3
-  - alias:
-    - GPL
-    identifier: GPL
-  - alias:
-    - Lab Software License
-    identifier: Lab Software License
-  - alias:
-    - LGPL
-    identifier: LGPL
-  - alias:
-    - Liberation
-    identifier: Liberation
-  - alias:
-    - LPPL
-    identifier: LPPL
-  - alias:
-    - Multiple
-    identifier: Multiple
-  - alias:
-    - NA
-    identifier: NA
-  - alias:
-    - Nmap
-    identifier: Nmap
-  - alias:
-    - OFL
-    identifier: OFL
-  - alias:
-    - OpenLDAP
-    identifier: OpenLDAP
-  - alias:
-    - OSI-Approved
-    identifier: OSI-Approved
-  - alias:
-    - PHP
-    identifier: PHP
-  - alias:
-    - Python 2.1.1
-    identifier: Python 2.1.1
-  - alias:
-    - Sequence
-    identifier: Sequence
-  - alias:
-    - SIL OFL 1.1
-    identifier: SIL OFL 1.1
-  - alias:
-    - SSPL
-    identifier: SSPL
-  - alias:
-    - TTWL
-    identifier: TTWL
-  - alias:
-    - Unicode
-    identifier: Unicode
-  - alias:
-    - UNKNOWN
-    identifier: UNKNOWN
-  - alias:
-    - wxWidgets
-    identifier: wxWidgets
-  #Free
+  
+
+
+  ## Free
   Free Licenses:
   - alias:
     - (perl)
