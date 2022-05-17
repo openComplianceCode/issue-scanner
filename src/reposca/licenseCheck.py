@@ -140,14 +140,17 @@ class LicenseCheck(object):
         nstdRisks = '、'.join(resNstd.get('risks'))
         revRisks = '、'.join(resReivew.get('risks'))
 
-        if impRisks != '':
-            notice += impRisks + " 不可引入, "
-        if nstdRisks != '':
-            notice += nstdRisks + " 声明不规范, "
-        if revRisks != '':
-            notice += revRisks + " 需要Review, "
+        if res is False:
+            if impRisks != '':
+                notice += impRisks + " 不可引入, "
+            if nstdRisks != '':
+                notice += nstdRisks + " 声明不规范, "
+            if revRisks != '':
+                notice += revRisks + " 需要Review, "
+            notice = notice.strip(", ")
+        else:
+            notice = '通过'
 
-        notice = notice.strip(", ")
         finalResult = {
             'result': res,
             'notice': notice,

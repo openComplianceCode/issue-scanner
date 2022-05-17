@@ -54,6 +54,7 @@ class PrSca(object):
             self._repo_ = urlList[4]
             self._num_ = urlList[6]
             gitUrl = GIT_URL + '/' + self._owner_ + '/' + self._repo_ + '.git'
+            timestamp = int(time.time())
         
             #获取pr分支
             head, base = self.getPrBranch()
@@ -82,9 +83,9 @@ class PrSca(object):
             self._anlyzeSrc_ = SOURTH_PATH +'/'+self._owner_
             delSrc = ''
             if os.path.exists(self._repoSrc_) is False:
-                self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + self._repo_
-                self._anlyzeSrc_ = temFileSrc + '/'+self._owner_
-                delSrc = self._repoSrc_
+                self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(timestamp) + '/' + self._repo_
+                self._anlyzeSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(timestamp)
+                delSrc = temFileSrc + '/'+self._owner_ + '/' + str(timestamp)
                 #拉取项目
                 command = shlex.split('git clone --branch=%s %s %s' % (base[0], gitUrl, self._repoSrc_))           
                 resultCode = subprocess.Popen(command)
@@ -116,17 +117,17 @@ class PrSca(object):
             scaJson = self.getPrSca()
             scaResult = self.getScaAnalyze(scaJson)
 
+        except Exception as e:
+            logger = logging.getLogger(__name__)      
+            logger.exception("Error on %s: %s" % (command, e.strerror))
+        finally:
             #清理临时文件
             if delSrc != '':
                 cleanTemp(delSrc)
                 os.chmod(delSrc, stat.S_IWUSR) 
                 os.rmdir(delSrc)
-
+            
             return scaResult
-
-        except Exception as e:
-            logger = logging.getLogger(__name__)      
-            logger.exception("Error on %s: %s" % (command, e.strerror))
 
 
     @catch_error   
@@ -192,60 +193,65 @@ class PrSca(object):
         :param pathList: 扫描文件路径List
         :return:扫描结果json
         '''
-        
-        temJsonSrc = self._current_dir_+'/tempJson'
-        temJsonSrc = self.formateUrl(temJsonSrc)
-        if os.path.exists(temJsonSrc) is False:
-            os.makedirs(temJsonSrc) 
-
-        tempJson = temJsonSrc + '/'+self._repo_+'.txt'
-        tempJson = self.formateUrl(tempJson)
-        if os.path.exists(tempJson) is False:
-            open(tempJson,'w')
-
-        #调用先解压文件里得压缩文件
-        command = shlex.split('extractcode %s' % (self._repoSrc_))
-        resultCode = subprocess.Popen(command)
-        while subprocess.Popen.poll(resultCode) == None:
-            time.sleep(1)
-        #调用scancode
-        command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 5 --timeout 3' % (self._repoSrc_, tempJson))
-        resultCode = subprocess.Popen(command)
-        while subprocess.Popen.poll(resultCode) == None:
-            time.sleep(1)
-        #切回master
-        command = shlex.split('git checkout master')          
-        resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
-        while subprocess.Popen.poll(resultCode) == None:
-            time.sleep(0.5)
-        #删除临时分支
-        command = shlex.split('git branch -D pr_%s' % (self._num_))          
-        resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
-        while subprocess.Popen.poll(resultCode) == None:
-            time.sleep(0.5)
-                
-        if resultCode.stdin:
-            resultCode.stdin.close()
-        if resultCode.stdout:
-            resultCode.stdout.close()
-        if resultCode.stderr:
-            resultCode.stderr.close()
         try:
-            resultCode.kill()
-        except OSError:
-            pass
+            temJsonSrc = self._current_dir_+'/tempJson'
+            temJsonSrc = self.formateUrl(temJsonSrc)
+            if os.path.exists(temJsonSrc) is False:
+                os.makedirs(temJsonSrc) 
 
-        scaJson = ''
-        #获取json
-        with open(tempJson, 'r+') as f:
-            list = f.readlines()
-            scaJson = "".join(list)
+            timestamp = int(time.time())
+            tempJson = temJsonSrc + '/' +self._repo_+str(timestamp)+'.txt'
+            tempJson = self.formateUrl(tempJson)
+            if os.path.exists(tempJson) is False:
+                open(tempJson,'w')
 
-        #清空文件
-        os.chmod(tempJson, stat.S_IWUSR) 
-        os.remove(tempJson)
+            #调用先解压文件里得压缩文件
+            command = shlex.split('extractcode %s' % (self._repoSrc_))
+            resultCode = subprocess.Popen(command)
+            while subprocess.Popen.poll(resultCode) == None:
+                time.sleep(1)
+            #调用scancode
+            command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 5 --timeout 3' % (self._repoSrc_, tempJson))
+            resultCode = subprocess.Popen(command)
+            while subprocess.Popen.poll(resultCode) == None:
+                time.sleep(1)
+            #切回master
+            command = shlex.split('git checkout master')          
+            resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
+            while subprocess.Popen.poll(resultCode) == None:
+                time.sleep(0.5)
+            #删除临时分支
+            command = shlex.split('git branch -D pr_%s' % (self._num_))          
+            resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
+            while subprocess.Popen.poll(resultCode) == None:
+                time.sleep(0.5)
+                    
+            if resultCode.stdin:
+                resultCode.stdin.close()
+            if resultCode.stdout:
+                resultCode.stdout.close()
+            if resultCode.stderr:
+                resultCode.stderr.close()
+            try:
+                resultCode.kill()
+            except OSError:
+                pass
+
+            scaJson = ''
+            #获取json
+            with open(tempJson, 'r+') as f:
+                list = f.readlines()
+                scaJson = "".join(list)
+
+        except Exception as e:
+            logger = logging.getLogger(__name__)      
+            logger.exception("Error on %s: %s" % (command, e.strerror))
+        finally:    
+            #清空文件
+            os.chmod(tempJson, stat.S_IWUSR) 
+            os.remove(tempJson)
         
-        return scaJson
+            return scaJson
 
     @catch_error
     def getScaAnalyze(self, scaJson):

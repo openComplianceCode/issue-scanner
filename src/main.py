@@ -3,6 +3,7 @@ from concurrent.futures import ThreadPoolExecutor
 import json
 import os
 import sys
+import time
 
 import tornado.web
 import tornado.ioloop
@@ -47,7 +48,6 @@ class Main(tornado.web.RequestHandler):
 application = tornado.web.Application([(r"/sca", Main), ])
 
 if __name__ == '__main__':
-
     sys.path.append(os.path.dirname(sys.path[0]))
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
