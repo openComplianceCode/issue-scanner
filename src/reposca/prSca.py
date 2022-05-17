@@ -21,8 +21,7 @@ from util.postOrdered import infixToPostfix
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-# SOURTH_PATH = '/home/giteeFile'
-SOURTH_PATH = 'E:/giteeFile'
+SOURTH_PATH = '/home/giteeFile'
 
 
 class PrSca(object):
@@ -361,7 +360,7 @@ class PrSca(object):
         }
 
         return sca_result
-        
+
 
     @catch_error
     def formateUrl(self, urlData):
