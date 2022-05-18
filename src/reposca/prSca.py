@@ -38,11 +38,11 @@ class PrSca(object):
     def __init__(self):
         #连接数据库
         self._dbObject_ = RepoDb(
-            os.environ.get("MYSQL_HOST"), 
-            os.environ.get("MYSQL_USER"), 
-            os.environ.get("MYSQL_PASSWORD"), 
-            os.environ.get("MYSQL_DB_NAME"), 
-            int(os.environ.get("MYSQL_PORT")))
+            host_db = os.environ.get("MYSQL_HOST"), 
+            user_db = os.environ.get("MYSQL_USER"), 
+            password_db = os.environ.get("MYSQL_PASSWORD"), 
+            name_db = os.environ.get("MYSQL_DB_NAME"), 
+            port_db = int(os.environ.get("MYSQL_PORT")))
         
         self._current_dir_ = os.path.dirname(os.path.abspath(__file__))
 
@@ -62,13 +62,6 @@ class PrSca(object):
                 return "ACCESS_TOKEN 无效、过期或已被撤销"
             elif head == 502:
                 return "GITEE 服务器维护中"
-
-            #获取pr文件path
-            # pathList = getPrPath(owner, repo, num)
-            # if pathList == 403:
-            #     return "ACCESS_TOKEN 无效、过期或已被撤销"
-            # elif head == 502:
-            #     return "GITEE 服务器维护中"
             
             fetchUrl = 'pull/' + self._num_ + '/head:pr_' + self._num_ 
             
@@ -87,7 +80,7 @@ class PrSca(object):
                 self._anlyzeSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(timestamp)
                 delSrc = temFileSrc + '/'+self._owner_ + '/' + str(timestamp)
                 #拉取项目
-                command = shlex.split('git clone --branch=%s %s %s' % (base[0], gitUrl, self._repoSrc_))           
+                command = shlex.split('git clone --depth=1 --branch=%s %s %s' % (base[0], gitUrl, self._repoSrc_))           
                 resultCode = subprocess.Popen(command)
                 while subprocess.Popen.poll(resultCode) == None:
                     time.sleep(1)
@@ -144,7 +137,7 @@ class PrSca(object):
         url = 'https://gitee.com/api/v5/repos/' +self._owner_+ '/' +self._repo_+ '/pulls/' +self._num_+ '?access_token='+ACCESS_TOKEN
         response = http.request('GET',url)
         resStatus = response.status
-
+ 
         while resStatus == '403':
             return 403, 403
         
@@ -158,33 +151,6 @@ class PrSca(object):
         base =jsonpath.jsonpath(apiJson, '$.base.ref')
 
         return head, base
-
-    # @catch_error
-    # def getPrPath(owner, repo, number):
-    #     '''
-    #     :param owner: 仓库所属空间地址(企业、组织或个人的地址path)
-    #     :param repo: 仓库路径(path)
-    #     :param number: 	第几个PR，即本仓库PR的序数
-    #     :return:文件路径List
-    #     '''
-    #     repoStr = "Flag"
-    #     apiJson = ''
-    #     http = urllib3.PoolManager()           
-    #     url = 'https://gitee.com/api/v5/repos/' +owner+ '/' +repo+ '/pulls/' +number+ '/files?access_token='+ACCESS_TOKEN
-    #     response = http.request('GET',url)
-    #     resStatus = response.status
-
-    #     while resStatus == '403':
-    #         return 403, 403
-        
-    #     while resStatus == '502':
-    #         return 502, 502
-
-    #     repoStr = response.data.decode('utf-8')
-    #     apiJson = json.loads(repoStr)  
-    #     pathList = jsonpath.jsonpath(apiJson, '$[*].filename')
-
-    #     return pathList
 
     @catch_error
     def getPrSca(self):
