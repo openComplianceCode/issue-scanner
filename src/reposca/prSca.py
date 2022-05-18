@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import configparser
 import logging
 import os
 from pickle import FALSE, TRUE
@@ -17,6 +16,7 @@ from reposca.makeRepoCsv import checkNotice, checkRepoLicense
 from reposca.repoDb import RepoDb
 from reposca.takeRepoSca import cleanTemp
 from reposca.licenseCheck import LicenseCheck
+from util.catchUtil import catch_error
 from util.postOrdered import infixToPostfix
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
@@ -25,15 +25,6 @@ SOURTH_PATH = '/home/giteeFile'
 
 
 class PrSca(object):
-
-    def catch_error(func):
-        def wrapper(*args, **kw):
-            try:
-                return func(*args, **kw)
-            except Exception as e:
-                logging.exception(e)
-
-        return wrapper
         
     def __init__(self):
         #连接数据库
@@ -75,13 +66,19 @@ class PrSca(object):
             self._repoSrc_ = SOURTH_PATH +'/'+self._owner_ + '/' + self._repo_
             self._anlyzeSrc_ = SOURTH_PATH +'/'+self._owner_
             delSrc = ''
+            self._file_ = 'sourth'
             if os.path.exists(self._repoSrc_) is False:
+                self._file_ = 'temp'
                 self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(timestamp) + '/' + self._repo_
                 self._anlyzeSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(timestamp)
                 delSrc = temFileSrc + '/'+self._owner_ + '/' + str(timestamp)
+                if os.path.exists(self._repoSrc_) is False:
+                    os.makedirs(self._repoSrc_)
                 #拉取项目
-                command = shlex.split('git clone --depth=1 --branch=%s %s %s' % (base[0], gitUrl, self._repoSrc_))           
-                resultCode = subprocess.Popen(command)
+                # command = shlex.split('git clone --depth=1 --branch=%s %s %s' % (base[0], gitUrl, self._repoSrc_))           
+                # resultCode = subprocess.Popen(command)
+                command = shlex.split('git init')           
+                resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
                 while subprocess.Popen.poll(resultCode) == None:
                     time.sleep(1)
             #拉取pr
@@ -172,25 +169,28 @@ class PrSca(object):
                 open(tempJson,'w')
 
             #调用先解压文件里得压缩文件
-            command = shlex.split('extractcode %s' % (self._repoSrc_))
+            command = shlex.split('extractcode --shallow %s' % (self._repoSrc_))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
+            
             #调用scancode
             command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 5 --timeout 3' % (self._repoSrc_, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
-            #切回master
-            command = shlex.split('git checkout master')          
-            resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
-            while subprocess.Popen.poll(resultCode) == None:
-                time.sleep(0.5)
-            #删除临时分支
-            command = shlex.split('git branch -D pr_%s' % (self._num_))          
-            resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
-            while subprocess.Popen.poll(resultCode) == None:
-                time.sleep(0.5)
+
+            if self._file_ == 'sourth':
+                #切回master
+                command = shlex.split('git checkout master')          
+                resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
+                while subprocess.Popen.poll(resultCode) == None:
+                    time.sleep(0.5)
+                #删除临时分支
+                command = shlex.split('git branch -D pr_%s' % (self._num_))          
+                resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
+                while subprocess.Popen.poll(resultCode) == None:
+                    time.sleep(0.5)
                     
             if resultCode.stdin:
                 resultCode.stdin.close()
@@ -349,4 +349,3 @@ class PrSca(object):
             return False
         
         return True
-
