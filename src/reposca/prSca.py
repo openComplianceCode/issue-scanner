@@ -16,6 +16,7 @@ from reposca.makeRepoCsv import checkNotice, checkRepoLicense
 from reposca.repoDb import RepoDb
 from reposca.takeRepoSca import cleanTemp
 from reposca.licenseCheck import LicenseCheck
+from util.formateUtil import formateUrl
 from util.catchUtil import catch_error
 from util.postOrdered import infixToPostfix
 
@@ -58,7 +59,7 @@ class PrSca(object):
             
             # 创建临时文件
             temFileSrc = self._current_dir_+'/temSrc'
-            temFileSrc = self.formateUrl(temFileSrc)
+            temFileSrc = formateUrl(temFileSrc)
             
             if os.path.exists(temFileSrc) is False:
                 os.makedirs(temFileSrc) 
@@ -158,13 +159,13 @@ class PrSca(object):
         '''
         try:
             temJsonSrc = self._current_dir_+'/tempJson'
-            temJsonSrc = self.formateUrl(temJsonSrc)
+            temJsonSrc = formateUrl(temJsonSrc)
             if os.path.exists(temJsonSrc) is False:
                 os.makedirs(temJsonSrc) 
 
             timestamp = int(time.time())
             tempJson = temJsonSrc + '/' +self._repo_+str(timestamp)+'.txt'
-            tempJson = self.formateUrl(tempJson)
+            tempJson = formateUrl(tempJson)
             if os.path.exists(tempJson) is False:
                 open(tempJson,'w')
 
@@ -253,6 +254,8 @@ class PrSca(object):
         for i,var in enumerate(licenseList):
 
             path = itemPath[i]
+            #移除目录中'-extract'
+            path = self.rmExtract(path)
 
             #判断是否含有notice文件
             if checkNotice(path) and len(copyrightList[i]) > 0 :
@@ -333,12 +336,6 @@ class PrSca(object):
 
         return sca_result
 
-
-    @catch_error
-    def formateUrl(self, urlData):
-        return urlData.replace("\\", "/")
-
-
     @catch_error
     def checkPath(self, path):
         # 检查是notice文件
@@ -349,3 +346,14 @@ class PrSca(object):
             return False
         
         return True
+
+    @catch_error
+    def rmExtract(self, path):
+        pathList = path.split("/")
+
+        for item in pathList:
+            if '-extract' in item:
+                pathList.remove(item)
+                break
+        
+        return "/".join(pathList)
