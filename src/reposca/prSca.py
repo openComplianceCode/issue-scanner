@@ -85,7 +85,7 @@ class PrSca(object):
                 while subprocess.Popen.poll(resultCode) == None:
                     time.sleep(1)
             #拉取pr
-            command = shlex.split('git fetch %s %s' % (gitUrl, fetchUrl))           
+            command = shlex.split('git fetch --depth=1 %s %s' % (gitUrl, fetchUrl))           
             resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
