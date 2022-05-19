@@ -50,6 +50,7 @@ requirements = [
   'tqdm==4.62.3',
   'urllib3==1.25.8'
   'python-rpm-spec==0.11'
+  'rarfile==4.0'
 ]
 
 
