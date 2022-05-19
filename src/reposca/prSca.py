@@ -58,7 +58,7 @@ class PrSca(object):
             fetchUrl = 'pull/' + self._num_ + '/head:pr_' + self._num_ 
             
             # 创建临时文件
-            temFileSrc = self._current_dir_+'/temSrc'
+            temFileSrc = self._current_dir_+'/tempSrc'
             temFileSrc = formateUrl(temFileSrc)
             
             if os.path.exists(temFileSrc) is False:
@@ -258,7 +258,7 @@ class PrSca(object):
 
             path = itemPath[i]
             #移除目录中'-extract'
-            path = self.rmExtract(path)
+            # path = self.rmExtract(path)
 
             #判断是否含有notice文件
             if checkNotice(path) and len(copyrightList[i]) > 0 :

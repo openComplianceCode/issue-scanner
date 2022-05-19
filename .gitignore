@@ -3,8 +3,8 @@
 /target/
 .vscode/*
 test/
-src/tempJson/
-src/tempSrc/
+src/reposca/tempJson/
+src/reposca/tempSrc/
 */__pycache__/
 *.csv
 src/repoSig.py
