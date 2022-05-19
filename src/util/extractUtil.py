@@ -27,6 +27,7 @@ def extractCode(filePath):
                         un_rar(dePath, filePath)
                 else:
                     continue
+            break
     except Exception as e:
         result = False
         traceback.print_exc()

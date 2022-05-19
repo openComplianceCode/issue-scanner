@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
 import os
-from pickle import FALSE, TRUE
 import shlex
 import stat
 import subprocess
@@ -16,6 +15,7 @@ from reposca.makeRepoCsv import checkNotice, checkRepoLicense
 from reposca.repoDb import RepoDb
 from reposca.takeRepoSca import cleanTemp
 from reposca.licenseCheck import LicenseCheck
+from util.extractUtil import extractCode
 from util.formateUtil import formateUrl
 from util.catchUtil import catch_error
 from util.postOrdered import infixToPostfix
@@ -170,10 +170,13 @@ class PrSca(object):
                 open(tempJson,'w')
 
             #调用先解压文件里得压缩文件
-            command = shlex.split('extractcode --shallow %s' % (self._repoSrc_))
-            resultCode = subprocess.Popen(command)
-            while subprocess.Popen.poll(resultCode) == None:
-                time.sleep(1)
+            # command = shlex.split('extractcode --shallow %s' % (self._repoSrc_))
+            # resultCode = subprocess.Popen(command)
+            # while subprocess.Popen.poll(resultCode) == None:
+            #     time.sleep(1)
+            reExt = extractCode(self._repoSrc_)
+            if reExt is False:
+                logging.error("file extracCode error")
             
             #调用scancode
             command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 5 --timeout 3' % (self._repoSrc_, tempJson))
