@@ -88,11 +88,13 @@ class LicenseCheck(object):
         }
         """
         for lic in licenses:
-            if lic["identifier"] not in self._white_black_list:
-                self._white_black_list[lic["identifier"]] = tag
+            identi = lic["identifier"].lower()
+            if identi not in self._white_black_list:
+                self._white_black_list[identi] = tag
             for oname in lic["alias"]:
-                if oname not in self._white_black_list:
-                    self._white_black_list[oname] = tag
+                loOname = oname.lower()
+                if loOname not in self._white_black_list:
+                    self._white_black_list[loOname] = tag
 
     @catch_error
     def check_license_safe(self, licenses):
@@ -167,7 +169,8 @@ class LicenseCheck(object):
         nstdLic = []
         reviewResult = True
         reviewLic = []
-        res = self._white_black_list.get(license, "unknow")
+        lowLic = license.lower()
+        res = self._white_black_list.get(lowLic, "unknow")
         if res == "white":
             impResult = True
         elif res == "black":

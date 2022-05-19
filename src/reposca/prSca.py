@@ -78,31 +78,27 @@ class PrSca(object):
                 #拉取项目
                 # command = shlex.split('git clone --depth=1 --branch=%s %s %s' % (base[0], gitUrl, self._repoSrc_))           
                 # resultCode = subprocess.Popen(command)
+                
                 command = shlex.split('git init')           
                 resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
                 while subprocess.Popen.poll(resultCode) == None:
                     time.sleep(1)
+                
+                self.popKill(resultCode)
+
             #拉取pr
             command = shlex.split('git fetch --depth=1 %s %s' % (gitUrl, fetchUrl))           
             resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
             while subprocess.Popen.poll(resultCode) == None:
-                time.sleep(1)
+                time.sleep(1)           
+            self.popKill(resultCode)
+
             #切换分支
             command = shlex.split('git checkout pr_%s' % (self._num_))          
             resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(0.5)
-
-            if resultCode.stdin:
-                resultCode.stdin.close()
-            if resultCode.stdout:
-                resultCode.stdout.close()
-            if resultCode.stderr:
-                resultCode.stderr.close()
-            try:
-                resultCode.kill()
-            except OSError:
-                pass
+            self.popKill(resultCode)
 
             #扫描pr文件
             scaJson = self.getPrSca()
@@ -179,10 +175,11 @@ class PrSca(object):
                 logging.error("file extracCode error")
             
             #调用scancode
-            command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 5 --timeout 3' % (self._repoSrc_, tempJson))
+            command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 3' % (self._repoSrc_, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
+            self.popKill(resultCode)
 
             if self._file_ == 'sourth':
                 #切回master
@@ -190,22 +187,13 @@ class PrSca(object):
                 resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
                 while subprocess.Popen.poll(resultCode) == None:
                     time.sleep(0.5)
+                self.popKill(resultCode)
                 #删除临时分支
                 command = shlex.split('git branch -D pr_%s' % (self._num_))          
                 resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
                 while subprocess.Popen.poll(resultCode) == None:
                     time.sleep(0.5)
-                    
-            if resultCode.stdin:
-                resultCode.stdin.close()
-            if resultCode.stdout:
-                resultCode.stdout.close()
-            if resultCode.stderr:
-                resultCode.stderr.close()
-            try:
-                resultCode.kill()
-            except OSError:
-                pass
+                self.popKill(resultCode)
 
             scaJson = ''
             #获取json
@@ -360,3 +348,16 @@ class PrSca(object):
                 break
         
         return "/".join(pathList)
+
+    def popKill(self, subPopen):
+        try:
+            if subPopen.stdin:
+                subPopen.stdin.close()
+            if subPopen.stdout:
+                subPopen.stdout.close()
+            if subPopen.stderr:
+                subPopen.stderr.close()
+        
+            subPopen.kill()
+        except OSError:
+            pass
