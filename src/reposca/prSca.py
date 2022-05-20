@@ -86,7 +86,7 @@ class PrSca(object):
                 
                 self.popKill(resultCode)
 
-            logging.info("=============Start fetch repo==============")
+            logging.error("=============Start fetch repo==============")
             #拉取pr
             command = shlex.split('git fetch --depth=1 %s %s' % (gitUrl, fetchUrl))           
             resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
@@ -100,7 +100,7 @@ class PrSca(object):
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(0.5)
             self.popKill(resultCode)
-            logging.info("=============End fetch repo==============")
+            logging.error("=============End fetch repo==============")
 
             #扫描pr文件
             scaJson = self.getPrSca()
@@ -176,9 +176,9 @@ class PrSca(object):
             if reExt is False:
                 logging.error("file extracCode error")
             
-            logging.info("=============Start scan repo==============")
+            logging.error("=============Start scan repo==============")
             #调用scancode
-            command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 3' % (self._repoSrc_, tempJson))
+            command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 3 --max-in-memory -1' % (self._repoSrc_, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
@@ -203,7 +203,7 @@ class PrSca(object):
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
                 scaJson = "".join(list)
-            logging.info("=============End scan repo==============")
+            logging.error("=============End scan repo==============")
 
         except Exception as e:
             logger = logging.getLogger(__name__)      
@@ -246,7 +246,7 @@ class PrSca(object):
         # dbObject = RepoDb()
         licenseCheck = LicenseCheck()
     
-        logging.info("=============Start analyze result==============")
+        logging.error("=============Start analyze result==============")
         for i,var in enumerate(licenseList):
 
             path = itemPath[i]
@@ -329,7 +329,7 @@ class PrSca(object):
                 "notice" : noticeCopyright
             }
         }
-        logging.info("=============End analyze result==============")
+        logging.error("=============End analyze result==============")
 
         return sca_result
 
