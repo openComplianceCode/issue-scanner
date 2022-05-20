@@ -49,11 +49,11 @@ class PrSca(object):
             timestamp = int(time.time())
         
             #获取pr分支
-            head, base = self.getPrBranch()
-            if head == 403:
-                return "ACCESS_TOKEN 无效、过期或已被撤销"
-            elif head == 502:
-                return "GITEE 服务器维护中"
+            # head, base = self.getPrBranch()
+            # if head == 403:
+            #     return "ACCESS_TOKEN 无效、过期或已被撤销"
+            # elif head == 502:
+            #     return "GITEE 服务器维护中"
             
             fetchUrl = 'pull/' + self._num_ + '/head:pr_' + self._num_ 
             
@@ -86,6 +86,7 @@ class PrSca(object):
                 
                 self.popKill(resultCode)
 
+            logging.info("=============Start fetch repo==============")
             #拉取pr
             command = shlex.split('git fetch --depth=1 %s %s' % (gitUrl, fetchUrl))           
             resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
@@ -99,6 +100,7 @@ class PrSca(object):
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(0.5)
             self.popKill(resultCode)
+            logging.info("=============End fetch repo==============")
 
             #扫描pr文件
             scaJson = self.getPrSca()
@@ -174,6 +176,7 @@ class PrSca(object):
             if reExt is False:
                 logging.error("file extracCode error")
             
+            logging.info("=============Start scan repo==============")
             #调用scancode
             command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 3' % (self._repoSrc_, tempJson))
             resultCode = subprocess.Popen(command)
@@ -200,6 +203,7 @@ class PrSca(object):
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
                 scaJson = "".join(list)
+            logging.info("=============End scan repo==============")
 
         except Exception as e:
             logger = logging.getLogger(__name__)      
@@ -242,6 +246,7 @@ class PrSca(object):
         # dbObject = RepoDb()
         licenseCheck = LicenseCheck()
     
+        logging.info("=============Start analyze result==============")
         for i,var in enumerate(licenseList):
 
             path = itemPath[i]
@@ -324,6 +329,7 @@ class PrSca(object):
                 "notice" : noticeCopyright
             }
         }
+        logging.info("=============End analyze result==============")
 
         return sca_result
 
