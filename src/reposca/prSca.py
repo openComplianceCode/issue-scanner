@@ -22,7 +22,8 @@ from util.postOrdered import infixToPostfix
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-SOURTH_PATH = '/home/giteeFile'
+# SOURTH_PATH = '/home/giteeFile'
+SOURTH_PATH = 'E:/giteeFile'
 
 
 class PrSca(object):
@@ -86,7 +87,7 @@ class PrSca(object):
                 
                 self.popKill(resultCode)
 
-            logging.error("=============Start fetch repo==============")
+            logging.info("=============Start fetch repo==============")
             #拉取pr
             command = shlex.split('git fetch --depth=1 %s %s' % (gitUrl, fetchUrl))           
             resultCode = subprocess.Popen(command, cwd=self._repoSrc_)
@@ -100,7 +101,7 @@ class PrSca(object):
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(0.5)
             self.popKill(resultCode)
-            logging.error("=============End fetch repo==============")
+            logging.info("=============End fetch repo==============")
 
             #扫描pr文件
             scaJson = self.getPrSca()
@@ -176,7 +177,7 @@ class PrSca(object):
             if reExt is False:
                 logging.error("file extracCode error")
             
-            logging.error("=============Start scan repo==============")
+            logging.info("=============Start scan repo==============")
             #调用scancode
             command = shlex.split('scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 3 --max-in-memory -1' % (self._repoSrc_, tempJson))
             resultCode = subprocess.Popen(command)
@@ -203,7 +204,7 @@ class PrSca(object):
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
                 scaJson = "".join(list)
-            logging.error("=============End scan repo==============")
+            logging.info("=============End scan repo==============")
 
         except Exception as e:
             logger = logging.getLogger(__name__)      
@@ -244,9 +245,9 @@ class PrSca(object):
                 
         #获取所有数据
         # dbObject = RepoDb()
-        licenseCheck = LicenseCheck()
+        
     
-        logging.error("=============Start analyze result==============")
+        logging.info("=============Start analyze result==============")
         for i,var in enumerate(licenseList):
 
             path = itemPath[i]
@@ -261,14 +262,15 @@ class PrSca(object):
 
                 noticeCopyright = noticeCopyright + "("+path + "), "
                     
-            if ".spec" in path and self.checkPath(path):
+            if path.endswith((".spec",)) and self.checkPath(path):
                 #提取spec里的许可证声明
                 fileUrl = self._anlyzeSrc_ +"/"+ itemPath[i]
                 spec = Spec.from_file(fileUrl)
                 if spec.license is not None:
                     licenses = infixToPostfix(spec.license)
+                    licenseCheck = LicenseCheck('reference')
                     isSpecLicense = licenseCheck.check_license_safe(licenses)
-                    specLicense = isSpecLicense.get('result')
+                    specLicense = isSpecLicense.get('pass')
                     noticeSpec = isSpecLicense.get('notice')
                     speLicDetial = isSpecLicense.get('detail')
 
@@ -329,7 +331,7 @@ class PrSca(object):
                 "notice" : noticeCopyright
             }
         }
-        logging.error("=============End analyze result==============")
+        logging.info("=============End analyze result==============")
 
         return sca_result
 

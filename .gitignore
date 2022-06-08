@@ -8,4 +8,5 @@ src/reposca/tempSrc/
 */__pycache__/
 *.csv
 src/repoSig.py
+src/reposca/csvtest.py
 

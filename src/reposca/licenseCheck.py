@@ -29,11 +29,17 @@ class LicenseCheck(object):
                                    "later_support_license.yaml")
 
 
-    def __init__(self):
+    def __init__(self, type):
+        """
+        type :  independent - 自研    
+                reference - 引用    
+                file -  文件级
+        """
         self._white_black_list = {}
         self._license_translation = {}
         self._later_support_license = {}
         self.load_config()
+        self._type_ = type
     
 
     @catch_error
@@ -67,9 +73,7 @@ class LicenseCheck(object):
         soft_license = data.get("Software Licenses", {})
         if soft_license:
             self._parse_tag_license(soft_license.get("Nonstandard Licenses"), "nonstandard")
-            self._parse_tag_license(soft_license.get("Not Free Licenses"), "black")
-            self._parse_tag_license(soft_license.get("Free Licenses"), "white")
-            self._parse_tag_license(soft_license.get("Need Review Licenses"), "need review")
+            self._parse_tag_license(soft_license.get("Licenses"), "licenses")
         else:
             logger.error("yaml format error")
             return
@@ -79,22 +83,42 @@ class LicenseCheck(object):
         """
         add friendly list to self._white_black_list :
         {
-            license_id: tag,
+            license_id: {
+                'tag': tag,
+                'fsfApproved': fsfApproved,
+                'osiApproved': osiApproved,
+                'oeApproved': oeApproved,
+                'lowRisk': lowRisk,
+                'black': black,
+                'blackReason': blackReason
+            },
             ...
-        }
-        add license translation into self._license_translation
-        {
-            alias: license_id
         }
         """
         for lic in licenses:
             identi = lic["identifier"].lower()
             if identi not in self._white_black_list:
-                self._white_black_list[identi] = tag
+                self._white_black_list[identi] = {
+                    'tag': tag,
+                    'fsfApproved': lic["fsfApproved"],
+                    'osiApproved': lic["osiApproved"],
+                    'oeApproved': lic["oeApproved"],
+                    'lowRisk': lic["lowRisk"],
+                    'black': lic["black"],
+                    'blackReason': lic["blackReason"]
+                }
             for oname in lic["alias"]:
                 loOname = oname.lower()
                 if loOname not in self._white_black_list:
-                    self._white_black_list[loOname] = tag
+                    self._white_black_list[loOname] = {
+                        'tag': tag,
+                        'fsfApproved': lic["fsfApproved"],
+                        'osiApproved': lic["osiApproved"],
+                        'oeApproved': lic["oeApproved"],
+                        'lowRisk': lic["lowRisk"],
+                        'black': lic["black"],
+                        'blackReason': lic["blackReason"]
+                    }
 
     @catch_error
     def check_license_safe(self, licenses):
@@ -138,13 +162,21 @@ class LicenseCheck(object):
         notice = ''
         res = resImp.get('pass') & resNstd.get('pass') & resReivew.get('pass')
     
-        impRisks = '、'.join(resImp.get('risks'))
+        
         nstdRisks = '、'.join(resNstd.get('risks'))
         revRisks = '、'.join(resReivew.get('risks'))
+        blackReason = resImp.get('blackReason')
+        # impList = resImp.get('risks')[:]
+        # for i in range(len(impList)-1, -1, -1):
+        #     if impList[i] in blackReason:
+        #         impList.pop(i)
+        impRisks = '、'.join(resImp.get('risks'))
 
         if res is False:
             if impRisks != '':
-                notice += impRisks + " 不可引入, "
+                notice += impRisks + " 不可引入, "              
+            # if blackReason != '':
+            #     notice += blackReason + ", "
             if nstdRisks != '':
                 notice += nstdRisks + " 声明不规范, "
             if revRisks != '':
@@ -154,7 +186,7 @@ class LicenseCheck(object):
             notice = '通过'
 
         finalResult = {
-            'result': res,
+            'pass': res,
             'notice': notice,
             'detail': result
         }
@@ -165,23 +197,44 @@ class LicenseCheck(object):
     def check_license(self, license):
         impResult = True
         impLic = []
+        blackReason = ""
         nstdResult = True
         nstdLic = []
         reviewResult = True
         reviewLic = []
         lowLic = license.lower()
         res = self._white_black_list.get(lowLic, "unknow")
-        if res == "white":
-            impResult = True
-        elif res == "black":
-            impResult = False
-            impLic.append(license)          
-        elif res == "nonstandard":
-            nstdResult = False    
-            nstdLic.append(license)      
-        else: 
+        if res == 'unknow':
             reviewResult = False
-            reviewLic.append(license)            
+            reviewLic.append(license) 
+        elif res['tag'] == "licenses":
+            if res['black'] == 'Y':
+                impResult = False
+                impLic.append(license) 
+                blackReason = license + " " + res['blackReason']
+            else:
+                if self._type_ == 'independent':
+                    if res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y':
+                        impResult = True
+                    else:
+                        impResult = False
+                        impLic.append(license)  
+                elif self._type_ == 'reference':
+                    if res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y':
+                        impResult = True
+                    else:
+                        impResult = False
+                        impLic.append(license)
+                else:
+                    if res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y' or res['lowRisk'] == 'Y':
+                        impResult = True
+                    else:
+                        impResult = False
+                        impLic.append(license)
+        elif res['tag'] == "nonstandard":
+            nstdResult = False    
+            nstdLic.append(license)
+                       
 
         detail = {
             'is_standard' : {
@@ -191,6 +244,7 @@ class LicenseCheck(object):
             'is_white' : {
                 'pass': impResult,
                 'risks' : impLic,
+                'blackReason' : blackReason
             },
             'is_review' : {
                 'pass': reviewResult,
@@ -220,6 +274,8 @@ class LicenseCheck(object):
         elif connector == 'with' and reHead.get('is_white').get('pass') is False:
             impResult = False
         impLic = reHead.get('is_white').get('risks') + reBack.get('is_white').get('risks')
+        blackReason = reHead.get('is_white').get('blackReason') + ", " + reBack.get('is_white').get('blackReason')
+        blackReason = blackReason.strip(", ")
                 
         if reHead.get('is_review').get('pass') is False or reBack.get('is_review').get('pass') is False:
             reviewResult = False
@@ -233,6 +289,7 @@ class LicenseCheck(object):
             'is_white' : {
                 'pass': impResult,
                 'risks' : impLic,
+                'blackReason' : blackReason,
             },
             'is_review' : {
                 'pass': reviewResult,

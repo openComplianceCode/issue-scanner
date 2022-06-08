@@ -33,14 +33,14 @@ def writeCsv(osUrl,pack):
 
     packUrl =  osUrl + pack
     
-    # # 1. 创建文件对象
-    # f = open(pack+'.csv','w',encoding='utf_8_sig',newline='')
+    # 1. 创建文件对象
+    f = open(pack+'.csv','w',encoding='utf_8_sig',newline='')
 
-    # # 2. 基于文件对象构建 csv写入对象
-    # csv_writer = csv.writer(f)
+    # 2. 基于文件对象构建 csv写入对象
+    csv_writer = csv.writer(f)
 
-    # # 3. 构建列表头
-    # csv_writer.writerow(["source","仓库名称","仓库地址","license","是否有项目License","Spec License","非认可License","Copyright文件"])
+    # 3. 构建列表头
+    csv_writer.writerow(["source","仓库名称","仓库地址","license","是否有项目License","Spec License","非认可License","Copyright文件"])
 
     sca_result = []
 
@@ -142,14 +142,14 @@ def writeCsv(osUrl,pack):
             'isCopyright': isCopyright
         })
 
-        # csvData = [item['repo_org'],item['repo_name'],item['repo_url'],repoLicense,haveLicense,specLicense,approved,isCopyright]
+        csvData = [item['repo_org'],item['repo_name'],item['repo_url'],repoLicense,haveLicense,specLicense,approved,isCopyright]
 
-        # # 4. 写入csv文件内容
-        # csv_writer.writerow(csvData)
+        # 4. 写入csv文件内容
+        csv_writer.writerow(csvData)
 
 
-    # # 5. 关闭文件
-    # f.close()
+    # 5. 关闭文件
+    f.close()
 
     sca_result.sort(key=lambda x: x['repoName'], reverse=True)
 

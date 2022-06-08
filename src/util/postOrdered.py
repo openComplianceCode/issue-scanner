@@ -8,8 +8,11 @@ import string
 
 operator = { #前后顺序代表优先级
     'or': 3,
+    'OR': 3,
+    'AND': 3,
     'and': 3,
     'with': ValueError ,
+    'WITH': ValueError ,
     '(': ValueError,
     ')':ValueError,
 }
@@ -25,10 +28,12 @@ def infixToPostfix(infixexpr):
     token_list = []
 
     try:
-        license_set = re.split(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?or-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', infixexpr)
-        posfix_set = re.findall(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?or-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', infixexpr)
+        license_set = re.split(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?[Oo][Rr]-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', infixexpr)
+        posfix_set = re.findall(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?[Oo][Rr]-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', infixexpr)       
 
         if len(posfix_set) == 0:
+            for i in range(len(license_set)):
+                license_set[i] = license_set[i].strip()
             return license_set
 
         for i,var in enumerate(posfix_set):
@@ -56,7 +61,7 @@ def infixToPostfix(infixexpr):
                     postfix_list.append(top_token)
                     top_token = operation_stack.pop()
             # 操作数添加到列表末尾
-            elif token in ['and','or','with']:
+            elif token in ['and', 'AND' ,'or', 'OR', 'with', 'WITH']:
                 # postfix_list.append(token):
                 while (not operation_stack.is_empty()) and (priority[operation_stack.peek()] >= priority[token]):
                     postfix_list.append(operation_stack.pop())

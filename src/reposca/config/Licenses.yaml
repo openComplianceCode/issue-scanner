@@ -1,950 +1,619 @@
 Software Licenses:
   #声明不规范
-  Nonstandard Licenses:
-  - alias:
-    - BSD
-    identifier: BSD
+  Nonstandard Licenses: 
+  # - alias:
+  #   - BSD
+  #   identifier: BSD
+  #   fsfApproved: 'N'
+  #   osiApproved: 'N'
+  #   oeApproved: 'N'
+  #   lowRisk: 'N'
+  #   black: 'N'
+  #   blackReason: ''
   - alias:
     - '%{all_license}'
     identifier: '%{all_license}' 
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - '%{ffmpeg_license}'
     identifier: '%{ffmpeg_license}' 
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Apache
     identifier: Apache
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Apache Software License
     identifier: Apache Software License  
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Arphic
     identifier: Arphic 
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Artistic
+    - Artistic license
     identifier: Artistic
-  - alias:
-    - BSD License
-    identifier: BSD License
-  - alias:
-    - BSD like
-    - BSD-like
-    identifier: BSD like
-  - alias:
-    - BSD-2
-    identifier: BSD-2
-  - alias:
-    - BSD3
-    identifier: BSD3
-  - alias:
-    - BSD-3
-    identifier: BSD-3
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  # - alias:
+  #   - BSD License
+  #   identifier: BSD License
+  #   fsfApproved: 'N'
+  #   osiApproved: 'N'
+  #   oeApproved: 'N'
+  #   lowRisk: 'N'
+  #   black: 'N'
+  #   blackReason: ''
+  # - alias:
+  #   - BSD like
+  #   - BSD-like
+  #   identifier: BSD like
+  #   fsfApproved: 'N'
+  #   osiApproved: 'N'
+  #   oeApproved: 'N'
+  #   lowRisk: 'N'
+  #   black: 'N'
+  #   blackReason: ''
+  # - alias:
+  #   - BSD-2
+  #   identifier: BSD-2
+  #   fsfApproved: 'N'
+  #   osiApproved: 'N'
+  #   oeApproved: 'N'
+  #   lowRisk: 'N'
+  #   black: 'N'
+  #   blackReason: ''
+  # - alias:
+  #   - BSD3
+  #   identifier: BSD3
+  #   fsfApproved: 'N'
+  #   osiApproved: 'N'
+  #   oeApproved: 'N'
+  #   lowRisk: 'N'
+  #   black: 'N'
+  #   blackReason: ''
+  # - alias:
+  #   - BSD-3
+  #   identifier: BSD-3
+  #   fsfApproved: 'N'
+  #   osiApproved: 'N'
+  #   oeApproved: 'N'
+  #   lowRisk: 'N'
+  #   black: 'N'
+  #   blackReason: ''
   - alias:
     - CC-BY
     identifier: CC-BY
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - CC-BY-SA
     identifier: CC-BY-SA
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - CDDL
     identifier: CDDL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - EPL
     identifier: EPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GFDL
     identifier: GFDL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU GPL
     identifier: GNU GPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU LGPL
     identifier: GNU LGPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU3
     identifier: GNU3
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GPL
     identifier: GPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Lab Software License
     identifier: Lab Software License
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - LGPL
     identifier: LGPL
-  - alias:
-    - Liberation
-    identifier: Liberation
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - LPPL
     identifier: LPPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Multiple
     identifier: Multiple
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - NA
     identifier: NA
-  - alias:
-    - Nmap
-    identifier: Nmap
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - OFL
     identifier: OFL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - OpenLDAP
     identifier: OpenLDAP
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - OSI-Approved
     identifier: OSI-Approved
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - PHP
     identifier: PHP
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Python 2.1.1
     identifier: Python 2.1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Sequence
     identifier: Sequence
-  - alias:
-    - SIL OFL 1.1
-    identifier: SIL OFL 1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - SSPL
     identifier: SSPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - TTWL
     identifier: TTWL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Unicode
     identifier: Unicode
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - UNKNOWN
     identifier: UNKNOWN
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - wxWidgets
     identifier: wxWidgets
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open Publication
+    identifier: Open Publication
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
 
 
-  #Not Free
-  Not Free Licenses:
-  - alias:
-    - Abstyles License
-    - APREAMBL.TEX, version 1.10e
-    identifier: Abstyles
-  - alias:
-    - Adobe Systems Incorporated Source Code License Agreement
-    - Adobe Systems Incorporated(r) Source Code License Agreement
-    identifier: Adobe-2006
-  - alias:
-    - Adobe Glyph List License
-    - Copyright (c) 1997,1998,2002,2007 Adobe Systems Incorporated
-    identifier: Adobe-Glyph
-  - alias:
-    - Amazon Digital Services License
-    - Amazon Digital Services, Inc. or its affiliates
-    identifier: ADSL
-  - alias:
-    - Affero General Public License v1.0 only
-    - AFFERO GENERAL PUBLIC LICENSE Version 1
-    identifier: AGPL-1.0-only
-  - alias:
-    - Affero General Public License v1.0 or later
-    - AFFERO GENERAL PUBLIC LICENSE Version 1
-    identifier: AGPL-1.0-or-later
-  - alias:
-    - Aladdin Free Public License
-    identifier: Aladdin
-  - alias:
-    - AMD's plpa_map.c License
-    - Copyright (c) 2006, 2007 Advanced Micro Devices, Inc.
-    identifier: AMDPLPA
-  - alias:
-    - Apple MIT License
-    - Copyright (c) 2006 by Apple Computer, Inc.
-    identifier: AML
-  - alias:
-    - Academy of Motion Picture Arts and Sciences BSD
-    - A.M.P.A.S.
-    identifier: AMPAS
-  - alias:
-    - Bahyph License
-    - Copyright (c) GMV 1991
-    identifier: Bahyph
-  - alias:
-    - Barr License
-    - Michael Barr
-    identifier: Barr
-  - alias:
-    - Beerware License
-    - THE BEER-WARE LICENSE
-    identifier: Beerware
-  - alias:
-    - BitTorrent Open Source License v1.0
-    - BitTorrent Open Source License Version 1.0
-    identifier: BitTorrent-1.0
-  - alias:
-    - SQLite Blessing
-    - here is a blessing
-    identifier: blessing
-  - alias:
-    - Blue Oak Model License 1.0.0
-    - "http://blueoakcouncil.org/license/1.0.0"
-    identifier: BlueOak-1.0.0
-  - alias:
-    - Borceux license
-    - Copyright 1993 Francis Borceux
-    identifier: Borceux
-  - alias:
-    - BSD 3-Clause No Nuclear License
-    - Copyright 1994-2009 Sun Microsystems, Inc.
-    identifier: BSD-3-Clause-No-Nuclear-License
-  - alias:
-    - BSD 3-Clause No Nuclear License 2014
-    - Copyright © 2008, 2014 Oracle and/or its affiliates
-    identifier: BSD-3-Clause-No-Nuclear-License-2014
-  - alias:
-    - BSD 3-Clause No Nuclear Warranty
-    - Copyright (c) 2003-2005 Sun Microsystems, Inc.
-    identifier: BSD-3-Clause-No-Nuclear-Warranty
-  - alias:
-    - BSD 3-Clause Open MPI variant
-    identifier: BSD-3-Clause-Open-MPI
-  - alias:
-    - BSD-4-Clause (University of California-Specific)
-    identifier: BSD-4-Clause-UC
-  - alias:
-    - BSD Source Code Attribution
-    - Copyright (c) 2011, Deusty, LLC
-    identifier: BSD-Source-Code
-  - alias:
-    - bzip2 and libbzip2 License v1.0.5
-    - bzip2/libbzip2 version 1.0.5
-    identifier: bzip2-1.0.5
-  - alias:
-    - bzip2 and libbzip2 License v1.0.6
-    - bzip2/libbzip2 version 1.0.6
-    identifier: bzip2-1.0.6
-  - alias:
-    - Caldera License
-    - Caldera International, Inc.
-    identifier: Caldera
-  - alias:
-    - Creative Commons Attribution 2.0 Generic
-    - Creative Commons Attribution 2.0
-    identifier: CC-BY-2.0
-  - alias:
-    - Creative Commons Attribution 2.5 Generic
-    - Creative Commons Attribution 2.0
-    identifier: CC-BY-2.5
-  - alias:
-    - Creative Commons Attribution Non Commercial 1.0 Generic
-    - Creative Commons Attribution-NonCommercial 1.0
-    identifier: CC-BY-NC-1.0
-  - alias:
-    - Creative Commons Attribution Non Commercial 2.0 Generic
-    - Creative Commons Attribution-NonCommercial 2.0
-    identifier: CC-BY-NC-2.0
-  - alias:
-    - Creative Commons Attribution Non Commercial 2.5 Generic
-    - Creative Commons Attribution-NonCommercial 2.5
-    identifier: CC-BY-NC-2.5
-  - alias:
-    - Creative Commons Attribution Non Commercial 3.0 Unported
-    - Creative Commons Attribution-NonCommercial 3.0
-    identifier: CC-BY-NC-3.0
-  - alias:
-    - Creative Commons Attribution Non Commercial 4.0 International
-    - Creative Commons Attribution-NonCommercial 4.0
-    identifier: CC-BY-NC-4.0
-  - alias:
-    - Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
-    - Creative Commons Attribution-NoDerivs-NonCommercial 1.0
-    identifier: CC-BY-NC-ND-1.0
-  - alias:
-    - Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
-    - Creative Commons Attribution-NonCommercial-NoDerivs 2.0
-    identifier: CC-BY-NC-ND-2.0
-  - alias:
-    - Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
-    - Creative Commons Attribution-NonCommercial-NoDerivs 2.5
-    identifier: CC-BY-NC-ND-2.5
-  - alias:
-    - Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
-    - Creative Commons Attribution-NonCommercial-NoDerivs 3.0
-    identifier: CC-BY-NC-ND-3.0
-  - alias:
-    - Creative Commons Attribution Non Commercial No Derivatives 4.0 International
-    - Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
-    identifier: CC-BY-NC-ND-4.0
-  - alias:
-    - Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
-    - Creative Commons Attribution-NonCommercial-ShareAlike 1.0
-    identifier: CC-BY-NC-SA-1.0
-  - alias:
-    - Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
-    - Creative Commons Attribution-NonCommercial-ShareAlike 2.0
-    identifier: CC-BY-NC-SA-2.0
-  - alias:
-    - Creative Commons Attribution Non Commercial Share Alike 2.5 Generic
-    - Creative Commons Attribution-NonCommercial-ShareAlike 2.5
-    identifier: CC-BY-NC-SA-2.5
-  - alias:
-    - Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
-    - Creative Commons Attribution-NonCommercial-ShareAlike 3.0
-    identifier: CC-BY-NC-SA-3.0
-  - alias:
-    - Creative Commons Attribution Non Commercial Share Alike 4.0 International
-    - Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-    identifier: CC-BY-NC-SA-4.0
-  - alias:
-    - Creative Commons Attribution No Derivatives 1.0 Generic
-    - Creative Commons Attribution-NoDerivs 1.0
-    identifier: CC-BY-ND-1.0
-  - alias:
-    - Creative Commons Attribution No Derivatives 2.0 Generic
-    - Creative Commons Attribution-NoDerivs 2.0
-    identifier: CC-BY-ND-2.0
-  - alias:
-    - Creative Commons Attribution No Derivatives 2.5 Generic
-    - Creative Commons Attribution-NoDerivs 2.5
-    identifier: CC-BY-ND-2.5
-  - alias:
-    - Creative Commons Attribution No Derivatives 3.0 Unported
-    - Creative Commons Attribution-NoDerivs 3.0
-    identifier: CC-BY-ND-3.0
-  - alias:
-    - Creative Commons Attribution No Derivatives 4.0 International
-    - Creative Commons Attribution-NoDerivatives 4.0
-    identifier: CC-BY-ND-4.0
-  - alias:
-    - Creative Commons Attribution Share Alike 2.0 Generic
-    - Creative Commons Attribution-ShareAlike 2.0
-    identifier: CC-BY-SA-2.0
-  - alias:
-    - Creative Commons Attribution Share Alike 2.5 Generic
-    - Creative Commons Attribution-ShareAlike 2.5
-    identifier: CC-BY-SA-2.5
-  - alias:
-    - Creative Commons Public Domain Dedication and Certification
-    identifier: CC-PDDC
-  - alias:
-    - Community Data License Agreement Permissive 1.0
-    - Community Data License Agreement - Permissive, Version 1.0
-    identifier: CDLA-Permissive-1.0
-  - alias:
-    - Community Data License Agreement Sharing 1.0
-    - Community Data License Agreement - Sharing, Version 1.0
-    identifier: CDLA-Sharing-1.0
-  - alias:
-    - CeCILL Free Software License Agreement v1.0
-    - CONTRAT DE LICENCE DE LOGICIEL LIBRE CeCILL
-    identifier: CECILL-1.0
-  - alias:
-    - CeCILL Free Software License Agreement v1.1
-    - FREE SOFTWARE LICENSING AGREEMENT CeCILL
-    identifier: CECILL-1.1
-  - alias:
-    - CERN Open Hardware Licence v1.1
-    - CERN OHL v1.1
-    identifier: CERN-OHL-1.1
-  - alias:
-    - CERN Open Hardware Licence v1.2
-    - CERN OHL v1.2
-    identifier: CERN-OHL-1.2
-  - alias:
-    - CERN Open Hardware Licence Version 2 - Permissive
-    identifier: CERN-OHL-P-2.0
-  - alias:
-    - CERN Open Hardware Licence Version 2 - Strongly Reciprocal
-    identifier: CERN-OHL-S-2.0
-  - alias:
-    - CERN Open Hardware Licence Version 2 - Weakly Reciprocal
-    identifier: CERN-OHL-W-2.0
-  - alias:
-    - CNRI Jython License
-    - JPython or CNRI
-    identifier: CNRI-Jython
-  - alias:
-    - CNRI Python Open Source GPL Compatible License Agreement
-    - CNRI OPEN SOURCE GPL-COMPATIBLE LICENSE AGREEMENT
-    identifier: CNRI-Python-GPL-Compatible
-  - alias:
-    - copyleft-next 0.3.0
-    identifier: copyleft-next-0.3.0
-  - alias:
-    - copyleft-next 0.3.1
-    identifier: copyleft-next-0.3.1
-  - alias:
-    - Code Project Open License 1.02
-    - Code Project Open License (CPOL) 1.02
-    identifier: CPOL-1.02
-  - alias:
-    - Crossword License
-    - cwpuzzle.dtx
-    identifier: Crossword
-  - alias:
-    - CrystalStacker License
-    - Crystal Stacker
-    identifier: CrystalStacker
-  - alias:
-    - Cube License
-    - Cube game engine source code
-    identifier: Cube
-  - alias:
-    - curl License
-    - Copyright (c) 1996 - 2021, Daniel Stenberg
-    identifier: curl
-  - alias:
-    - Deutsche Freie Software Lizenz
-    identifier: D-FSL-1.0
-  - alias:
-    - diffmark license
-    - 1. you can do what you want with it 2. I refuse any responsibility for the consequences
-    identifier: diffmark
-  - alias:
-    - DOC License
-    - DOC software
-    identifier: DOC
-  - alias:
-    - Dotseqn License
-    - Copyright (C) 1995 by Donald Arseneau
-    identifier: Dotseqn
-  - alias:
-    - DSDP License
-    - owned by The United States Government, and operated by the University of Chicago
-    identifier: DSDP
-  - alias:
-    - dvipdfm License
-    - should be distributed with a *different* name
-    identifier: dvipdfm
-  - alias:
-    - eGenix.com Public License 1.1.0
-    - EGENIX.COM PUBLIC LICENSE AGREEMENT Version 1.1.0
-    identifier: eGenix
-  - alias:
-    - Erlang Public License v1.1
-    - ERLANG PUBLIC LICENSE Version 1.1
-    identifier: ErlPL-1.1
-  - alias:
-    - Etalab Open License 2.0
-    - OPEN LICENCE 2.0 LICENCE OUVERTE 2.0
-    identifier: etalab-2.0
-  - alias:
-    - European Union Public License 1.0
-    - European Union Public Licence V.1.0
-    identifier: EUPL-1.0
-  - alias:
-    - Eurosym License
-    - Copyright (c) 1999-2002 Henrik Theiling Licence Version 2
-    identifier: Eurosym
-  - alias:
-    - FreeImage Public License v1.0
-    - FreeImage Public License - Version 1.0
-    identifier: FreeImage
-  - alias:
-    - FSF Unlimited License
-    - Copyright (C) 1992-1996, 1998-2012 Free Software Foundation, Inc.
-    identifier: FSFUL
-  - alias:
-    - FSF Unlimited License (with License Retention)
-    - Copyright 1996-2006 Free Software Foundation, Inc.
-    identifier: FSFULLR
-  - alias:
-    - Giftware License
-    - Allegro 4 (the giftware license)
-    identifier: Giftware
-  - alias:
-    - 3dfx Glide License
-    - 3dfx GLIDE Source Code General Public License
-    identifier: Glide
-  - alias:
-    - Glulxe License
-    identifier: Glulxe
-  - alias:
-    - Haskell Language Report License
-    identifier: HaskellReport
-  - alias:
-    - Hippocratic License 2.1
-    identifier: Hippocratic-2.1
-  - alias:
-    - Historical Permission Notice and Disclaimer - sell variant
-    identifier: HPND-sell-variant
-  - alias:
-    - IBM PowerPC Initialization and Boot Software
-    identifier: IBM-pibs
-  - alias:
-    - Info-ZIP License
-    identifier: Info-ZIP
-  - alias:
-    - Intel ACPI Software License Agreement
-    identifier: Intel-ACPI
-  - alias:
-    - Japan Network Information Center License
-    identifier: JPNIC
-  - alias:
-    - JSON License
-    identifier: JSON
-  - alias:
-    - Licence Art Libre 1.2
-    identifier: LAL-1.2
-  - alias:
-    - Licence Art Libre 1.3
-    identifier: LAL-1.3
-  - alias:
-    - Latex2e License
-    identifier: Latex2e
-  - alias:
-    - Lesser General Public License For Linguistic Resources
-    identifier: LGPLLR
-  - alias:
-    - libselinux public domain notice
-    identifier: libselinux-1.0
-  - alias:
-    - Linux Kernel Variant of OpenIB.org license
-    identifier: Linux-OpenIB
-  - alias:
-    - LaTeX Project Public License v1.0
-    identifier: LPPL-1.0
-  - alias:
-    - LaTeX Project Public License v1.1
-    identifier: LPPL-1.1
-  - alias:
-    - MakeIndex License
-    identifier: MakeIndex
-  - alias:
-    - MIT No Attribution
-    identifier: MIT-0
-  - alias:
-    - Enlightenment License (e16)
-    identifier: MIT-advertising
-  - alias:
-    - CMU License
-    identifier: MIT-CMU
-  - alias:
-    - enna License
-    identifier: MIT-enna
-  - alias:
-    - feh License
-    identifier: MIT-feh
-  - alias:
-    - mpich2 License
-    identifier: mpich2
-  - alias:
-    - Matrix Template Library License
-    identifier: MTLL
-  - alias:
-    - Mup License
-    identifier: Mup
-  - alias:
-    - Net Boolean Public License v1
-    identifier: NBPL-1.0
-  - alias:
-    - Non-Commercial Government Licence
-    identifier: NCGL-UK-2.0
-  - alias:
-    - Net-SNMP License
-    identifier: Net-SNMP
-  - alias:
-    - Newsletr License
-    identifier: Newsletr
-  - alias:
-    - Norwegian Licence for Open Government Data
-    identifier: NLOD-1.0
-  - alias:
-    - No Limit Public License
-    identifier: NLPL
-  - alias:
-    - Noweb License
-    identifier: Noweb
-  - alias:
-    - NRL License
-    identifier: NRL
-  - alias:
-    - NTP No Attribution
-    identifier: NTP-0
-  - alias:
-    - Open Use of Data Agreement v1.0
-    identifier: O-UDA-1.0
-  - alias:
-    - Open CASCADE Technology Public License
-    identifier: OCCT-PL
-  - alias:
-    - Open Data Commons Attribution License v1.0
-    identifier: ODC-By-1.0
-  - alias:
-    - SIL Open Font License 1.0 with no Reserved Font Name
-    identifier: OFL-1.0-no-RFN
-  - alias:
-    - SIL Open Font License 1.0 with Reserved Font Name
-    identifier: OFL-1.0-RFN
-  - alias:
-    - OGC Software License, Version 1.0
-    identifier: OGC-1.0
-  - alias:
-    - Open Government Licence - Canada
-    identifier: OGL-Canada-2.0
-  - alias:
-    - Open Government Licence v1.0
-    identifier: OGL-UK-1.0
-  - alias:
-    - Open Government Licence v2.0
-    identifier: OGL-UK-2.0
-  - alias:
-    - Open Government Licence v3.0
-    identifier: OGL-UK-3.0
-  - alias:
-    - Open Public License v1.0
-    identifier: OPL-1.0
-  - alias:
-    - The Parity Public License 6.0.0
-    identifier: Parity-6.0.0
-  - alias:
-    - The Parity Public License 7.0.0
-    identifier: Parity-7.0.0
-  - alias:
-    - ODC Public Domain Dedication & License 1.0
-    identifier: PDDL-1.0
-  - alias:
-    - PolyForm Noncommercial License 1.0.0
-    identifier: PolyForm-Noncommercial-1.0.0
-  - alias:
-    - PolyForm Small Business License 1.0.0
-    identifier: PolyForm-Small-Business-1.0.0
-  - alias:
-    - Python Software Foundation License 2.0
-    identifier: PSF-2.0
-  - alias:
-    - psfrag License
-    identifier: psfrag
-  - alias:
-    - Rdisc License
-    identifier: Rdisc
-  - alias:
-    - Red Hat eCos Public License v1.1
-    identifier: RHeCos-1.1
-  - alias:
-    - RSA Message-Digest License
-    identifier: RSA-MD
-  - alias:
-    - Sax Public Domain Notice
-    identifier: SAX-PD
-  - alias:
-    - SCEA Shared Source License
-    identifier: SCEA
-  - alias:
-    - SGI Free Software License B v1.0
-    identifier: SGI-B-1.0
-  - alias:
-    - SGI Free Software License B v1.1
-    identifier: SGI-B-1.1
-  - alias:
-    - Solderpad Hardware License v0.5
-    identifier: SHL-0.5
-  - alias:
-    - Solderpad Hardware License, Version 0.51
-    identifier: SHL-0.51
-  - alias:
-    - Sun Industry Standards Source License v1.2
-    - SUN INDUSTRY STANDARDS SOURCE LICENSE Version 1.2
-    identifier: SISSL-1.2
-  - alias:
-    - Secure Messaging Protocol Public License
-    identifier: SMPPL
-  - alias:
-    - Spencer License 86
-    identifier: Spencer-86
-  - alias:
-    - Spencer License 94
-    identifier: Spencer-94
-  - alias:
-    - Spencer License 99
-    identifier: Spencer-99
-  - alias:
-    - SSH OpenSSH license
-    identifier: SSH-OpenSSH
-  - alias:
-    - SSH short notice
-    identifier: SSH-short
-  - alias:
-    - Server Side Public License, v 1
-    identifier: SSPL-1.0
-  - alias:
-    - SugarCRM Public License v1.1.3
-    identifier: SugarCRM-1.1.3
-  - alias:
-    - TAPR Open Hardware License v1.0
-    identifier: TAPR-OHL-1.0
-  - alias:
-    - TCP Wrappers License
-    identifier: TCP-wrappers
-  - alias:
-    - TMate Open Source License
-    identifier: TMate
-  - alias:
-    - TORQUE v2.5+ Software License v1.1
-    identifier: TORQUE-1.1
-  - alias:
-    - Trusster Open Source License
-    identifier: TOSL
-  - alias:
-    - Technische Universitaet Berlin License 1.0
-    identifier: TU-Berlin-1.0
-  - alias:
-    - Technische Universitaet Berlin License 2.0
-    identifier: TU-Berlin-2.0
-  - alias:
-    - VOSTROM Public License for Open Source
-    identifier: VOSTROM
-  - alias:
-    - W3C Software Notice and License (1998-07-20)
-    identifier: W3C-19980720
-  - alias:
-    - W3C Software Notice and Document License (2015-05-13)
-    identifier: W3C-20150513
-  - alias:
-    - Wsuipa License
-    identifier: Wsuipa
-  - alias:
-    - Xerox License
-    identifier: Xerox
-  - alias:
-    - XSkat License
-    identifier: XSkat
-  - alias:
-    - Yahoo! Public License v1.0
-    identifier: YPL-1.0
-  - alias:
-    - Zed License
-    identifier: Zed
-  - alias:
-    - Zimbra Public License v1.4
-    identifier: Zimbra-1.4
-  - alias:
-    - Zope Public License 1.1
-    identifier: ZPL-1.1
-  - alias:
-    - Commons Clause License v1.0
-    identifier: Commons Clause
-  - alias:
-    - DMIT License
-    identifier: DMIT
-  - alias:
-    - GNU Affero General Public License v3.0 only
-    - AGPLv3
-    - AGPL-3.0
-    identifier: AGPL-3.0-only
-  - alias:
-    - GNU Affero General Public License v3.0 or later
-    - AGPLv3+
-    identifier: AGPL-3.0-or-later
-  - alias:
-    - Adaptive Public License 1.0
-    identifier: APL-1.0
-  - alias:
-    - Apple Public Source License 1.0
-    - Apple Public Source License version 1.0
-    identifier: APSL-1.0
-  - alias:
-    - Apple Public Source License 1.1
-    - Apple Public Source License version 1.1
-    identifier: APSL-1.1
-  - alias:
-    - Apple Public Source License 1.2
-    - Apple Public Source License version 1.2
-    identifier: APSL-1.2
-  - alias:
-    - Artistic License 1.0
-    - Artistic 1.0
-    identifier: Artistic-1.0
-  - alias:
-    - Artistic License 1.0 w/clause 8
-    identifier: Artistic-1.0-cl8
-  - alias:
-    - The "Artistic License"
-    - Artistic License 1.0 (Perl)
-    identifier: Artistic-1.0-Perl
-  - alias:
-    - Lawrence Berkeley National Labs BSD variant license
-    identifier: BSD-3-Clause-LBNL
-  - alias:
-    - Cryptographic Autonomy License 1.0
-    identifier: CAL-1.0
-  - alias:
-    - Cryptographic Autonomy License 1.0 (Combined Work Exception)
-    identifier: CAL-1.0-Combined-Work-Exception
-  - alias:
-    - CeCILL Free Software License Agreement v2.1
-    identifier: CECILL-2.1
-  - alias:
-    - CUA Office Public License v1.0
-    identifier: CUA-OPL-1.0
-  - alias:
-    - Educational Community License v1.0
-    identifier: ECL-1.0
-  - alias:
-    - Eiffel Forum License v1.0
-    identifier: EFL-1.0
-  - alias:
-    - Entessa Public License v1.0
-    identifier: Entessa
-  - alias:
-    - Frameworx Open License 1.0
-    identifier: Frameworx-1.0
-  - alias:
-    - "Licence Libre du Quebec - Permissive version 1.1"
-    identifier: LiLiQ-P-1.1
-  - alias:
-    - "Licence Libre du Quebec - Reciprocite version 1.1"
-    identifier: LiLiQ-R-1.1
-  - alias:
-    - "Licence Libre du Quebec - Reciprocite forte version 1.1"
-    identifier: LiLiQ-Rplus-1.1
-  - alias:
-    - Lucent Public License Version 1.0
-    identifier: LPL-1.0
-  - alias:
-    - Mozilla Public License 2.0 (no copyleft exception)
-    identifier: MPL-2.0-no-copyleft-exception
-  - alias:
-    - Multics License
-    identifier: Multics
-  - alias:
-    - NASA Open Source Agreement 1.3
-    identifier: NASA-1.3
-  - alias:
-    - Non-Profit Open Software License 3.0
-    identifier: NPOSL-3.0
-  - alias:
-    - OCLC Research Public License 2.0
-    identifier: OCLC-2.0
-  - alias:
-    - SIL Open Font License 1.1 with no Reserved Font Name
-    identifier: OFL-1.1-no-RFN
-  - alias:
-    - SIL Open Font License 1.1 with Reserved Font Name
-    identifier: OFL-1.1-RFN
-  - alias:
-    - Open Group Test Suite License
-    identifier: OGTSL
-  - alias:
-    - OSET Public License version 2.1
-    identifier: OSET-PL-2.1
-  - alias:
-    - Reciprocal Public License 1.1
-    identifier: RPL-1.1
-  - alias:
-    - Reciprocal Public License 1.5
-    identifier: RPL-1.5
-  - alias:
-    - Ricoh Source Code Public License
-    identifier: RSCPL
-  - alias:
-    - Simple Public License 2.0
-    identifier: SimPL-2.0
-  - alias:
-    - Upstream Compatibility License v1.0
-    identifier: UCL-1.0
-  - alias:
-    - Sybase Open Watcom Public License 1.0
-    identifier: Watcom-1.0
-  - alias:
-    - X.Net License
-    identifier: Xnet
-  - alias:
-    - Artistic license
-    identifier: artistic
-  - alias:
-    - Artistic license 2.0
-    identifier: artistic-2.0
-  - alias:
-    - Verbatim License
-    - verbatim copying
-    identifier: Verbatim
-  - alias:
-    - Liberation Font License
-    - LIBERATION font software
-    identifier: Liberation
-  - alias:
-    - Trusted Computing Group License
-    - Trusted Computing Group (TCG)
-    identifier: TCGL
-  - alias:
-    - Nmap License
-    - NMAP LICENSE
-    identifier: Nmap
-  - alias:
-    - gnuplot License
-    identifier: gnuplot
-  - alias:
-    - Distributed Management Task Force
-    identifier: DMTF
-  - alias:
-    - zlib/libpng License with Acknowledgement
-    - Copyright (c) 2002-2007 Charlie Poole
-    - zlib with acknowledgement
-    - zlib/libpng License with Acknowledgement
-    identifier: zlib-acknowledgement
-  - alias:
-    - Common Development and Distribution License 1.1
-    - COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.1
-    identifier: CDDL-1.1
-  - alias:
-    - Unicode Terms of Use
-    identifier: Unicode-TOU
-  - alias:
-    - Adobe Postscript AFM License
-    - 14 PostScript(R) AFM files
-    identifier: APAFML
-  - alias:
-    - Academic Free License v2.1
-    - Academic Free License version 2.1
-    - AFLv2.1
-    identifier: AFL-2.1
-  
-
-
-  ## Free
-  Free Licenses:
-  - alias:
-    - (perl)
-    - "license: perl"
-    identifier: Perl License
+  Licenses:
+  - alias:
+    - BSD License
+    - BSD like
+    - BSD-like
+    - BSD-2
+    - BSD2
+    - BSD3
+    - BSD-3
+    identifier: BSD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - BSD Zero Clause License
     - Zero-Clause BSD
     - Copyright (C) 2006 by Rob Landley <rob@landley.net>
     identifier: 0BSD
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Attribution Assurance License
     - ATTRIBUTION ASSURANCE LICENSE
     identifier: AAL
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Abstyles License
+    - APREAMBL.TEX, version 1.10e
+    identifier: Abstyles
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Adobe Systems Incorporated Source Code License Agreement
+    - Adobe Systems Incorporated(r) Source Code License Agreement
+    identifier: Adobe-2006
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Adobe Glyph List License
+    - Copyright (c) 1997,1998,2002,2007 Adobe Systems Incorporated
+    identifier: Adobe-Glyph
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Amazon Digital Services License
+    - Amazon Digital Services, Inc. or its affiliates
+    identifier: ADSL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - Academic Free License v1.1
     - Academic Free License version 1.1
     identifier: AFL-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Academic Free License v1.2
     - Academic Free License version 1.2
     identifier: AFL-1.2
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Academic Free License v2.0
     - Academic Free License version 2.0
     identifier: AFL-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Academic Free License v2.1
+    - Academic Free License version 2.1
+    - AFLv2.1
+    identifier: AFL-2.1
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Academic Free License v3.0
     - Academic Free License version 3.0
     - AFLv3.0
     - AFL
     identifier: AFL-3.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Afmparse License
+    - (C) 1988, 1989 by Adobe Systems Incorporated
+    identifier: Afmparse
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Affero General Public License v1.0 only
+    - AFFERO GENERAL PUBLIC LICENSE Version 1
+    identifier: AGPL-1.0-only
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Affero General Public License v1.0 or later
+    - AFFERO GENERAL PUBLIC LICENSE Version 1
+    identifier: AGPL-1.0-or-later
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - GNU Affero General Public License v3.0 only
+    - AGPLv3
+    - AGPL-3.0
+    identifier: AGPL-3.0-only
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Affero General Public License v3.0 or later
+    - AGPLv3+
+    identifier: AGPL-3.0-or-later
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Aladdin Free Public License
+    identifier: Aladdin
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，非免费许可证'
+  - alias:
+    - AMD's plpa_map.c License
+    - Copyright (c) 2006, 2007 Advanced Micro Devices, Inc.
+    identifier: AMDPLPA
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Apple MIT License
+    - Copyright (c) 2006 by Apple Computer, Inc.
+    identifier: AML
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Academy of Motion Picture Arts and Sciences BSD
+    - A.M.P.A.S.
+    identifier: AMPAS
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - ANTLR Software Rights Notice
+    - ANTLR 2 License
+    identifier: ANTLR-PD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - ANTLR Software Rights Notice with license fallback
+    identifier: ANTLR-PD-fallback
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Apache License 1.0
+    - Copyright (c) 1995-1999 The Apache Group
+    - ASL 1.0
+    identifier: Apache-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Apache License 1.1
     - Apache Software License, Version 1.1
     - ASL-1.1
     - ASL 1.1
     identifier: Apache-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Apache License 2.0
     - Apache License v2.0
     - Apache 2.0 License
+    - Apache-2.0 License
     - Apache License Version 2.0
     - Apache Software License 2.0
     - "http://www.apache.org/licenses/LICENSE-2.0"
@@ -960,109 +629,1891 @@ Software Licenses:
     - ASL 2.0
     - ASL2.0
     identifier: Apache-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Adobe Postscript AFM License
+    - 14 PostScript(R) AFM files
+    identifier: APAFML
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Adaptive Public License 1.0
+    identifier: APL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - App::s2p License
+    identifier: App-s2p
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Apple Public Source License 1.0
+    - Apple Public Source License version 1.0
+    identifier: APSL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Apple Public Source License 1.1
+    - Apple Public Source License version 1.1
+    identifier: APSL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Apple Public Source License 1.2
+    - Apple Public Source License version 1.2
+    identifier: APSL-1.2
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Apple Public Source License 2.0
     - Apple Public Source License Version 2.0
     - APSL 2.0
     identifier: APSL-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Arphic Public License
+    - ARPHIC PUBLIC LICENSE
+    identifier: Arphic-1999
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Artistic License 1.0
+    - Artistic 1.0
+    identifier: Artistic-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: 'Artistic-1.0 不被GNU认可为免费软件许可证，GUN建议不要使用它，Fedora也将其列入Bad license'
+  - alias:
+    - Artistic License 1.0 w/clause 8
+    identifier: Artistic-1.0-cl8
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - The "Artistic License"
+    - Artistic License 1.0 (Perl)
+    identifier: Artistic-1.0-Perl
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Artistic License 2.0
     - Copyright (c) 2000-2006, The Perl Foundation
     - Artistic 2.0
     identifier: Artistic-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Baekmuk License
+    identifier: Baekmuk
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Bahyph License
+    - Copyright (c) GMV 1991
+    identifier: Bahyph
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Barr License
+    - Michael Barr
+    identifier: Barr
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Beerware License
+    - THE BEER-WARE LICENSE
+    identifier: Beerware
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'Y'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Bitstream Vera Font License
+    - Bitstream Vera
+    identifier: Bitstream-Vera
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BitTorrent Open Source License v1.0
+    - BitTorrent Open Source License Version 1.0
+    identifier: BitTorrent-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - BitTorrent Open Source License v1.1
+    identifier: BitTorrent-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - SQLite Blessing
+    - here is a blessing
+    identifier: blessing
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'Y'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Blue Oak Model License 1.0.0
+    - "http://blueoakcouncil.org/license/1.0.0"
+    identifier: BlueOak-1.0.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Borceux license
+    - Copyright 1993 Francis Borceux
+    identifier: Borceux
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - BSD 1-Clause License
     identifier: BSD-1-Clause
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - BSD 2-Clause "Simplified" License
     - BSD 2-Clause
     - BSD-2-Clause
     - 2-clause BSD License
     identifier: BSD 2-Clause
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BSD-2-Clause Plus Patent License
+    identifier: BSD-2-Clause-Patent
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BSD 2-Clause with views sentence
+    identifier: BSD-2-Clause-Views
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - BSD 3-Clause "New" or "Revised" License
     - BSD-3-Clause
     - BSD 3-Clause
+    - BSD 3-Clause License
+    - 3-clause BSD
     identifier: BSD 3-Clause
-  # - alias:
-  #   - BSD 2-Clause "Simplified" License
-  #   - BSD 2-Clause
-  #   - BSD-2-Clause
-  #   - 2-clause BSD License
-  #   - BSD 3-Clause "New" or "Revised" License
-  #   - BSD-3-Clause
-  #   - BSD 3-Clause
-  #   identifier: BSD
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
-    - BSD-2-Clause Plus Patent License
-    identifier: BSD-2-Clause-Patent
+    - BSD with attribution
+    - "Universidad de Palermo, Argentina"
+    identifier: BSD-3-Clause-Attribution
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BSD 3-Clause Clear License
+    identifier: BSD-3-Clause-Clear
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Lawrence Berkeley National Labs BSD variant license
+    identifier: BSD-3-Clause-LBNL
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BSD 3-Clause Modification
+    identifier: BSD-3-Clause-Modification
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BSD 3-Clause No Military License
+    identifier: BSD-3-Clause-No-Military-License
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BSD 3-Clause No Nuclear License
+    - Copyright 1994-2009 Sun Microsystems, Inc.
+    identifier: BSD-3-Clause-No-Nuclear-License
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - BSD 3-Clause No Nuclear License 2014
+    - Copyright © 2008, 2014 Oracle and/or its affiliates
+    identifier: BSD-3-Clause-No-Nuclear-License-2014
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - BSD 3-Clause No Nuclear Warranty
+    - Copyright (c) 2003-2005 Sun Microsystems, Inc.
+    identifier: BSD-3-Clause-No-Nuclear-Warranty
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - BSD 3-Clause Open MPI variant
+    identifier: BSD-3-Clause-Open-MPI
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - BSD 4-Clause "Original" or "Old" License
+    identifier: BSD-4-Clause
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BSD 4 Clause Shortened
+    identifier: BSD-4-Clause-Shortened
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: '' 
+  - alias:
+    - BSD-4-Clause (University of California-Specific)
+    identifier: BSD-4-Clause-UC
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - BSD Protection License
+    identifier: BSD-Protection
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BSD Source Code Attribution
+    - Copyright (c) 2011, Deusty, LLC
+    identifier: BSD-Source-Code
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - Boost Software License 1.0
     - Boost Software License - Version 1.0
     - Boost
     identifier: BSL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Business Source License 1.1
+    identifier: BUSL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - bzip2 and libbzip2 License v1.0.5
+    - bzip2/libbzip2 version 1.0.5
+    identifier: bzip2-1.0.5
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - bzip2 and libbzip2 License v1.0.6
+    - bzip2/libbzip2 version 1.0.6
+    identifier: bzip2-1.0.6
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Computational Use of Data Agreement v1.0
+    identifier: C-UDA-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Cryptographic Autonomy License 1.0
+    identifier: CAL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Cryptographic Autonomy License 1.0 (Combined Work Exception)
+    identifier: CAL-1.0-Combined-Work-Exception
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Caldera License
+    - Caldera International, Inc.
+    identifier: Caldera
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - Computer Associates Trusted Open Source License 1.1
     - COMPUTER ASSOCIATES TRUSTED OPEN SOURCE LICENSE
     - Computer Associates Trusted Open Source License Version 1.1
     - CATOSL
     identifier: CATOSL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 1.0 Generic
+    - Creative Commons Attribution 1.0
+    identifier: CC-BY-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 2.0 Generic
+    - Creative Commons Attribution 2.0
+    identifier: CC-BY-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 2.5 Generic
+    - Creative Commons Attribution 2.0
+    identifier: CC-BY-2.5
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 2.5 Australia
+    identifier: CC-BY-2.5-AU
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 3.0 Unported
+    - Creative Commons Attribution 3.0
+    identifier: CC-BY-3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 3.0 Austria
+    identifier: CC-BY-3.0-AT
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 3.0 Germany
+    identifier: CC-BY-3.0-DE
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 3.0 Netherlands
+    identifier: CC-BY-3.0-NL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 3.0 United States
+    identifier: CC-BY-3.0-US
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution 4.0 International
+    identifier: CC-BY-4.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial 1.0 Generic
+    - Creative Commons Attribution-NonCommercial 1.0
+    identifier: CC-BY-NC-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial 2.0 Generic
+    - Creative Commons Attribution-NonCommercial 2.0
+    identifier: CC-BY-NC-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial 2.5 Generic
+    - Creative Commons Attribution-NonCommercial 2.5
+    identifier: CC-BY-NC-2.5
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial 3.0 Unported
+    - Creative Commons Attribution-NonCommercial 3.0
+    identifier: CC-BY-NC-3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial 3.0 Germany
+    identifier: CC-BY-NC-3.0-DE
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial 4.0 International
+    - Creative Commons Attribution-NonCommercial 4.0
+    identifier: CC-BY-NC-4.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
+    - Creative Commons Attribution-NoDerivs-NonCommercial 1.0
+    identifier: CC-BY-NC-ND-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
+    - Creative Commons Attribution-NonCommercial-NoDerivs 2.0
+    identifier: CC-BY-NC-ND-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
+    - Creative Commons Attribution-NonCommercial-NoDerivs 2.5
+    identifier: CC-BY-NC-ND-2.5
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
+    - Creative Commons Attribution-NonCommercial-NoDerivs 3.0
+    identifier: CC-BY-NC-ND-3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial No Derivatives 3.0 Germany
+    identifier: CC-BY-NC-ND-3.0-DE
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial No Derivatives 3.0 IGO
+    identifier: CC-BY-NC-ND-3.0-IGO
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial No Derivatives 4.0 International
+    - Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+    identifier: CC-BY-NC-ND-4.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
+    - Creative Commons Attribution-NonCommercial-ShareAlike 1.0
+    identifier: CC-BY-NC-SA-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
+    - Creative Commons Attribution-NonCommercial-ShareAlike 2.0
+    identifier: CC-BY-NC-SA-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution-NonCommercial-ShareAlike 2.0 France
+    identifier: CC-BY-NC-SA-2.0-FR
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial Share Alike 2.0 England and Wales
+    identifier: CC-BY-NC-SA-2.0-UK
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial Share Alike 2.5 Generic
+    - Creative Commons Attribution-NonCommercial-ShareAlike 2.5
+    identifier: CC-BY-NC-SA-2.5
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
+    - Creative Commons Attribution-NonCommercial-ShareAlike 3.0
+    identifier: CC-BY-NC-SA-3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial Share Alike 3.0 Germany
+    identifier: CC-BY-NC-SA-3.0-DE
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial Share Alike 3.0 IGO
+    identifier: CC-BY-NC-SA-3.0-IGO
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Non Commercial Share Alike 4.0 International
+    - Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+    identifier: CC-BY-NC-SA-4.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution No Derivatives 1.0 Generic
+    - Creative Commons Attribution-NoDerivs 1.0
+    identifier: CC-BY-ND-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution No Derivatives 2.0 Generic
+    - Creative Commons Attribution-NoDerivs 2.0
+    identifier: CC-BY-ND-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution No Derivatives 2.5 Generic
+    - Creative Commons Attribution-NoDerivs 2.5
+    identifier: CC-BY-ND-2.5
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution No Derivatives 3.0 Unported
+    - Creative Commons Attribution-NoDerivs 3.0
+    identifier: CC-BY-ND-3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution No Derivatives 3.0 Germany
+    identifier: CC-BY-ND-3.0-DE
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution No Derivatives 4.0 International
+    - Creative Commons Attribution-NoDerivatives 4.0
+    identifier: CC-BY-ND-4.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Share Alike 1.0 Generic
+    - Creative Commons Attribution-ShareAlike 1.0
+    identifier: CC-BY-SA-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Share Alike 2.0 Generic
+    - Creative Commons Attribution-ShareAlike 2.0
+    identifier: CC-BY-SA-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Share Alike 2.0 England and Wales
+    identifier: CC-BY-SA-2.0-UK
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Share Alike 2.1 Japan
+    identifier: CC-BY-SA-2.1-JP
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Share Alike 2.5 Generic
+    - Creative Commons Attribution-ShareAlike 2.5
+    identifier: CC-BY-SA-2.5
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Share Alike 3.0 Unported
+    - Attribution-ShareAlike 3.0
+    identifier: CC-BY-SA-3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Share Alike 3.0 Austria
+    identifier: CC-BY-SA-3.0-AT
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Share Alike 3.0 Germany
+    identifier: CC-BY-SA-3.0-DE
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Attribution Share Alike 4.0 International
+    - Creative Commons Attribution-ShareAlike 4.0 International
+    identifier: CC-BY-SA-4.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Creative Commons Public Domain Dedication and Certification
+    identifier: CC-PDDC
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Creative Commons Zero v1.0 Universal
+    - CC0
+    - CC0 1.0 Universal
+    identifier: CC0-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Common Development and Distribution License 1.0
     - COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
     identifier: CDDL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Common Development and Distribution License 1.1
+    - COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.1
+    identifier: CDDL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Common Documentation License 1.0
+    identifier: CDL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Community Data License Agreement Permissive 1.0
+    - Community Data License Agreement - Permissive, Version 1.0
+    identifier: CDLA-Permissive-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Community Data License Agreement Permissive 2.0
+    identifier: CDLA-Permissive-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Community Data License Agreement Sharing 1.0
+    - Community Data License Agreement - Sharing, Version 1.0
+    identifier: CDLA-Sharing-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - CeCILL Free Software License Agreement v1.0
+    - CONTRAT DE LICENCE DE LOGICIEL LIBRE CeCILL
+    identifier: CECILL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - CeCILL Free Software License Agreement v1.1
+    - FREE SOFTWARE LICENSING AGREEMENT CeCILL
+    identifier: CECILL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - CeCILL Free Software License Agreement v2.0
+    identifier: CECILL-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - CeCILL Free Software License Agreement v2.1
+    identifier: CECILL-2.1
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - CeCILL-B Free Software License Agreement
+    identifier: CECILL-B
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - CeCILL-C Free Software License Agreement
+    identifier: CECILL-C
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - CERN Open Hardware Licence v1.1
+    - CERN OHL v1.1
+    identifier: CERN-OHL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - CERN Open Hardware Licence v1.2
+    - CERN OHL v1.2
+    identifier: CERN-OHL-1.2
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - CERN Open Hardware Licence Version 2 - Permissive
+    identifier: CERN-OHL-P-2.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - CERN Open Hardware Licence Version 2 - Strongly Reciprocal
+    identifier: CERN-OHL-S-2.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - CERN Open Hardware Licence Version 2 - Weakly Reciprocal
+    identifier: CERN-OHL-W-2.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Clarified Artistic License
+    identifier: ClArtistic
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - CNRI Jython License
+    - JPython or CNRI
+    identifier: CNRI-Jython
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - CNRI Python License
     - CNRIs License Agreement is retained in Python 1.6b1
     - CNRI OPEN SOURCE LICENSE AGREEMENT
     identifier: CNRI-Python
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - CNRI Python Open Source GPL Compatible License Agreement
+    - CNRI OPEN SOURCE GPL-COMPATIBLE LICENSE AGREEMENT
+    identifier: CNRI-Python-GPL-Compatible
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Copyfree Open Innovation License
+    identifier: COIL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'  
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Community Specification License 1.0
+    identifier: Community-Spec-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Condor Public License v1.1
+    identifier: Condor-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - copyleft-next 0.3.0
+    identifier: copyleft-next-0.3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，有很多特殊条款，Fedora也未引入该协议'
+  - alias:
+    - copyleft-next 0.3.1
+    identifier: copyleft-next-0.3.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，有很多特殊条款，Fedora也未引入该协议'
   - alias:
     - Common Public Attribution License 1.0
     - Common Public Attribution License Version 1.0 (CPAL)
     - CPAL
     identifier: CPAL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Common Public License 1.0
     - Common Public License Version 1.0
     - CPL
     identifier: CPL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Code Project Open License 1.02
+    - Code Project Open License (CPOL) 1.02
+    identifier: CPOL-1.02
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Crossword License
+    - cwpuzzle.dtx
+    identifier: Crossword
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - CrystalStacker License
+    - Crystal Stacker
+    identifier: CrystalStacker
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - CUA Office Public License v1.0
+    identifier: CUA-OPL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Cube License
+    - Cube game engine source code
+    identifier: Cube
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - curl License
+    - Copyright (c) 1996 - 2021, Daniel Stenberg
+    identifier: curl
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Deutsche Freie Software Lizenz
+    identifier: D-FSL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - diffmark license
+    - 1. you can do what you want with it 2. I refuse any responsibility for the consequences
+    identifier: diffmark
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Data licence Germany – attribution – version 2.0
+    identifier: DL-DE-BY-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - DOC License
+    - DOC software
+    identifier: DOC
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Dotseqn License
+    - Copyright (C) 1995 by Donald Arseneau
+    identifier: Dotseqn
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Detection Rule License 1.0
+    identifier: DRL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - DSDP License
+    - owned by The United States Government, and operated by the University of Chicago
+    identifier: DSDP
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - dvipdfm License
+    - should be distributed with a *different* name
+    identifier: dvipdfm
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Educational Community License v1.0
+    identifier: ECL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Educational Community License v2.0
     - Educational Community License version 2.0
     - ECL 2.0
     identifier: ECL-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Eiffel Forum License v1.0
+    identifier: EFL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Eiffel Forum License v2.0
     - Eiffel Forum License, version 2
     - EFL 2.0
     identifier: EFL-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - eGenix.com Public License 1.1.0
+    - EGENIX.COM PUBLIC LICENSE AGREEMENT Version 1.1.0
+    identifier: eGenix
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Elastic License 2.0
+    identifier: Elastic-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Entessa Public License v1.0
+    identifier: Entessa
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - EPICS Open License
+    identifier: EPICS
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Eclipse Public License 1.0
     - Eclipse Public License v1.0
     - Eclipse Public License - v 1.0
     identifier: EPL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Eclipse Public License 2.0
     - Eclipse Public License v2.0
     - Eclipse Public License - v 2.0
     identifier: EPL-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Erlang Public License v1.1
+    - ERLANG PUBLIC LICENSE Version 1.1
+    identifier: ErlPL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Etalab Open License 2.0
+    - OPEN LICENCE 2.0 LICENCE OUVERTE 2.0
+    identifier: etalab-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - EU DataGrid Software License
     - EU Datagrid
     identifier: EUDatagrid
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - European Union Public License 1.0
+    - European Union Public Licence V.1.0
+    identifier: EUPL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - European Union Public License 1.1
     - EUPL V.1.1
     - EUPL 1.1
     identifier: EUPL-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - European Union Public License 1.2
     - EUPL v. 1.2
     - EUPL 1.2
     identifier: EUPL-1.2
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Eurosym License
+    - Copyright (c) 1999-2002 Henrik Theiling Licence Version 2
+    identifier: Eurosym
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - Fair License
     identifier: Fair
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Fraunhofer FDK AAC Codec Library
+    identifier: FDK-AAC
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Frameworx Open License 1.0
+    identifier: Frameworx-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - FreeBSD Documentation License
+    identifier: FreeBSD-DOC
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - FreeImage Public License v1.0
+    - FreeImage Public License - Version 1.0
+    identifier: FreeImage
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - FSF All Permissive License
+    identifier: FSFAP
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - FSF Unlimited License
+    - Copyright (C) 1992-1996, 1998-2012 Free Software Foundation, Inc.
+    identifier: FSFUL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - FSF Unlimited License (with License Retention)
+    - Copyright 1996-2006 Free Software Foundation, Inc.
+    identifier: FSFULLR
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Freetype Project License
+    identifier: FTL
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GD License
+    identifier: GD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.1 only - invariants
+    identifier: GFDL-1.1-invariants-only
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.1 or later - invariants
+    identifier: GFDL-1.1-invariants-or-later
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.1 only - no invariants
+    identifier: GFDL-1.1-no-invariants-only
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.1 or later - no invariants
+    identifier: GFDL-1.1-no-invariants-or-later
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.1 only
+    identifier: GFDL-1.1-only
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.1 or later
+    identifier: GFDL-1.1-or-later
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.2 only - invariants
+    identifier: GFDL-1.2-invariants-only
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.2 or later - invariants
+    identifier: GFDL-1.2-invariants-or-later
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.2 only - no invariants
+    identifier: GFDL-1.2-no-invariants-only
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.2 or later - no invariants
+    identifier: GFDL-1.2-no-invariants-or-later
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.2 only
+    identifier: GFDL-1.2-only
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.2 or later
+    identifier: GFDL-1.2-or-later
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.3 only - invariants
+    identifier: GFDL-1.3-invariants-only
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.3 or later - invariants
+    identifier: GFDL-1.3-invariants-or-later
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.3 only - no invariants
+    identifier: GFDL-1.3-no-invariants-only
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.3 or later - no invariants
+    identifier: GFDL-1.3-no-invariants-or-later
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.3 only
+    - GNU Free Documentation License, Version 1.3
+    - GFDLv1.3
+    - GFDL 1.3
+    - GFDL-1.3
+    identifier: GFDL-1.3-only
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU Free Documentation License v1.3 or later
+    identifier: GFDL-1.3-or-later
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Giftware License
+    - Allegro 4 (the giftware license)
+    identifier: Giftware
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - GL2PS License
+    - GL2PS LICENSE Version 2
+    identifier: GL2PS
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - 3dfx Glide License
+    - 3dfx GLIDE Source Code General Public License
+    identifier: Glide
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Glulxe License
+    identifier: Glulxe
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Good Luck With That Public License
+    identifier: GLWTPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - gnuplot License
+    identifier: gnuplot
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，对修改有一定限制，只能以Patch的形式分布修改，不允许直接发布完整的修改版本'
+  - alias:
+    - GNU General Public License v1.0 only
+    - GNU General Public License, version 1
+    - GPL v1.0
+    - GPL 1.0
+    - GPL-1.0
+    identifier: GPL-1.0-only
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU General Public License v1.0 or later
+    - GPL+
+    - GPL v1.0+
+    - GPL 1.0+
+    - GPL-1.0+
+    - GPLv1+
+    identifier: GPL-1.0-or-later
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU General Public License v2.0 only
     - GPL(==-2)
@@ -1077,8 +2528,15 @@ Software Licenses:
     - GPL v2.0
     - GNU GPL v2
     identifier: GPL-2.0-only
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU General Public License v2.0 or later
+    - GNU General Public License v2 or later
     - GNU GENERAL PUBLIC LICENSE Version 2
     - GPL(>=-2)
     - GPL(>=-2.0)
@@ -1088,9 +2546,16 @@ Software Licenses:
     - GPLv2+
     - GPLV2+
     identifier: GPL-2.0-or-later
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU General Public License v3.0 only
     - version 3 of the GNU General Public License
+    - GNU General Public License v3
     - GPL-3.0
     - GPLV3
     - GPLv3
@@ -1098,6 +2563,12 @@ Software Licenses:
     - GPL-3
     - GPL3.0
     identifier: GPL-3.0-only
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU General Public License v3.0 or later
     - GPL(>=-3)
@@ -1106,27 +2577,271 @@ Software Licenses:
     - GPL-3.0+
     - GPLv3+
     identifier: GPL-3.0-or-later
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - gSOAP Public License v1.3b
+    identifier: gSOAP-1.3b
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Haskell Language Report License
+    identifier: HaskellReport
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Hippocratic License 2.1
+    identifier: Hippocratic-2.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - Historical Permission Notice and Disclaimer
     identifier: HPND
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
-    - Intel Open Source License
-    identifier: Intel
+    - Historical Permission Notice and Disclaimer - sell variant
+    identifier: HPND-sell-variant
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
-    - IPA Font License
-    identifier: IPA
+    - HTML Tidy License
+    identifier: HTMLTIDY
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - IBM PowerPC Initialization and Boot Software
+    identifier: IBM-pibs
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - ICU License
     identifier: ICU
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Independent JPEG Group License
+    - Independent JPEG Group
+    identifier: IJG
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - ImageMagick License
+    - ImageMagick license
+    identifier: ImageMagick
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - iMatix Standard Function Library Agreement
+    identifier: iMatix
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Imlib2 License
+    identifier: Imlib2
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N' 
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Info-ZIP License
+    identifier: Info-ZIP
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，免费协议，但有比较多的声明义务，Fedora并没有引入该协议'
+  - alias:
+    - Intel Open Source License
+    identifier: Intel
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Intel ACPI Software License Agreement
+    identifier: Intel-ACPI
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Interbase Public License v1.0
+    - INTERBASE PUBLIC LICENSE Version 1.0
+    identifier: Interbase-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - IPA Font License
+    identifier: IPA
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - IBM Public License v1.0
     - IBM PUBLIC LICENSE
     identifier: IPL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - ISC License
     - ISC license
     - Copyright © 2004-2013 by Internet Systems Consortium, Inc. (“ISC”)
     identifier: ISC
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Jam License
+    identifier: Jam
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - JasPer License
+    identifier: JasPer-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Japan Network Information Center License
+    identifier: JPNIC
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - JSON License
+    identifier: JSON
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: 'Fedora将其列入黑名单，因为条款"The Software shall be used for Good, not Evil" 难以遵从'
+  - alias:
+    - KiCad Libraries Exception
+    identifier: KiCad-libraries-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Licence Art Libre 1.2
+    identifier: LAL-1.2
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Licence Art Libre 1.3
+    identifier: LAL-1.3
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Latex2e License
+    identifier: Latex2e
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Leptonica License
+    - Leptonica
+    identifier: Leptonica
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU Library General Public License v2 only
     - first released version of the library GPL
@@ -1136,6 +2851,12 @@ Software Licenses:
     - LGPL-2
     - LGPL v2.0
     identifier: LGPL-2.0-only
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU Library General Public License v2 or later
     - LGPL(>=-2)
@@ -1144,20 +2865,40 @@ Software Licenses:
     - LGPL-2+
     - LGPLv2+
     identifier: LGPL-2.0-or-later
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU Lesser General Public License v2.1 only
     - GNU Library Public License, version 2, hence the version number 2.1
     - LGPL-2.1
     - LGPLv2.1
     - LGPL 2.1
+    - LGPLv2.1-only
     identifier: LGPL-2.1-only
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU Lesser General Public License v2.1 or later
     - LGPL(>=-2.1)
     - LGPL-2.1+
     - LGPLv2.1+
     - LGPL v2.1
+    - LGPL 2.1+
     identifier: LGPL-2.1-or-later
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU Lesser General Public License v3.0 only
     - version 3 of the GNU Lesser General Public License
@@ -1166,6 +2907,12 @@ Software Licenses:
     - LGPL-3
     - LGPL v3
     identifier: LGPL-3.0-only
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - GNU Lesser General Public License v3.0 or later
     - LGPL-3+
@@ -1173,18 +2920,188 @@ Software Licenses:
     - LGPLv3+
     - LGPL3+
     identifier: LGPL-3.0-or-later
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Lesser General Public License For Linguistic Resources
+    identifier: LGPLLR
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - libpng License
+    - libpng-1.0.6
+    - LibPng
+    identifier: Libpng
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - PNG Reference Library version 2
+    identifier: libpng-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - libselinux public domain notice
+    identifier: libselinux-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - libtiff License
+    identifier: libtiff
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Licence Libre du Québec – Permissive version 1.1
+    identifier: LiLiQ-P-1.1
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Licence Libre du Quebec - Reciprocite version 1.1
+    identifier: LiLiQ-R-1.1
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Licence Libre du Quebec - Reciprocite forte version 1.1
+    identifier: LiLiQ-Rplus-1.1
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Linux man-pages Copyleft
+    identifier: Linux-man-pages-copyleft
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Linux Kernel Variant of OpenIB.org license
+    identifier: Linux-OpenIB
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Lucent Public License Version 1.0
+    identifier: LPL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Lucent Public License v1.02
     - Lucent Public License Version 1.02
     - LPL
     identifier: LPL-1.02
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - LaTeX Project Public License v1.0
+    identifier: LPPL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - LaTeX Project Public License v1.1
+    identifier: LPPL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - LaTeX Project Public License v1.2
+    identifier: LPPL-1.2
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - LaTeX Project Public License v1.3a
+    identifier: LPPL-1.3a
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - LaTeX Project Public License v1.3c
     - LPPL Version 1.3c
     identifier: LPPL-1.3c
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - MakeIndex License
+    identifier: MakeIndex
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - The MirOS Licence
     identifier: MirOS
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - MIT License
     - MIT license
@@ -1195,21 +3112,126 @@ Software Licenses:
     - MIT/X
     - expat
     identifier: MIT
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - MIT No Attribution
+    identifier: MIT-0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Enlightenment License (e16)
+    identifier: MIT-advertising
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - CMU License
+    identifier: MIT-CMU
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - enna License
+    identifier: MIT-enna
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - feh License
+    identifier: MIT-feh
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - MIT License Modern Variant
+    identifier: MIT-Modern-Variant
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - MIT Open Group variant
+    identifier: MIT-open-group
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - MIT +no-false-attribs License
+    identifier: MITNFA
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Motosoto License
     - Motosoto Open Source License
     identifier: Motosoto
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - mpich2 License
+    identifier: mpich2
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - Mozilla Public License 1.0
     - MOZILLA PUBLIC LICENSE Version 1.0
     - Mozilla Public License Version 1.0
     - MPLv1.0
     identifier: MPL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Mozilla Public License 1.1
     - Mozilla Public License Version 1.1
     - MPLv1.1
     identifier: MPL-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Mozilla Public License 2.0
     - "https://mozilla.org/MPL/2.0/"
@@ -1221,12 +3243,69 @@ Software Licenses:
     - MPL2
     - MPL 2.0
     identifier: MPL-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Mozilla Public License 2.0 (no copyleft exception)
+    identifier: MPL-2.0-no-copyleft-exception
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - mplus Font License
+    identifier: mplus
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Microsoft Public License
     identifier: MS-PL
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Microsoft Reciprocal License
     identifier: MS-RL
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Matrix Template Library License
+    identifier: MTLL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Mulan Permissive Software License v1
+    - Mulan PSL v1
+    - Mulan v1.0
+    - Mulan 2.0
+    identifier: MulanPSL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Mulan Permissive Software License, Version 2
     - "http://license.coscl.org.cn/MulanPSL2"
@@ -1234,461 +3313,1999 @@ Software Licenses:
     - Mulan PSL V2
     - Mulan 2.0
     - Mulan v2
+    - MulanPSL2
     identifier: MulanPSL-2.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Multics License
+    identifier: Multics
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Mup License
+    identifier: Mup
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Nara Institute of Science and Technology License (2003)
+    identifier: NAIST-2003
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - NASA Open Source Agreement 1.3
+    identifier: NASA-1.3
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Naumen Public License
     identifier: Naumen
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Net Boolean Public License v1
+    identifier: NBPL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Non-Commercial Government Licence
+    identifier: NCGL-UK-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - University of Illinois/NCSA Open Source License
     identifier: NCSA
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Net-SNMP License
+    identifier: Net-SNMP
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - NetCDF license
+    - Copyright 1993-2014 University Corporation for Atmospheric Research/Unidata
+    identifier: NetCDF
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Newsletr License
+    identifier: Newsletr
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - Nethack General Public License
     identifier: NGPL
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - NIST Public Domain Notice
+    identifier: NIST-PD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - NIST Public Domain Notice with license fallback
+    identifier: NIST-PD-fallback
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Norwegian Licence for Open Government Data
+    identifier: NLOD-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Norwegian Licence for Open Government Data (NLOD) 2.0
+    identifier: NLOD-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - No Limit Public License
+    identifier: NLPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - Nokia Open Source License
     identifier: Nokia
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Netizen Open Source License
+    identifier: NOSL
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Noweb License
+    identifier: Noweb
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Netscape Public License v1.0
+    identifier: NPL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Netscape Public License v1.1
+    identifier: NPL-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Non-Profit Open Software License 3.0
+    identifier: NPOSL-3.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - NRL License
+    identifier: NRL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - NTP License
     identifier: NTP
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - NTP No Attribution
+    identifier: NTP-0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Open Use of Data Agreement v1.0
+    identifier: O-UDA-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Open CASCADE Technology Public License
+    identifier: OCCT-PL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - OCLC Research Public License 2.0
+    identifier: OCLC-2.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - ODC Open Database License v1.0
+    - Open Data Commons Open Database License v1.0
+    identifier: ODbL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open Data Commons Attribution License v1.0
+    identifier: ODC-By-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - SIL Open Font License 1.0
+    - SIL OFL 1.0
+    identifier: OFL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该协议适用于字体，在GPLv2的基础上增加了例外条款，如果使用此字体创建文档，并且将此字体嵌入到文档中，并不会导致生成的文件被GPL协议覆盖，另外在分发的时候也要确保支持修改和安装。该协议也明确规定受美国法律管辖'
+  - alias:
+    - SIL Open Font License 1.0 with no Reserved Font Name
+    identifier: OFL-1.0-no-RFN
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该协议适用于字体，在GPLv2的基础上增加了例外条款，如果使用此字体创建文档，并且将此字体嵌入到文档中，并不会导致生成的文件被GPL协议覆盖，另外在分发的时候也要确保支持修改和安装。该协议也明确规定受美国法律管辖'
+  - alias:
+    - SIL Open Font License 1.0 with Reserved Font Name
+    identifier: OFL-1.0-RFN
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该协议适用于字体，在GPLv2的基础上增加了例外条款，如果使用此字体创建文档，并且将此字体嵌入到文档中，并不会导致生成的文件被GPL协议覆盖，另外在分发的时候也要确保支持修改和安装。该协议也明确规定受美国法律管辖'
   - alias:
     - SIL Open Font License 1.1
     - SIL Open Font License, Version 1.1
     - SIL OFL 1.1
     identifier: OFL-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该协议适用于字体，在GPLv2的基础上增加了例外条款，如果使用此字体创建文档，并且将此字体嵌入到文档中，并不会导致生成的文件被GPL协议覆盖，另外在分发的时候也要确保支持修改和安装。该协议也明确规定受美国法律管辖'
+  - alias:
+    - SIL Open Font License 1.1 with no Reserved Font Name
+    identifier: OFL-1.1-no-RFN
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该协议适用于字体，在GPLv2的基础上增加了例外条款，如果使用此字体创建文档，并且将此字体嵌入到文档中，并不会导致生成的文件被GPL协议覆盖，另外在分发的时候也要确保支持修改和安装。该协议也明确规定受美国法律管辖'
+  - alias:
+    - SIL Open Font License 1.1 with Reserved Font Name
+    identifier: OFL-1.1-RFN
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该协议适用于字体，在GPLv2的基础上增加了例外条款，如果使用此字体创建文档，并且将此字体嵌入到文档中，并不会导致生成的文件被GPL协议覆盖，另外在分发的时候也要确保支持修改和安装。该协议也明确规定受美国法律管辖'
+  - alias:
+    - OGC Software License, Version 1.0
+    identifier: OGC-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Taiwan Open Government Data License, version 1.0
+    identifier: OGDL-Taiwan-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open Government Licence - Canada
+    identifier: OGL-Canada-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Open Government Licence v1.0
+    identifier: OGL-UK-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Open Government Licence v2.0
+    identifier: OGL-UK-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Open Government Licence v3.0
+    identifier: OGL-UK-3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Open Group Test Suite License
+    identifier: OGTSL
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v1.1
+    identifier: OLDAP-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v1.2
+    identifier: OLDAP-1.2
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v1.3
+    identifier: OLDAP-1.3
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v1.4
+    identifier: OLDAP-1.4
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)
+    identifier: OLDAP-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.0.1
+    identifier: OLDAP-2.0.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.1
+    identifier: OLDAP-2.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.2
+    identifier: OLDAP-2.2
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.2.1
+    identifier: OLDAP-2.2.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License 2.2.2
+    identifier: OLDAP-2.2.2
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.3
+    identifier: OLDAP-2.3
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.4
+    identifier: OLDAP-2.4
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.5
+    identifier: OLDAP-2.5
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.6
+    identifier: OLDAP-2.6
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.7
+    identifier: OLDAP-2.7
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open LDAP Public License v2.8
+    identifier: OLDAP-2.8
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open Market License
+    - copyrighted by Open Market
+    identifier: OML
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - OpenSSL License
+    - "http://www.openssl.org/"
+    identifier: OpenSSL
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open Public License v1.0
+    identifier: OPL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Open Publication License v1.0
+    identifier: OPUBL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - OSET Public License version 2.1
+    identifier: OSET-PL-2.1
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Open Software License 1.0
     - Open Software License version 1.0
     - OSL 1.0
     identifier: OSL-1.0
-  - alias:
-    - Open Software License 2.0
-    - Open Software License version 2.0
-    - OSL 2.0
-    identifier: OSL-2.0
-  - alias:
-    - Open Software License 2.1
-    - Open Software License version 2.1
-    - OSL 2.1
-    identifier: OSL-2.1
-  - alias:
-    - Open Software License 3.0
-    - Open Software License version 3.0
-    - OSL 3.0
-    identifier: OSL-3.0
-  - alias:
-    - PHP License v3.0
-    - The PHP License version 3.0
-    identifier: PHP-3.0
-  - alias:
-    - PostgreSQL License
-    identifier: PostgreSQL
-  - alias:
-    - Python License 2.0
-    - Python License, Version 2
-    - PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
-    identifier: Python-2.0
-  - alias:
-    - Q Public License 1.0
-    - Q Public License version 1.0
-    identifier: QPL-1.0
-  - alias:
-    - RealNetworks Public Source License v1.0
-    - RealNetworks Public Source License version 1.0
-    identifier: RPSL-1.0
-  - alias:
-    - Sun Industry Standards Source License v1.1
-    identifier: SISSL
-  - alias:
-    - Sleepycat License
-    - Sleepycat Software
-    identifier: Sleepycat
-  - alias:
-    - Sun Public License v1.0
-    - SUN PUBLIC LICENSE Version 1.0
-    - Sun Public License Version 1.0
-    identifier: SPL-1.0
-  - alias:
-    - Universal Permissive License v1.0
-    - Universal Permissive License (UPL), Version 1.0
-    identifier: UPL-1.0
-  - alias:
-    - Vovida Software License v1.0
-    - The Vovida Software License, Version 1.0
-    identifier: VSL-1.0
-  - alias:
-    - W3C Software Notice and License (2002-12-31)
-    - "http://www.w3.org/Consortium/Legal/2002"
-    identifier: W3C
-  - alias:
-    - zlib License
-    - zlib
-    - zlib/libpng
-    identifier: Zlib
-  - alias:
-    - Zope Public License 2.0
-    - Zope Public License (ZPL) Version 2.0
-    - ZPLv2.0
-    - ZPL 2.0
-    identifier: ZPL-2.0
-  - alias:
-    - Mulan Permissive Software License v1
-    - Mulan PSL v1
-    - Mulan v1.0
-    - Mulan 2.0
-    identifier: MulanPSL-1.0
-  - alias:
-    - Zope Public License 2.1
-    - Zope Public License (ZPL) Version 2.1
-    - ZPLv2.1
-    - ZPL 2.1
-    identifier: ZPL-2.1
-  - alias:
-    - OpenSSL License
-    - "http://www.openssl.org/"
-    identifier: OpenSSL
-  - alias:
-    - Independent JPEG Group License
-    - Independent JPEG Group
-    identifier: IJG
-  - alias:
-    - Creative Commons Attribution 1.0 Generic
-    - Creative Commons Attribution 1.0
-    identifier: CC-BY-1.0
-  - alias:
-    - Creative Commons Attribution 3.0 Unported
-    - Creative Commons Attribution 3.0
-    identifier: CC-BY-3.0
-  - alias:
-    - Creative Commons Attribution Share Alike 1.0 Generic
-    - Creative Commons Attribution-ShareAlike 1.0
-    identifier: CC-BY-SA-1.0
-  - alias:
-    - Creative Commons Attribution 4.0 International
-    identifier: CC-BY-4.0
-  - alias:
-    - Creative Commons Attribution Share Alike 4.0 International
-    - Creative Commons Attribution-ShareAlike 4.0 International
-    identifier: CC-BY-SA-4.0
-  - alias:
-    - Ruby License
-    identifier: Ruby
-  - alias:
-    - Creative Commons Zero v1.0 Universal
-    - CC0
-    - CC0 1.0 Universal
-    identifier: CC0-1.0
-  - alias:
-    - TCL/TK License
-    - copyrighted by the Regents of the University of California, Sun Microsystems, Inc.
-    identifier: TCL
-  - alias:
-    - The Unicode Character Database
-    identifier: UCD
-  - alias:
-    - GNU Free Documentation License v1.3 only
-    - GNU Free Documentation License, Version 1.3
-    - GFDLv1.3
-    - GFDL 1.3
-    - GFDL-1.3
-    identifier: GFDL-1.3-only
-  - alias:
-    - GNU General Public License v1.0 only
-    - GNU General Public License, version 1
-    - GPL v1.0
-    - GPL 1.0
-    - GPL-1.0
-    identifier: GPL-1.0-only
-  - alias:
-    - GNU General Public License v1.0 or later
-    - GPL+
-    - GPL v1.0+
-    - GPL 1.0+
-    - GPL-1.0+
-    - GPLv1+
-    identifier: GPL-1.0-or-later
-  - alias:
-    - Creative Commons Attribution Share Alike 3.0 Unported
-    - Attribution-ShareAlike 3.0
-    identifier: CC-BY-SA-3.0
-  - alias:
-    - NetCDF license
-    - Copyright 1993-2014 University Corporation for Atmospheric Research/Unidata
-    identifier: NetCDF
-  - alias:
-    - ImageMagick License
-    - ImageMagick license
-    identifier: ImageMagick
-  - alias:
-    - Do What The F*ck You Want To Public License
-    identifier: WTFPL
-  - alias:
-    - Freetype Project License
-    identifier: FTL
-  - alias:
-    - Saxpath License
-    identifier: Saxpath
-  - alias:
-    - JasPer License
-    identifier: JasPer-2.0
-  - alias:
-    - XPP License
-    identifier: xpp
-  - alias:
-    - Unicode License Agreement - Data Files and Software (2015)
-    identifier: Unicode-DFS-2015
-  - alias:
-    - Unicode License Agreement - Data Files and Software (2016)
-    identifier: Unicode-DFS-2016
-  - alias:
-    - Sendmail License
-    identifier: Sendmail
-  - alias:
-    - Sendmail License 8.23
-    identifier: Sendmail-8.23
-  - alias:
-    - Open LDAP Public License v1.1
-    identifier: OLDAP-1.1
-  - alias:
-    - Open LDAP Public License v1.2
-    identifier: OLDAP-1.2
-  - alias:
-    - Open LDAP Public License v1.3
-    identifier: OLDAP-1.3
-  - alias:
-    - Open LDAP Public License v1.4
-    identifier: OLDAP-1.4
-  - alias:
-    - Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)
-    identifier: OLDAP-2.0
-  - alias:
-    - Open LDAP Public License v2.0.1
-    identifier: OLDAP-2.0.1
-  - alias:
-    - Open LDAP Public License v2.1
-    identifier: OLDAP-2.1
-  - alias:
-    - Open LDAP Public License v2.2
-    identifier: OLDAP-2.2
-  - alias:
-    - Open LDAP Public License v2.2.1
-    identifier: OLDAP-2.2.1
-  - alias:
-    - Open LDAP Public License 2.2.2
-    identifier: OLDAP-2.2.2
-  - alias:
-    - Open LDAP Public License v2.4
-    identifier: OLDAP-2.4
-  - alias:
-    - Open LDAP Public License v2.5
-    identifier: OLDAP-2.5
-  - alias:
-    - Open LDAP Public License v2.6
-    identifier: OLDAP-2.6
-  - alias:
-    - Open LDAP Public License v2.8
-    identifier: OLDAP-2.8
-  - alias:
-    - libtiff License
-    identifier: libtiff
-  - alias:
-    - libpng License
-    - libpng-1.0.6
-    - LibPng
-    identifier: Libpng
-  - alias:
-    - PNG Reference Library version 2
-    identifier: libpng-2.0
-  - alias:
-    - Arphic Public License
-    - ARPHIC PUBLIC LICENSE
-    identifier: Arphic
-  - alias:
-    - xinetd License
-    - allowing xinetd as maintained by me (Rob Braun)
-    identifier: xinetd
-  - alias:
-    - Vim License
-    identifier: Vim
-  - alias:
-    - Scheme Widget Library (SWL) Software License Agreement
-    identifier: SWL
-  - alias:
-    - Original SSLeay License
-    identifier: SSLeay
-  - alias:
-    - SNIA Public License 1.1
-    - Storage Networking Industry Association
-    identifier: SNIA
-  - alias:
-    - Qhull License
-    - www.qhull.org
-    identifier: Qhull
-  - alias:
-    - psutils License
-    - PS Utilities Package
-    identifier: psutils
-  - alias:
-    - Plexus Classworlds License
-    - "http://classwords.codehaus.org/"
-    identifier: Plexus
-  - alias:
-    - Open Market License
-    - copyrighted by Open Market
-    identifier: OML
-  - alias:
-    - Old FSF Documentation License
-    identifier: OFSFDL
-  - alias:
-    - MIT +no-false-attribs License
-    identifier: MITNFA
-  - alias:
-    - Leptonica License
-    - Leptonica
-    identifier: Leptonica
-  - alias:
-    - Interbase Public License v1.0
-    - INTERBASE PUBLIC LICENSE Version 1.0
-    identifier: Interbase-1.0
-  - alias:
-    - GL2PS License
-    - GL2PS LICENSE Version 2
-    identifier: GL2PS
-  - alias:
-    - FSF All Permissive License
-    identifier: FSFAP
-  - alias:
-    - BSD Protection License
-    identifier: BSD-Protection
-  - alias:
-    - BSD with attribution
-    - "Universidad de Palermo, Argentina"
-    identifier: BSD-3-Clause-Attribution
-  - alias:
-    - Afmparse License
-    - (C) 1988, 1989 by Adobe Systems Incorporated
-    identifier: Afmparse
-  - alias:
-    - public domain
-    identifier: Public Domain
-  - alias:
-    - Zend License v2.0
-    identifier: Zend-2.0
-  - alias:
-    - ANTLR Software Rights Notice
-    - ANTLR 2 License
-    identifier: ANTLR-PD
-  Need Review Licenses:
-  - alias:
-    - Apache License 1.0
-    - Copyright (c) 1995-1999 The Apache Group
-    - ASL 1.0
-    identifier: Apache-1.0
-  - alias:
-    - BitTorrent Open Source License v1.1
-    identifier: BitTorrent-1.1
-  - alias:
-    - BSD 2-Clause FreeBSD License
-    identifier: BSD-2-Clause-FreeBSD
-  - alias:
-    - BSD 3-Clause Clear License
-    identifier: BSD-3-Clause-Clear
-  - alias:
-    - BSD 4-Clause "Original" or "Old" License
-    identifier: BSD-4-Clause
-  - alias:
-    - CeCILL Free Software License Agreement v2.0
-    identifier: CECILL-2.0
-  - alias:
-    - CeCILL-B Free Software License Agreement
-    identifier: CECILL-B
-  - alias:
-    - CeCILL-C Free Software License Agreement
-    identifier: CECILL-C
-  - alias:
-    - Clarified Artistic License
-    identifier: ClArtistic
-  - alias:
-    - Condor Public License v1.1
-    identifier: Condor-1.1
-  - alias:
-    - GNU Free Documentation License v1.1 only
-    identifier: GFDL-1.1-only
-  - alias:
-    - GNU Free Documentation License v1.1 or later
-    identifier: GFDL-1.1-or-later
-  - alias:
-    - GNU Free Documentation License v1.2 only
-    identifier: GFDL-1.2-only
-  - alias:
-    - GNU Free Documentation License v1.2 or later
-    identifier: GFDL-1.2-or-later
-  - alias:
-    - GNU Free Documentation License v1.3 or later
-    identifier: GFDL-1.3-or-later
-  - alias:
-    - gSOAP Public License v1.3b
-    identifier: gSOAP-1.3b
-  - alias:
-    - iMatix Standard Function Library Agreement
-    identifier: iMatix
-  - alias:
-    - Imlib2 License
-    identifier: Imlib2
-  - alias:
-    - LaTeX Project Public License v1.2
-    identifier: LPPL-1.2
-  - alias:
-    - LaTeX Project Public License v1.3a
-    identifier: LPPL-1.3a
-  - alias:
-    - Netizen Open Source License
-    identifier: NOSL
-  - alias:
-    - Netscape Public License v1.0
-    identifier: NPL-1.0
-  - alias:
-    - Netscape Public License v1.1
-    identifier: NPL-1.1
-  - alias:
-    - ODC Open Database License v1.0
-    identifier: ODbL-1.0
-  - alias:
-    - SIL Open Font License 1.0
-    - SIL OFL 1.0
-    identifier: OFL-1.0
-  - alias:
-    - Open LDAP Public License v2.3
-    identifier: OLDAP-2.3
-  - alias:
-    - Open LDAP Public License v2.7
-    identifier: OLDAP-2.7
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Open Software License 1.1
     - Open Software License version 1.1
     - OSL 1.1
     - OSL-1.1
     identifier: OSL-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open Software License 2.0
+    - Open Software License version 2.0
+    - OSL 2.0
+    identifier: OSL-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open Software License 2.1
+    - Open Software License version 2.1
+    - OSL 2.1
+    identifier: OSL-2.1
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open Software License 3.0
+    - Open Software License version 3.0
+    - OSL 3.0
+    identifier: OSL-3.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - The Parity Public License 6.0.0
+    identifier: Parity-6.0.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - The Parity Public License 7.0.0
+    identifier: Parity-7.0.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - ODC Public Domain Dedication & License 1.0
+    identifier: PDDL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - PHP License v3.0
+    - The PHP License version 3.0
+    identifier: PHP-3.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - PHP License v3.01
     identifier: PHP-3.01
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Plexus Classworlds License
+    - "http://classwords.codehaus.org/"
+    identifier: Plexus
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - PolyForm Noncommercial License 1.0.0
+    identifier: PolyForm-Noncommercial-1.0.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - PolyForm Small Business License 1.0.0
+    identifier: PolyForm-Small-Business-1.0.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - PostgreSQL License
+    identifier: PostgreSQL
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Python Software Foundation License 2.0
+    identifier: PSF-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，Python许可证的版本很多，对于Python2.0版本，其协议条款明确规定协议应当根据美国加州法律解释和管辖'
+  - alias:
+    - psfrag License
+    identifier: psfrag
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - psutils License
+    - PS Utilities Package
+    identifier: psutils
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Python License 2.0
+    - Python License, Version 2
+    - PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
+    identifier: Python-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Qhull License
+    - www.qhull.org
+    identifier: Qhull
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Q Public License 1.0
+    - Q Public License version 1.0
+    identifier: QPL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Rdisc License
+    identifier: Rdisc
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Red Hat eCos Public License v1.1
+    identifier: RHeCos-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Reciprocal Public License 1.1
+    identifier: RPL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Reciprocal Public License 1.5
+    identifier: RPL-1.5
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - RealNetworks Public Source License v1.0
+    - RealNetworks Public Source License version 1.0
+    identifier: RPSL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - RSA Message-Digest License
+    identifier: RSA-MD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Ricoh Source Code Public License
+    identifier: RSCPL
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Ruby License
+    identifier: Ruby
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Sax Public Domain Notice
+    identifier: SAX-PD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Saxpath License
+    identifier: Saxpath
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - SCEA Shared Source License
+    identifier: SCEA
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Scheme Language Report License
+    identifier: SchemeReport
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Sendmail License
+    identifier: Sendmail
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Sendmail License 8.23
+    identifier: Sendmail-8.23
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - SGI Free Software License B v1.0
+    identifier: SGI-B-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - SGI Free Software License B v1.1
+    identifier: SGI-B-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - SGI Free Software License B v2.0
     identifier: SGI-B-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Solderpad Hardware License v0.5
+    identifier: SHL-0.5
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Solderpad Hardware License, Version 0.51
+    identifier: SHL-0.51
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Simple Public License 2.0
+    identifier: SimPL-2.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Sun Industry Standards Source License v1.1
+    identifier: SISSL
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Sun Industry Standards Source License v1.2
+    - SUN INDUSTRY STANDARDS SOURCE LICENSE Version 1.2
+    identifier: SISSL-1.2
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Sleepycat License
+    - Sleepycat Software
+    identifier: Sleepycat
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Standard ML of New Jersey License
     identifier: SMLNJ
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Secure Messaging Protocol Public License
+    identifier: SMPPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - SNIA Public License 1.1
+    - Storage Networking Industry Association
+    identifier: SNIA
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Spencer License 86
+    identifier: Spencer-86
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Spencer License 94
+    identifier: Spencer-94
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Spencer License 99
+    identifier: Spencer-99
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Sun Public License v1.0
+    - SUN PUBLIC LICENSE Version 1.0
+    - Sun Public License Version 1.0
+    identifier: SPL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - SSH OpenSSH license
+    identifier: SSH-OpenSSH
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - SSH short notice
+    identifier: SSH-short
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Server Side Public License, v 1
+    identifier: SSPL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，对云厂商不友好，明确云服务厂商必须履行对外开源义务，否则只能购买商业版本。但商业版本mongoDB属于涉A软件，实际上mongoDB在我司云场景下已不可使用'
+  - alias:
+    - SugarCRM Public License v1.1.3
+    identifier: SugarCRM-1.1.3
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Scheme Widget Library (SWL) Software License Agreement
+    identifier: SWL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - TAPR Open Hardware License v1.0
+    identifier: TAPR-OHL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - TCL/TK License
+    - copyrighted by the Regents of the University of California, Sun Microsystems, Inc.
+    identifier: TCL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - TCP Wrappers License
+    identifier: TCP-wrappers
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - TMate Open Source License
+    identifier: TMate
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，有很强的开源义务，使用SVNKit的软件，以及所有配套的软件都需要开源'
+  - alias:
+    - TORQUE v2.5+ Software License v1.1
+    identifier: TORQUE-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Trusster Open Source License
+    identifier: TOSL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Technische Universitaet Berlin License 1.0
+    identifier: TU-Berlin-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Technische Universitaet Berlin License 2.0
+    identifier: TU-Berlin-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Upstream Compatibility License v1.0
+    identifier: UCL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Unicode License Agreement - Data Files and Software (2015)
+    identifier: Unicode-DFS-2015
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Unicode License Agreement - Data Files and Software (2016)
+    identifier: Unicode-DFS-2016
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Unicode Terms of Use
+    identifier: Unicode-TOU
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - The Unlicense
     identifier: Unlicense
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Universal Permissive License v1.0
+    - Universal Permissive License (UPL), Version 1.0
+    identifier: UPL-1.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Vim License
+    identifier: Vim
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - VOSTROM Public License for Open Source
+    identifier: VOSTROM
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Vovida Software License v1.0
+    - The Vovida Software License, Version 1.0
+    identifier: VSL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - W3C Software Notice and License (2002-12-31)
+    - "http://www.w3.org/Consortium/Legal/2002"
+    identifier: W3C
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - W3C Software Notice and License (1998-07-20)
+    identifier: W3C-19980720
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - W3C Software Notice and Document License (2015-05-13)
+    identifier: W3C-20150513
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Sybase Open Watcom Public License 1.0
+    identifier: Watcom-1.0
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Wsuipa License
+    identifier: Wsuipa
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Do What The F*ck You Want To Public License
+    identifier: WTFPL
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - X11 License
     identifier: X11
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - X11 License Distribution Modification Variant
+    identifier: X11-distribute-modifications-variant
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Xerox License
+    identifier: Xerox
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - XFree86 License 1.1
     identifier: XFree86-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - xinetd License
+    - allowing xinetd as maintained by me (Rob Braun)
+    identifier: xinetd
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - X.Net License
+    identifier: Xnet
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - XPP License
+    identifier: xpp
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - XSkat License
+    identifier: XSkat
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Yahoo! Public License v1.0
+    identifier: YPL-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
   - alias:
     - Yahoo! Public License v1.1
     identifier: YPL-1.1
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Zed License
+    identifier: Zed
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Zend License v2.0
+    identifier: Zend-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
   - alias:
     - Zimbra Public License v1.3
     identifier: Zimbra-1.3
+    fsfApproved: 'Y'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Zimbra Public License v1.4
+    identifier: Zimbra-1.4
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - zlib License
+    - zlib
+    - zlib/libpng
+    identifier: Zlib
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - zlib/libpng License with Acknowledgement
+    - Copyright (c) 2002-2007 Charlie Poole
+    - zlib with acknowledgement
+    - zlib/libpng License with Acknowledgement
+    identifier: zlib-acknowledgement
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Zope Public License 1.1
+    identifier: ZPL-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - Zope Public License 2.0
+    - Zope Public License (ZPL) Version 2.0
+    - ZPLv2.0
+    - ZPL 2.0
+    identifier: ZPL-2.0
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Zope Public License 2.1
+    - Zope Public License (ZPL) Version 2.1
+    - ZPLv2.1
+    - ZPL 2.1
+    identifier: ZPL-2.1
+    fsfApproved: 'Y'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Commons Clause License v1.0
+    identifier: Commons Clause
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+  - alias:
+    - DMIT License
+    identifier: DMIT
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该许可证是MIT许可证的修改版本，添加了专用于Docbook样式表的条款，该条款许可证GPL不兼容，并且该条款应用于软件而不是XML样式表可能会使许可证成为非免费的'
+  - alias:
+    - Verbatim License
+    - verbatim copying
+    identifier: Verbatim
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，这是一个自由文档许可证，但是由于它的措辞，它只适用于非常特定的范围：linux内核手册页'
+  - alias:
+    - Liberation Font License
+    - LIBERATION font software
+    identifier: Liberation
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该协议适用于字体，在GPLv2的基础上增加了例外条款，如果使用此字体创建文档，并且将此字体嵌入到文档中，并不会导致生成的文件被GPL协议覆盖，另外在分发的时候也要确保支持修改和安装。该协议也明确规定受美国法律管辖'
+  - alias:
+    - Trusted Computing Group License
+    - Trusted Computing Group (TCG)
+    identifier: TCGL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该协议是基于BSD修改的，针对软件是免费，但针对文档(2.Specification documentation)不免费，也不能修改，风险较高'
+  - alias:
+    - Nmap License
+    - NMAP LICENSE
+    identifier: Nmap
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，该协议有多个版本，有的版本没有被Fedora接受'
+  - alias:
+    - Distributed Management Task Force
+    identifier: DMTF
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: '不建议引入，非免费许可证'
+  - alias:
+    - (perl)
+    - "license: perl"
+    identifier: Perl License
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - The Unicode Character Database
+    identifier: UCD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Original SSLeay License
+    identifier: SSLeay
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Old FSF Documentation License
+    identifier: OFSFDL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - public domain
+    identifier: Public Domain
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - BSD 2-Clause FreeBSD License
+    identifier: BSD-2-Clause-FreeBSD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  #exception
+  - alias:
+    - 389 Directory Server Exception
+    identifier: 389-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Autoconf exception 2.0
+    identifier: Autoconf-exception-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Autoconf exception 3.0
+    identifier: Autoconf-exception-3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Bison exception 2.2
+    identifier: Bison-exception-2.2
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Bootloader Distribution Exception
+    identifier: Bootloader-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Classpath exception 2.0
+    identifier: Classpath-exception-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - CLISP exception 2.0
+    identifier: CLISP-exception-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - DigiRule FOSS License Exception
+    identifier: DigiRule-FOSS-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - eCos exception 2.0
+    identifier: eCos-exception-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Fawkes Runtime Exception
+    identifier: Fawkes-Runtime-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - FLTK exception
+    identifier: FLTK-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Font exception 2.0
+    identifier: Font-exception-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - FreeRTOS Exception 2.0
+    identifier: freertos-exception-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GCC Runtime Library exception 2.0
+    identifier: GCC-exception-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GCC Runtime Library exception 3.1
+    identifier: GCC-exception-3.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GNU JavaMail exception
+    identifier: gnu-javamail-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GPL-3.0 Linking Exception
+    identifier: GPL-3.0-linking-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GPL-3.0 Linking Exception (with Corresponding Source)
+    identifier: GPL-3.0-linking-source-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - GPL Cooperation Commitment 1.0
+    identifier: GPL-CC-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - i2p GPL+Java Exception
+    identifier: i2p-gpl-java-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - LGPL-3.0 Linking Exception
+    identifier: LGPL-3.0-linking-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Libtool Exception
+    identifier: Libtool-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Linux Syscall Note
+    identifier: Linux-syscall-note
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - LLVM Exception
+    identifier: LLVM-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - LZMA exception
+    identifier: LZMA-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Macros and Inline Functions Exception
+    identifier: mif-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - OCaml LGPL Linking Exception
+    identifier: OCaml-LGPL-linking-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Open CASCADE Exception 1.0
+    identifier: OCCT-exception-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - OpenJDK Assembly exception 1.0
+    identifier: OpenJDK-assembly-exception-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - OpenVPN OpenSSL Exception
+    identifier: openvpn-openssl-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - PS/PDF font exception (2017-08-17)
+    identifier: PS-or-PDF-font-exception-20170817
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Qt GPL exception 1.0
+    identifier: Qt-GPL-exception-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Qt LGPL exception 1.1
+    identifier: Qt-LGPL-exception-1.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Qwt exception 1.0
+    identifier: Qwt-exception-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Solderpad Hardware License v2.0
+    identifier: SHL-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Solderpad Hardware License v2.1
+    identifier: SHL-2.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Swift Exception
+    identifier: Swift-exception
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - U-Boot exception 2.0
+    identifier: u-boot-exception-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - Universal FOSS Exception, Version 1.0
+    identifier: Universal-FOSS-exception-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - WxWindows Library Exception 3.1
+    identifier: WxWindows-exception-3.1
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''

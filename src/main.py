@@ -24,8 +24,11 @@ class Main(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
-        prUrl = self.get_argument('prUrl')    
-        result = yield self.block(prUrl)
+        # prUrl = self.get_argument('prUrl')
+        # result = yield self.block(prUrl)
+        license = self.get_argument('license')    
+        type = self.get_argument('type')
+        result = yield self.block(license, type)
         self.finish(str(result))
 
     @gen.coroutine
@@ -34,20 +37,27 @@ class Main(tornado.web.RequestHandler):
         body = self.request.body
         body_decode = body.decode()
         body_json = json.loads(body_decode)
-        prUrl = body_json.get("prUrl")
-        result = yield self.block(prUrl)
+        # prUrl = body_json.get("prUrl")
+        # result = yield self.block(prUrl)
+        license = body_json.get('license')    
+        type = body_json.get('type')
+        result = yield self.block(license, type)
         self.finish(str(result))
     
     @run_on_executor
-    def block(self, prUrl):
-        prSca = PrSca()
-        result = prSca.doSca(prUrl)
+    def block(self, license, type):
+        # prSca = PrSca()
+        # result = prSca.doSca(prUrl)
+        licenseCheck = LicenseCheck(type)
+        licenses = infixToPostfix(license)
+        result = licenseCheck.check_license_safe(licenses)
         return result
 
 
 application = tornado.web.Application([(r"/sca", Main), ])
 
 if __name__ == '__main__':
+
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)
