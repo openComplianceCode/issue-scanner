@@ -350,6 +350,8 @@ Software Licenses:
   Licenses:
   - alias:
     - BSD License
+    - BSD-licenced
+    - New BSD License
     - BSD like
     - BSD-like
     - BSD-2
@@ -3106,6 +3108,7 @@ Software Licenses:
     - MIT License
     - MIT license
     - MIT-LICENSE
+    - The MIT License
     - (MIT)
     - (mit)
     - "http://opensource.org/licenses/MIT"
