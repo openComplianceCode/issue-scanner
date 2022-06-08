@@ -22,8 +22,8 @@ from util.postOrdered import infixToPostfix
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-# SOURTH_PATH = '/home/giteeFile'
-SOURTH_PATH = 'E:/giteeFile'
+SOURTH_PATH = '/home/giteeFile'
+# SOURTH_PATH = 'E:/giteeFile'
 
 
 class PrSca(object):
@@ -265,16 +265,20 @@ class PrSca(object):
             if path.endswith((".spec",)) and self.checkPath(path):
                 #提取spec里的许可证声明
                 fileUrl = self._anlyzeSrc_ +"/"+ itemPath[i]
-                spec = Spec.from_file(fileUrl)
-                if spec.license is not None:
-                    licenses = infixToPostfix(spec.license)
-                    licenseCheck = LicenseCheck('reference')
-                    isSpecLicense = licenseCheck.check_license_safe(licenses)
-                    specLicense = isSpecLicense.get('pass')
-                    noticeSpec = isSpecLicense.get('notice')
-                    speLicDetial = isSpecLicense.get('detail')
+                try:
+                    spec = Spec.from_file(fileUrl)
+                    if spec.license is not None:
+                        licenses = infixToPostfix(spec.license)
+                        licenseCheck = LicenseCheck('reference')
+                        isSpecLicense = licenseCheck.check_license_safe(licenses)
+                        specLicense = isSpecLicense.get('pass')
+                        noticeSpec = isSpecLicense.get('notice')
+                        speLicDetial = isSpecLicense.get('detail')
 
-                    specLicenseList.append(spec.license)
+                        specLicenseList.append(spec.license)
+                except Exception as e:
+                    logging.exception(e)
+                    pass
 
             if len(var) == 0 :
                 continue                    
@@ -294,9 +298,13 @@ class PrSca(object):
                 spdx_name = pathLicense['spdx_license_key']
                         
                 #判断license是否属于认证
-                reLicense = self._dbObject_.Check_license(spdx_name)
+                fileLicenseCheck = LicenseCheck('file')
+                spdxLicenses = infixToPostfix(spdx_name)
+                isSpecLicense = fileLicenseCheck.check_license_safe(spdxLicenses)
+                # reLicense = self._dbObject_.Check_license(spdx_name)
+                reLicense = isSpecLicense.get('pass')
 
-                if len(reLicense) == 0 and pathLicense['start_line'] != pathLicense['end_line'] and 'LicenseRef-scancode-' not in spdx_name:
+                if reLicense is False and pathLicense['start_line'] != pathLicense['end_line'] and 'LicenseRef-scancode-' not in spdx_name:
                     approved = False
                     noticeScope = noticeScope + spdx_name + "("+path + ", start_line: "+str(pathLicense['start_line'])+", end_line: "+str(pathLicense['end_line'])+"), "
 
