@@ -128,7 +128,7 @@ class LicenseCheck(object):
         result = {}
         result_stack = Stack()
         for lic in licenses:
-            if lic in ['and', 'or', 'with']:
+            if lic.lower() in ['and', 'or', 'with']:
                 licBack = result_stack.pop()
                 licHead = result_stack.pop()
                 if isinstance(licHead, dict):
@@ -139,7 +139,7 @@ class LicenseCheck(object):
                     reBack = licBack
                 else:
                     reBack = self.check_license(licBack)
-                res = self.analyze_detial(reHead, reBack, lic)
+                res = self.analyze_detial(reHead, reBack, lic.lower())
                 result_stack.push(res)
             else:
                 reLic = self.check_license(lic)
@@ -186,9 +186,9 @@ class LicenseCheck(object):
             notice = '通过'
 
         finalResult = {
-            'pass': res,
-            'notice': notice,
-            'detail': result
+            "pass": res,
+            "notice": notice,
+            "detail": result
         }
 
         return finalResult

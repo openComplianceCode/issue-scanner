@@ -17,6 +17,7 @@ from reposca.prSca import PrSca
 from tornado import gen
 
 from util.postOrdered import infixToPostfix
+from pyrpm.spec import Spec
 
 class Main(tornado.web.RequestHandler):
     executor = ThreadPoolExecutor(1000)
@@ -34,13 +35,8 @@ class Main(tornado.web.RequestHandler):
     @gen.coroutine
     def post(self):
         '''post请求'''
-        body = self.request.body
-        body_decode = body.decode()
-        body_json = json.loads(body_decode)
-        # prUrl = body_json.get("prUrl")
-        # result = yield self.block(prUrl)
-        license = body_json.get('license')    
-        type = body_json.get('type')
+        license = self.get_argument('license')    
+        type = self.get_argument('type')
         result = yield self.block(license, type)
         self.finish(str(result))
     
@@ -51,13 +47,13 @@ class Main(tornado.web.RequestHandler):
         licenseCheck = LicenseCheck(type)
         licenses = infixToPostfix(license)
         result = licenseCheck.check_license_safe(licenses)
-        return result
+        jsonRe = json.dumps(result)
+        return jsonRe
 
 
 application = tornado.web.Application([(r"/sca", Main), ])
 
 if __name__ == '__main__':
-
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)

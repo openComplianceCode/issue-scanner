@@ -8,11 +8,8 @@ import string
 
 operator = { #前后顺序代表优先级
     'or': 3,
-    'OR': 3,
-    'AND': 3,
     'and': 3,
     'with': ValueError ,
-    'WITH': ValueError ,
     '(': ValueError,
     ')':ValueError,
 }
@@ -61,9 +58,9 @@ def infixToPostfix(infixexpr):
                     postfix_list.append(top_token)
                     top_token = operation_stack.pop()
             # 操作数添加到列表末尾
-            elif token in ['and', 'AND' ,'or', 'OR', 'with', 'WITH']:
+            elif token.lower() in ['and', 'or', 'with']:
                 # postfix_list.append(token):
-                while (not operation_stack.is_empty()) and (priority[operation_stack.peek()] >= priority[token]):
+                while (not operation_stack.is_empty()) and (priority[operation_stack.peek()] >= priority[token.lower()]):
                     postfix_list.append(operation_stack.pop())
                 operation_stack.push(token)
             else:
