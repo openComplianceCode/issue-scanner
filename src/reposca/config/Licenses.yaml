@@ -868,7 +868,7 @@ Software Licenses:
     - BSD 2-Clause
     - BSD-2-Clause
     - 2-clause BSD License
-    identifier: BSD 2-Clause
+    identifier: BSD-2-Clause
     fsfApproved: 'Y'
     osiApproved: 'Y'
     oeApproved: 'Y'
@@ -899,7 +899,7 @@ Software Licenses:
     - BSD 3-Clause
     - BSD 3-Clause License
     - 3-clause BSD
-    identifier: BSD 3-Clause
+    identifier: BSD-3-Clause
     fsfApproved: 'Y'
     osiApproved: 'Y'
     oeApproved: 'Y'
