@@ -1,15 +1,5 @@
 Software Licenses:
-  #声明不规范
   Nonstandard Licenses: 
-  # - alias:
-  #   - BSD
-  #   identifier: BSD
-  #   fsfApproved: 'N'
-  #   osiApproved: 'N'
-  #   oeApproved: 'N'
-  #   lowRisk: 'N'
-  #   black: 'N'
-  #   blackReason: ''
   - alias:
     - '%{all_license}'
     identifier: '%{all_license}' 
@@ -358,6 +348,7 @@ Software Licenses:
     - BSD2
     - BSD3
     - BSD-3
+    - BSD-style License
     identifier: BSD
     fsfApproved: 'N'
     osiApproved: 'N'
@@ -2660,6 +2651,7 @@ Software Licenses:
   - alias:
     - Independent JPEG Group License
     - Independent JPEG Group
+    - Libjpeg License
     identifier: IJG
     fsfApproved: 'Y'
     osiApproved: 'N'
@@ -3097,6 +3089,7 @@ Software Licenses:
     blackReason: ''
   - alias:
     - The MirOS Licence
+    - MirOS Licence
     identifier: MirOS
     fsfApproved: 'N'
     osiApproved: 'Y'
@@ -4057,6 +4050,7 @@ Software Licenses:
     blackReason: ''
   - alias:
     - Python Software Foundation License 2.0
+    - Python Software Foundation License V2
     identifier: PSF-2.0
     fsfApproved: 'N'
     osiApproved: 'N'
@@ -4808,6 +4802,7 @@ Software Licenses:
   - alias:
     - Zope Public License 2.0
     - Zope Public License (ZPL) Version 2.0
+    - Zope Public License V2.0
     - ZPLv2.0
     - ZPL 2.0
     identifier: ZPL-2.0
@@ -4820,6 +4815,7 @@ Software Licenses:
   - alias:
     - Zope Public License 2.1
     - Zope Public License (ZPL) Version 2.1
+    - Zope Public License V2.1
     - ZPLv2.1
     - ZPL 2.1
     identifier: ZPL-2.1
@@ -5309,6 +5305,15 @@ Software Licenses:
     fsfApproved: 'N'
     osiApproved: 'N'
     oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+  - alias:
+    - exceptions
+    identifier: exceptions
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
