@@ -4,7 +4,6 @@ import json
 import os
 import sys
 import time
-from pydantic import Json
 
 import tornado.web
 import tornado.ioloop
@@ -50,7 +49,7 @@ class Main(tornado.web.RequestHandler):
         result = licenseCheck.check_license_safe(licenses)
         jsonRe = json.dumps(result)
         return jsonRe
-
+ 
 
 application = tornado.web.Application([(r"/sca", Main), ])
 
@@ -59,3 +58,4 @@ if __name__ == '__main__':
     httpServer.bind(config.options["port"])   
     httpServer.start(1)
     tornado.ioloop.IOLoop.current().start()
+    
