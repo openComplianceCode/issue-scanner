@@ -1706,6 +1706,7 @@ Software Licenses:
     blackReason: ''
   - alias:
     - Clarified Artistic License
+    - Artistic clarified
     identifier: ClArtistic
     fsfApproved: 'Y'
     osiApproved: 'N'
