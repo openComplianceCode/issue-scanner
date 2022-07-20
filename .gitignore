@@ -9,4 +9,4 @@ src/reposca/tempSrc/
 *.csv
 src/repoSig.py
 src/reposca/csvtest.py
-
+.VSCodeCounter

@@ -214,13 +214,13 @@ class LicenseCheck(object):
                 blackReason = license + " " + res['blackReason']
             else:
                 if self._type_ == 'independent':
-                    if res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y':
+                    if (res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y') and res['lowRisk'] == 'N':
                         impResult = True
                     else:
                         impResult = False
                         impLic.append(license)  
                 elif self._type_ == 'reference':
-                    if res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y':
+                    if (res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y') and res['lowRisk'] == 'N':
                         impResult = True
                     else:
                         impResult = False
@@ -298,4 +298,3 @@ class LicenseCheck(object):
         }
 
         return res
-

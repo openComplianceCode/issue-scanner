@@ -1,10 +1,7 @@
 import logging
-import os
 import re
 import sys
 from util.stack import Stack
-import string
-
 
 operator = { #前后顺序代表优先级
     'or': 3,
@@ -25,8 +22,8 @@ def infixToPostfix(infixexpr):
     token_list = []
 
     try:
-        license_set = re.split(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?[Oo][Rr]-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', infixexpr)
-        posfix_set = re.findall(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?[Oo][Rr]-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', infixexpr)       
+        license_set = re.split(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?[Oo][Rr]-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+|\s+', infixexpr)
+        posfix_set = re.findall(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?[Oo][Rr]-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', infixexpr)
 
         if len(posfix_set) == 0:
             for i in range(len(license_set)):
@@ -59,7 +56,6 @@ def infixToPostfix(infixexpr):
                     top_token = operation_stack.pop()
             # 操作数添加到列表末尾
             elif token.lower() in ['and', 'or', 'with']:
-                # postfix_list.append(token):
                 while (not operation_stack.is_empty()) and (priority[operation_stack.peek()] >= priority[token.lower()]):
                     postfix_list.append(operation_stack.pop())
                 operation_stack.push(token)
@@ -75,6 +71,5 @@ def infixToPostfix(infixexpr):
         postfix_list.append(infixexpr)
  
     return postfix_list
-
 
     
