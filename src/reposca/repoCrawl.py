@@ -149,9 +149,7 @@ def getRepoClone(orgName, path):
             print("Error on %s: %s" % (repoUrl, e.strerror))
 
 
-if __name__ == '__main__':
-    
-    # getRepoUrl('MindSpore')
-
-    # getRepoClone('MindSpore', 'E:/giteeFile/')
-    refreshToken()
+if __name__ == '__main__': 
+    getRepoUrl('MindSpore')
+    getRepoClone('MindSpore', 'E:/giteeFile/')
+    # refreshToken()

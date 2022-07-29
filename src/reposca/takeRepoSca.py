@@ -63,34 +63,6 @@ def scaRepo(osUrl,pack):
             if repo is None or (repo['sca_json'] != None and repo['sca_json'] != ''):
                 continue
 
-            # if isSrc == 1:
-            #     flag = 0
-            #     #解压扫描
-            #     for deRoot,deDir,deFiles in os.walk(dirUrl):  
-            #         for defile in deFiles:
-                        
-            #             dePath = os.path.join(deRoot,defile)
-            #             dePath = formateUrl(dePath)
-
-            #             #判断压缩文件
-            #             if checkWrar(defile):
-            #                 flag = 1
-
-            #                 try:
-            #                     t = tarfile.open(dePath)
-            #                     t.extractall(path = temFileSrc)
-                                
-            #                 except Exception as e:
-            #                     traceback.print_exc()
-                            
-            #                 finally:
-            #                     t.close()
-                
-            #     if flag == 0:
-            #         continue
-
-            #     dirUrl = temFileSrc
-
             #调用先解压文件里得压缩文件
             command = shlex.split('extractcode %s' % (dirUrl))
             resultCode = subprocess.Popen(command)
@@ -130,12 +102,8 @@ def scaRepo(osUrl,pack):
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
                 scaJson = "".join(list)
-
                 #清空文件
                 f.truncate(0)
-                
-                # if isSrc == 1:
-                #     cleanTemp(dirUrl)
 
             #修改数据库
             scaJson = pymysql.escape_string(scaJson)
@@ -183,7 +151,4 @@ def cleanTemp(dirUrl):
             os.rmdir(delUrl)
 
 if __name__ == '__main__':
-
-    # scaRepo("E:/giteeFile/","openEuler")
-
-    scaRepo("E:/giteeFile/","MindSpore")
+    scaRepo("E:/giteeFile/","openEuler")
