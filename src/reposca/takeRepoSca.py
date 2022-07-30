@@ -14,7 +14,8 @@ import pymysql
 from sqlalchemy import null
 
 from tqdm import tqdm
-
+import sys
+sys.path.append("..")
 from reposca.repoDb import RepoDb
 
 def catch_error(func):
@@ -52,7 +53,6 @@ def scaRepo(osUrl,pack):
 
     for root,dirs,files in os.walk(packUrl): 
         for dir in tqdm(dirs,desc="SCANING REPO:",total=len(dirs),colour='green'):
-
             dirUrl = os.path.join(root,dir)
             dirUrl = formateUrl(dirUrl)
             #检查是否已扫描
@@ -81,7 +81,7 @@ def scaRepo(osUrl,pack):
                 pass
 
             #调用scancode
-            command = shlex.split('scancode -l -c %s --json %s -n 5 --timeout 3' % (dirUrl, tempJson))
+            command = shlex.split('scancode -l -c %s --json %s -n 5 --timeout 3 --license-score 70' % (dirUrl, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(10)
@@ -151,4 +151,4 @@ def cleanTemp(dirUrl):
             os.rmdir(delUrl)
 
 if __name__ == '__main__':
-    scaRepo("E:/giteeFile/","openEuler")
+    scaRepo("E:/giteeFile/","OpenHarmony")

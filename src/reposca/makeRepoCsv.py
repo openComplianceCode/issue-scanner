@@ -8,11 +8,14 @@ import json
 import jsonpath
 
 from tqdm import tqdm
-
+import sys
+sys.path.append("..")
 from reposca.repoDb import RepoDb
+from reposca.licenseCheck import LicenseCheck
+from util.postOrdered import infixToPostfix
 
 noticeList = ['notice','Third_Party_Open_Source_Software_Notice','readme','license','copyright']
-repoList = ['license','readme','notice']
+repoList = ['license','readme','notice','copying']
 
 def catch_error(func):
     def wrapper(*args, **kw):
@@ -44,6 +47,7 @@ def writeCsv(osUrl,pack):
 
     sca_result = []
 
+    fileLicenseCheck = LicenseCheck('file')
     # 数据处理
     for item in tqdm(repoList,desc="Write repo CSV:", total=len(repoList),colour='green'):
 
@@ -71,7 +75,7 @@ def writeCsv(osUrl,pack):
             copyrightList = jsonpath.jsonpath(jsonData, '$.files[*].copyrights')
             
 
-            for i,var in tqdm(enumerate(licenseList),desc=item['repo_name']+"do license json:", total=len(licenseList),colour='blue') :
+            for i,var in enumerate(licenseList):
 
                 path = itemPath[i]
 
@@ -82,7 +86,7 @@ def writeCsv(osUrl,pack):
 
                     isCopyright = isCopyright + "("+path + "), "
                 
-                if ".spec" in path:
+                if path.endswith((".spec",)) and checkPath(path):
                     #提取spec里的许可证声明
                     fileUrl = packUrl +"/"+ path
                     spec = Spec.from_file(fileUrl)
@@ -93,7 +97,9 @@ def writeCsv(osUrl,pack):
                     continue                    
                                  
                 for pathLicense in var:
-
+                    spdx_name = pathLicense['spdx_license_key']
+                    if 'LicenseRef-scancode-' in spdx_name:
+                        continue
                     isLicenseText = pathLicense['matched_rule']['is_license_text']
                     #判断是否有项目license
                     if checkRepoLicense(path) and isLicenseText is True:
@@ -101,13 +107,13 @@ def writeCsv(osUrl,pack):
                              haveLicense = '是'
                         
                         haveLicense = haveLicense + "("+path+"),"
-                    
-                    spdx_name = pathLicense['spdx_license_key']
-                    
+      
                     #判断license是否属于认证
-                    reLicense = dbObject.Check_license(spdx_name)
+                    spdxLicenses = infixToPostfix(spdx_name) 
+                    fileLicense = fileLicenseCheck.check_license_safe(spdxLicenses)
+                    reLicense = fileLicense.get('pass')
 
-                    if len(reLicense) == 0 and path not in reLicensePathList:
+                    if reLicense is False and path not in reLicensePathList and pathLicense['start_line'] != pathLicense['end_line']:
                         approved = '否'
                         unApproved = unApproved + spdx_name + "("+path + ", start_line: "+str(pathLicense['start_line'])+", end_line: "+str(pathLicense['end_line'])+"), "
                         reLicensePathList.append(path)
@@ -171,8 +177,18 @@ def checkNotice(path):
     return False
 
 @catch_error
+def checkPath(self, path):
+    # 检查是notice文件
+    path = path.lower()
+
+    pathLevel = path.split("/")
+    if len(pathLevel) > 3:
+        return False
+
+    return True
+
+@catch_error
 def checkRepoLicense(path):
-    # 检查是项目许可证
     path = path.lower()
 
     pathLevel = path.split("/")
@@ -187,4 +203,4 @@ def checkRepoLicense(path):
 
 if __name__ == '__main__':
 
-    writeCsv("E:/giteeFile/","MindSpore")  
+    writeCsv("E:/giteeFile/","OpenHarmony")  

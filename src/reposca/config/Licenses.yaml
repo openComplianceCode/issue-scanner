@@ -3053,7 +3053,8 @@ Software Licenses:
     - (mit)
     - "http://opensource.org/licenses/MIT"
     - MIT/X
-    - expat
+    - Expat
+    - Expat License
     identifier: MIT
     fsfApproved: 'Y'
     osiApproved: 'Y'

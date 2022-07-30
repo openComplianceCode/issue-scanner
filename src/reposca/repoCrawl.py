@@ -11,7 +11,8 @@ from requests import head
 from tqdm import tqdm
 import urllib3
 import json
-
+import sys
+sys.path.append("..")
 from reposca.repoDb import RepoDb
 from reposca.takeRepoSca import formateUrl
 
@@ -51,10 +52,12 @@ def getRepoUrl(orgName):
         response = getApiResult(url, start)
         resStatus = response.status
 
-        while resStatus == '403':
+        while resStatus == 403:
             refreshToken()
             response = http.request('GET',url)
             resStatus = response.status
+        if resStatus == 404:
+            continue
 
         repoStr = response.data.decode('utf-8')
         temList = json.loads(repoStr)
@@ -72,7 +75,7 @@ def getRepoUrl(orgName):
         # 获取Maintainer
         maintanerList = getMiantainer(orgName, item["name"])
 
-        for owner in tqdm(maintanerList,desc="Insert owner",total=len(maintanerList)):          
+        for owner in maintanerList:          
             ownerName = pymysql.escape_string(owner['name'])
             tempOwnerData = (item["id"], owner['id'], owner['login'], owner['html_url'], ownerName )
             #增加owner数据
@@ -92,10 +95,12 @@ def getMiantainer(orgName, repoName):
         response = getApiResult(url, start)
         resStatus = response.status
 
-        while resStatus == '403':
+        while resStatus == 403:
             refreshToken()
             response = http.request('GET',url)
             resStatus = response.status
+        if resStatus == 404:
+            break
 
         repoStr = response.data.decode('utf-8')
         temList = json.loads(repoStr)
@@ -150,6 +155,6 @@ def getRepoClone(orgName, path):
 
 
 if __name__ == '__main__': 
-    getRepoUrl('MindSpore')
-    getRepoClone('MindSpore', 'E:/giteeFile/')
+    # getRepoUrl('OpenHarmony')
+    getRepoClone('OpenHarmony', 'E:/giteeFile/')
     # refreshToken()
