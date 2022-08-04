@@ -162,26 +162,18 @@ class LicenseCheck(object):
         notice = ''
         res = resImp.get('pass') & resNstd.get('pass') & resReivew.get('pass')
     
-        
         nstdRisks = '、'.join(resNstd.get('risks'))
         revRisks = '、'.join(resReivew.get('risks'))
-        blackReason = resImp.get('blackReason')
-        # impList = resImp.get('risks')[:]
-        # for i in range(len(impList)-1, -1, -1):
-        #     if impList[i] in blackReason:
-        #         impList.pop(i)
         impRisks = '、'.join(resImp.get('risks'))
 
         if res is False:
             if impRisks != '':
                 notice += impRisks + " 不可引入, "              
-            # if blackReason != '':
-            #     notice += blackReason + ", "
             if nstdRisks != '':
                 notice += nstdRisks + " 声明不规范, "
             if revRisks != '':
                 notice += revRisks + " 需要Review, "
-            notice = notice.strip(", ")
+            notice += 'License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组或chenyixiong3@huawei.com'
         else:
             notice = '通过'
 
