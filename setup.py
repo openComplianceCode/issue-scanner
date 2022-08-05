@@ -51,6 +51,7 @@ requirements = [
   'urllib3==1.25.8'
   'python-rpm-spec==0.11'
   'rarfile==4.0'
+  'GitPython==3.1.27'
 ]
 
 
