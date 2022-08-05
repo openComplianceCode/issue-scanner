@@ -14,7 +14,7 @@ from reposca.repoDb import RepoDb
 from reposca.licenseCheck import LicenseCheck
 from util.postOrdered import infixToPostfix
 
-noticeList = ['notice','Third_Party_Open_Source_Software_Notice','readme','license','copyright']
+noticeList = ['notice','third_party_open_source_software_notice','readme','license','copyright']
 repoList = ['license','readme','notice','copying']
 
 def catch_error(func):
@@ -171,7 +171,7 @@ def checkNotice(path):
         return False
 
     for item in noticeList:
-        if item in path:
+        if path.endswith((item,)) :
             return True
     
     return False

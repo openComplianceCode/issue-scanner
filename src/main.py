@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 from concurrent.futures import ThreadPoolExecutor
 import json
-import os
-import sys
-import time
-
 import tornado.web
 import tornado.ioloop
 import tornado.httpserver
@@ -17,7 +13,6 @@ from reposca.prSca import PrSca
 from tornado import gen
 
 from util.postOrdered import infixToPostfix
-from pyrpm.spec import Spec
 
 class Main(tornado.web.RequestHandler):
     executor = ThreadPoolExecutor(1000)
@@ -25,28 +20,21 @@ class Main(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
-        # prUrl = self.get_argument('prUrl')
-        # result = yield self.block(prUrl)
-        license = self.get_argument('license')    
-        type = self.get_argument('type')
-        result = yield self.block(license, type)
+        prUrl = self.get_argument('prUrl')
+        result = yield self.block(prUrl)
         self.finish(str(result))
 
     @gen.coroutine
     def post(self):
         '''post请求'''
-        license = self.get_argument('license')    
-        type = self.get_argument('type')
-        result = yield self.block(license, type)
+        prUrl = self.get_argument('prUrl')
+        result = yield self.block(prUrl)
         self.finish(str(result))
     
     @run_on_executor
-    def block(self, license, type):
-        # prSca = PrSca()
-        # result = prSca.doSca(prUrl)
-        licenseCheck = LicenseCheck(type)
-        licenses = infixToPostfix(license)
-        result = licenseCheck.check_license_safe(licenses)
+    def block(self, prUrl):
+        prSca = PrSca()
+        result = prSca.doSca(prUrl)
         jsonRe = json.dumps(result)
         return jsonRe
  
@@ -58,4 +46,3 @@ if __name__ == '__main__':
     httpServer.bind(config.options["port"])   
     httpServer.start(1)
     tornado.ioloop.IOLoop.current().start()
-    
