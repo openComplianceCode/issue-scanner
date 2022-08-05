@@ -329,7 +329,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Adobe Systems Incorporated Source Code License Agreement
@@ -339,7 +339,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Adobe Glyph List License
@@ -349,7 +349,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Amazon Digital Services License
@@ -359,7 +359,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Academic Free License v1.1
@@ -432,7 +432,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Affero General Public License v1.0 or later
@@ -442,7 +442,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - GNU Affero General Public License v3.0 only
@@ -473,6 +473,7 @@ Software Licenses:
     oeApproved: 'N'
     lowRisk: 'N'
     black: 'Y'
+    newFlag: 'Y'
     blackReason: '不建议引入，非免费许可证'
   - alias:
     - AMD's plpa_map.c License
@@ -482,7 +483,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Apple MIT License
@@ -492,7 +493,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Academy of Motion Picture Arts and Sciences BSD
@@ -502,7 +503,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - ANTLR Software Rights Notice
@@ -580,7 +581,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Adaptive Public License 1.0
@@ -710,7 +711,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Barr License
@@ -720,7 +721,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Beerware License
@@ -730,7 +731,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'Y'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Bitstream Vera Font License
@@ -750,7 +751,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - BitTorrent Open Source License v1.1
@@ -769,7 +770,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'Y'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Blue Oak Model License 1.0.0
@@ -779,7 +780,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Borceux license
@@ -789,7 +790,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - BSD 1-Clause License
@@ -897,7 +898,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - BSD 3-Clause No Nuclear License 2014
@@ -907,7 +908,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - BSD 3-Clause No Nuclear Warranty
@@ -917,7 +918,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - BSD 3-Clause Open MPI variant
@@ -926,7 +927,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - BSD 4-Clause "Original" or "Old" License
@@ -953,7 +954,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - BSD Protection License
@@ -972,7 +973,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Boost Software License 1.0
@@ -1002,7 +1003,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - bzip2 and libbzip2 License v1.0.6
@@ -1012,7 +1013,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Computational Use of Data Agreement v1.0
@@ -1049,7 +1050,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Computer Associates Trusted Open Source License 1.1
@@ -1081,7 +1082,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution 2.5 Generic
@@ -1091,7 +1092,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution 2.5 Australia
@@ -1165,7 +1166,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial 2.0 Generic
@@ -1175,7 +1176,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial 2.5 Generic
@@ -1185,7 +1186,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial 3.0 Unported
@@ -1195,7 +1196,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial 3.0 Germany
@@ -1214,7 +1215,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
@@ -1224,7 +1225,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
@@ -1234,7 +1235,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
@@ -1244,7 +1245,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
@@ -1254,7 +1255,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 3.0 Germany
@@ -1282,7 +1283,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
@@ -1292,7 +1293,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
@@ -1302,7 +1303,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution-NonCommercial-ShareAlike 2.0 France
@@ -1330,7 +1331,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
@@ -1340,7 +1341,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 3.0 Germany
@@ -1368,7 +1369,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution No Derivatives 1.0 Generic
@@ -1378,7 +1379,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution No Derivatives 2.0 Generic
@@ -1388,7 +1389,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution No Derivatives 2.5 Generic
@@ -1398,7 +1399,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution No Derivatives 3.0 Unported
@@ -1408,7 +1409,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution No Derivatives 3.0 Germany
@@ -1427,7 +1428,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Share Alike 1.0 Generic
@@ -1447,7 +1448,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Share Alike 2.0 England and Wales
@@ -1475,7 +1476,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Attribution Share Alike 3.0 Unported
@@ -1522,7 +1523,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Creative Commons Zero v1.0 Universal
@@ -1572,7 +1573,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Community Data License Agreement Permissive 2.0
@@ -1591,7 +1592,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - CeCILL Free Software License Agreement v1.0
@@ -1601,7 +1602,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - CeCILL Free Software License Agreement v1.1
@@ -1611,7 +1612,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - CeCILL Free Software License Agreement v2.0
@@ -1657,7 +1658,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - CERN Open Hardware Licence v1.2
@@ -1667,7 +1668,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - CERN Open Hardware Licence Version 2 - Permissive
@@ -1714,7 +1715,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - CNRI Python License
@@ -1735,7 +1736,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Copyfree Open Innovation License
@@ -1744,7 +1745,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'  
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Community Specification License 1.0
@@ -1812,7 +1813,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Crossword License
@@ -1822,7 +1823,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - CrystalStacker License
@@ -1832,7 +1833,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - CUA Office Public License v1.0
@@ -1851,7 +1852,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - curl License
@@ -1861,7 +1862,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Deutsche Freie Software Lizenz
@@ -1870,7 +1871,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - diffmark license
@@ -1880,7 +1881,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Data licence Germany – attribution – version 2.0
@@ -1899,7 +1900,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Dotseqn License
@@ -1909,7 +1910,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Detection Rule License 1.0
@@ -1928,7 +1929,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - dvipdfm License
@@ -1938,7 +1939,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Educational Community License v1.0
@@ -1988,7 +1989,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Elastic License 2.0
@@ -2047,7 +2048,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Etalab Open License 2.0
@@ -2057,7 +2058,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - EU DataGrid Software License
@@ -2077,7 +2078,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - European Union Public License 1.1
@@ -2109,7 +2110,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Fair License
@@ -2155,7 +2156,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - FSF All Permissive License
@@ -2378,7 +2379,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - GL2PS License
@@ -2398,7 +2399,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Glulxe License
@@ -2407,7 +2408,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Good Luck With That Public License
@@ -2539,7 +2540,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Hippocratic License 2.1
@@ -2548,7 +2549,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Historical Permission Notice and Disclaimer
@@ -2566,7 +2567,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - HTML Tidy License
@@ -2584,7 +2585,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - ICU License
@@ -2659,7 +2660,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Interbase Public License v1.0
@@ -2726,7 +2727,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - JSON License
@@ -2753,7 +2754,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Licence Art Libre 1.3
@@ -2762,7 +2763,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Latex2e License
@@ -2771,7 +2772,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Leptonica License
@@ -2874,7 +2875,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - libpng License
@@ -2903,7 +2904,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - libtiff License
@@ -2957,7 +2958,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Lucent Public License Version 1.0
@@ -2986,7 +2987,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - LaTeX Project Public License v1.1
@@ -2995,7 +2996,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - LaTeX Project Public License v1.2
@@ -3032,7 +3033,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - The MirOS Licence
@@ -3078,7 +3079,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - CMU License
@@ -3087,7 +3088,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - enna License
@@ -3096,7 +3097,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - feh License
@@ -3105,7 +3106,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - MIT License Modern Variant
@@ -3151,7 +3152,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Mozilla Public License 1.0
@@ -3236,7 +3237,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Mulan Permissive Software License v1
@@ -3281,7 +3282,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Nara Institute of Science and Technology License (2003)
@@ -3317,7 +3318,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Non-Commercial Government Licence
@@ -3326,7 +3327,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - University of Illinois/NCSA Open Source License
@@ -3344,7 +3345,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - NetCDF license
@@ -3363,7 +3364,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Nethack General Public License
@@ -3399,7 +3400,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Norwegian Licence for Open Government Data (NLOD) 2.0
@@ -3417,7 +3418,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Nokia Open Source License
@@ -3444,7 +3445,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Netscape Public License v1.0
@@ -3480,7 +3481,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - NTP License
@@ -3498,7 +3499,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Open Use of Data Agreement v1.0
@@ -3507,7 +3508,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Open CASCADE Technology Public License
@@ -3516,7 +3517,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - OCLC Research Public License 2.0
@@ -3544,7 +3545,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - SIL Open Font License 1.0
@@ -3610,7 +3611,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Taiwan Open Government Data License, version 1.0
@@ -3628,7 +3629,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Open Government Licence v1.0
@@ -3637,7 +3638,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Open Government Licence v2.0
@@ -3646,7 +3647,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Open Government Licence v3.0
@@ -3655,7 +3656,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Open Group Test Suite License
@@ -3837,7 +3838,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Open Publication License v1.0
@@ -3920,7 +3921,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - The Parity Public License 7.0.0
@@ -3929,7 +3930,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - ODC Public Domain Dedication & License 1.0
@@ -3938,7 +3939,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - PHP License v3.0
@@ -3976,7 +3977,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - PolyForm Small Business License 1.0.0
@@ -3985,7 +3986,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - PostgreSQL License
@@ -4013,7 +4014,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - psutils License
@@ -4064,7 +4065,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Red Hat eCos Public License v1.1
@@ -4073,7 +4074,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Reciprocal Public License 1.1
@@ -4110,7 +4111,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Ricoh Source Code Public License
@@ -4137,7 +4138,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Saxpath License
@@ -4155,7 +4156,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Scheme Language Report License
@@ -4191,7 +4192,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - SGI Free Software License B v1.1
@@ -4200,7 +4201,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - SGI Free Software License B v2.0
@@ -4218,7 +4219,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Solderpad Hardware License, Version 0.51
@@ -4227,7 +4228,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Simple Public License 2.0
@@ -4255,7 +4256,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Sleepycat License
@@ -4283,7 +4284,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - SNIA Public License 1.1
@@ -4302,7 +4303,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Spencer License 94
@@ -4311,7 +4312,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Spencer License 99
@@ -4320,7 +4321,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Sun Public License v1.0
@@ -4340,7 +4341,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - SSH short notice
@@ -4349,7 +4350,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Server Side Public License, v 1
@@ -4367,7 +4368,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Scheme Widget Library (SWL) Software License Agreement
@@ -4385,7 +4386,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - TCL/TK License
@@ -4404,7 +4405,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - TMate Open Source License
@@ -4422,7 +4423,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Trusster Open Source License
@@ -4431,7 +4432,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Technische Universitaet Berlin License 1.0
@@ -4440,7 +4441,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Technische Universitaet Berlin License 2.0
@@ -4449,7 +4450,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Upstream Compatibility License v1.0
@@ -4485,7 +4486,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - The Unlicense
@@ -4522,7 +4523,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Vovida Software License v1.0
@@ -4551,7 +4552,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - W3C Software Notice and Document License (2015-05-13)
@@ -4560,7 +4561,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Sybase Open Watcom Public License 1.0
@@ -4578,7 +4579,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Do What The F*ck You Want To Public License
@@ -4614,7 +4615,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - XFree86 License 1.1
@@ -4660,7 +4661,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Yahoo! Public License v1.0
@@ -4669,7 +4670,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Yahoo! Public License v1.1
@@ -4687,7 +4688,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Zend License v2.0
@@ -4714,7 +4715,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - zlib License
@@ -4737,7 +4738,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Zope Public License 1.1
@@ -4746,7 +4747,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - Zope Public License 2.0
@@ -4781,7 +4782,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
+    black: 'N'
     blackReason: ''
   - alias:
     - DMIT License
