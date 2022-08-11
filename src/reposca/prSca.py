@@ -24,8 +24,7 @@ from git.repo import Repo
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-# SOURTH_PATH = '/home/giteeFile'
-SOURTH_PATH = 'E:/giteeFile'
+SOURTH_PATH = '/home/giteeFile'
 logging.getLogger().setLevel(logging.INFO)
 
 class PrSca(object):
