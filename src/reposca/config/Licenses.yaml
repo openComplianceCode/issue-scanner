@@ -4002,10 +4002,10 @@ Software Licenses:
     identifier: PSF-2.0
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
-    black: 'Y'
-    blackReason: '不建议引入，Python许可证的版本很多，对于Python2.0版本，其协议条款明确规定协议应当根据美国加州法律解释和管辖'
+    black: 'N'
+    blackReason: ''
   - alias:
     - psfrag License
     identifier: psfrag
