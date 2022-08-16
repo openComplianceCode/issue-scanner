@@ -144,8 +144,7 @@ def cleanTemp(dirUrl):
                 os.chmod(delUrl, stat.S_IWUSR) 
                 os.remove(delUrl)
             except:
-                pass 
-                            
+                pass                
         for delName in delDirs:
             try:
                 delUrl = os.path.join(delRoot, delName)
@@ -156,11 +155,11 @@ def cleanTemp(dirUrl):
             except:
                 pass
 
-
 @catch_error
 def checkMod(func, path):
     os.chmod(path, stat.S_IWRITE)
     func(path)
+
 
 if __name__ == '__main__':
     scaRepo("E:/giteeFile/","OpenHarmony")

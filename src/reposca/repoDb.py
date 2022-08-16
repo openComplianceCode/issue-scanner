@@ -250,3 +250,55 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+    
+    def get_ItemLic(self, itemData):
+        '''
+        根据url 查询项目数据
+        '''
+        try:
+
+            sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license FROM item_lic WHERE \
+                repo_org = '%s' and repo_name = '%s' and deleted_at is null"
+            self.cur.execute(sql % itemData)
+
+            repoList = self.cur.fetchone()
+
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+
+    def add_ItemLic(self, licData):
+        '''
+        新增item_lic数据
+        '''
+        try:
+
+            sql = "INSERT INTO item_lic (commite, repo_name, repo_org, repo_url, repo_license, sca_json, is_pro_license, created_at, updated_at)\
+                 VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', SYSDATE(), SYSDATE())"
+            self.cur.execute(sql % licData)
+            self.conn.commit()
+
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+            self.conn.rollback()
+    
+    def upd_ItemLic(self, licData):
+        '''
+        新增item_lic数据
+        '''
+        try:
+
+            sql = "UPDATE item_lic set commite = '%s', repo_license = '%s', sca_json = '%s', is_pro_license = '%s', updated_at = SYSDATE()\
+                 WHERE id = %s"
+            self.cur.execute(sql % licData)
+            self.conn.commit()
+
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+            self.conn.rollback()

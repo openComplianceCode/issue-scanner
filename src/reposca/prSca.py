@@ -15,6 +15,7 @@ from reposca.makeRepoCsv import checkNotice, checkRepoLicense
 from reposca.repoDb import RepoDb
 from reposca.takeRepoSca import cleanTemp
 from reposca.licenseCheck import LicenseCheck
+from util.popUtil import popKill
 from util.extractUtil import extractCode
 from util.formateUtil import formateUrl
 from util.catchUtil import catch_error
@@ -91,7 +92,7 @@ class PrSca(object):
                     cleanTemp(delSrc)
                     os.chmod(delSrc, stat.S_IWUSR)
                     os.rmdir(delSrc)
-                except Exception as e:
+                except:
                     pass
             return scaResult
 
@@ -151,11 +152,11 @@ class PrSca(object):
             logging.info("=============Start scan repo==============")
             # 调用scancode
             command = shlex.split(
-                'scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 3 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, tempJson))
+                'scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
-            self.popKill(resultCode)
+            popKill(resultCode)
 
             if self._file_ == 'sourth':
                 # 切回master
@@ -365,19 +366,6 @@ class PrSca(object):
 
         return "/".join(pathList)
 
-    def popKill(self, subPopen):
-        try:
-            if subPopen.stdin:
-                subPopen.stdin.close()
-            if subPopen.stdout:
-                subPopen.stdout.close()
-            if subPopen.stderr:
-                subPopen.stderr.close()
-
-            subPopen.kill()
-        except OSError:
-            pass
-    
     @catch_error
     def mergDetial(self,oldDetial,lastDetial):
         res = {}

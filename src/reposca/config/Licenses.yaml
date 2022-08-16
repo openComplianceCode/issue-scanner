@@ -3999,13 +3999,14 @@ Software Licenses:
   - alias:
     - Python Software Foundation License 2.0
     - Python Software Foundation License V2
+    - PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
     identifier: PSF-2.0
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
-    black: 'Y'
-    blackReason: '不建议引入，Python许可证的版本很多，对于Python2.0版本，其协议条款明确规定协议应当根据美国加州法律解释和管辖'
+    black: 'N'
+    blackReason: ''
   - alias:
     - psfrag License
     identifier: psfrag
@@ -4028,7 +4029,6 @@ Software Licenses:
   - alias:
     - Python License 2.0
     - Python License, Version 2
-    - PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
     - Python
     identifier: Python-2.0
     fsfApproved: 'Y'
