@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 import json
 import logging
 import os
@@ -49,7 +48,7 @@ class ItemLicSca(object):
             itemLic = self._dbObject_.get_ItemLic(itemData)
             scaResult = ''
             delSrc = ''
-            if itemLic is None or (itemLic is not None and (itemLic['commite'] != commit or itemLic['is_pro_license'] is NULL)):
+            if itemLic is None or (itemLic is not None and (itemLic['commite'] != commit or itemLic['is_pro_license'] is None)):
                 # 创建临时文件
                 temFileSrc = self._current_dir_+'/tempSrc'
                 temFileSrc = formateUrl(temFileSrc)
