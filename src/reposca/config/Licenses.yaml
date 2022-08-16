@@ -3999,6 +3999,7 @@ Software Licenses:
   - alias:
     - Python Software Foundation License 2.0
     - Python Software Foundation License V2
+    - PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
     identifier: PSF-2.0
     fsfApproved: 'N'
     osiApproved: 'N'
@@ -4028,7 +4029,6 @@ Software Licenses:
   - alias:
     - Python License 2.0
     - Python License, Version 2
-    - PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
     - Python
     identifier: Python-2.0
     fsfApproved: 'Y'

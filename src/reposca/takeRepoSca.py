@@ -137,18 +137,24 @@ def cleanTemp(dirUrl):
     #清空临时解压目录   
     for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
         for delName in delFiles:
-            delUrl = os.path.join(delRoot, delName)
-            delUrl = formateUrl(delUrl)
-            #防止文件拒绝访问
-            os.chmod(delUrl, stat.S_IWUSR) 
-            os.remove(delUrl) 
+            try:
+                delUrl = os.path.join(delRoot, delName)
+                delUrl = formateUrl(delUrl)
+                #防止文件拒绝访问
+                os.chmod(delUrl, stat.S_IWUSR) 
+                os.remove(delUrl) 
+            except:
+                pass
                             
         for delName in delDirs:
-            delUrl = os.path.join(delRoot, delName)
-            delUrl = formateUrl(delUrl)
-            #防止文件拒绝访问
-            os.chmod(delUrl, stat.S_IWUSR) 
-            os.rmdir(delUrl)
+            try:
+                delUrl = os.path.join(delRoot, delName)
+                delUrl = formateUrl(delUrl)
+                #防止文件拒绝访问
+                os.chmod(delUrl, stat.S_IWUSR) 
+                os.rmdir(delUrl)
+            except:
+                pass
 
 if __name__ == '__main__':
     scaRepo("E:/giteeFile/","OpenHarmony")
