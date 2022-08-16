@@ -23,21 +23,24 @@ class Main(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
-        prUrl = self.get_argument('prUrl')
-        result = yield self.block(prUrl)
+        license = self.get_argument('license')    
+        type = self.get_argument('type')
+        result = yield self.block(license, type)
         self.finish(str(result))
 
     @gen.coroutine
     def post(self):
         '''post请求'''
-        prUrl = self.get_argument('prUrl')
-        result = yield self.block(prUrl)
+        license = self.get_argument('license')    
+        type = self.get_argument('type')
+        result = yield self.block(license, type)
         self.finish(str(result))
     
     @run_on_executor
-    def block(self, prUrl):
-        prSca = PrSca()
-        result = prSca.doSca(prUrl)
+    def block(self, license, type):
+        licenseCheck = LicenseCheck(type)
+        licenses = infixToPostfix(license)
+        result = licenseCheck.check_license_safe(licenses)
         jsonRe = json.dumps(result)
         return jsonRe
  
