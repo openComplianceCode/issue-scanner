@@ -9,13 +9,12 @@ import jsonpath
 
 from tqdm import tqdm
 import sys
+from reposca.analyzeSca import checkNotice, checkPath, checkRepoLicense
 sys.path.append("..")
 from reposca.repoDb import RepoDb
 from reposca.licenseCheck import LicenseCheck
 from util.postOrdered import infixToPostfix
 
-noticeList = ['notice','third_party_open_source_software_notice','readme','license','copyright']
-repoList = ['license','readme','notice','copying']
 
 def catch_error(func):
     def wrapper(*args, **kw):
@@ -160,46 +159,6 @@ def writeCsv(osUrl,pack):
     sca_result.sort(key=lambda x: x['repoName'], reverse=True)
 
     return sca_result
-
-@catch_error
-def checkNotice(path):
-    # 检查是notice文件
-    path = path.lower()
-
-    pathLevel = path.split("/")
-    if len(pathLevel) > 3:
-        return False
-
-    for item in noticeList:
-        if path.endswith((item,)) :
-            return True
-    
-    return False
-
-@catch_error
-def checkPath(self, path):
-    # 检查是notice文件
-    path = path.lower()
-
-    pathLevel = path.split("/")
-    if len(pathLevel) > 3:
-        return False
-
-    return True
-
-@catch_error
-def checkRepoLicense(path):
-    path = path.lower()
-
-    pathLevel = path.split("/")
-    if len(pathLevel) > 3:
-        return False
-
-    for item in repoList:
-        if item in path:
-            return True
-    
-    return False
 
 if __name__ == '__main__':
 

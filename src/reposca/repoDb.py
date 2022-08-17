@@ -117,12 +117,10 @@ class RepoDb(object):
         '''
         try:
 
-            sql = "SELECT repo_name,sca_json FROM gitee_repo WHERE repo_name = '%s' and repo_org ='%s'"
+            sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, \
+                is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and deleted_at is null"
             self.cur.execute(sql % repoData)
-
             repoList = self.cur.fetchone()
-
-            self.conn.close()
             return repoList
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
@@ -275,8 +273,9 @@ class RepoDb(object):
         '''
         try:
 
-            sql = "INSERT INTO item_lic (commite, repo_name, repo_org, repo_url, repo_license, sca_json, is_pro_license, created_at, updated_at)\
-                 VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', SYSDATE(), SYSDATE())"
+            sql = "INSERT INTO gitee_repo (repo_name, repo_org, repo_url, repo_license, sca_json, is_pro_license, \
+                spec_license, is_approve_license, is_copyright, commite, purl, created_at, updated_at)\
+                 VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s','%s','%s',SYSDATE(), SYSDATE())"
             self.cur.execute(sql % licData)
             self.conn.commit()
 
@@ -292,7 +291,8 @@ class RepoDb(object):
         '''
         try:
 
-            sql = "UPDATE item_lic set commite = '%s', repo_license = '%s', sca_json = '%s', is_pro_license = '%s', updated_at = SYSDATE()\
+            sql = "UPDATE gitee_repo set commite = '%s', repo_license = '%s', sca_json = '%s', is_pro_license = '%s', \
+                spec_license = '%s', is_approve_license = '%s', is_copyright = '%s', updated_at = SYSDATE()\
                  WHERE id = %s"
             self.cur.execute(sql % licData)
             self.conn.commit()

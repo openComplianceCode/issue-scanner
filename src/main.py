@@ -45,23 +45,23 @@ class LicSca(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
-        url = self.get_argument('repoUrl')    
-        commit = self.get_argument('commit')
-        result = yield self.block(url, commit)
+        url = self.get_argument('purl')    
+        url = json.loads(url)
+        result = yield self.block(url)
         self.finish(str(result))
 
     @gen.coroutine
     def post(self):
         '''post请求'''
-        url = self.get_argument('repoUrl')    
-        commit = self.get_argument('commit')
-        result = yield self.block(url, commit)
+        url = self.get_argument('purl')    
+        url = json.loads(url)
+        result = yield self.block(url)
         self.finish(str(result))
     
     @run_on_executor
-    def block(self, url, commit):
+    def block(self, url):
         itemLic = ItemLicSca()
-        result = itemLic.licSca(url, commit)
+        result = itemLic.scaPurl(url)
         jsonRe = json.dumps(result)
         return jsonRe
 
