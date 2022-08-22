@@ -12,7 +12,7 @@ SOURTH_PATH = '/home/giteeFile'
 
 
 @catch_error
-def getScaAnalyze(scaJson, anlyzeSrc, owner):
+def getScaAnalyze(scaJson, anlyzeSrc, owner, type):
     '''
     :param repoSrc: 扫描文件路径
     :param repo: 项目名
@@ -24,9 +24,10 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner):
     itemPathList = []
 
     haveLicense = False
+    specFlag = True
     isCopyright = False
     approved = True
-    specLicense = True
+    specLicense = False
     itemLicense = False
     noticeItemLic = '缺少项目级License声明文件'
     itemDetial = {}
@@ -47,10 +48,13 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner):
     fileLicenseCheck = LicenseCheck('file')
     licenseCheck = LicenseCheck('reference')
     indeLicChck = LicenseCheck('independent')
+    pathDepth = 3
+    if type == 'ref':
+        pathDepth = 4
     for i, var in enumerate(licenseList):
         path = itemPath[i]
         # 判断是否含有notice文件
-        if checkNotice(path) and len(copyrightList[i]) > 0:
+        if checkNotice(path, pathDepth) and len(copyrightList[i]) > 0:
             if isCopyright is False:
                 isCopyright = True
                 noticeCopyright = ""
@@ -59,7 +63,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner):
                 crInfoList.append(info['value'])
             noticeCopyright = noticeCopyright + "(" + path + "), "
 
-        if path.endswith((".spec",)) and checkPath(path):
+        if type == 'ref' and path.endswith((".spec",)) and checkPath(path, 2):
             # 提取spec里的许可证声明
             fileUrl = anlyzeSrc + "/" + itemPath[i]
             try:
@@ -71,8 +75,19 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner):
                     noticeSpec = isSpecLicense.get('notice')
                     speLicDetial = isSpecLicense.get('detail')
                     specLicenseList.append(spec.license)
+                    if haveLicense is False:
+                        specFlag = False
+                        haveLicense = True
+                        noticeLicense = ""
+                        itemLicList.clear()
+                        itemPathList.clear()
+                        itemLicList.append(spec.license)
+                        itemPathList.append(path)
+                        itemLicense = specLicense
+                        noticeItemLic = noticeSpec
+                        itemDetial = speLicDetial
             except Exception as e:
-                logging.exception(e)
+                logging.exception(e) 
                 pass
 
         if len(var) == 0:
@@ -85,17 +100,15 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner):
                 continue
             spdxLicenses = infixToPostfix(spdx_name)
             # 判断是否有项目license
-            if checkRepoLicense(path) and isLicenseText is True:
+            if checkRepoLicense(path, pathDepth) and isLicenseText is True and specFlag:
                 if haveLicense is False:
                     haveLicense = True
                     noticeLicense = ""
                     # 判断项目License是否准入
                     if owner == 'src-openeuler':
-                        itemLicCheck = licenseCheck.check_license_safe(
-                            spdxLicenses)
+                        itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     else:
-                        itemLicCheck = indeLicChck.check_license_safe(
-                            spdxLicenses)
+                        itemLicCheck = indeLicChck.check_license_safe(spdxLicenses)
                     itemLicense = itemLicCheck.get('pass')
                     noticeItemLic = itemLicCheck.get('notice')
                     itemDetial = itemLicCheck.get('detail')
@@ -104,11 +117,9 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner):
                 elif path.lower().endswith(("license",)) and path not in itemPathList:
                     # 判断项目License是否准入
                     if owner == 'src-openeuler':
-                        itemLicCheck = licenseCheck.check_license_safe(
-                            spdxLicenses)
+                        itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     else:
-                        itemLicCheck = indeLicChck.check_license_safe(
-                            spdxLicenses)
+                        itemLicCheck = indeLicChck.check_license_safe(spdxLicenses)
                     itemLicense = itemLicCheck.get('pass')
                     noticeItemLic = itemLicCheck.get('notice')
                     itemDetial = itemLicCheck.get('detail')
@@ -119,21 +130,17 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner):
                 elif path in itemPathList and spdx_name not in itemLicList:
                     # 同一个文件的做检查
                     if owner == 'src-openeuler':
-                        itemLicCheck = licenseCheck.check_license_safe(
-                            spdxLicenses)
+                        itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     else:
-                        itemLicCheck = indeLicChck.check_license_safe(
-                            spdxLicenses)
+                        itemLicCheck = indeLicChck.check_license_safe(spdxLicenses)
                     itemLicTemp = itemLicCheck.get('pass')
                     if itemLicTemp is False:
                         itemLicense = itemLicTemp
                         if noticeItemLic != '通过':
-                            noticeItemLic = noticeItemLic + \
-                                "。" + itemLicCheck.get('notice')
+                            noticeItemLic = noticeItemLic + "。" + itemLicCheck.get('notice')
                         else:
                             noticeItemLic = itemLicCheck.get('notice')
-                        itemDetial = mergDetial(
-                            itemDetial, itemLicCheck.get('detail'))
+                        itemDetial = mergDetial(itemDetial, itemLicCheck.get('detail'))
                     itemLicList.append(spdx_name)
             else:
                 # 判断license是否属于认证
@@ -189,24 +196,24 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner):
 
 
 @catch_error
-def checkPath(path):
+def checkPath(path, depth):
     # 检查是notice文件
     path = path.lower()
 
     pathLevel = path.split("/")
-    if len(pathLevel) > 3:
+    if len(pathLevel) > depth:
         return False
 
     return True
 
 
 @catch_error
-def checkNotice(path):
+def checkNotice(path, depth):
     # 检查是notice文件
     path = path.lower()
 
     pathLevel = path.split("/")
-    if len(pathLevel) > 3:
+    if len(pathLevel) > depth:
         return False
 
     for item in noticeList:
@@ -215,25 +222,12 @@ def checkNotice(path):
 
     return False
 
-
 @catch_error
-def checkPath(path):
-    # 检查是notice文件
+def checkRepoLicense(path, depth):
     path = path.lower()
 
     pathLevel = path.split("/")
-    if len(pathLevel) > 3:
-        return False
-
-    return True
-
-
-@catch_error
-def checkRepoLicense(path):
-    path = path.lower()
-
-    pathLevel = path.split("/")
-    if len(pathLevel) > 3:
+    if len(pathLevel) > depth:
         return False
 
     for item in repoList:

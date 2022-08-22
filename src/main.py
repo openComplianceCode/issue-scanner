@@ -45,7 +45,7 @@ class LicSca(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
-        url = self.get_argument('purl')    
+        url = self.get_argument('purl')
         url = json.loads(url)
         result = yield self.block(url)
         self.finish(str(result))
@@ -64,8 +64,32 @@ class LicSca(tornado.web.RequestHandler):
         result = itemLic.scaPurl(url)
         jsonRe = json.dumps(result)
         return jsonRe
+    
+class ItemSca(tornado.web.RequestHandler):
+    executor = ThreadPoolExecutor(1000)
 
-application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca),])
+    @gen.coroutine
+    def get(self):
+        """get请求"""
+        url = self.get_argument('url')
+        result = yield self.block(url)
+        self.finish(str(result))
+
+    @gen.coroutine
+    def post(self):
+        '''post请求'''
+        url = self.get_argument('url')    
+        result = yield self.block(url)
+        self.finish(str(result))
+    
+    @run_on_executor
+    def block(self, url):
+        itemLic = ItemLicSca()
+        result = itemLic.licSca(url)
+        jsonRe = json.dumps(result)
+        return jsonRe
+
+application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca),])
 
 if __name__ == '__main__':
     httpServer = tornado.httpserver.HTTPServer(application)

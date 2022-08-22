@@ -76,7 +76,7 @@ class PrSca(object):
 
             # 扫描pr文件
             scaJson = self.getPrSca()
-            scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._owner_)
+            scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._owner_, self._type_)
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
@@ -140,9 +140,12 @@ class PrSca(object):
             if os.path.exists(tempJson) is False:
                 open(tempJson, 'w')
 
+            self._type_ = "inde"#自研
             reExt = extractCode(self._repoSrc_)
-            if reExt is False:
+            if reExt == "Except":
                 logging.error("file extracCode error")
+            elif reExt == "ref":
+                self._type_ = "ref"#引用仓
 
             logging.info("=============Start scan repo==============")
             # 调用scancode

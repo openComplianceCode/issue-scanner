@@ -79,13 +79,13 @@ def writeCsv(osUrl,pack):
                 path = itemPath[i]
 
                 #判断是否含有notice文件
-                if checkNotice(path) and len(copyrightList[i]) > 0 :
+                if checkNotice(path, 3) and len(copyrightList[i]) > 0 :
                     if isCopyright == '否':
                         isCopyright = "是, "
 
                     isCopyright = isCopyright + "("+path + "), "
                 
-                if path.endswith((".spec",)) and checkPath(path):
+                if path.endswith((".spec",)) and checkPath(path, 2):
                     #提取spec里的许可证声明
                     fileUrl = packUrl +"/"+ path
                     spec = Spec.from_file(fileUrl)
@@ -101,7 +101,7 @@ def writeCsv(osUrl,pack):
                         continue
                     isLicenseText = pathLicense['matched_rule']['is_license_text']
                     #判断是否有项目license
-                    if checkRepoLicense(path) and isLicenseText is True:
+                    if checkRepoLicense(path, 3) and isLicenseText is True:
                         if haveLicense == 'Un':
                              haveLicense = '是'
                         

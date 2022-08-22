@@ -10,7 +10,7 @@ from util.formateUtil import formateUrl
 COMPRESSED_LIST = ['tar', 'tgz', 'zip', 'rar']
 
 def extractCode(filePath):
-    result = True
+    result = "inde"
     try:
         for deRoot,deDir,deFiles in os.walk(filePath):  
             for defile in deFiles:                        
@@ -19,6 +19,7 @@ def extractCode(filePath):
                 wrar = checkWrar(defile)
                 #判断压缩文件
                 if wrar in COMPRESSED_LIST:
+                    result = "ref"
                     if wrar == 'tar' or wrar == 'tgz':
                         un_tar(dePath, filePath)
                     elif wrar == 'zip':
@@ -29,7 +30,7 @@ def extractCode(filePath):
                     continue
             break
     except Exception as e:
-        result = False
+        result = "Except"
         traceback.print_exc()
         pass
     finally:

@@ -127,6 +127,40 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
 
+    def Query_Repo_ByVersion(self, repoData):
+        '''
+        根据repo name 查询repo数据
+        '''
+        try:
+
+            sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, \
+                is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and \
+                    commite = '%s' and deleted_at is null"
+            self.cur.execute(sql % repoData)
+            repoList = self.cur.fetchone()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+    
+    def Query_Repo_ByTime(self, repoData):
+        '''
+        根据repo name 查询repo数据 获取最新一次
+        '''
+        try:
+
+            sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, \
+                is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and deleted_at is null\
+                    ORDER BY updated_at DESC limit 1"
+            self.cur.execute(sql % repoData)
+            repoList = self.cur.fetchone()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+
     def Query_RepoByOrg(self, repoOrg):
         '''
         获取repo数据
