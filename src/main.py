@@ -21,6 +21,7 @@ class Main(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
         prUrl = self.get_argument('prUrl')
         result = yield self.block(prUrl)
         self.finish(str(result))
@@ -28,6 +29,7 @@ class Main(tornado.web.RequestHandler):
     @gen.coroutine
     def post(self):
         '''post请求'''
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
         prUrl = self.get_argument('prUrl')
         result = yield self.block(prUrl)
         self.finish(str(result))
@@ -45,18 +47,20 @@ class LicSca(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('purl')
         url = json.loads(url)
         result = yield self.block(url)
-        self.finish(str(result))
+        self.finish(result)
 
     @gen.coroutine
     def post(self):
         '''post请求'''
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('purl')    
         url = json.loads(url)
         result = yield self.block(url)
-        self.finish(str(result))
+        self.finish(result)
     
     @run_on_executor
     def block(self, url):
@@ -71,6 +75,7 @@ class ItemSca(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')
         result = yield self.block(url)
         self.finish(str(result))
@@ -78,6 +83,7 @@ class ItemSca(tornado.web.RequestHandler):
     @gen.coroutine
     def post(self):
         '''post请求'''
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')    
         result = yield self.block(url)
         self.finish(str(result))
