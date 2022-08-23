@@ -6,7 +6,6 @@ import shlex
 import stat
 import subprocess
 import time
-from turtle import pu
 import pymysql
 from git.repo import Repo
 from reposca.analyzeSca import getScaAnalyze
