@@ -12,7 +12,7 @@ SOURTH_PATH = '/home/giteeFile'
 
 
 @catch_error
-def getScaAnalyze(scaJson, anlyzeSrc, owner, type):
+def getScaAnalyze(scaJson, anlyzeSrc, type):
     '''
     :param repoSrc: 扫描文件路径
     :param repo: 项目名
@@ -60,7 +60,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner, type):
                 noticeCopyright = ""
             copyrightInfo = copyrightList[i]
             for info in copyrightInfo:
-                crInfoList.append(info['value'])
+                crInfoList.append(info['copyright'])
             noticeCopyright = noticeCopyright + "(" + path + "), "
 
         if type == 'ref' and path.endswith((".spec",)) and checkPath(path, 2):
@@ -105,7 +105,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner, type):
                     haveLicense = True
                     noticeLicense = ""
                     # 判断项目License是否准入
-                    if owner == 'src-openeuler':
+                    if type == 'ref':
                         itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     else:
                         itemLicCheck = indeLicChck.check_license_safe(spdxLicenses)
@@ -116,7 +116,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner, type):
                     itemPathList.append(path)
                 elif path.lower().endswith(("license",)) and path not in itemPathList:
                     # 判断项目License是否准入
-                    if owner == 'src-openeuler':
+                    if type == 'ref':
                         itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     else:
                         itemLicCheck = indeLicChck.check_license_safe(spdxLicenses)
@@ -129,7 +129,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, owner, type):
                     itemPathList.append(path)
                 elif path in itemPathList and spdx_name not in itemLicList:
                     # 同一个文件的做检查
-                    if owner == 'src-openeuler':
+                    if type == 'ref':
                         itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     else:
                         itemLicCheck = indeLicChck.check_license_safe(spdxLicenses)
