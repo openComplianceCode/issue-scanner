@@ -62,11 +62,6 @@ class ItemLicSca(object):
                     itemLic = self._dbObject_.Query_Repo_ByVersion(itemData)
                 scaResult = {}
                 if itemLic is None or (itemLic is not None and itemLic['is_pro_license'] is None):
-                    # if scaFlag:
-                    #     scaResult = self.licSca()
-                    #     scaResult.pop('spec_license_legal')
-                    #     scaResult.pop('license_in_scope')
-                    # else:
                     scaResult = {
                         "repo_license_legal": {
                             "pass": False,
@@ -204,9 +199,16 @@ class ItemLicSca(object):
             specLicLg = pymysql.escape_string(str(specLicLg))
             licScope = pymysql.escape_string(str(licScope))
             copyrightLg = pymysql.escape_string(str(copyrightLg))
-            repoData = (self._repo_, self._owner_, repoUrl, repoLicense, scaJson, repoLicLg, specLicLg,\
-                licScope, copyrightLg, self._commit_, self._purl_ )
-            self._dbObject_.add_ItemLic(repoData)
+            #检查是否存在数据
+            itemData = (self._owner_, self._repo_, self._commit_)
+            itemLic = self._dbObject_.Query_Repo_ByVersion(itemData)
+            if itemLic is None:
+                repoData = (self._repo_, self._owner_, repoUrl, repoLicense, scaJson, repoLicLg, specLicLg,\
+                    licScope, copyrightLg, self._commit_, self._purl_ )
+                self._dbObject_.add_ItemLic(repoData)
+            else:
+                repoData = (self._commit_, repoLicense,scaJson, repoLicLg, specLicLg, licScope, copyrightLg, itemLic['id'])
+                self._dbObject_.upd_ItemLic(repoData)
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))

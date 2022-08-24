@@ -51,7 +51,9 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
     pathDepth = 3
     if type == 'ref':
         pathDepth = 4
-    for i, var in enumerate(licenseList):
+    if licenseList is False:
+        licenseList = []
+    for i, var in enumerate(licenseList):   
         path = itemPath[i]
         # 判断是否含有notice文件
         if checkNotice(path, pathDepth) and len(copyrightList[i]) > 0:

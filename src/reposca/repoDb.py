@@ -83,7 +83,7 @@ class RepoDb(object):
         '''
         try:
 
-            sql = "SELECT repo_name,repo_org, repo_url, sca_json, repo_owner FROM gitee_repo WHERE repo_url IS NOT NULL"
+            sql = "SELECT id,repo_name,repo_org, repo_url, sca_json, repo_owner FROM gitee_repo WHERE repo_url IS NOT NULL"
             self.cur.execute(sql)
 
             repoList = self.cur.fetchall()
