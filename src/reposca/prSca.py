@@ -150,7 +150,7 @@ class PrSca(object):
             logging.info("=============Start scan repo==============")
             # 调用scancode
             command = shlex.split(
-                'scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, tempJson))
+                'scancode -l -c %s --max-depth 3 --json %s -n 5 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
