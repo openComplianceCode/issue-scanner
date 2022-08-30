@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
+import multiprocessing
 import os
 import shlex
 import stat
@@ -15,7 +16,7 @@ from util.popUtil import popKill
 from util.extractUtil import extractCode
 from util.formateUtil import formateUrl
 from util.catchUtil import catch_error
-
+from scancode import cli
 from git.repo import Repo
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
@@ -141,16 +142,18 @@ class PrSca(object):
                 open(tempJson, 'w')
 
             self._type_ = "inde"#自研
+            maxDepth = 2
             reExt = extractCode(self._repoSrc_)
             if reExt == "Except":
                 logging.error("file extracCode error")
             elif reExt == "ref":
                 self._type_ = "ref"#引用仓
+                maxDepth = 3
 
             logging.info("=============Start scan repo==============")
             # 调用scancode
             command = shlex.split(
-                'scancode -l -c %s --max-depth 3 --json %s -n 5 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, tempJson))
+                'scancode -l -c %s --max-depth %s --json %s -n 5 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, maxDepth, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
@@ -171,7 +174,7 @@ class PrSca(object):
 
         except Exception as e:
             logger = logging.getLogger(__name__)
-            logger.exception("Error on %s: %s" % (command, e))
+            logger.exception("Error on %s" % (e))
         finally:
             # 清空文件
             os.chmod(tempJson, stat.S_IWUSR)

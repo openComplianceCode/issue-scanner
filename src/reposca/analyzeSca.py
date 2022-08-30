@@ -1,5 +1,6 @@
 import json
 import logging
+import re
 import jsonpath
 from reposca.licenseCheck import LicenseCheck
 from util.catchUtil import catch_error
@@ -83,7 +84,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                         noticeLicense = ""
                         itemLicList.clear()
                         itemPathList.clear()
-                        itemLicList.append(spec.license)
+                        itemLicList.append(licenseSplit(spec.license))
                         itemPathList.append(path)
                         itemLicense = specLicense
                         noticeItemLic = noticeSpec
@@ -281,3 +282,11 @@ def mergDetial(oldDetial, lastDetial):
     }
 
     return res
+
+@catch_error
+def licenseSplit(licenses):
+    license_set = re.split(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?[Oo][Rr]-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', licenses)
+    for index in range(len(license_set)):  # 去除字符串首尾空格
+        license_set[index] = license_set[index].strip()
+    license_set = list(filter(None, license_set))
+    return license_set
