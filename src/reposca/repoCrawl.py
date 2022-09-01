@@ -69,7 +69,8 @@ def getRepoUrl(orgName):
     repoData = []
     ownerData = []
     for item in tqdm(repoList,desc="Insert repo And Owner",total=len(repoList)):
-        tempReData = (item["id"], item["name"], item['namespace']['name'], item['html_url'], item['license'], item['language'], item['forks_count'], item['stargazers_count'])
+        repoOrg = item['namespace']['name']
+        tempReData = (item["id"], item["name"], repoOrg.lower(), item['html_url'], item['license'], item['language'], item['forks_count'], item['stargazers_count'])
         # 新增repo数据
         repoData.append(tempReData)     
         # 获取Maintainer

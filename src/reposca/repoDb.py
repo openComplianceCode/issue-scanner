@@ -1,5 +1,6 @@
 # -- coding: utf-8 --
 from distutils import config
+from DBUtils.PooledDB import PooledDB
 import logging
 import traceback
 import pymysql
@@ -9,7 +10,7 @@ class RepoDb(object):
 
     # 定义初始化数据库连接
     def __init__(self, host_db='127.0.0.1', user_db='root', password_db='root',
-                 name_db='gitee', port_db=3306, link_type=0):
+                 name_db='gitee', port_db=3306):
         '''
         :param host_db: 数据库服务主机IP
         :param user_db: 数据库连接用户名
@@ -20,15 +21,25 @@ class RepoDb(object):
         :return:游标
         '''
         try:
-            if link_type == 0:
-                # 创建数据，返回字典
-                self.conn = pymysql.connect(host=host_db, user=user_db, password=password_db, db=name_db, port=port_db,
-                                            cursorclass=pymysql.cursors.DictCursor)
-            else:
-                # 创建数据库，返回元祖
-                self.conn = pymysql.connect(
-                    host=host_db, user=user_db, password=password_db, db=name_db, port=port_db)
-            self.cur = self.conn.cursor()
+            self.POOL = PooledDB(
+                creator = pymysql,
+                maxconnections = 30, #连接池允许的最大连接数，0和None表示不限制连接数
+                mincached = 2, #初始化时候，连接池中至少创建的空闲的链接，0表示不创建
+                maxcached = 5, # 链接池中最多闲置的链接，0和None不限制
+                maxshared = 3,# 链接池中最多共享的链接数量，0和None表示全部共享。PS: 无用，因为pymysql和MySQLdb等模块的 threadsafety都为1，所有值无论设置为多少，_maxcached永远为0，所以永远是所有链接都共享。
+                blocking =True,#连接池中如果没有可用链接后，是否阻塞等待。True，等待；False，不等待然后报错
+                maxusage = None, #一个链接最多被重复使用的次数，None表示无限制
+                setsession=[], #开始会话前执行的命令咧白哦。如['set datastyle to ...','set time zone ... ']
+                ping = 0 , #ping MYSQL 服务端口，检查是否服务克重。 如：0 = None = Never， 1 = default = whenever it is requested, 2 = when a cursor is created，4 = when a query is excuted , 7 =always
+                host=host_db,
+                user=user_db,
+                password=password_db,
+                database=name_db,
+                port=port_db,
+                charset = 'utf8'
+            )
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
             logger.exception("创建数据库连接失败|Mysql Error %d: %s" %
@@ -54,9 +65,6 @@ class RepoDb(object):
             traceback.print_exc()
             self.conn.rollback()
 
-    #    CUR.close()  # 关闭游标
-    #    CONN.close()  # 关闭连接
-
     def Buid_OwnerData(self, ownerData):
         '''
         新增owner数据
@@ -64,14 +72,11 @@ class RepoDb(object):
         try:
 
             sql = "INSERT INTO repo_owner ( repo_id, gitee_id, login, user_url, owner_name)  VALUES (%s, %s, %s, %s, %s)"
-            # self.cur.executemany(sql, ownerData)
             self.cur.execute('SET character_set_connection=utf8;')
             self.cur.executemany(sql, ownerData)
             self.conn.commit()
 
         except pymysql.Error as e:
-            # Rollback in case there is any error
-            # 输出异常信息
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
@@ -82,12 +87,9 @@ class RepoDb(object):
         获取repo数据
         '''
         try:
-
-            sql = "SELECT id,repo_name,repo_org, repo_url, sca_json, repo_owner FROM gitee_repo WHERE repo_url IS NOT NULL"
+            sql = "SELECT id,repo_name,repo_org, repo_url, sca_json, repo_owner FROM gitee_repo WHERE repo_url IS NOT NULL and sca_json is null"
             self.cur.execute(sql)
-
             repoList = self.cur.fetchall()
-
             return repoList
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
@@ -99,11 +101,9 @@ class RepoDb(object):
         更新repo数据
         '''
         try:
-
             sql = "UPDATE gitee_repo set sca_json = '%s' WHERE repo_org = '%s' and repo_name = '%s'"
             self.cur.execute(sql % repoData)
             self.conn.commit()
-
             self.conn.close()
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
@@ -116,7 +116,6 @@ class RepoDb(object):
         根据repo name 查询repo数据
         '''
         try:
-
             sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, \
                 is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and deleted_at is null"
             self.cur.execute(sql % repoData)
@@ -132,7 +131,6 @@ class RepoDb(object):
         根据repo name 查询repo数据
         '''
         try:
-
             sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, \
                 is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and \
                     commite = '%s' and deleted_at is null"
@@ -149,7 +147,6 @@ class RepoDb(object):
         根据repo name 查询repo数据 获取最新一次
         '''
         try:
-
             sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, \
                 is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and deleted_at is null\
                     ORDER BY updated_at DESC limit 1"
@@ -166,12 +163,9 @@ class RepoDb(object):
         获取repo数据
         '''
         try:
-
             sql = "SELECT * FROM gitee_repo WHERE repo_org ='%s'"
             self.cur.execute(sql % repoOrg)
-
             repoList = self.cur.fetchall()
-
             return repoList
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
@@ -183,12 +177,9 @@ class RepoDb(object):
         检查license是否认证
         '''
         try:
-
             sql = "SELECT spdx_name FROM spdx_license WHERE spdx_name ='%s' and (osi_approved = 1 or fsf_approved = 1)"
             self.cur.execute(sql % repoData)
-
             repoList = self.cur.fetchall()
-
             return repoList
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
@@ -200,12 +191,9 @@ class RepoDb(object):
         更新repo数据的sig组
         '''
         try:
-
             sql = "UPDATE gitee_repo set repo_owner = '%s' WHERE repo_org = '%s' and repo_name = '%s'"
             self.cur.execute(sql % repoData)
             self.conn.commit()
-
-            # self.conn.close()
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
             logger.exception(e)
@@ -217,12 +205,9 @@ class RepoDb(object):
         更新repo的扫描结果
         '''
         try:
-
             sql = "UPDATE gitee_repo set is_pro_license = '%s',spec_license = '%s', is_approve_license = '%s', is_copyright = '%s' WHERE id = %s"
             self.cur.execute(sql % repoData)
             self.conn.commit()
-
-            # self.conn.close()
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
             logger.exception(e)
@@ -234,12 +219,9 @@ class RepoDb(object):
         根据spdx 查询license数据
         '''
         try:
-
             sql = "SELECT id,name,spdx_name FROM licenses WHERE spdx_name = '%s'"
             self.cur.execute(sql % repoData)
-
             repoList = self.cur.fetchone()
-
             return repoList
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
@@ -251,12 +233,9 @@ class RepoDb(object):
         更新license信息
         '''
         try:
-
             sql = "UPDATE licenses set is_yaml = '%s',oe_approved = '%s', low_risk = '%s', black = '%s', blackReason = '%s' , alias = '%s' WHERE id = %s"
             self.cur.execute(sql % repoData)
             self.conn.commit()
-
-            # self.conn.close()
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
             logger.exception(e)
@@ -268,7 +247,6 @@ class RepoDb(object):
         新增license数据
         '''
         try:
-
             sql = "INSERT INTO licenses (created_at, updated_at, name, spdx_name, osi_approved, fsf_approved, summary,\
                  full_text, full_text_plain, summary_from_spdx, web_page_from_spdx, standard_license_header_from_spdx, \
                  is_yaml, oe_approved, low_risk, black, blackReason, alias)  \
@@ -276,7 +254,6 @@ class RepoDb(object):
                      , '%s', '%s', '%s')"
             self.cur.execute(sql % licData)
             self.conn.commit()
-
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
             logger.exception(e)
@@ -288,13 +265,10 @@ class RepoDb(object):
         根据url 查询项目数据
         '''
         try:
-
             sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license FROM item_lic WHERE \
                 repo_org = '%s' and repo_name = '%s' and deleted_at is null"
             self.cur.execute(sql % itemData)
-
             repoList = self.cur.fetchone()
-
             return repoList
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
@@ -306,13 +280,11 @@ class RepoDb(object):
         新增item_lic数据
         '''
         try:
-
             sql = "INSERT INTO gitee_repo (repo_name, repo_org, repo_url, repo_license, sca_json, is_pro_license, \
                 spec_license, is_approve_license, is_copyright, commite, purl, created_at, updated_at)\
                  VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s','%s','%s',SYSDATE(), SYSDATE())"
             self.cur.execute(sql % licData)
             self.conn.commit()
-
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
             logger.exception(e)
@@ -324,13 +296,11 @@ class RepoDb(object):
         新增item_lic数据
         '''
         try:
-
             sql = "UPDATE gitee_repo set commite = '%s', repo_license = '%s', sca_json = '%s', is_pro_license = '%s', \
                 spec_license = '%s', is_approve_license = '%s', is_copyright = '%s', updated_at = SYSDATE()\
                  WHERE id = %s"
             self.cur.execute(sql % licData)
             self.conn.commit()
-
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
             logger.exception(e)

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import logging
-import multiprocessing
 import os
 import shlex
 import stat
@@ -16,7 +15,6 @@ from util.popUtil import popKill
 from util.extractUtil import extractCode
 from util.formateUtil import formateUrl
 from util.catchUtil import catch_error
-from scancode import cli
 from git.repo import Repo
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
@@ -26,8 +24,8 @@ logging.getLogger().setLevel(logging.INFO)
 
 class PrSca(object):
 
-    def __init__(self):
-        self._current_dir_ = os.path.dirname(os.path.abspath(__file__))
+    # def __init__(self):
+    #     self._current_dir_ = os.path.dirname(os.path.abspath(__file__))
 
     @catch_error
     def doSca(self, url):
@@ -42,7 +40,7 @@ class PrSca(object):
             timestamp = int(time.time())
 
             # 创建临时文件
-            temFileSrc = self._current_dir_+'/tempSrc'
+            temFileSrc = SOURTH_PATH+'/tempSrc'
             temFileSrc = formateUrl(temFileSrc)
 
             if os.path.exists(temFileSrc) is False:
@@ -130,7 +128,7 @@ class PrSca(object):
         :return:扫描结果json
         '''
         try:
-            temJsonSrc = self._current_dir_+'/tempJson'
+            temJsonSrc = SOURTH_PATH+'/tempJson'
             temJsonSrc = formateUrl(temJsonSrc)
             if os.path.exists(temJsonSrc) is False:
                 os.makedirs(temJsonSrc)
@@ -153,7 +151,7 @@ class PrSca(object):
             logging.info("=============Start scan repo==============")
             # 调用scancode
             command = shlex.split(
-                'scancode -l -c %s --max-depth %s --json %s -n 5 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, maxDepth, tempJson))
+                'scancode -l -c %s --max-depth %s --json %s -n 4 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, maxDepth, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
@@ -179,7 +177,6 @@ class PrSca(object):
             # 清空文件
             os.chmod(tempJson, stat.S_IWUSR)
             os.remove(tempJson)
-
             return scaJson
 
     @catch_error

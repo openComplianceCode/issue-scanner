@@ -66,7 +66,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                 crInfoList.append(info['copyright'])
             noticeCopyright = noticeCopyright + "(" + path + "), "
 
-        if type == 'ref' and path.endswith((".spec",)) and checkPath(path, 2):
+        if path.endswith((".spec",)) and checkPath(path, 2):
             # 提取spec里的许可证声明
             fileUrl = anlyzeSrc + "/" + itemPath[i]
             try:

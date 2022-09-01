@@ -1,4 +1,3 @@
-import json
 import logging
 import os
 from pickle import FALSE
@@ -25,7 +24,6 @@ logging.getLogger().setLevel(logging.INFO)
 class ItemLicSca(object):
 
     def __init__(self):
-        self._current_dir_ = os.path.dirname(os.path.abspath(__file__))
         #连接数据库
         self._dbObject_ = RepoDb(
             host_db = os.environ.get("MYSQL_HOST"), 
@@ -51,7 +49,6 @@ class ItemLicSca(object):
                 self._repo_ = name
                 self._commit_ = commit
                 self._purl_ = var
-
                 #先查询数据是否存在
                 if commit is None:
                     #获取最新数据
@@ -119,7 +116,7 @@ class ItemLicSca(object):
             timestamp = int(time.time())
             scaResult = ''
             # 创建临时文件
-            temFileSrc = self._current_dir_+'/tempSrc'
+            temFileSrc = SOURTH_PATH +'/tempSrc'
             temFileSrc = formateUrl(temFileSrc)
 
             if os.path.exists(temFileSrc) is False:
@@ -134,7 +131,7 @@ class ItemLicSca(object):
 
             logging.info("=============Start fetch repo==============")
             try:
-                repo = Repo.clone_from(gitUrl,to_path=self._repoSrc_)
+                repo = Repo.clone_from(gitUrl,to_path=self._repoSrc_, depth=1)
             except:
                 scaResult = {
                     "repo_license_legal": {
@@ -180,14 +177,10 @@ class ItemLicSca(object):
                     }
                 }
                 return scaResult
-            self._gitRepo_ = repo
-            self._git_ = repo.git
             logging.info("=============End fetch repo==============")
-
             # 扫描pr文件
             scaJson = self.getPrSca()
             scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_)
-
             # 存入数据库
             scaJson = pymysql.escape_string(scaJson)
             repoLicLg = scaResult['repo_license_legal']
@@ -231,7 +224,7 @@ class ItemLicSca(object):
         :return:扫描结果json
         '''
         try:
-            temJsonSrc = self._current_dir_+'/tempJson'
+            temJsonSrc = SOURTH_PATH +'/tempJson'
             temJsonSrc = formateUrl(temJsonSrc)
             if os.path.exists(temJsonSrc) is False:
                 os.makedirs(temJsonSrc)
@@ -243,17 +236,18 @@ class ItemLicSca(object):
                 open(tempJson, 'w')
 
             self._type_ = "inde"#自研
+            maxDepth = 2
             reExt = extractCode(self._repoSrc_)
             if reExt == "Except":
                 logging.error("file extracCode error")
             elif reExt == "ref":
                 self._type_ = "ref"#引用仓
-                
+                maxDepth = 3           
 
             logging.info("=============Start scan repo==============")
             # 调用scancode
             command = shlex.split(
-                'scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, tempJson))
+                'scancode -l -c %s --max-depth %s --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, maxDepth, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
@@ -273,7 +267,6 @@ class ItemLicSca(object):
             # 清空文件
             os.chmod(tempJson, stat.S_IWUSR)
             os.remove(tempJson)
-
             return scaJson
 
     @catch_error

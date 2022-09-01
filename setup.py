@@ -52,6 +52,7 @@ requirements = [
   'python-rpm-spec==0.11'
   'rarfile==4.0'
   'GitPython==3.1.27'
+  'DBUtils==1.3'
 ]
 
 
