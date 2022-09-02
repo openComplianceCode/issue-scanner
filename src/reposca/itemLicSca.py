@@ -131,7 +131,7 @@ class ItemLicSca(object):
 
             logging.info("=============Start fetch repo==============")
             try:
-                repo = Repo.clone_from(gitUrl,to_path=self._repoSrc_, depth=1)
+                repo = Repo.clone_from(gitUrl,to_path=self._repoSrc_)
             except:
                 scaResult = {
                     "repo_license_legal": {
