@@ -1,3 +1,5 @@
+import json
+import jsonpath
 import logging
 import os
 from pickle import FALSE
@@ -63,7 +65,13 @@ class ItemLicSca(object):
                         "repo_license_legal": {
                             "license": ["项目未扫描"]
                             },
+                        "repo_license_illegal": {
+                            "license": ["项目未扫描"]
+                            },
                         "repo_copyright_legal": {
+                            "copyright": ["项目未扫描"]
+                        },
+                        "repo_copyright_illegal": {
                             "copyright": ["项目未扫描"]
                         }
                     }
@@ -71,12 +79,31 @@ class ItemLicSca(object):
                     repoLicLg = eval(itemLic['is_pro_license']) 
                     copyrightLg = eval(itemLic['is_copyright'])
                     reLicList = repoLicLg['is_legal']['license']
+                    reDetial = repoLicLg['is_legal']['detail']
+                    chJson = json.dumps(reDetial)
+                    jsonData = json.loads(chJson)
+                    reRisks = jsonpath.jsonpath(jsonData, '$.[*].risks')
+                    risksList = []
+                    leLicList = []
+                    if reRisks is False:
+                        reRisks = []
+                    for item in reRisks:
+                        risksList.extend(item)
+                    for leLic in reLicList:
+                        if leLic not in risksList:
+                            leLicList.append(leLic)
                     reCopy = copyrightLg['copyright']
                     scaResult['repo_license_legal'] = {
-                        "license": reLicList
+                        "license": leLicList
+                    }
+                    scaResult['repo_license_illegal'] = {
+                        "license": risksList
                     }
                     scaResult['repo_copyright_legal'] = {
                         "copyright": reCopy
+                    }
+                    scaResult['repo_copyright_illegal'] = {
+                        "copyright": []
                     }
 
             repoRe = {
