@@ -149,7 +149,8 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                 # 判断license是否属于认证
                 fileLicense = fileLicenseCheck.check_license_safe(spdxLicenses)
                 reLicense = fileLicense.get('pass')
-                if reLicense is False and pathLicense['start_line'] != pathLicense['end_line']:
+                spdLower = spdx_name.lower()
+                if reLicense is False and pathLicense['start_line'] != pathLicense['end_line'] and 'exception' not in spdLower:
                     approved = False
                     noticeScope = noticeScope + spdx_name + "("+path + ", start_line: "+str(
                         pathLicense['start_line'])+", end_line: "+str(pathLicense['end_line'])+"), "
@@ -161,8 +162,9 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
     if noticeScope == '':
         noticeScope = 'OSI/FSF认证License'
     else:
-        noticeScope = '存在非OSI/FSF认证的License：' + noticeScope
-
+        noticeScope = '存在非OSI/FSF认证的License：' + noticeScope + ' License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组或chenyixiong3@huawei.com'
+    #关闭copyright
+    isCopyright = True
     sca_result = {
         "repo_license_legal": {
             "pass": haveLicense,

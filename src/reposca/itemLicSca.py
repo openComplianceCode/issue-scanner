@@ -61,23 +61,23 @@ class ItemLicSca(object):
                 if itemLic is None or (itemLic is not None and itemLic['is_pro_license'] is None):
                     scaResult = {
                         "repo_license_legal": {
-                            "pass": False,
-                            "result_code": "",
-                            "notice": "项目未扫描",
-                            "is_legal": {"pass": False,"license": [],"notice": "","detail": {}}
+                            "license": ["项目未扫描"]
                             },
                         "repo_copyright_legal": {
-                            "pass": False,
-                            "result_code": "",
-                            "notice": "项目未扫描",
-                            "copyright": []
+                            "copyright": ["项目未扫描"]
                         }
                     }
                 else:           
                     repoLicLg = eval(itemLic['is_pro_license']) 
                     copyrightLg = eval(itemLic['is_copyright'])
-                    scaResult['repo_license_legal'] = repoLicLg
-                    scaResult['repo_copyright_legal'] = copyrightLg
+                    reLicList = repoLicLg['is_legal']['license']
+                    reCopy = copyrightLg['copyright']
+                    scaResult['repo_license_legal'] = {
+                        "license": reLicList
+                    }
+                    scaResult['repo_copyright_legal'] = {
+                        "copyright": reCopy
+                    }
 
             repoRe = {
                 "purl" : var,
