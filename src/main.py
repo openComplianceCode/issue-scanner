@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from concurrent.futures import ThreadPoolExecutor
 import json
-
 import tornado.web
 import tornado.ioloop
 import tornado.httpserver
@@ -15,7 +14,6 @@ from reposca.prSca import PrSca
 from tornado import gen
 
 from util.postOrdered import infixToPostfix
-from pyrpm.spec import Spec
 
 class Main(tornado.web.RequestHandler):
     executor = ThreadPoolExecutor(1000)
@@ -23,17 +21,17 @@ class Main(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
-        license = self.get_argument('license')    
-        type = self.get_argument('type')
-        result = yield self.block(license, type)
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        prUrl = self.get_argument('prUrl')
+        result = yield self.block(prUrl)
         self.finish(str(result))
 
     @gen.coroutine
     def post(self):
         '''post请求'''
-        license = self.get_argument('license')    
-        type = self.get_argument('type')
-        result = yield self.block(license, type)
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        prUrl = self.get_argument('prUrl')
+        result = yield self.block(prUrl)
         self.finish(str(result))
     
     @run_on_executor
@@ -50,33 +48,58 @@ class LicSca(tornado.web.RequestHandler):
     @gen.coroutine
     def get(self):
         """get请求"""
-        url = self.get_argument('repoUrl')    
-        commit = self.get_argument('commit')
-        result = yield self.block(url, commit)
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        url = self.get_argument('purl')
+        url = json.loads(url)
+        result = yield self.block(url)
+        self.finish(result)
+
+    @gen.coroutine
+    def post(self):
+        '''post请求'''
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        url = self.get_argument('purl')    
+        url = json.loads(url)
+        result = yield self.block(url)
+        self.finish(result)
+    
+    @run_on_executor
+    def block(self, url):
+        itemLic = ItemLicSca()
+        result = itemLic.scaPurl(url)
+        jsonRe = json.dumps(result)
+        return jsonRe
+    
+class ItemSca(tornado.web.RequestHandler):
+    executor = ThreadPoolExecutor(1000)
+
+    @gen.coroutine
+    def get(self):
+        """get请求"""
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        url = self.get_argument('url')
+        result = yield self.block(url)
         self.finish(str(result))
 
     @gen.coroutine
     def post(self):
         '''post请求'''
-        url = self.get_argument('repoUrl')    
-        commit = self.get_argument('commit')
-        result = yield self.block(url, commit)
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        url = self.get_argument('url')    
+        result = yield self.block(url)
         self.finish(str(result))
     
     @run_on_executor
-    def block(self, url, commit):
+    def block(self, url):
         itemLic = ItemLicSca()
-        result = itemLic.licSca(url, commit)
+        result = itemLic.licSca(url)
         jsonRe = json.dumps(result)
         return jsonRe
 
-application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca),])
+application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca),])
 
-if __name__ == '__main__':  
+if __name__ == '__main__':
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)
     tornado.ioloop.IOLoop.current().start()
-
-    
-    

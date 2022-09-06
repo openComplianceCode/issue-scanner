@@ -32,7 +32,7 @@ def read(fname):
 
 
 requirements = [
-  'scancode-toolkit>=30.1.0',
+  'scancode-toolkit==31.0.1',
   'beautifulsoup4==4.11.1',
   'grimoirelab_toolkit==0.1.12',
   'isort==5.10.1',
@@ -52,6 +52,7 @@ requirements = [
   'python-rpm-spec==0.11'
   'rarfile==4.0'
   'GitPython==3.1.27'
+  'DBUtils==1.3'
 ]
 
 

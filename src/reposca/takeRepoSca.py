@@ -4,6 +4,7 @@ import logging
 from ntpath import join
 import os
 import shlex
+import shutil
 import stat
 import subprocess
 import tarfile
@@ -132,9 +133,8 @@ def checkWrar(filePath):
     else:
         return False
 
-@catch_error
 def cleanTemp(dirUrl):
-    #清空临时解压目录   
+    # 清空临时解压目录   
     for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
         for delName in delFiles:
             try:
@@ -142,10 +142,9 @@ def cleanTemp(dirUrl):
                 delUrl = formateUrl(delUrl)
                 #防止文件拒绝访问
                 os.chmod(delUrl, stat.S_IWUSR) 
-                os.remove(delUrl) 
+                os.remove(delUrl)
             except:
-                pass
-                            
+                pass                
         for delName in delDirs:
             try:
                 delUrl = os.path.join(delRoot, delName)
@@ -155,6 +154,12 @@ def cleanTemp(dirUrl):
                 os.rmdir(delUrl)
             except:
                 pass
+
+@catch_error
+def checkMod(func, path):
+    os.chmod(path, stat.S_IWRITE)
+    func(path)
+
 
 if __name__ == '__main__':
     scaRepo("E:/giteeFile/","OpenHarmony")

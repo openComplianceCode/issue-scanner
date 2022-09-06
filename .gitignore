@@ -5,9 +5,12 @@
 test/
 src/reposca/tempJson/
 src/reposca/tempSrc/
+src/reposca/temp/
 */__pycache__/
 *.csv
 src/repoSig.py
 src/reposca/csvtest.py
 .VSCodeCounter
 src/reposca/json.txt
+src/reposca/cleanData.py
+src/reposca/fixSca.py

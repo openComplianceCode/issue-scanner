@@ -1,24 +1,22 @@
-from asyncio.windows_events import NULL
-import json
 import logging
 import os
+from pickle import FALSE
 import shlex
 import stat
 import subprocess
 import time
-import jsonpath
 import pymysql
 from git.repo import Repo
-from reposca.makeRepoCsv import checkRepoLicense
+from reposca.analyzeSca import getScaAnalyze
 from reposca.repoDb import RepoDb
 from util.popUtil import popKill
 from util.extractUtil import extractCode
 from util.formateUtil import formateUrl
 from util.catchUtil import catch_error
 from reposca.takeRepoSca import cleanTemp
+from packageurl import PackageURL
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
-GIT_URL = 'https://gitee.com'
 SOURTH_PATH = '/home/giteeFile'
 
 logging.getLogger().setLevel(logging.INFO)
@@ -26,7 +24,6 @@ logging.getLogger().setLevel(logging.INFO)
 class ItemLicSca(object):
 
     def __init__(self):
-        self._current_dir_ = os.path.dirname(os.path.abspath(__file__))
         #连接数据库
         self._dbObject_ = RepoDb(
             host_db = os.environ.get("MYSQL_HOST"), 
@@ -36,58 +33,175 @@ class ItemLicSca(object):
             port_db = int(os.environ.get("MYSQL_PORT")))
 
     @catch_error
-    def licSca(self, url, commit):
-        try:
-            urlList = url.split("/")
-            self._owner_ = urlList[3]
-            self._repo_ = urlList[4]
-            gitUrl = GIT_URL + '/' + self._owner_ + '/' + self._repo_ + '.git'
-            timestamp = int(time.time())
-
-            #先查询数据是否存在
-            itemData = (self._owner_, self._repo_)
-            itemLic = self._dbObject_.get_ItemLic(itemData)
-            scaResult = ''
-            delSrc = ''
-            if itemLic is None or (itemLic is not None and (itemLic['commite'] != commit or itemLic['is_pro_license'] is NULL)):
-                # 创建临时文件
-                temFileSrc = self._current_dir_+'/tempSrc'
-                temFileSrc = formateUrl(temFileSrc)
-
-                if os.path.exists(temFileSrc) is False:
-                    os.makedirs(temFileSrc)
-
-                self._file_ = 'temp'
-                self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(timestamp) + '/' + self._repo_
-                self._anlyzeSrc_ = temFileSrc + '/' + self._owner_ + '/' + str(timestamp)
-                delSrc = temFileSrc + '/'+self._owner_ + '/' + str(timestamp)
-                if os.path.exists(self._repoSrc_) is False:
-                    os.makedirs(self._repoSrc_)
-
-                logging.info("=============Start fetch repo==============")
-                repo = Repo.clone_from(gitUrl,to_path=self._repoSrc_)
-                repo.git.checkout(commit)
-                self._gitRepo_ = repo
-                self._git_ = repo.git
-                logging.info("=============End fetch repo==============")
-
-                # 扫描pr文件
-                scaJson = self.getPrSca()
-                scaResult = self.getScaAnalyze(scaJson)
-
-                # 存入数据库
-                scaJson = pymysql.escape_string(scaJson)
-                repoLicense = ','.join(scaResult['license'])
-                sqlRes = pymysql.escape_string(str(scaResult))
-                if itemLic is None: 
-                    repoData = (commit, self._repo_, self._owner_, url, repoLicense, scaJson, sqlRes)
-                    self._dbObject_.add_ItemLic(repoData)
+    def scaPurl(self, purlList):
+        result = []
+        for var in purlList:
+            self._purl_ = var
+            url = PackageURL.from_string(var)
+            urlDic = url.to_dict()
+            type = urlDic['type']
+            typeFlag,scaResult = self.getTypeUrl(type)
+            if typeFlag:
+                owner = urlDic['namespace']
+                name = urlDic['name']
+                commit = urlDic['version']
+                self._owner_ = owner
+                self._repo_ = name
+                self._commit_ = commit
+                self._purl_ = var
+                #先查询数据是否存在
+                if commit is None:
+                    #获取最新数据
+                    itemData = (self._owner_, self._repo_)
+                    itemLic = self._dbObject_.Query_Repo_ByTime(itemData)
                 else:
-                    repoData = (commit, repoLicense, scaJson, sqlRes, itemLic['id'])
-                    self._dbObject_.upd_ItemLic(repoData)
-            else:           
-                scaResult = eval(itemLic['is_pro_license'])
-            
+                    itemData = (self._owner_, self._repo_, self._commit_)
+                    itemLic = self._dbObject_.Query_Repo_ByVersion(itemData)
+                scaResult = {}
+                if itemLic is None or (itemLic is not None and itemLic['is_pro_license'] is None):
+                    scaResult = {
+                        "repo_license_legal": {
+                            "license": ["项目未扫描"]
+                            },
+                        "repo_copyright_legal": {
+                            "copyright": ["项目未扫描"]
+                        }
+                    }
+                else:           
+                    repoLicLg = eval(itemLic['is_pro_license']) 
+                    copyrightLg = eval(itemLic['is_copyright'])
+                    reLicList = repoLicLg['is_legal']['license']
+                    reCopy = copyrightLg['copyright']
+                    scaResult['repo_license_legal'] = {
+                        "license": reLicList
+                    }
+                    scaResult['repo_copyright_legal'] = {
+                        "copyright": reCopy
+                    }
+
+            repoRe = {
+                "purl" : var,
+                "result": scaResult
+            }
+            result.append(repoRe)
+        return result
+
+    @catch_error
+    def licSca(self, url):
+        try:      
+            if url.startswith('pkg:'):
+                purl = PackageURL.from_string(url)
+                urlDic = purl.to_dict()
+                type = urlDic['type']
+                typeFlag,scaResult = self.getTypeUrl(type)
+                if typeFlag is False:
+                    return scaResult
+                owner = urlDic['namespace']
+                name = urlDic['name']
+                commit = urlDic['version']
+                self._owner_ = owner
+                self._repo_ = name
+                self._commit_ = commit             
+            else:
+                urlList = url.split("/")
+                type = urlList[2]
+                self._typeUrl_ = 'https://' + type
+                self._owner_ = urlList[3]
+                self._repo_ = urlList[4]
+                self._commit_ = "master"
+            self._purl_ = url
+
+            gitUrl = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_ + '.git'
+            repoUrl = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_
+            timestamp = int(time.time())
+            scaResult = ''
+            # 创建临时文件
+            temFileSrc = SOURTH_PATH +'/tempSrc'
+            temFileSrc = formateUrl(temFileSrc)
+
+            if os.path.exists(temFileSrc) is False:
+                os.makedirs(temFileSrc)
+
+            self._file_ = 'temp'
+            self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(timestamp) + '/' + self._repo_
+            self._anlyzeSrc_ = temFileSrc + '/' + self._owner_ + '/' + str(timestamp)
+            delSrc = temFileSrc + '/'+self._owner_ + '/' + str(timestamp)
+            if os.path.exists(self._repoSrc_) is False:
+                os.makedirs(self._repoSrc_)
+
+            logging.info("=============Start fetch repo==============")
+            try:
+                repo = Repo.clone_from(gitUrl,to_path=self._repoSrc_)
+            except:
+                scaResult = {
+                    "repo_license_legal": {
+                        "pass": False,
+                        "result_code": "",
+                        "notice": "Git clone 失败，无效URL",
+                        "is_legal": {"pass": False,"license": [],"notice": "","detail": {}}
+                    },
+                    "spec_license_legal": {},
+                    "license_in_scope": {},
+                    "repo_copyright_legal": {
+                        "pass": False,
+                        "result_code": "",
+                        "notice": "Git clone 失败，无效URL",
+                        "copyright": []
+                    }
+                }
+                return scaResult
+            try:
+                repo.git.checkout(self._commit_)
+            except:
+                scaResult = {
+                    "repo_license_legal": {
+                        "pass": False,
+                        "result_code": "",
+                        "notice": "不存在该Version/commit: "+ self._commit_,
+                        "is_legal": {
+                            "pass": False,
+                            "license": [],
+                            "notice": "",
+                            "detail": {}
+                        }
+                    },
+                    "spec_license_legal": {
+                    },
+                    "license_in_scope": {
+                    },
+                    "repo_copyright_legal": {
+                        "pass": False,
+                        "result_code": "",
+                        "notice": "不存在该Version/commit: "+ self._commit_,
+                        "copyright": []
+                    }
+                }
+                return scaResult
+            logging.info("=============End fetch repo==============")
+            # 扫描pr文件
+            scaJson = self.getPrSca()
+            scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_)
+            # 存入数据库
+            scaJson = pymysql.escape_string(scaJson)
+            repoLicLg = scaResult['repo_license_legal']
+            specLicLg = scaResult['spec_license_legal']
+            licScope = scaResult['license_in_scope']
+            copyrightLg = scaResult['repo_copyright_legal']
+            repoLicense = ','.join(repoLicLg['is_legal']['license'])
+            repoLicLg = pymysql.escape_string(str(repoLicLg))
+            specLicLg = pymysql.escape_string(str(specLicLg))
+            licScope = pymysql.escape_string(str(licScope))
+            copyrightLg = pymysql.escape_string(str(copyrightLg))
+            #检查是否存在数据
+            itemData = (self._owner_, self._repo_, self._commit_)
+            itemLic = self._dbObject_.Query_Repo_ByVersion(itemData)
+            if itemLic is None:
+                repoData = (self._repo_, self._owner_, repoUrl, repoLicense, scaJson, repoLicLg, specLicLg,\
+                    licScope, copyrightLg, self._commit_, self._purl_ )
+                self._dbObject_.add_ItemLic(repoData)
+            else:
+                repoData = (self._commit_, repoLicense,scaJson, repoLicLg, specLicLg, licScope, copyrightLg, itemLic['id'])
+                self._dbObject_.upd_ItemLic(repoData)
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
@@ -110,7 +224,7 @@ class ItemLicSca(object):
         :return:扫描结果json
         '''
         try:
-            temJsonSrc = self._current_dir_+'/tempJson'
+            temJsonSrc = SOURTH_PATH +'/tempJson'
             temJsonSrc = formateUrl(temJsonSrc)
             if os.path.exists(temJsonSrc) is False:
                 os.makedirs(temJsonSrc)
@@ -121,14 +235,19 @@ class ItemLicSca(object):
             if os.path.exists(tempJson) is False:
                 open(tempJson, 'w')
 
+            self._type_ = "inde"#自研
+            maxDepth = 2
             reExt = extractCode(self._repoSrc_)
-            if reExt is False:
+            if reExt == "Except":
                 logging.error("file extracCode error")
+            elif reExt == "ref":
+                self._type_ = "ref"#引用仓
+                maxDepth = 3           
 
             logging.info("=============Start scan repo==============")
             # 调用scancode
             command = shlex.split(
-                'scancode -l -c %s --max-depth 3 --json %s -n 2 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, tempJson))
+                'scancode -l -c %s --max-depth %s --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80 --only-findings' % (self._repoSrc_, maxDepth, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
@@ -148,67 +267,31 @@ class ItemLicSca(object):
             # 清空文件
             os.chmod(tempJson, stat.S_IWUSR)
             os.remove(tempJson)
-
             return scaJson
 
     @catch_error
-    def getScaAnalyze(self, scaJson):
-        '''
-        :param repoSrc: 扫描文件路径
-        :param repo: 项目名
-        :param scaJson: 扫描结果json
-        :return:分析结果json
-        '''
-        sca_result = {}
-        itemPathList = []
+    def getTypeUrl(self, type):
+        typeFlag = False
+        scaResult = {}
+        if type in ['gitee','github','gitlab']:
+            typeFlag = True
+            self._typeUrl_ = 'https://' + type + '.com'
+        else:
+            scaResult = {
+                "repo_license_legal": {
+                    "pass": False,
+                    "result_code": "",
+                    "notice": "不支持的type类型",
+                    "is_legal": {"pass": False,"license": [],"notice": "","detail": {}}
+                },
+                "repo_copyright_legal": {
+                    "pass": False,
+                    "result_code": "",
+                    "notice": "不支持的type类型",
+                    "copyright": []
+                }
+            }
+        return typeFlag, scaResult
 
-        haveLicense = False
-        itemLicList = []
-        noticeLicense = '缺少项目级License声明文件'
-
-        jsonData = json.loads(scaJson)
-        itemPath = jsonpath.jsonpath(jsonData, '$.files[*].path')
-        licenseList = jsonpath.jsonpath(jsonData, '$.files[*].licenses')
-
-        logging.info("=============Start analyze result==============")
-        for i, var in enumerate(licenseList):
-            path = itemPath[i]
-            if len(var) == 0:
-                continue
-            for pathLicense in var:
-                isLicenseText = pathLicense['matched_rule']['is_license_text']
-                spdx_name = pathLicense['spdx_license_key']
-                if 'LicenseRef-scancode-' in spdx_name:
-                    continue        
-                # 判断是否有项目license
-                if checkRepoLicense(path) and isLicenseText is True :
-                    if haveLicense is False:
-                        haveLicense = True
-                        noticeLicense = ""
-                        itemLicList.append(spdx_name)
-                        itemPathList.append(path)
-                    elif path.lower().endswith(("license",)) and path not in itemPathList:
-                        itemLicList.clear()
-                        itemPathList.clear()
-                        itemLicList.append(spdx_name)
-                        itemPathList.append(path)
-                    elif path in itemPathList and spdx_name not in itemLicList: 
-                        #同一个文件的做检查
-                        itemLicList.append(spdx_name)                       
-                else:
-                    continue
-        
-        if len(itemPathList) == 0:
-            itemPathList.append(noticeLicense)
-
-        sca_result = {
-            "pass": haveLicense,
-            "result_code": "",
-            "notice": itemPathList[0],
-            "license": itemLicList,
-        }
-        logging.info("=============End analyze result==============")
-
-        return sca_result
 
     
