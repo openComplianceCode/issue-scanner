@@ -35,10 +35,9 @@ class Main(tornado.web.RequestHandler):
         self.finish(str(result))
     
     @run_on_executor
-    def block(self, license, type):
-        licenseCheck = LicenseCheck(type)
-        licenses = infixToPostfix(license)
-        result = licenseCheck.check_license_safe(licenses)
+    def block(self, prUrl):
+        prSca = PrSca()
+        result = prSca.doSca(prUrl)
         jsonRe = json.dumps(result)
         return jsonRe
  
