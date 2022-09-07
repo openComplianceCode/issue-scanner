@@ -62,18 +62,10 @@ class ItemLicSca(object):
                 scaResult = {}
                 if itemLic is None or (itemLic is not None and itemLic['is_pro_license'] is None):
                     scaResult = {
-                        "repo_license_legal": {
-                            "license": ["项目未扫描"]
-                            },
-                        "repo_license_illegal": {
-                            "license": ["项目未扫描"]
-                            },
-                        "repo_copyright_legal": {
-                            "copyright": ["项目未扫描"]
-                        },
-                        "repo_copyright_illegal": {
-                            "copyright": ["项目未扫描"]
-                        }
+                        "repo_license_legal": [],
+                        "repo_license_illegal": [],
+                        "repo_copyright_legal": [],
+                        "repo_copyright_illegal": []
                     }
                 else:           
                     repoLicLg = eval(itemLic['is_pro_license']) 
@@ -93,19 +85,10 @@ class ItemLicSca(object):
                         if leLic not in risksList:
                             leLicList.append(leLic)
                     reCopy = copyrightLg['copyright']
-                    scaResult['repo_license_legal'] = {
-                        "license": leLicList
-                    }
-                    scaResult['repo_license_illegal'] = {
-                        "license": risksList
-                    }
-                    scaResult['repo_copyright_legal'] = {
-                        "copyright": reCopy
-                    }
-                    scaResult['repo_copyright_illegal'] = {
-                        "copyright": []
-                    }
-
+                    scaResult['repo_license_legal'] = leLicList
+                    scaResult['repo_license_illegal'] = risksList
+                    scaResult['repo_copyright_legal'] = reCopy
+                    scaResult['repo_copyright_illegal'] = []
             repoRe = {
                 "purl" : var,
                 "result": scaResult
