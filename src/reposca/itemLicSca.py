@@ -65,7 +65,8 @@ class ItemLicSca(object):
                         "repo_license_legal": [],
                         "repo_license_illegal": [],
                         "repo_copyright_legal": [],
-                        "repo_copyright_illegal": []
+                        "repo_copyright_illegal": [],
+                        "is_sca": False
                     }
                 else:           
                     repoLicLg = eval(itemLic['is_pro_license']) 
@@ -89,6 +90,7 @@ class ItemLicSca(object):
                     scaResult['repo_license_illegal'] = risksList
                     scaResult['repo_copyright_legal'] = reCopy
                     scaResult['repo_copyright_illegal'] = []
+                    scaResult['is_sca'] = True
             repoRe = {
                 "purl" : var,
                 "result": scaResult
