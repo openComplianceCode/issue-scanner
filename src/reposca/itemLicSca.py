@@ -1,3 +1,5 @@
+import json
+import jsonpath
 import logging
 import os
 from pickle import FALSE
@@ -60,25 +62,33 @@ class ItemLicSca(object):
                 scaResult = {}
                 if itemLic is None or (itemLic is not None and itemLic['is_pro_license'] is None):
                     scaResult = {
-                        "repo_license_legal": {
-                            "license": ["项目未扫描"]
-                            },
-                        "repo_copyright_legal": {
-                            "copyright": ["项目未扫描"]
-                        }
+                        "repo_license_legal": [],
+                        "repo_license_illegal": [],
+                        "repo_copyright_legal": [],
+                        "repo_copyright_illegal": []
                     }
                 else:           
                     repoLicLg = eval(itemLic['is_pro_license']) 
                     copyrightLg = eval(itemLic['is_copyright'])
                     reLicList = repoLicLg['is_legal']['license']
+                    reDetial = repoLicLg['is_legal']['detail']
+                    chJson = json.dumps(reDetial)
+                    jsonData = json.loads(chJson)
+                    reRisks = jsonpath.jsonpath(jsonData, '$.[*].risks')
+                    risksList = []
+                    leLicList = []
+                    if reRisks is False:
+                        reRisks = []
+                    for item in reRisks:
+                        risksList.extend(item)
+                    for leLic in reLicList:
+                        if leLic not in risksList:
+                            leLicList.append(leLic)
                     reCopy = copyrightLg['copyright']
-                    scaResult['repo_license_legal'] = {
-                        "license": reLicList
-                    }
-                    scaResult['repo_copyright_legal'] = {
-                        "copyright": reCopy
-                    }
-
+                    scaResult['repo_license_legal'] = leLicList
+                    scaResult['repo_license_illegal'] = risksList
+                    scaResult['repo_copyright_legal'] = reCopy
+                    scaResult['repo_copyright_illegal'] = []
             repoRe = {
                 "purl" : var,
                 "result": scaResult
