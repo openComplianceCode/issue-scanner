@@ -20,6 +20,7 @@ from git.repo import Repo
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
 SOURTH_PATH = '/home/giteeFile'
+passRepoList = ['kernel','bishengjdk','gcc']
 logging.getLogger().setLevel(logging.INFO)
 
 class PrSca(object):
@@ -30,9 +31,45 @@ class PrSca(object):
     @catch_error
     def doSca(self, url):
         try:
+            delSrc = ''
             urlList = url.split("/")
             self._owner_ = urlList[3]
             self._repo_ = urlList[4]
+            #过滤
+            for item in passRepoList:
+                repoLow = self._repo_.lower()
+                if item in repoLow:
+                    scaResult = {
+                        "repo_license_legal": {
+                            "pass": True,
+                            "result_code": "",
+                            "notice": '',
+                            "is_legal": {
+                                "pass": True,
+                                "license": [],
+                                "notice": "",
+                                "detail": {}
+                            }
+                        },
+                        "spec_license_legal": {
+                            "pass": True,
+                            "result_code": "",
+                            "notice": "",
+                            "detail": {}
+                        },
+                        "license_in_scope": {
+                            "pass": True,
+                            "result_code": "",
+                            "notice": ""
+                        },
+                        "repo_copyright_legal": {
+                            "pass": True,
+                            "result_code": "",
+                            "notice": "",
+                            "copyright": []
+                        }
+                    }
+                    return scaResult
             self._num_ = urlList[6]
             self._branch_ = 'pr_' + self._num_
             gitUrl = GIT_URL + '/' + self._owner_ + '/' + self._repo_ + '.git'
@@ -48,7 +85,7 @@ class PrSca(object):
 
             self._repoSrc_ = SOURTH_PATH + '/'+self._owner_ + '/' + self._repo_
             self._anlyzeSrc_ = SOURTH_PATH + '/'+self._owner_
-            delSrc = ''
+           
             self._file_ = 'sourth'
             if os.path.exists(self._repoSrc_) is False:
                 self._file_ = 'temp'
