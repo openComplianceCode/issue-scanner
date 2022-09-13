@@ -2,6 +2,7 @@
 import logging
 import os
 import shlex
+import shutil
 import stat
 import subprocess
 import time
@@ -9,6 +10,10 @@ from requests import head
 import urllib3
 import json
 import jsonpath
+<<<<<<< Updated upstream
+=======
+from reposca.repoDb import RepoDb
+>>>>>>> Stashed changes
 from reposca.analyzeSca import getScaAnalyze
 from reposca.takeRepoSca import cleanTemp
 from util.popUtil import popKill
@@ -19,14 +24,21 @@ from git.repo import Repo
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-SOURTH_PATH = '/home/giteeFile'
+SOURTH_PATH = 'D:/persistentRepo'
+TEMP_PATH = 'D:/tempRepo'
 passRepoList = ['kernel','bishengjdk','gcc']
 logging.getLogger().setLevel(logging.INFO)
 
 class PrSca(object):
 
-    # def __init__(self):
-    #     self._current_dir_ = os.path.dirname(os.path.abspath(__file__))
+    def __init__(self):
+        #连接数据库
+        self._dbObject_ = RepoDb(
+            host_db = os.environ.get("MYSQL_HOST"), 
+            user_db = os.environ.get("MYSQL_USER"), 
+            password_db = os.environ.get("MYSQL_PASSWORD"), 
+            name_db = os.environ.get("MYSQL_DB_NAME"), 
+            port_db = int(os.environ.get("MYSQL_PORT")))
 
     @catch_error
     def doSca(self, url):
@@ -76,24 +88,28 @@ class PrSca(object):
             fetchUrl = 'pull/' + self._num_ + '/head:pr_' + self._num_
             timestamp = int(time.time())
 
-            # 创建临时文件
-            temFileSrc = SOURTH_PATH+'/tempSrc'
-            temFileSrc = formateUrl(temFileSrc)
-
-            if os.path.exists(temFileSrc) is False:
-                os.makedirs(temFileSrc)
+            if os.path.exists(TEMP_PATH) is False:
+                os.makedirs(TEMP_PATH)
 
             self._repoSrc_ = SOURTH_PATH + '/'+self._owner_ + '/' + self._repo_
             self._anlyzeSrc_ = SOURTH_PATH + '/'+self._owner_
            
             self._file_ = 'sourth'
-            if os.path.exists(self._repoSrc_) is False:
-                self._file_ = 'temp'
-                self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(timestamp) + '/' + self._repo_
-                self._anlyzeSrc_ = temFileSrc + '/' + self._owner_ + '/' + str(timestamp)
-                delSrc = temFileSrc + '/'+self._owner_ + '/' + str(timestamp)
+            if os.path.exists(self._repoSrc_):
+                perRepo = Repo.init(path=self._repoSrc_)
+                perRemote = perRepo.remote()
+                perRemote.pull()
+                #copy file
+                tempDir = TEMP_PATH + '/'+self._owner_ + '/' + str(timestamp) + '/' + self._repo_
+                shutil.copytree(self._repoSrc_, tempDir)
+                self._repoSrc_ = tempDir              
+            else:     
+                self._file_ = 'temp'           
+                self._repoSrc_ = TEMP_PATH + '/'+self._owner_ + '/' + str(timestamp) + '/' + self._repo_               
                 if os.path.exists(self._repoSrc_) is False:
                     os.makedirs(self._repoSrc_)
+            self._anlyzeSrc_ = TEMP_PATH + '/' + self._owner_ + '/' + str(timestamp)
+            delSrc = TEMP_PATH + '/'+self._owner_ + '/' + str(timestamp)
 
             repo = Repo.init(path=self._repoSrc_)
             self._gitRepo_ = repo
@@ -101,13 +117,21 @@ class PrSca(object):
 
             logging.info("=============Start fetch repo==============")
             # 拉取pr
+            oBr = "master"
             if self._file_ == 'sourth':
                 remote = self._gitRepo_.remote()
+                branches = self._gitRepo_.branches
+                oBr = branches[0].name
             else:
                 remote = self._gitRepo_.create_remote('origin', gitUrl)
             remote.fetch(fetchUrl, depth=1)
             # 切换分支
+            
             self._git_.checkout(self._branch_)
+            curCommit = self._gitRepo_.index
+            diffR = curCommit.diff(oBr)
+            for diff_added in diffR:
+                print(diff_added.a_path)
             logging.info("=============End fetch repo==============")
 
             # 扫描pr文件
@@ -165,7 +189,7 @@ class PrSca(object):
         :return:扫描结果json
         '''
         try:
-            temJsonSrc = SOURTH_PATH+'/tempJson'
+            temJsonSrc = TEMP_PATH +'/tempJson'
             temJsonSrc = formateUrl(temJsonSrc)
             if os.path.exists(temJsonSrc) is False:
                 os.makedirs(temJsonSrc)
@@ -193,12 +217,6 @@ class PrSca(object):
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
             popKill(resultCode)
-
-            if self._file_ == 'sourth':
-                # 切回master
-                self._git_.checkout('master')
-                # 删除临时分支
-                self._git_.branch('-D', self._branch_)
 
             scaJson = ''
             # 获取json

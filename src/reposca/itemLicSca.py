@@ -9,7 +9,7 @@ import subprocess
 import time
 import pymysql
 from git.repo import Repo
-from reposca.analyzeSca import getScaAnalyze
+from reposca.analyzeSca import getScaAnalyze, licenseSplit
 from reposca.repoDb import RepoDb
 from util.popUtil import popKill
 from util.extractUtil import extractCode
@@ -76,13 +76,17 @@ class ItemLicSca(object):
                     chJson = json.dumps(reDetial)
                     jsonData = json.loads(chJson)
                     reRisks = jsonpath.jsonpath(jsonData, '$.[*].risks')
+                    spLicList = []
+                    for lic in reLicList:
+                        spLic = licenseSplit(lic)
+                        spLicList.extend(spLic)
                     risksList = []
                     leLicList = []
                     if reRisks is False:
                         reRisks = []
                     for item in reRisks:
                         risksList.extend(item)
-                    for leLic in reLicList:
+                    for leLic in spLicList:
                         if leLic not in risksList:
                             leLicList.append(leLic)
                     reCopy = copyrightLg['copyright']
