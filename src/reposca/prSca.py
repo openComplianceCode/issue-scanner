@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
-from functools import cache
 import logging
 import os
 import shlex
 import stat
 import subprocess
 import time
-from requests import head
 import urllib3
 import json
 import jsonpath
