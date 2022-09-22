@@ -952,7 +952,7 @@ Software Licenses:
     identifier: BSD-4-Clause-UC
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
@@ -3496,7 +3496,7 @@ Software Licenses:
     identifier: NTP-0
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''

@@ -56,7 +56,7 @@ def infixToPostfix(infixexpr):
                     top_token = operation_stack.pop()
             # 操作数添加到列表末尾
             elif token.lower() in ['and', 'or', 'with']:
-                while (not operation_stack.is_empty()) and (priority[operation_stack.peek()] >= priority[token.lower()]):
+                while (not operation_stack.is_empty()) and (priority[operation_stack.peek().lower()] >= priority[token.lower()]):
                     postfix_list.append(operation_stack.pop())
                 operation_stack.push(token)
             else:
