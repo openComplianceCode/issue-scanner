@@ -2,7 +2,6 @@ import json
 import jsonpath
 import logging
 import os
-from pickle import FALSE
 import shlex
 import stat
 import subprocess
@@ -19,7 +18,7 @@ from reposca.takeRepoSca import cleanTemp
 from packageurl import PackageURL
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
-SOURTH_PATH = '/home/giteeFile'
+SOURTH_PATH = 'D:/tempRepo'
 
 logging.getLogger().setLevel(logging.INFO)
 

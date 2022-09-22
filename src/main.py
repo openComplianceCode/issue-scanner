@@ -8,7 +8,6 @@ import tornado.options
 from tornado.concurrent import run_on_executor
 import config
 from reposca.itemLicSca import ItemLicSca
-from reposca.licenseCheck import LicenseCheck
 from reposca.prSca import PrSca
 
 from tornado import gen

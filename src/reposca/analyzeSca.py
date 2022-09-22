@@ -54,6 +54,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
         pathDepth = 4
     if licenseList is False:
         licenseList = []
+    itemLicFlag = False
     for i, var in enumerate(licenseList):   
         path = itemPath[i]
         # 判断是否含有notice文件
@@ -95,15 +96,13 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
 
         if len(var) == 0:
             continue
-
         for pathLicense in var:
-            isLicenseText = pathLicense['matched_rule']['is_license_text']
             spdx_name = pathLicense['spdx_license_key']
             if 'LicenseRef-scancode-' in spdx_name:
                 continue
             spdxLicenses = infixToPostfix(spdx_name)
             # 判断是否有项目license
-            if checkRepoLicense(path, pathDepth) and isLicenseText is True and specFlag:
+            if checkRepoLicense(path, pathDepth) and specFlag:
                 if haveLicense is False:
                     haveLicense = True
                     noticeLicense = ""
@@ -117,7 +116,9 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                     itemDetial = itemLicCheck.get('detail')
                     itemLicList.append(spdx_name)
                     itemPathList.append(path)
-                elif path.lower().endswith(("license",)) and path not in itemPathList:
+                    if path.lower().endswith(("license",)):
+                        itemLicFlag = True
+                elif path.lower().endswith(("license",)) and path not in itemPathList and itemLicFlag is False:
                     # 判断项目License是否准入
                     if type == 'ref':
                         itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
@@ -150,7 +151,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                 fileLicense = fileLicenseCheck.check_license_safe(spdxLicenses)
                 reLicense = fileLicense.get('pass')
                 spdLower = spdx_name.lower()
-                if reLicense is False and pathLicense['start_line'] != pathLicense['end_line'] and 'exception' not in spdLower:
+                if reLicense is False and pathLicense['start_line'] != pathLicense['end_line'] and 'exception' not in spdLower and 'doc' != spdLower:
                     approved = False
                     noticeScope = noticeScope + spdx_name + "("+path + ", start_line: "+str(
                         pathLicense['start_line'])+", end_line: "+str(pathLicense['end_line'])+"), "
