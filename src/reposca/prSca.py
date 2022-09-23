@@ -18,8 +18,8 @@ from git.repo import Repo
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-SOURTH_PATH = '/home/persistentRepo'
-TEMP_PATH = '/home/tempRepo'
+SOURTH_PATH = '/home/repo/persistentRepo'
+TEMP_PATH = '/home/repo/tempRepo'
 LIC_COP_LIST = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_software_notice', 'copyright']
 logging.getLogger().setLevel(logging.INFO)
 
@@ -137,7 +137,7 @@ class PrSca(object):
                 logging.error("file extracCode error")
             elif reExt == "ref":
                 self._type_ = "ref"#引用仓
-                maxDepth = 3
+                # maxDepth = 3
 
             logging.info("=============Start scan repo==============")           
             # 调用scancode
