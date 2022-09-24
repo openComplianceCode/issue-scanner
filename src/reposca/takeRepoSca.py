@@ -1,16 +1,10 @@
 
-from genericpath import getsize
 import logging
-from ntpath import join
 import os
 import shlex
-import shutil
 import stat
 import subprocess
-import tarfile
 import time
-import traceback
-from isort import file
 import pymysql
 from sqlalchemy import null
 
@@ -134,26 +128,26 @@ def checkWrar(filePath):
         return False
 
 def cleanTemp(dirUrl):
-    # 清空临时解压目录   
-    for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
-        for delName in delFiles:
-            try:
-                delUrl = os.path.join(delRoot, delName)
-                delUrl = formateUrl(delUrl)
-                #防止文件拒绝访问
-                os.chmod(delUrl, stat.S_IWUSR) 
-                os.remove(delUrl)
-            except:
-                pass                
-        for delName in delDirs:
-            try:
-                delUrl = os.path.join(delRoot, delName)
-                delUrl = formateUrl(delUrl)
-                #防止文件拒绝访问
-                os.chmod(delUrl, stat.S_IWUSR) 
-                os.rmdir(delUrl)
-            except:
-                pass
+        # 清空临时解压目录   
+        for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
+            for delName in delFiles:
+                try:
+                    delUrl = os.path.join(delRoot, delName)
+                    delUrl = formateUrl(delUrl)
+                    #防止文件拒绝访问
+                    os.chmod(delUrl, stat.S_IWUSR) 
+                    os.remove(delUrl)
+                except:
+                    pass                
+            for delName in delDirs:
+                try:
+                    delUrl = os.path.join(delRoot, delName)
+                    delUrl = formateUrl(delUrl)
+                    #防止文件拒绝访问
+                    os.chmod(delUrl, stat.S_IWUSR) 
+                    os.rmdir(delUrl)
+                except:
+                    pass
 
 @catch_error
 def checkMod(func, path):

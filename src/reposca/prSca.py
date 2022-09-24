@@ -88,10 +88,9 @@ class PrSca(object):
             # 切换分支
             self._git_.checkout(self._branch_)
             #获取PR增量文件目录
-            fileList =  self.getDiffFiles()
-            self._sca_path_ = []        
-            for diff_added in fileList:
-                self._sca_path_.append(diff_added['filename'])
+            fileList =  self.getDiffFiles()           
+            #创建diff副本
+            self._diffPath_ = self.createDiff(fileList)
             logging.info("=============End fetch repo==============")
 
             # 扫描pr文件
@@ -155,11 +154,9 @@ class PrSca(object):
                 list = f.readlines()
                 itemJson = "".join(list)
 
-            inclList = (" --include=*/").join(self._sca_path_)
-            collectDepth = self.getDepth()
             command = shlex.split(
-                'scancode -l -c %s --max-depth %s --json %s -n 4 --timeout 10 --max-in-memory -1 \
-                    --license-score 80 --only-findings --include=*/%s' % (self._repoSrc_, collectDepth, tempJson, inclList))
+                'scancode -l -c %s --json %s -n 4 --timeout 10 --max-in-memory -1  --license-score 80 \
+                     --only-findings ' % (self._diffPath_, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
@@ -242,3 +239,24 @@ class PrSca(object):
                 maxDepth = len(pathLevel)
             
         return maxDepth
+    
+    def createDiff(self, fileList):
+        self._sca_path_ = []    
+        diffPath = self._anlyzeSrc_ + "/diff/" + self._repo_ 
+        for diff_added in fileList:
+            try:
+                filePath = diff_added['filename']
+                self._sca_path_.append(filePath)
+                fileDir = os.path.dirname(filePath)
+                tempFile = diffPath + "/" + fileDir            
+                if os.path.exists(tempFile) is False:
+                    os.makedirs(tempFile)                
+                sourcePath = self._repoSrc_ + "/" + filePath
+                command = shlex.split('cp -r %s  %s' % (sourcePath, tempFile))
+                resultCode = subprocess.Popen(command)
+                while subprocess.Popen.poll(resultCode) == None:
+                    time.sleep(1)
+                popKill(resultCode)
+            except:
+                pass
+        return diffPath
