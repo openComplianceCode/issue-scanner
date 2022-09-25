@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-from email import message
 import logging
 import os
-import re
 
 import yaml
 
