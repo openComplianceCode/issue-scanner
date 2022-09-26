@@ -229,24 +229,12 @@ class PrSca(object):
             "files": reData
         }
         return json.dumps(reJson)
-
-    @catch_error
-    def getDepth(self):
-        maxDepth = 0
-        for item in self._sca_path_:
-            pathLevel = item.split("/")
-            if len(pathLevel) > maxDepth:
-                maxDepth = len(pathLevel)
-            
-        return maxDepth
     
     def createDiff(self, fileList):
-        self._sca_path_ = []    
         diffPath = self._anlyzeSrc_ + "/diff/" + self._repo_ 
         for diff_added in fileList:
             try:
                 filePath = diff_added['filename']
-                self._sca_path_.append(filePath)
                 fileDir = os.path.dirname(filePath)
                 tempFile = diffPath + "/" + fileDir            
                 if os.path.exists(tempFile) is False:
