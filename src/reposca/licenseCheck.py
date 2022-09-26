@@ -105,7 +105,8 @@ class LicenseCheck(object):
                     'oeApproved': lic["oeApproved"],
                     'lowRisk': lic["lowRisk"],
                     'black': lic["black"],
-                    'blackReason': lic["blackReason"]
+                    'blackReason': lic["blackReason"],
+                    'exception': lic["exception"]
                 }
             for oname in lic["alias"]:
                 loOname = oname.lower()
@@ -117,7 +118,8 @@ class LicenseCheck(object):
                         'oeApproved': lic["oeApproved"],
                         'lowRisk': lic["lowRisk"],
                         'black': lic["black"],
-                        'blackReason': lic["blackReason"]
+                        'blackReason': lic["blackReason"],
+                        'exception': lic["exception"]
                     }
 
     @catch_error
@@ -204,6 +206,8 @@ class LicenseCheck(object):
                 impResult = False
                 impLic.append(license) 
                 blackReason = license + " " + res['blackReason']
+            elif res['exception'] == 'Y':
+                impResult = True
             else:
                 if self._type_ == 'independent':
                     if (res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y') and res['lowRisk'] == 'N':

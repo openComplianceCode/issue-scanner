@@ -9,6 +9,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - '%{ffmpeg_license}'
     identifier: '%{ffmpeg_license}' 
@@ -18,6 +19,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apache
     identifier: Apache
@@ -27,6 +29,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apache Software License
     identifier: Apache Software License  
@@ -36,6 +39,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Arphic
     identifier: Arphic 
@@ -45,6 +49,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CC-BY
     identifier: CC-BY
@@ -54,6 +59,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CC-BY-SA
     identifier: CC-BY-SA
@@ -63,6 +69,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CDDL
     identifier: CDDL
@@ -72,6 +79,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - EPL
     identifier: EPL
@@ -81,6 +89,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GFDL
     identifier: GFDL
@@ -90,6 +99,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU GPL
     identifier: GNU GPL
@@ -99,6 +109,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU LGPL
     identifier: GNU LGPL
@@ -108,6 +119,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU3
     identifier: GNU3
@@ -117,6 +129,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GPL
     identifier: GPL
@@ -126,6 +139,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Lab Software License
     identifier: Lab Software License
@@ -135,6 +149,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - LGPL
     identifier: LGPL
@@ -144,6 +159,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - LPPL
     identifier: LPPL
@@ -153,6 +169,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Multiple
     identifier: Multiple
@@ -162,6 +179,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - NA
     identifier: NA
@@ -171,6 +189,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - OFL
     identifier: OFL
@@ -180,6 +199,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - OpenLDAP
     identifier: OpenLDAP
@@ -189,6 +209,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - OSI-Approved
     identifier: OSI-Approved
@@ -198,6 +219,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - PHP
     identifier: PHP
@@ -207,6 +229,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Python 2.1.1
     identifier: Python 2.1.1
@@ -216,6 +239,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Sequence
     identifier: Sequence
@@ -225,6 +249,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SSPL
     identifier: SSPL
@@ -234,6 +259,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - TTWL
     identifier: TTWL
@@ -243,6 +269,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Unicode
     identifier: Unicode
@@ -252,6 +279,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - UNKNOWN
     identifier: UNKNOWN
@@ -261,6 +289,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - wxWidgets
     identifier: wxWidgets
@@ -270,6 +299,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Publication
     identifier: Open Publication
@@ -279,6 +309,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
 
 
   Licenses:
@@ -300,6 +331,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD Zero Clause License
     - Zero-Clause BSD
@@ -311,6 +343,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Attribution Assurance License
     - ATTRIBUTION ASSURANCE LICENSE
@@ -321,6 +354,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Abstyles License
     - APREAMBL.TEX, version 1.10e
@@ -331,6 +365,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Adobe Systems Incorporated Source Code License Agreement
     - Adobe Systems Incorporated(r) Source Code License Agreement
@@ -341,6 +376,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Adobe Glyph List License
     - Copyright (c) 1997,1998,2002,2007 Adobe Systems Incorporated
@@ -351,6 +387,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Amazon Digital Services License
     - Amazon Digital Services, Inc. or its affiliates
@@ -361,6 +398,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Academic Free License v1.1
     - Academic Free License version 1.1
@@ -371,6 +409,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Academic Free License v1.2
     - Academic Free License version 1.2
@@ -381,6 +420,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Academic Free License v2.0
     - Academic Free License version 2.0
@@ -391,6 +431,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Academic Free License v2.1
     - Academic Free License version 2.1
@@ -402,6 +443,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Academic Free License v3.0
     - Academic Free License version 3.0
@@ -414,6 +456,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Afmparse License
     - (C) 1988, 1989 by Adobe Systems Incorporated
@@ -424,6 +467,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Affero General Public License v1.0 only
     - AFFERO GENERAL PUBLIC LICENSE Version 1
@@ -434,6 +478,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Affero General Public License v1.0 or later
     - AFFERO GENERAL PUBLIC LICENSE Version 1
@@ -444,6 +489,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Affero General Public License v3.0 only
     - AGPLv3
@@ -455,6 +501,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Affero General Public License v3.0 or later
     - AGPLv3+
@@ -465,6 +512,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Aladdin Free Public License
     identifier: Aladdin
@@ -473,8 +521,8 @@ Software Licenses:
     oeApproved: 'N'
     lowRisk: 'N'
     black: 'Y'
-    newFlag: 'Y'
     blackReason: '不建议引入，非免费许可证'
+    exception: 'N'
   - alias:
     - AMD's plpa_map.c License
     - Copyright (c) 2006, 2007 Advanced Micro Devices, Inc.
@@ -485,6 +533,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apple MIT License
     - Copyright (c) 2006 by Apple Computer, Inc.
@@ -495,6 +544,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Academy of Motion Picture Arts and Sciences BSD
     - A.M.P.A.S.
@@ -505,6 +555,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - ANTLR Software Rights Notice
     - ANTLR 2 License
@@ -515,6 +566,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - ANTLR Software Rights Notice with license fallback
     identifier: ANTLR-PD-fallback
@@ -524,6 +576,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apache License 1.0
     - Copyright (c) 1995-1999 The Apache Group
@@ -535,6 +588,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apache License 1.1
     - Apache Software License, Version 1.1
@@ -547,6 +601,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apache License 2.0
     - Apache License v2.0
@@ -573,6 +628,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Adobe Postscript AFM License
     - 14 PostScript(R) AFM files
@@ -583,6 +639,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Adaptive Public License 1.0
     identifier: APL-1.0
@@ -592,6 +649,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - App::s2p License
     identifier: App-s2p
@@ -601,6 +659,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apple Public Source License 1.0
     - Apple Public Source License version 1.0
@@ -611,6 +670,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apple Public Source License 1.1
     - Apple Public Source License version 1.1
@@ -621,6 +681,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apple Public Source License 1.2
     - Apple Public Source License version 1.2
@@ -631,6 +692,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Apple Public Source License 2.0
     - Apple Public Source License Version 2.0
@@ -642,6 +704,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Arphic Public License
     - ARPHIC PUBLIC LICENSE
@@ -652,6 +715,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Artistic License 1.0
     - Artistic 1.0
@@ -664,6 +728,7 @@ Software Licenses:
     lowRisk: 'Y'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Artistic License 1.0 w/clause 8
     identifier: Artistic-1.0-cl8
@@ -673,6 +738,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - The "Artistic License"
     - Artistic License 1.0 (Perl)
@@ -683,6 +749,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Artistic License 2.0
     - Copyright (c) 2000-2006, The Perl Foundation
@@ -694,6 +761,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Baekmuk License
     identifier: Baekmuk
@@ -703,6 +771,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Bahyph License
     - Copyright (c) GMV 1991
@@ -713,6 +782,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Barr License
     - Michael Barr
@@ -723,6 +793,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Beerware License
     - THE BEER-WARE LICENSE
@@ -733,6 +804,7 @@ Software Licenses:
     lowRisk: 'Y'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Bitstream Vera Font License
     - Bitstream Vera
@@ -743,6 +815,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BitTorrent Open Source License v1.0
     - BitTorrent Open Source License Version 1.0
@@ -753,6 +826,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BitTorrent Open Source License v1.1
     identifier: BitTorrent-1.1
@@ -762,6 +836,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SQLite Blessing
     - here is a blessing
@@ -772,6 +847,7 @@ Software Licenses:
     lowRisk: 'Y'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Blue Oak Model License 1.0.0
     - "http://blueoakcouncil.org/license/1.0.0"
@@ -782,6 +858,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Borceux license
     - Copyright 1993 Francis Borceux
@@ -792,6 +869,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 1-Clause License
     identifier: BSD-1-Clause
@@ -801,6 +879,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 2-Clause "Simplified" License
     - BSD 2-Clause
@@ -813,6 +892,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD-2-Clause Plus Patent License
     identifier: BSD-2-Clause-Patent
@@ -822,6 +902,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 2-Clause with views sentence
     identifier: BSD-2-Clause-Views
@@ -831,6 +912,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 3-Clause "New" or "Revised" License
     - BSD-3-Clause
@@ -844,6 +926,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD with attribution
     - "Universidad de Palermo, Argentina"
@@ -854,6 +937,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 3-Clause Clear License
     identifier: BSD-3-Clause-Clear
@@ -863,6 +947,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Lawrence Berkeley National Labs BSD variant license
     identifier: BSD-3-Clause-LBNL
@@ -872,6 +957,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 3-Clause Modification
     identifier: BSD-3-Clause-Modification
@@ -881,6 +967,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 3-Clause No Military License
     identifier: BSD-3-Clause-No-Military-License
@@ -890,6 +977,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 3-Clause No Nuclear License
     - Copyright 1994-2009 Sun Microsystems, Inc.
@@ -900,6 +988,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 3-Clause No Nuclear License 2014
     - Copyright © 2008, 2014 Oracle and/or its affiliates
@@ -910,6 +999,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 3-Clause No Nuclear Warranty
     - Copyright (c) 2003-2005 Sun Microsystems, Inc.
@@ -920,6 +1010,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 3-Clause Open MPI variant
     identifier: BSD-3-Clause-Open-MPI
@@ -929,6 +1020,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 4-Clause "Original" or "Old" License
     identifier: BSD-4-Clause
@@ -938,6 +1030,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 4 Clause Shortened
     identifier: BSD-4-Clause-Shortened
@@ -946,7 +1039,8 @@ Software Licenses:
     oeApproved: 'N'
     lowRisk: 'N'
     black: 'N'
-    blackReason: '' 
+    blackReason: ''
+    exception: 'N' 
   - alias:
     - BSD-4-Clause (University of California-Specific)
     identifier: BSD-4-Clause-UC
@@ -956,6 +1050,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD Protection License
     identifier: BSD-Protection
@@ -965,6 +1060,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD Source Code Attribution
     - Copyright (c) 2011, Deusty, LLC
@@ -975,6 +1071,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Boost Software License 1.0
     - Boost Software License - Version 1.0
@@ -986,6 +1083,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Business Source License 1.1
     identifier: BUSL-1.1
@@ -995,6 +1093,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - bzip2 and libbzip2 License v1.0.5
     - bzip2/libbzip2 version 1.0.5
@@ -1005,6 +1104,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - bzip2 and libbzip2 License v1.0.6
     - bzip2/libbzip2 version 1.0.6
@@ -1015,6 +1115,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Computational Use of Data Agreement v1.0
     identifier: C-UDA-1.0
@@ -1024,6 +1125,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Cryptographic Autonomy License 1.0
     identifier: CAL-1.0
@@ -1033,6 +1135,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Cryptographic Autonomy License 1.0 (Combined Work Exception)
     identifier: CAL-1.0-Combined-Work-Exception
@@ -1042,6 +1145,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Caldera License
     - Caldera International, Inc.
@@ -1052,6 +1156,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Computer Associates Trusted Open Source License 1.1
     - COMPUTER ASSOCIATES TRUSTED OPEN SOURCE LICENSE
@@ -1064,6 +1169,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 1.0 Generic
     - Creative Commons Attribution 1.0
@@ -1074,6 +1180,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 2.0 Generic
     - Creative Commons Attribution 2.0
@@ -1084,6 +1191,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 2.5 Generic
     - Creative Commons Attribution 2.0
@@ -1094,6 +1202,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 2.5 Australia
     identifier: CC-BY-2.5-AU
@@ -1103,6 +1212,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 3.0 Unported
     - Creative Commons Attribution 3.0
@@ -1113,6 +1223,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 3.0 Austria
     identifier: CC-BY-3.0-AT
@@ -1122,6 +1233,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 3.0 Germany
     identifier: CC-BY-3.0-DE
@@ -1131,6 +1243,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 3.0 Netherlands
     identifier: CC-BY-3.0-NL
@@ -1140,6 +1253,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 3.0 United States
     identifier: CC-BY-3.0-US
@@ -1149,6 +1263,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution 4.0 International
     identifier: CC-BY-4.0
@@ -1158,6 +1273,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial 1.0 Generic
     - Creative Commons Attribution-NonCommercial 1.0
@@ -1168,6 +1284,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial 2.0 Generic
     - Creative Commons Attribution-NonCommercial 2.0
@@ -1178,6 +1295,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial 2.5 Generic
     - Creative Commons Attribution-NonCommercial 2.5
@@ -1188,6 +1306,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial 3.0 Unported
     - Creative Commons Attribution-NonCommercial 3.0
@@ -1198,6 +1317,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial 3.0 Germany
     identifier: CC-BY-NC-3.0-DE
@@ -1207,6 +1327,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial 4.0 International
     - Creative Commons Attribution-NonCommercial 4.0
@@ -1217,6 +1338,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
     - Creative Commons Attribution-NoDerivs-NonCommercial 1.0
@@ -1227,6 +1349,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
     - Creative Commons Attribution-NonCommercial-NoDerivs 2.0
@@ -1237,6 +1360,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
     - Creative Commons Attribution-NonCommercial-NoDerivs 2.5
@@ -1247,6 +1371,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
     - Creative Commons Attribution-NonCommercial-NoDerivs 3.0
@@ -1257,6 +1382,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 3.0 Germany
     identifier: CC-BY-NC-ND-3.0-DE
@@ -1266,6 +1392,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 3.0 IGO
     identifier: CC-BY-NC-ND-3.0-IGO
@@ -1275,6 +1402,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 4.0 International
     - Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
@@ -1285,6 +1413,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
     - Creative Commons Attribution-NonCommercial-ShareAlike 1.0
@@ -1295,6 +1424,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
     - Creative Commons Attribution-NonCommercial-ShareAlike 2.0
@@ -1305,6 +1435,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution-NonCommercial-ShareAlike 2.0 France
     identifier: CC-BY-NC-SA-2.0-FR
@@ -1314,6 +1445,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 2.0 England and Wales
     identifier: CC-BY-NC-SA-2.0-UK
@@ -1323,6 +1455,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 2.5 Generic
     - Creative Commons Attribution-NonCommercial-ShareAlike 2.5
@@ -1333,6 +1466,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
     - Creative Commons Attribution-NonCommercial-ShareAlike 3.0
@@ -1343,6 +1477,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 3.0 Germany
     identifier: CC-BY-NC-SA-3.0-DE
@@ -1352,6 +1487,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 3.0 IGO
     identifier: CC-BY-NC-SA-3.0-IGO
@@ -1361,6 +1497,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 4.0 International
     - Creative Commons Attribution-NonCommercial-ShareAlike 4.0
@@ -1371,6 +1508,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution No Derivatives 1.0 Generic
     - Creative Commons Attribution-NoDerivs 1.0
@@ -1381,6 +1519,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution No Derivatives 2.0 Generic
     - Creative Commons Attribution-NoDerivs 2.0
@@ -1391,6 +1530,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution No Derivatives 2.5 Generic
     - Creative Commons Attribution-NoDerivs 2.5
@@ -1401,6 +1541,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution No Derivatives 3.0 Unported
     - Creative Commons Attribution-NoDerivs 3.0
@@ -1411,6 +1552,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution No Derivatives 3.0 Germany
     identifier: CC-BY-ND-3.0-DE
@@ -1420,6 +1562,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution No Derivatives 4.0 International
     - Creative Commons Attribution-NoDerivatives 4.0
@@ -1430,6 +1573,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Share Alike 1.0 Generic
     - Creative Commons Attribution-ShareAlike 1.0
@@ -1440,6 +1584,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Share Alike 2.0 Generic
     - Creative Commons Attribution-ShareAlike 2.0
@@ -1450,6 +1595,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Share Alike 2.0 England and Wales
     identifier: CC-BY-SA-2.0-UK
@@ -1459,6 +1605,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Share Alike 2.1 Japan
     identifier: CC-BY-SA-2.1-JP
@@ -1468,6 +1615,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Share Alike 2.5 Generic
     - Creative Commons Attribution-ShareAlike 2.5
@@ -1478,6 +1626,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Share Alike 3.0 Unported
     - Attribution-ShareAlike 3.0
@@ -1488,6 +1637,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Share Alike 3.0 Austria
     identifier: CC-BY-SA-3.0-AT
@@ -1497,6 +1647,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Share Alike 3.0 Germany
     identifier: CC-BY-SA-3.0-DE
@@ -1506,6 +1657,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Attribution Share Alike 4.0 International
     - Creative Commons Attribution-ShareAlike 4.0 International
@@ -1516,6 +1668,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Public Domain Dedication and Certification
     identifier: CC-PDDC
@@ -1525,6 +1678,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Creative Commons Zero v1.0 Universal
     - CC0
@@ -1536,6 +1690,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Common Development and Distribution License 1.0
     - COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
@@ -1546,6 +1701,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Common Development and Distribution License 1.1
     - COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.1
@@ -1556,6 +1712,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Common Documentation License 1.0
     identifier: CDL-1.0
@@ -1565,6 +1722,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Community Data License Agreement Permissive 1.0
     - Community Data License Agreement - Permissive, Version 1.0
@@ -1575,6 +1733,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Community Data License Agreement Permissive 2.0
     identifier: CDLA-Permissive-2.0
@@ -1584,6 +1743,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Community Data License Agreement Sharing 1.0
     - Community Data License Agreement - Sharing, Version 1.0
@@ -1594,6 +1754,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CeCILL Free Software License Agreement v1.0
     - CONTRAT DE LICENCE DE LOGICIEL LIBRE CeCILL
@@ -1604,6 +1765,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CeCILL Free Software License Agreement v1.1
     - FREE SOFTWARE LICENSING AGREEMENT CeCILL
@@ -1614,6 +1776,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CeCILL Free Software License Agreement v2.0
     identifier: CECILL-2.0
@@ -1623,6 +1786,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CeCILL Free Software License Agreement v2.1
     identifier: CECILL-2.1
@@ -1632,6 +1796,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CeCILL-B Free Software License Agreement
     identifier: CECILL-B
@@ -1641,6 +1806,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CeCILL-C Free Software License Agreement
     identifier: CECILL-C
@@ -1650,6 +1816,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CERN Open Hardware Licence v1.1
     - CERN OHL v1.1
@@ -1660,6 +1827,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CERN Open Hardware Licence v1.2
     - CERN OHL v1.2
@@ -1670,6 +1838,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CERN Open Hardware Licence Version 2 - Permissive
     identifier: CERN-OHL-P-2.0
@@ -1679,6 +1848,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CERN Open Hardware Licence Version 2 - Strongly Reciprocal
     identifier: CERN-OHL-S-2.0
@@ -1688,6 +1858,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CERN Open Hardware Licence Version 2 - Weakly Reciprocal
     identifier: CERN-OHL-W-2.0
@@ -1697,6 +1868,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Clarified Artistic License
     - Artistic clarified
@@ -1707,6 +1879,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CNRI Jython License
     - JPython or CNRI
@@ -1717,6 +1890,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CNRI Python License
     - CNRIs License Agreement is retained in Python 1.6b1
@@ -1728,6 +1902,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CNRI Python Open Source GPL Compatible License Agreement
     - CNRI OPEN SOURCE GPL-COMPATIBLE LICENSE AGREEMENT
@@ -1738,6 +1913,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Copyfree Open Innovation License
     identifier: COIL-1.0
@@ -1747,6 +1923,7 @@ Software Licenses:
     lowRisk: 'N'  
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Community Specification License 1.0
     identifier: Community-Spec-1.0
@@ -1756,6 +1933,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Condor Public License v1.1
     identifier: Condor-1.1
@@ -1765,6 +1943,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - copyleft-next 0.3.0
     identifier: copyleft-next-0.3.0
@@ -1774,6 +1953,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，有很多特殊条款，Fedora也未引入该协议'
+    exception: 'N'
   - alias:
     - copyleft-next 0.3.1
     identifier: copyleft-next-0.3.1
@@ -1783,6 +1963,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，有很多特殊条款，Fedora也未引入该协议'
+    exception: 'N'
   - alias:
     - Common Public Attribution License 1.0
     - Common Public Attribution License Version 1.0 (CPAL)
@@ -1794,6 +1975,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Common Public License 1.0
     - Common Public License Version 1.0
@@ -1805,6 +1987,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Code Project Open License 1.02
     - Code Project Open License (CPOL) 1.02
@@ -1815,6 +1998,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Crossword License
     - cwpuzzle.dtx
@@ -1825,6 +2009,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CrystalStacker License
     - Crystal Stacker
@@ -1835,6 +2020,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CUA Office Public License v1.0
     identifier: CUA-OPL-1.0
@@ -1844,6 +2030,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Cube License
     - Cube game engine source code
@@ -1854,6 +2041,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - curl License
     - Copyright (c) 1996 - 2021, Daniel Stenberg
@@ -1864,6 +2052,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Deutsche Freie Software Lizenz
     identifier: D-FSL-1.0
@@ -1873,6 +2062,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - diffmark license
     - 1. you can do what you want with it 2. I refuse any responsibility for the consequences
@@ -1883,6 +2073,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Data licence Germany – attribution – version 2.0
     identifier: DL-DE-BY-2.0
@@ -1892,6 +2083,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - DOC License
     - DOC software
@@ -1902,6 +2094,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Dotseqn License
     - Copyright (C) 1995 by Donald Arseneau
@@ -1912,6 +2105,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Detection Rule License 1.0
     identifier: DRL-1.0
@@ -1921,6 +2115,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - DSDP License
     - owned by The United States Government, and operated by the University of Chicago
@@ -1931,6 +2126,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - dvipdfm License
     - should be distributed with a *different* name
@@ -1941,6 +2137,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Educational Community License v1.0
     identifier: ECL-1.0
@@ -1950,6 +2147,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Educational Community License v2.0
     - Educational Community License version 2.0
@@ -1961,6 +2159,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Eiffel Forum License v1.0
     identifier: EFL-1.0
@@ -1970,6 +2169,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Eiffel Forum License v2.0
     - Eiffel Forum License, version 2
@@ -1981,6 +2181,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - eGenix.com Public License 1.1.0
     - EGENIX.COM PUBLIC LICENSE AGREEMENT Version 1.1.0
@@ -1991,6 +2192,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Elastic License 2.0
     identifier: Elastic-2.0
@@ -2000,6 +2202,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Entessa Public License v1.0
     identifier: Entessa
@@ -2009,6 +2212,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - EPICS Open License
     identifier: EPICS
@@ -2018,6 +2222,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Eclipse Public License 1.0
     - Eclipse Public License v1.0
@@ -2029,6 +2234,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Eclipse Public License 2.0
     - Eclipse Public License v2.0
@@ -2040,6 +2246,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Erlang Public License v1.1
     - ERLANG PUBLIC LICENSE Version 1.1
@@ -2050,6 +2257,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Etalab Open License 2.0
     - OPEN LICENCE 2.0 LICENCE OUVERTE 2.0
@@ -2060,6 +2268,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - EU DataGrid Software License
     - EU Datagrid
@@ -2070,6 +2279,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - European Union Public License 1.0
     - European Union Public Licence V.1.0
@@ -2080,6 +2290,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - European Union Public License 1.1
     - EUPL V.1.1
@@ -2091,6 +2302,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - European Union Public License 1.2
     - EUPL v. 1.2
@@ -2102,6 +2314,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Eurosym License
     - Copyright (c) 1999-2002 Henrik Theiling Licence Version 2
@@ -2112,6 +2325,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Fair License
     identifier: Fair
@@ -2121,6 +2335,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Fraunhofer FDK AAC Codec Library
     identifier: FDK-AAC
@@ -2130,6 +2345,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Frameworx Open License 1.0
     identifier: Frameworx-1.0
@@ -2139,6 +2355,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - FreeBSD Documentation License
     identifier: FreeBSD-DOC
@@ -2148,6 +2365,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - FreeImage Public License v1.0
     - FreeImage Public License - Version 1.0
@@ -2158,6 +2376,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - FSF All Permissive License
     identifier: FSFAP
@@ -2167,6 +2386,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - FSF Unlimited License
     - Copyright (C) 1992-1996, 1998-2012 Free Software Foundation, Inc.
@@ -2177,6 +2397,7 @@ Software Licenses:
     lowRisk: 'Y'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - FSF Unlimited License (with License Retention)
     - Copyright 1996-2006 Free Software Foundation, Inc.
@@ -2187,6 +2408,7 @@ Software Licenses:
     lowRisk: 'Y'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Freetype Project License
     identifier: FTL
@@ -2196,6 +2418,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GD License
     identifier: GD
@@ -2205,6 +2428,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.1 only - invariants
     identifier: GFDL-1.1-invariants-only
@@ -2214,6 +2438,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.1 or later - invariants
     identifier: GFDL-1.1-invariants-or-later
@@ -2223,6 +2448,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.1 only - no invariants
     identifier: GFDL-1.1-no-invariants-only
@@ -2232,6 +2458,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.1 or later - no invariants
     identifier: GFDL-1.1-no-invariants-or-later
@@ -2241,6 +2468,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.1 only
     identifier: GFDL-1.1-only
@@ -2250,6 +2478,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.1 or later
     identifier: GFDL-1.1-or-later
@@ -2259,6 +2488,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.2 only - invariants
     identifier: GFDL-1.2-invariants-only
@@ -2268,6 +2498,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.2 or later - invariants
     identifier: GFDL-1.2-invariants-or-later
@@ -2277,6 +2508,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.2 only - no invariants
     identifier: GFDL-1.2-no-invariants-only
@@ -2286,6 +2518,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.2 or later - no invariants
     identifier: GFDL-1.2-no-invariants-or-later
@@ -2295,6 +2528,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.2 only
     identifier: GFDL-1.2-only
@@ -2304,6 +2538,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.2 or later
     identifier: GFDL-1.2-or-later
@@ -2313,6 +2548,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.3 only - invariants
     identifier: GFDL-1.3-invariants-only
@@ -2322,6 +2558,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.3 or later - invariants
     identifier: GFDL-1.3-invariants-or-later
@@ -2331,6 +2568,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.3 only - no invariants
     identifier: GFDL-1.3-no-invariants-only
@@ -2340,6 +2578,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.3 or later - no invariants
     identifier: GFDL-1.3-no-invariants-or-later
@@ -2349,6 +2588,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.3 only
     - GNU Free Documentation License, Version 1.3
@@ -2362,6 +2602,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Free Documentation License v1.3 or later
     identifier: GFDL-1.3-or-later
@@ -2371,6 +2612,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Giftware License
     - Allegro 4 (the giftware license)
@@ -2381,6 +2623,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GL2PS License
     - GL2PS LICENSE Version 2
@@ -2391,6 +2634,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - 3dfx Glide License
     - 3dfx GLIDE Source Code General Public License
@@ -2401,6 +2645,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Glulxe License
     identifier: Glulxe
@@ -2410,6 +2655,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Good Luck With That Public License
     identifier: GLWTPL
@@ -2419,6 +2665,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - gnuplot License
     identifier: gnuplot
@@ -2428,6 +2675,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，对修改有一定限制，只能以Patch的形式分布修改，不允许直接发布完整的修改版本'
+    exception: 'N'
   - alias:
     - GNU General Public License v1.0 only
     - GNU General Public License, version 1
@@ -2441,6 +2689,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU General Public License v1.0 or later
     - GPL+
@@ -2455,6 +2704,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU General Public License v2.0 only
     - GPL(==-2)
@@ -2475,6 +2725,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU General Public License v2.0 or later
     - GNU General Public License v2 or later
@@ -2493,6 +2744,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU General Public License v3.0 only
     - version 3 of the GNU General Public License
@@ -2510,6 +2762,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU General Public License v3.0 or later
     - GPL(>=-3)
@@ -2524,6 +2777,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - gSOAP Public License v1.3b
     identifier: gSOAP-1.3b
@@ -2533,6 +2787,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Haskell Language Report License
     identifier: HaskellReport
@@ -2542,6 +2797,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Hippocratic License 2.1
     identifier: Hippocratic-2.1
@@ -2551,6 +2807,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Historical Permission Notice and Disclaimer
     identifier: HPND
@@ -2560,6 +2817,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Historical Permission Notice and Disclaimer - sell variant
     identifier: HPND-sell-variant
@@ -2569,6 +2827,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - HTML Tidy License
     identifier: HTMLTIDY
@@ -2578,6 +2837,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - IBM PowerPC Initialization and Boot Software
     identifier: IBM-pibs
@@ -2587,6 +2847,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - ICU License
     identifier: ICU
@@ -2596,6 +2857,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Independent JPEG Group License
     - Independent JPEG Group
@@ -2607,6 +2869,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - ImageMagick License
     - ImageMagick license
@@ -2617,6 +2880,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - iMatix Standard Function Library Agreement
     identifier: iMatix
@@ -2626,6 +2890,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Imlib2 License
     identifier: Imlib2
@@ -2635,6 +2900,7 @@ Software Licenses:
     lowRisk: 'N' 
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Info-ZIP License
     identifier: Info-ZIP
@@ -2644,6 +2910,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，免费协议，但有比较多的声明义务，Fedora并没有引入该协议'
+    exception: 'N'
   - alias:
     - Intel Open Source License
     identifier: Intel
@@ -2653,6 +2920,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Intel ACPI Software License Agreement
     identifier: Intel-ACPI
@@ -2662,6 +2930,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Interbase Public License v1.0
     - INTERBASE PUBLIC LICENSE Version 1.0
@@ -2672,6 +2941,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - IPA Font License
     identifier: IPA
@@ -2681,6 +2951,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - IBM Public License v1.0
     - IBM PUBLIC LICENSE
@@ -2691,6 +2962,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - ISC License
     - ISC license
@@ -2702,6 +2974,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Jam License
     identifier: Jam
@@ -2711,6 +2984,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - JasPer License
     identifier: JasPer-2.0
@@ -2720,6 +2994,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Japan Network Information Center License
     identifier: JPNIC
@@ -2729,6 +3004,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - JSON License
     identifier: JSON
@@ -2738,6 +3014,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: 'Fedora将其列入黑名单，因为条款"The Software shall be used for Good, not Evil" 难以遵从'
+    exception: 'N'
   - alias:
     - KiCad Libraries Exception
     identifier: KiCad-libraries-exception
@@ -2747,6 +3024,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Licence Art Libre 1.2
     identifier: LAL-1.2
@@ -2756,6 +3034,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Licence Art Libre 1.3
     identifier: LAL-1.3
@@ -2765,6 +3044,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Latex2e License
     identifier: Latex2e
@@ -2774,6 +3054,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Leptonica License
     - Leptonica
@@ -2784,6 +3065,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Library General Public License v2 only
     - first released version of the library GPL
@@ -2799,6 +3081,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Library General Public License v2 or later
     - LGPL(>=-2)
@@ -2813,6 +3096,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Lesser General Public License v2.1 only
     - GNU Library Public License, version 2, hence the version number 2.1
@@ -2827,6 +3111,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Lesser General Public License v2.1 or later
     - LGPL(>=-2.1)
@@ -2841,6 +3126,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Lesser General Public License v3.0 only
     - version 3 of the GNU Lesser General Public License
@@ -2855,6 +3141,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - GNU Lesser General Public License v3.0 or later
     - LGPL-3+
@@ -2868,6 +3155,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Lesser General Public License For Linguistic Resources
     identifier: LGPLLR
@@ -2877,6 +3165,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - libpng License
     - libpng-1.0.6
@@ -2888,6 +3177,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - PNG Reference Library version 2
     identifier: libpng-2.0
@@ -2897,6 +3187,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - libselinux public domain notice
     identifier: libselinux-1.0
@@ -2906,6 +3197,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - libtiff License
     identifier: libtiff
@@ -2915,6 +3207,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Licence Libre du Québec – Permissive version 1.1
     identifier: LiLiQ-P-1.1
@@ -2924,6 +3217,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Licence Libre du Quebec - Reciprocite version 1.1
     identifier: LiLiQ-R-1.1
@@ -2933,6 +3227,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Licence Libre du Quebec - Reciprocite forte version 1.1
     identifier: LiLiQ-Rplus-1.1
@@ -2942,6 +3237,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Linux man-pages Copyleft
     identifier: Linux-man-pages-copyleft
@@ -2951,6 +3247,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Linux Kernel Variant of OpenIB.org license
     identifier: Linux-OpenIB
@@ -2960,6 +3257,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Lucent Public License Version 1.0
     identifier: LPL-1.0
@@ -2969,6 +3267,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Lucent Public License v1.02
     - Lucent Public License Version 1.02
@@ -2980,6 +3279,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - LaTeX Project Public License v1.0
     identifier: LPPL-1.0
@@ -2989,6 +3289,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - LaTeX Project Public License v1.1
     identifier: LPPL-1.1
@@ -2998,6 +3299,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - LaTeX Project Public License v1.2
     identifier: LPPL-1.2
@@ -3007,6 +3309,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - LaTeX Project Public License v1.3a
     identifier: LPPL-1.3a
@@ -3016,6 +3319,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - LaTeX Project Public License v1.3c
     - LPPL Version 1.3c
@@ -3026,6 +3330,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - MakeIndex License
     identifier: MakeIndex
@@ -3035,6 +3340,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - The MirOS Licence
     - MirOS Licence
@@ -3045,6 +3351,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - MIT License
     - MIT license
@@ -3063,6 +3370,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - MIT No Attribution
     identifier: MIT-0
@@ -3072,6 +3380,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Enlightenment License (e16)
     identifier: MIT-advertising
@@ -3081,6 +3390,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - CMU License
     identifier: MIT-CMU
@@ -3090,6 +3400,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - enna License
     identifier: MIT-enna
@@ -3099,6 +3410,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - feh License
     identifier: MIT-feh
@@ -3108,6 +3420,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - MIT License Modern Variant
     identifier: MIT-Modern-Variant
@@ -3117,6 +3430,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - MIT Open Group variant
     identifier: MIT-open-group
@@ -3126,6 +3440,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - MIT +no-false-attribs License
     identifier: MITNFA
@@ -3135,6 +3450,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Motosoto License
     - Motosoto Open Source License
@@ -3145,6 +3461,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - mpich2 License
     identifier: mpich2
@@ -3154,6 +3471,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Mozilla Public License 1.0
     - MOZILLA PUBLIC LICENSE Version 1.0
@@ -3166,6 +3484,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Mozilla Public License 1.1
     - Mozilla Public License Version 1.1
@@ -3177,6 +3496,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Mozilla Public License 2.0
     - "https://mozilla.org/MPL/2.0/"
@@ -3194,6 +3514,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Mozilla Public License 2.0 (no copyleft exception)
     identifier: MPL-2.0-no-copyleft-exception
@@ -3203,6 +3524,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - mplus Font License
     identifier: mplus
@@ -3212,6 +3534,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Microsoft Public License
     identifier: MS-PL
@@ -3221,6 +3544,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Microsoft Reciprocal License
     identifier: MS-RL
@@ -3230,6 +3554,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Matrix Template Library License
     identifier: MTLL
@@ -3239,6 +3564,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Mulan Permissive Software License v1
     - Mulan PSL v1
@@ -3251,6 +3577,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Mulan Permissive Software License, Version 2
     - "http://license.coscl.org.cn/MulanPSL2"
@@ -3265,6 +3592,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Multics License
     identifier: Multics
@@ -3274,6 +3602,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Mup License
     identifier: Mup
@@ -3283,6 +3612,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Nara Institute of Science and Technology License (2003)
     identifier: NAIST-2003
@@ -3292,6 +3622,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - NASA Open Source Agreement 1.3
     identifier: NASA-1.3
@@ -3301,6 +3632,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Naumen Public License
     identifier: Naumen
@@ -3310,6 +3642,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Net Boolean Public License v1
     identifier: NBPL-1.0
@@ -3319,6 +3652,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Non-Commercial Government Licence
     identifier: NCGL-UK-2.0
@@ -3328,6 +3662,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - University of Illinois/NCSA Open Source License
     identifier: NCSA
@@ -3337,6 +3672,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Net-SNMP License
     identifier: Net-SNMP
@@ -3346,6 +3682,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - NetCDF license
     - Copyright 1993-2014 University Corporation for Atmospheric Research/Unidata
@@ -3356,6 +3693,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Newsletr License
     identifier: Newsletr
@@ -3365,6 +3703,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Nethack General Public License
     identifier: NGPL
@@ -3374,6 +3713,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - NIST Public Domain Notice
     identifier: NIST-PD
@@ -3383,6 +3723,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - NIST Public Domain Notice with license fallback
     identifier: NIST-PD-fallback
@@ -3392,6 +3733,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Norwegian Licence for Open Government Data
     identifier: NLOD-1.0
@@ -3401,6 +3743,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Norwegian Licence for Open Government Data (NLOD) 2.0
     identifier: NLOD-2.0
@@ -3410,6 +3753,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - No Limit Public License
     identifier: NLPL
@@ -3419,6 +3763,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Nokia Open Source License
     identifier: Nokia
@@ -3428,6 +3773,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Netizen Open Source License
     identifier: NOSL
@@ -3437,6 +3783,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Noweb License
     identifier: Noweb
@@ -3446,6 +3793,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Netscape Public License v1.0
     identifier: NPL-1.0
@@ -3455,6 +3803,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Netscape Public License v1.1
     identifier: NPL-1.1
@@ -3464,6 +3813,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Non-Profit Open Software License 3.0
     identifier: NPOSL-3.0
@@ -3473,6 +3823,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - NRL License
     identifier: NRL
@@ -3482,6 +3833,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - NTP License
     identifier: NTP
@@ -3491,6 +3843,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - NTP No Attribution
     identifier: NTP-0
@@ -3500,6 +3853,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Use of Data Agreement v1.0
     identifier: O-UDA-1.0
@@ -3509,6 +3863,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open CASCADE Technology Public License
     identifier: OCCT-PL
@@ -3518,6 +3873,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - OCLC Research Public License 2.0
     identifier: OCLC-2.0
@@ -3527,6 +3883,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - ODC Open Database License v1.0
     - Open Data Commons Open Database License v1.0
@@ -3537,6 +3894,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Data Commons Attribution License v1.0
     identifier: ODC-By-1.0
@@ -3546,6 +3904,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SIL Open Font License 1.0
     - SIL OFL 1.0
@@ -3556,6 +3915,7 @@ Software Licenses:
     lowRisk: 'Y'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SIL Open Font License 1.0 with no Reserved Font Name
     identifier: OFL-1.0-no-RFN
@@ -3565,6 +3925,7 @@ Software Licenses:
     lowRisk: 'Y'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SIL Open Font License 1.0 with Reserved Font Name
     identifier: OFL-1.0-RFN
@@ -3574,6 +3935,7 @@ Software Licenses:
     lowRisk: 'Y'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SIL Open Font License 1.1
     - SIL Open Font License, Version 1.1
@@ -3585,6 +3947,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SIL Open Font License 1.1 with no Reserved Font Name
     identifier: OFL-1.1-no-RFN
@@ -3594,6 +3957,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SIL Open Font License 1.1 with Reserved Font Name
     identifier: OFL-1.1-RFN
@@ -3603,6 +3967,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - OGC Software License, Version 1.0
     identifier: OGC-1.0
@@ -3612,6 +3977,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Taiwan Open Government Data License, version 1.0
     identifier: OGDL-Taiwan-1.0
@@ -3621,6 +3987,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Government Licence - Canada
     identifier: OGL-Canada-2.0
@@ -3630,6 +3997,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Government Licence v1.0
     identifier: OGL-UK-1.0
@@ -3639,6 +4007,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Government Licence v2.0
     identifier: OGL-UK-2.0
@@ -3648,6 +4017,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Government Licence v3.0
     identifier: OGL-UK-3.0
@@ -3657,6 +4027,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Group Test Suite License
     identifier: OGTSL
@@ -3666,6 +4037,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v1.1
     identifier: OLDAP-1.1
@@ -3675,6 +4047,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v1.2
     identifier: OLDAP-1.2
@@ -3684,6 +4057,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v1.3
     identifier: OLDAP-1.3
@@ -3693,6 +4067,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v1.4
     identifier: OLDAP-1.4
@@ -3702,6 +4077,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)
     identifier: OLDAP-2.0
@@ -3711,6 +4087,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.0.1
     identifier: OLDAP-2.0.1
@@ -3720,6 +4097,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.1
     identifier: OLDAP-2.1
@@ -3729,6 +4107,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.2
     identifier: OLDAP-2.2
@@ -3738,6 +4117,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.2.1
     identifier: OLDAP-2.2.1
@@ -3747,6 +4127,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License 2.2.2
     identifier: OLDAP-2.2.2
@@ -3756,6 +4137,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.3
     identifier: OLDAP-2.3
@@ -3765,6 +4147,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.4
     identifier: OLDAP-2.4
@@ -3774,6 +4157,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.5
     identifier: OLDAP-2.5
@@ -3783,6 +4167,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.6
     identifier: OLDAP-2.6
@@ -3792,6 +4177,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.7
     identifier: OLDAP-2.7
@@ -3801,6 +4187,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open LDAP Public License v2.8
     identifier: OLDAP-2.8
@@ -3810,6 +4197,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Market License
     - copyrighted by Open Market
@@ -3820,6 +4208,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - OpenSSL License
     - "http://www.openssl.org/"
@@ -3830,6 +4219,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Public License v1.0
     identifier: OPL-1.0
@@ -3839,6 +4229,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Publication License v1.0
     identifier: OPUBL-1.0
@@ -3848,6 +4239,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - OSET Public License version 2.1
     identifier: OSET-PL-2.1
@@ -3857,6 +4249,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Software License 1.0
     - Open Software License version 1.0
@@ -3868,6 +4261,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Software License 1.1
     - Open Software License version 1.1
@@ -3880,6 +4274,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Software License 2.0
     - Open Software License version 2.0
@@ -3891,6 +4286,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Software License 2.1
     - Open Software License version 2.1
@@ -3902,6 +4298,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Open Software License 3.0
     - Open Software License version 3.0
@@ -3913,6 +4310,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - The Parity Public License 6.0.0
     identifier: Parity-6.0.0
@@ -3922,6 +4320,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - The Parity Public License 7.0.0
     identifier: Parity-7.0.0
@@ -3931,6 +4330,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - ODC Public Domain Dedication & License 1.0
     identifier: PDDL-1.0
@@ -3940,6 +4340,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - PHP License v3.0
     - The PHP License version 3.0
@@ -3950,6 +4351,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - PHP License v3.01
     identifier: PHP-3.01
@@ -3959,6 +4361,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Plexus Classworlds License
     - "http://classwords.codehaus.org/"
@@ -3969,6 +4372,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - PolyForm Noncommercial License 1.0.0
     identifier: PolyForm-Noncommercial-1.0.0
@@ -3978,6 +4382,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - PolyForm Small Business License 1.0.0
     identifier: PolyForm-Small-Business-1.0.0
@@ -3987,6 +4392,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - PostgreSQL License
     identifier: PostgreSQL
@@ -3996,6 +4402,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Python Software Foundation License 2.0
     - Python Software Foundation License V2
@@ -4007,6 +4414,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - psfrag License
     identifier: psfrag
@@ -4016,6 +4424,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - psutils License
     - PS Utilities Package
@@ -4026,6 +4435,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Python License 2.0
     - Python License, Version 2
@@ -4037,6 +4447,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Qhull License
     - www.qhull.org
@@ -4047,6 +4458,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Q Public License 1.0
     - Q Public License version 1.0
@@ -4057,6 +4469,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Rdisc License
     identifier: Rdisc
@@ -4066,6 +4479,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Red Hat eCos Public License v1.1
     identifier: RHeCos-1.1
@@ -4075,6 +4489,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Reciprocal Public License 1.1
     identifier: RPL-1.1
@@ -4084,6 +4499,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Reciprocal Public License 1.5
     identifier: RPL-1.5
@@ -4093,6 +4509,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - RealNetworks Public Source License v1.0
     - RealNetworks Public Source License version 1.0
@@ -4103,6 +4520,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - RSA Message-Digest License
     identifier: RSA-MD
@@ -4112,6 +4530,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Ricoh Source Code Public License
     identifier: RSCPL
@@ -4121,6 +4540,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Ruby License
     identifier: Ruby
@@ -4130,6 +4550,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Sax Public Domain Notice
     identifier: SAX-PD
@@ -4139,6 +4560,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Saxpath License
     identifier: Saxpath
@@ -4148,6 +4570,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SCEA Shared Source License
     identifier: SCEA
@@ -4157,6 +4580,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Scheme Language Report License
     identifier: SchemeReport
@@ -4166,6 +4590,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Sendmail License
     identifier: Sendmail
@@ -4175,6 +4600,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Sendmail License 8.23
     identifier: Sendmail-8.23
@@ -4184,6 +4610,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SGI Free Software License B v1.0
     identifier: SGI-B-1.0
@@ -4193,6 +4620,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SGI Free Software License B v1.1
     identifier: SGI-B-1.1
@@ -4202,6 +4630,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SGI Free Software License B v2.0
     identifier: SGI-B-2.0
@@ -4211,6 +4640,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Solderpad Hardware License v0.5
     identifier: SHL-0.5
@@ -4220,6 +4650,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Solderpad Hardware License, Version 0.51
     identifier: SHL-0.51
@@ -4229,6 +4660,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Simple Public License 2.0
     identifier: SimPL-2.0
@@ -4238,6 +4670,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Sun Industry Standards Source License v1.1
     identifier: SISSL
@@ -4247,6 +4680,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Sun Industry Standards Source License v1.2
     - SUN INDUSTRY STANDARDS SOURCE LICENSE Version 1.2
@@ -4257,6 +4691,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Sleepycat License
     - Sleepycat Software
@@ -4267,6 +4702,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Standard ML of New Jersey License
     identifier: SMLNJ
@@ -4276,6 +4712,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Secure Messaging Protocol Public License
     identifier: SMPPL
@@ -4285,6 +4722,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SNIA Public License 1.1
     - Storage Networking Industry Association
@@ -4295,6 +4733,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Spencer License 86
     identifier: Spencer-86
@@ -4304,6 +4743,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Spencer License 94
     identifier: Spencer-94
@@ -4313,6 +4753,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Spencer License 99
     identifier: Spencer-99
@@ -4322,6 +4763,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Sun Public License v1.0
     - SUN PUBLIC LICENSE Version 1.0
@@ -4333,6 +4775,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SSH OpenSSH license
     identifier: SSH-OpenSSH
@@ -4342,6 +4785,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - SSH short notice
     identifier: SSH-short
@@ -4351,6 +4795,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Server Side Public License, v 1
     identifier: SSPL-1.0
@@ -4360,6 +4805,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，对云厂商不友好，明确云服务厂商必须履行对外开源义务，否则只能购买商业版本。但商业版本mongoDB属于涉A软件，实际上mongoDB在我司云场景下已不可使用'
+    exception: 'N'
   - alias:
     - SugarCRM Public License v1.1.3
     identifier: SugarCRM-1.1.3
@@ -4369,6 +4815,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Scheme Widget Library (SWL) Software License Agreement
     identifier: SWL
@@ -4378,6 +4825,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - TAPR Open Hardware License v1.0
     identifier: TAPR-OHL-1.0
@@ -4387,6 +4835,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - TCL/TK License
     - copyrighted by the Regents of the University of California, Sun Microsystems, Inc.
@@ -4397,6 +4846,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - TCP Wrappers License
     identifier: TCP-wrappers
@@ -4406,6 +4856,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - TMate Open Source License
     identifier: TMate
@@ -4415,6 +4866,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，有很强的开源义务，使用SVNKit的软件，以及所有配套的软件都需要开源'
+    exception: 'N'
   - alias:
     - TORQUE v2.5+ Software License v1.1
     identifier: TORQUE-1.1
@@ -4424,6 +4876,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Trusster Open Source License
     identifier: TOSL
@@ -4433,6 +4886,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Technische Universitaet Berlin License 1.0
     identifier: TU-Berlin-1.0
@@ -4442,6 +4896,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Technische Universitaet Berlin License 2.0
     identifier: TU-Berlin-2.0
@@ -4451,6 +4906,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Upstream Compatibility License v1.0
     identifier: UCL-1.0
@@ -4460,6 +4916,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Unicode License Agreement - Data Files and Software (2015)
     identifier: Unicode-DFS-2015
@@ -4469,6 +4926,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Unicode License Agreement - Data Files and Software (2016)
     identifier: Unicode-DFS-2016
@@ -4478,6 +4936,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Unicode Terms of Use
     identifier: Unicode-TOU
@@ -4487,6 +4946,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - The Unlicense
     identifier: Unlicense
@@ -4496,6 +4956,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Universal Permissive License v1.0
     - Universal Permissive License (UPL), Version 1.0
@@ -4506,6 +4967,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Vim License
     identifier: Vim
@@ -4515,6 +4977,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - VOSTROM Public License for Open Source
     identifier: VOSTROM
@@ -4524,6 +4987,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Vovida Software License v1.0
     - The Vovida Software License, Version 1.0
@@ -4534,6 +4998,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - W3C Software Notice and License (2002-12-31)
     - "http://www.w3.org/Consortium/Legal/2002"
@@ -4544,6 +5009,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - W3C Software Notice and License (1998-07-20)
     identifier: W3C-19980720
@@ -4553,6 +5019,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - W3C Software Notice and Document License (2015-05-13)
     identifier: W3C-20150513
@@ -4562,6 +5029,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Sybase Open Watcom Public License 1.0
     identifier: Watcom-1.0
@@ -4571,6 +5039,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Wsuipa License
     identifier: Wsuipa
@@ -4580,6 +5049,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Do What The F*ck You Want To Public License
     identifier: WTFPL
@@ -4589,6 +5059,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - X11 License
     identifier: X11
@@ -4598,6 +5069,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - X11 License Distribution Modification Variant
     identifier: X11-distribute-modifications-variant
@@ -4607,6 +5079,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Xerox License
     identifier: Xerox
@@ -4616,6 +5089,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - XFree86 License 1.1
     identifier: XFree86-1.1
@@ -4625,6 +5099,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - xinetd License
     - allowing xinetd as maintained by me (Rob Braun)
@@ -4635,6 +5110,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - X.Net License
     identifier: Xnet
@@ -4644,6 +5120,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - XPP License
     identifier: xpp
@@ -4653,6 +5130,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - XSkat License
     identifier: XSkat
@@ -4662,6 +5140,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Yahoo! Public License v1.0
     identifier: YPL-1.0
@@ -4671,6 +5150,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Yahoo! Public License v1.1
     identifier: YPL-1.1
@@ -4680,6 +5160,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Zed License
     identifier: Zed
@@ -4689,6 +5170,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Zend License v2.0
     identifier: Zend-2.0
@@ -4698,6 +5180,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Zimbra Public License v1.3
     identifier: Zimbra-1.3
@@ -4707,6 +5190,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Zimbra Public License v1.4
     identifier: Zimbra-1.4
@@ -4716,6 +5200,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - zlib License
     - zlib
@@ -4727,6 +5212,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - zlib/libpng License with Acknowledgement
     - Copyright (c) 2002-2007 Charlie Poole
@@ -4739,6 +5225,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Zope Public License 1.1
     identifier: ZPL-1.1
@@ -4748,6 +5235,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Zope Public License 2.0
     - Zope Public License (ZPL) Version 2.0
@@ -4761,6 +5249,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Zope Public License 2.1
     - Zope Public License (ZPL) Version 2.1
@@ -4774,6 +5263,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Commons Clause License v1.0
     identifier: Commons Clause
@@ -4783,6 +5273,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - DMIT License
     identifier: DMIT
@@ -4792,6 +5283,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，该许可证是MIT许可证的修改版本，添加了专用于Docbook样式表的条款，该条款许可证GPL不兼容，并且该条款应用于软件而不是XML样式表可能会使许可证成为非免费的'
+    exception: 'N'
   - alias:
     - Verbatim License
     - verbatim copying
@@ -4802,6 +5294,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，这是一个自由文档许可证，但是由于它的措辞，它只适用于非常特定的范围：linux内核手册页'
+    exception: 'N'
   - alias:
     - Liberation Font License
     - LIBERATION font software
@@ -4812,6 +5305,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，该协议适用于字体，在GPLv2的基础上增加了例外条款，如果使用此字体创建文档，并且将此字体嵌入到文档中，并不会导致生成的文件被GPL协议覆盖，另外在分发的时候也要确保支持修改和安装。该协议也明确规定受美国法律管辖'
+    exception: 'N'
   - alias:
     - Trusted Computing Group License
     - Trusted Computing Group (TCG)
@@ -4822,6 +5316,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，该协议是基于BSD修改的，针对软件是免费，但针对文档(2.Specification documentation)不免费，也不能修改，风险较高'
+    exception: 'N'
   - alias:
     - Nmap License
     - NMAP LICENSE
@@ -4832,6 +5327,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，该协议有多个版本，有的版本没有被Fedora接受'
+    exception: 'N'
   - alias:
     - Distributed Management Task Force
     identifier: DMTF
@@ -4841,6 +5337,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'Y'
     blackReason: '不建议引入，非免费许可证'
+    exception: 'N'
   - alias:
     - (perl)
     - "license: perl"
@@ -4851,6 +5348,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - The Unicode Character Database
     identifier: UCD
@@ -4860,6 +5358,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Original SSLeay License
     identifier: SSLeay
@@ -4869,6 +5368,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - Old FSF Documentation License
     identifier: OFSFDL
@@ -4878,6 +5378,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - public domain
     identifier: Public Domain
@@ -4887,6 +5388,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   - alias:
     - BSD 2-Clause FreeBSD License
     identifier: BSD-2-Clause-FreeBSD
@@ -4896,6 +5398,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'N'
   #exception
   - alias:
     - 389 Directory Server Exception
@@ -4906,6 +5409,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Autoconf exception 2.0
     identifier: Autoconf-exception-2.0
@@ -4915,6 +5419,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Autoconf exception 3.0
     identifier: Autoconf-exception-3.0
@@ -4924,6 +5429,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Bison exception 2.2
     identifier: Bison-exception-2.2
@@ -4933,6 +5439,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Bootloader Distribution Exception
     identifier: Bootloader-exception
@@ -4942,6 +5449,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Classpath exception 2.0
     identifier: Classpath-exception-2.0
@@ -4951,6 +5459,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - CLISP exception 2.0
     identifier: CLISP-exception-2.0
@@ -4960,6 +5469,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - DigiRule FOSS License Exception
     identifier: DigiRule-FOSS-exception
@@ -4969,6 +5479,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - eCos exception 2.0
     identifier: eCos-exception-2.0
@@ -4978,6 +5489,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Fawkes Runtime Exception
     identifier: Fawkes-Runtime-exception
@@ -4987,6 +5499,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - FLTK exception
     identifier: FLTK-exception
@@ -4996,6 +5509,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Font exception 2.0
     identifier: Font-exception-2.0
@@ -5005,6 +5519,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - FreeRTOS Exception 2.0
     identifier: freertos-exception-2.0
@@ -5014,6 +5529,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - GCC Runtime Library exception 2.0
     identifier: GCC-exception-2.0
@@ -5023,6 +5539,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - GCC Runtime Library exception 3.1
     identifier: GCC-exception-3.1
@@ -5032,6 +5549,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - GNU JavaMail exception
     identifier: gnu-javamail-exception
@@ -5041,6 +5559,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - GPL-3.0 Linking Exception
     identifier: GPL-3.0-linking-exception
@@ -5050,6 +5569,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - GPL-3.0 Linking Exception (with Corresponding Source)
     identifier: GPL-3.0-linking-source-exception
@@ -5059,6 +5579,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - GPL Cooperation Commitment 1.0
     identifier: GPL-CC-1.0
@@ -5068,6 +5589,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - i2p GPL+Java Exception
     identifier: i2p-gpl-java-exception
@@ -5077,6 +5599,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - LGPL-3.0 Linking Exception
     identifier: LGPL-3.0-linking-exception
@@ -5086,6 +5609,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Libtool Exception
     identifier: Libtool-exception
@@ -5095,15 +5619,17 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Linux Syscall Note
     identifier: Linux-syscall-note
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'Y'
+    oeApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - LLVM Exception
     identifier: LLVM-exception
@@ -5113,6 +5639,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - LZMA exception
     identifier: LZMA-exception
@@ -5122,6 +5649,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Macros and Inline Functions Exception
     identifier: mif-exception
@@ -5131,6 +5659,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - OCaml LGPL Linking Exception
     identifier: OCaml-LGPL-linking-exception
@@ -5140,6 +5669,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Open CASCADE Exception 1.0
     identifier: OCCT-exception-1.0
@@ -5149,6 +5679,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - OpenJDK Assembly exception 1.0
     identifier: OpenJDK-assembly-exception-1.0
@@ -5158,6 +5689,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - OpenVPN OpenSSL Exception
     identifier: openvpn-openssl-exception
@@ -5167,6 +5699,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - PS/PDF font exception (2017-08-17)
     identifier: PS-or-PDF-font-exception-20170817
@@ -5176,6 +5709,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Qt GPL exception 1.0
     identifier: Qt-GPL-exception-1.0
@@ -5185,6 +5719,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Qt LGPL exception 1.1
     identifier: Qt-LGPL-exception-1.1
@@ -5194,6 +5729,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Qwt exception 1.0
     identifier: Qwt-exception-1.0
@@ -5203,6 +5739,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Solderpad Hardware License v2.0
     identifier: SHL-2.0
@@ -5212,6 +5749,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Solderpad Hardware License v2.1
     identifier: SHL-2.1
@@ -5221,6 +5759,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Swift Exception
     identifier: Swift-exception
@@ -5230,6 +5769,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - U-Boot exception 2.0
     identifier: u-boot-exception-2.0
@@ -5239,6 +5779,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - Universal FOSS Exception, Version 1.0
     identifier: Universal-FOSS-exception-1.0
@@ -5248,6 +5789,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - WxWindows Library Exception 3.1
     identifier: WxWindows-exception-3.1
@@ -5257,6 +5799,7 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
   - alias:
     - exceptions
     - exception
@@ -5267,3 +5810,4 @@ Software Licenses:
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
+    exception: 'Y'
