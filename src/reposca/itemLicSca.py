@@ -61,6 +61,7 @@ class ItemLicSca(object):
                 scaResult = {}
                 if itemLic is None or (itemLic is not None and itemLic['is_pro_license'] is None):
                     scaResult = {
+                        "repo_license": [],
                         "repo_license_legal": [],
                         "repo_license_illegal": [],
                         "repo_copyright_legal": [],
@@ -89,6 +90,7 @@ class ItemLicSca(object):
                         if leLic not in risksList:
                             leLicList.append(leLic)
                     reCopy = copyrightLg['copyright']
+                    scaResult['repo_license'] = reLicList
                     scaResult['repo_license_legal'] = leLicList
                     scaResult['repo_license_illegal'] = risksList
                     scaResult['repo_copyright_legal'] = reCopy

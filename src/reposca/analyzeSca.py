@@ -85,7 +85,8 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                         noticeLicense = ""
                         itemLicList.clear()
                         itemPathList.clear()
-                        itemLicList = licenseSplit(spec.license)
+                        # itemLicList = licenseSplit(spec.license)
+                        itemLicList.append(spec.license)
                         itemPathList.append(path)
                         itemLicense = specLicense
                         noticeItemLic = noticeSpec
