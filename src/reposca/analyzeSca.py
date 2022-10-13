@@ -100,7 +100,10 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
         for pathLicense in var:
             spdx_name = pathLicense['spdx_license_key']
             if 'LicenseRef-scancode-' in spdx_name:
-                continue
+                if "mulanpsl" in spdx_name:
+                    spdx_name = spdx_name.split("LicenseRef-scancode-")[1]
+                else:
+                    continue
             spdxLicenses = infixToPostfix(spdx_name)
             # 判断是否有项目license
             if checkRepoLicense(path, pathDepth) and specFlag:

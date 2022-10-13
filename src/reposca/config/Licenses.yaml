@@ -3570,6 +3570,7 @@ Software Licenses:
     - Mulan PSL v1
     - Mulan v1.0
     - Mulan 2.0
+    - MulanPSL-1.0-en
     identifier: MulanPSL-1.0
     fsfApproved: 'N'
     osiApproved: 'N'
@@ -3585,6 +3586,7 @@ Software Licenses:
     - Mulan 2.0
     - Mulan v2
     - MulanPSL2
+    - MulanPSL-2.0-en
     identifier: MulanPSL-2.0
     fsfApproved: 'N'
     osiApproved: 'Y'
