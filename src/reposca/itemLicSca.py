@@ -295,18 +295,12 @@ class ItemLicSca(object):
             self._typeUrl_ = 'https://' + type + '.com'
         else:
             scaResult = {
-                "repo_license_legal": {
-                    "pass": False,
-                    "result_code": "",
-                    "notice": "不支持的type类型",
-                    "is_legal": {"pass": False,"license": [],"notice": "","detail": {}}
-                },
-                "repo_copyright_legal": {
-                    "pass": False,
-                    "result_code": "",
-                    "notice": "不支持的type类型",
-                    "copyright": []
-                }
+                "repo_license": ['不支持的type类型'],
+                "repo_license_legal": [],
+                "repo_license_illegal": [],
+                "repo_copyright_legal": [],
+                "repo_copyright_illegal": [],
+                "is_sca": False
             }
         return typeFlag, scaResult
 
