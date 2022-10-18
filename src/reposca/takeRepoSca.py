@@ -135,7 +135,7 @@ def cleanTemp(dirUrl):
                     delUrl = os.path.join(delRoot, delName)
                     delUrl = formateUrl(delUrl)
                     #防止文件拒绝访问
-                    os.chmod(delUrl, stat.S_IWUSR) 
+                    os.chmod(delUrl, stat.S_IRWXU) 
                     os.remove(delUrl)
                 except:
                     pass                
@@ -144,7 +144,7 @@ def cleanTemp(dirUrl):
                     delUrl = os.path.join(delRoot, delName)
                     delUrl = formateUrl(delUrl)
                     #防止文件拒绝访问
-                    os.chmod(delUrl, stat.S_IWUSR) 
+                    os.chmod(delUrl, stat.S_IRWXU) 
                     os.rmdir(delUrl)
                 except:
                     pass

@@ -18,8 +18,8 @@ from git.repo import Repo
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-SOURTH_PATH = '/home/repo/persistentRepo'
-TEMP_PATH = '/home/repo/tempRepo'
+SOURTH_PATH = '/home/chenyx/repo/persistentRepo'
+TEMP_PATH = '/home/chenyx/repo/tempRepo'
 LIC_COP_LIST = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_software_notice', 'copyright']
 logging.getLogger().setLevel(logging.INFO)
 
@@ -104,7 +104,8 @@ class PrSca(object):
             if delSrc != '':
                 try:
                     cleanTemp(delSrc)
-                    os.chmod(delSrc, stat.S_IWUSR)
+                    cleanTemp(self._diffPath_)
+                    os.chmod(delSrc, stat.S_IRWXU)
                     os.rmdir(delSrc)
                 except:
                     pass
