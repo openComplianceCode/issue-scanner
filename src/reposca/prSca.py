@@ -205,7 +205,7 @@ class PrSca(object):
             api = AuthApi()
             response = api.get_token(os.environ.get("GITEE_USER"),
                                     os.environ.get("GITEE_PASS"),
-                                    os.environ.get("GITE_REDIRECT_URI"),
+                                    os.environ.get("GITEE_REDIRECT_URI"),
                                     os.environ.get("GITEE_CLIENT_ID"),
                                     os.environ.get("GITEE_CLIENT_SECRET"),
                                     "user_info")
