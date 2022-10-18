@@ -10,6 +10,7 @@ import json
 import jsonpath
 from reposca.analyzeSca import getScaAnalyze
 from reposca.takeRepoSca import cleanTemp
+from util.authApi import AuthApi
 from util.popUtil import popKill
 from util.extractUtil import extractCode
 from util.formateUtil import formateUrl
@@ -18,8 +19,8 @@ from git.repo import Repo
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
-SOURTH_PATH = '/home/chenyx/repo/persistentRepo'
-TEMP_PATH = '/home/chenyx/repo/tempRepo'
+SOURTH_PATH = '/home/repo/persistentRepo'
+TEMP_PATH = '/home/repo/tempRepo'
 LIC_COP_LIST = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_software_notice', 'copyright']
 logging.getLogger().setLevel(logging.INFO)
 
@@ -200,9 +201,19 @@ class PrSca(object):
         url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+ACCESS_TOKEN
         response = http.request('GET',url)         
         resStatus = response.status
-
+        
         if resStatus == 403:
-            raise Exception('Token 权限问题')
+            api = AuthApi()
+            response = api.get_token(os.environ.get("GITEE_USER"),
+                                    os.environ.get("GITEE_PASS"),
+                                    os.environ.get("GITE_REDIRECT_URI"),
+                                    os.environ.get("GITEE_CLIENT_ID"),
+                                    os.environ.get("GITEE_CLIENT_SECRET"),
+                                    "user_info")
+            accessToken = response["access_token"]
+            url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+accessToken
+            response = http.request('GET',url)         
+            resStatus = response.status
         
         if resStatus == 404:
             raise Exception("Gitee API Fail")
@@ -211,7 +222,7 @@ class PrSca(object):
         temList = json.loads(repoStr)
         fileList.extend(temList)     
         return fileList
-    
+
     @catch_error
     def mergJson(self,itemJson, scaJson):
         itemData = json.loads(itemJson)

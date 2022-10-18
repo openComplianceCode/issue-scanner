@@ -5343,6 +5343,7 @@ Software Licenses:
   - alias:
     - (perl)
     - "license: perl"
+    - "perl_5"
     identifier: Perl License
     fsfApproved: 'N'
     osiApproved: 'N'
@@ -5454,6 +5455,7 @@ Software Licenses:
     exception: 'Y'
   - alias:
     - Classpath exception 2.0
+    - GPL-2.0-with-classpath-exception
     identifier: Classpath-exception-2.0
     fsfApproved: 'N'
     osiApproved: 'N'

@@ -79,7 +79,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                     noticeSpec = isSpecLicense.get('notice')
                     speLicDetial = isSpecLicense.get('detail')
                     specLicenseList.append(spec.license)
-                    if haveLicense is False:
+                    if haveLicense is False or type == 'ref':
                         specFlag = False
                         haveLicense = True
                         noticeLicense = ""
