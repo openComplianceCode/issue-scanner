@@ -21,7 +21,7 @@ ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 GIT_URL = 'https://gitee.com'
 SOURTH_PATH = '/home/repo/persistentRepo'
 TEMP_PATH = '/home/repo/tempRepo'
-LIC_COP_LIST = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_software_notice', 'copyright']
+LIC_COP_LIST = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_software_notice', 'copyright', '.spec']
 logging.getLogger().setLevel(logging.INFO)
 
 class PrSca(object):
@@ -145,7 +145,7 @@ class PrSca(object):
             licInList = ("* --include=*").join(LIC_COP_LIST)
             command = shlex.split(
                 'scancode -l -c %s --max-depth %s --json %s -n 4 --timeout 10 --max-in-memory -1 \
-                    --license-score 80 --only-findings --include=*%s*' % (self._repoSrc_, maxDepth, tempJson, licInList))
+                    --license-score 80 --include=*%s*' % (self._repoSrc_, maxDepth, tempJson, licInList))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
@@ -157,8 +157,7 @@ class PrSca(object):
                 itemJson = "".join(list)
 
             command = shlex.split(
-                'scancode -l -c %s --json %s -n 4 --timeout 10 --max-in-memory -1  --license-score 80 \
-                     --only-findings ' % (self._diffPath_, tempJson))
+                'scancode -l -c %s --json %s -n 4 --timeout 10 --max-in-memory -1  --license-score 80 ' % (self._diffPath_, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
