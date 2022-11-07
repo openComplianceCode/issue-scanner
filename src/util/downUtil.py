@@ -1,7 +1,5 @@
 
 import os
-from wsgiref import headers
-from scipy.misc import electrocardiogram
 from tqdm import tqdm
 import requests
 
@@ -20,8 +18,8 @@ class Down(object):
         #重计次数
         count = 0
         #请求获取文件总大小
+        requests.packages.urllib3.disable_warnings()
         topReq = requests.get(url, stream = True, verify = False)
-        print(topReq.text)
 
         totalSize = int(topReq.headers.get('content-length', 0))
 

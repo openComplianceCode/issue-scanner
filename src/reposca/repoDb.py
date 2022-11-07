@@ -87,7 +87,7 @@ class RepoDb(object):
         获取repo数据
         '''
         try:
-            sql = "SELECT id,repo_name,repo_org, repo_url, sca_json, repo_owner FROM gitee_repo WHERE repo_url IS NOT NULL and sca_json is null"
+            sql = "SELECT id,repo_name,repo_org, repo_url, sca_json, commite FROM gitee_repo WHERE repo_url IS NOT NULL and sca_json is null"
             self.cur.execute(sql)
             repoList = self.cur.fetchall()
             return repoList
@@ -131,7 +131,7 @@ class RepoDb(object):
         根据repo name 查询repo数据
         '''
         try:
-            sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, \
+            sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, sca_json,\
                 is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and \
                     commite = '%s' and deleted_at is null"
             self.cur.execute(sql % repoData)
@@ -147,7 +147,7 @@ class RepoDb(object):
         根据repo name 查询repo数据 获取最新一次
         '''
         try:
-            sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, \
+            sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, sca_json,\
                 is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and deleted_at is null\
                     ORDER BY updated_at DESC limit 1"
             self.cur.execute(sql % repoData)
