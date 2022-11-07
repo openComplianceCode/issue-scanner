@@ -25,6 +25,7 @@ def fixSca():
         purl = "pkg:gitee/src-openeuler/"+repoName + "@"+commite
         itemLic = ItemLicSca()
         result = itemLic.licSca(purl)
+    return "F1"
 
 
 if __name__ == '__main__': 
