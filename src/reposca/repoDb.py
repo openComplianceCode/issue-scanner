@@ -87,7 +87,8 @@ class RepoDb(object):
         获取repo数据
         '''
         try:
-            sql = "SELECT id,repo_name,repo_org, repo_url, sca_json, commite FROM gitee_repo WHERE repo_url IS NOT NULL and sca_json is null"
+            sql = "SELECT id,repo_name,repo_org, repo_url, sca_json, commite FROM gitee_repo WHERE repo_org = 'src-openeuler'\
+                 and repo_url IS NOT NULL and sca_json is null and commite = 'openEuler-22.03-LTS'"
             self.cur.execute(sql)
             repoList = self.cur.fetchall()
             return repoList
