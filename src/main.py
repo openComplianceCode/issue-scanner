@@ -13,7 +13,7 @@ from reposca.prSca import PrSca
 from tornado import gen
 
 from util.postOrdered import infixToPostfix
-
+exitFlag = 0
 class Main(tornado.web.RequestHandler):
     executor = ThreadPoolExecutor(1000)
 
@@ -76,19 +76,29 @@ class ItemSca(tornado.web.RequestHandler):
         """get请求"""
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')
-        result = yield self.block(url)
-        self.finish(str(result))
+        asyn = self.get_argument('async','False')
+        if asyn == "True":
+            self.finish(str({"result":True,"notice": "正在扫描中..."}))
+            result = yield self.block(url)
+        else:
+            result = yield self.block(url)
+            self.finish(result)
 
     @gen.coroutine
     def post(self):
         '''post请求'''
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
-        url = self.get_argument('url')    
-        result = yield self.block(url)
-        self.finish(str(result))
+        url = self.get_argument('url')  
+        asyn = self.get_argument('async','False')  
+        if asyn == "True":
+            self.finish(str({"result":True,"notice": "正在扫描中..."}))
+            result = yield self.block(url)
+        else:
+            result = yield self.block(url)
+            self.finish(result)
     
     @run_on_executor
-    def block(self, url):
+    def block(self, url):      
         itemLic = ItemLicSca()
         result = itemLic.licSca(url)
         jsonRe = json.dumps(result)
