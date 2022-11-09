@@ -79,7 +79,7 @@ class PrSca(object):
             self._gitRepo_ = repo
             self._git_ = repo.git
 
-            logging.info("=============Start fetch repo==============")
+            logging.info("=============START FETCH REPO==============")          
             # 拉取pr
             if self._file_ == 'sourth':
                 remote = self._gitRepo_.remote()
@@ -92,7 +92,8 @@ class PrSca(object):
             fileList =  self.getDiffFiles()           
             #创建diff副本
             self._diffPath_ = self.createDiff(fileList)
-            logging.info("=============End fetch repo==============")
+            logging.info("==============END FETCH REPO===============")
+            
 
             # 扫描pr文件
             scaJson = self.getPrSca()
@@ -133,14 +134,16 @@ class PrSca(object):
 
             self._type_ = "inde"#自研
             maxDepth = 2
+            logging.info("============START EXTARCT CODE=============")
             reExt = extractCode(self._repoSrc_)
+            logging.info("=============END EXTARCT CODE==============")
             if reExt == "Except":
                 logging.error("file extracCode error")
             elif reExt == "ref":
                 self._type_ = "ref"#引用仓
                 # maxDepth = 3
 
-            logging.info("=============Start scan repo==============")           
+            logging.info("==============START SCAN REPO==============")        
             # 调用scancode
             licInList = ("* --include=*").join(LIC_COP_LIST)
             command = shlex.split(
@@ -170,7 +173,7 @@ class PrSca(object):
                 scaJson = "".join(list)
             
             reJson = self.mergJson(itemJson, scaJson)
-            logging.info("=============End scan repo==============")
+            logging.info("===============END SCAN REPO===============")
 
         except Exception as e:
             logger = logging.getLogger(__name__)

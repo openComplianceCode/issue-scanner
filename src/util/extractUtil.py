@@ -1,9 +1,11 @@
-import gzip
 import os
-import tarfile
+import shlex
+import subprocess
+import time
 import traceback
 import zipfile
 import rarfile
+from util.popUtil import popKill
 from util.catchUtil import catch_error
 from util.formateUtil import formateUrl
 
@@ -52,13 +54,15 @@ def checkWrar(fileName):
 def un_tar(filePath, tarPath):
     """ungz tar file"""
     try:
-        t = tarfile.open(filePath)
-        t.extractall(path = tarPath)            
+        command = shlex.split('tar xzf %s -k' % (filePath))
+        resultCode = subprocess.Popen(command, cwd=tarPath)
+        while subprocess.Popen.poll(resultCode) == None:
+            time.sleep(1)                
     except Exception as e:
         traceback.print_exc()
         pass
     finally:
-        t.close()
+        popKill(resultCode) 
 
 def un_zip(filePath, tarPath):
     """ungz zip file"""
