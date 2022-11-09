@@ -45,7 +45,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
     licenseList = jsonpath.jsonpath(jsonData, '$.files[*].licenses')
     copyrightList = jsonpath.jsonpath(jsonData, '$.files[*].copyrights')
 
-    logging.info("=============Start analyze result==============")
+    logging.info("===========START ANALYZE RESULT============")
     fileLicenseCheck = LicenseCheck('file')
     licenseCheck = LicenseCheck('reference')
     indeLicChck = LicenseCheck('independent')
@@ -200,7 +200,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
             "copyright": crInfoList
         }
     }
-    logging.info("=============End analyze result==============")
+    logging.info("============END ANALYZE RESULT=============")
 
     return sca_result
 
