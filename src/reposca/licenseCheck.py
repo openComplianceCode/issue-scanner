@@ -146,7 +146,11 @@ class LicenseCheck(object):
                 result_stack.push(reLic)
 
         while not result_stack.is_empty():
-            result = result_stack.pop()
+            if result_stack.size() > 1:
+                res = self.analyze_detial(result_stack.pop(), result_stack.pop(), 'and')
+                result_stack.push(res)
+            else:    
+                result = result_stack.pop()
 
         result = self.analyze_result(result)
         

@@ -168,7 +168,7 @@ class ItemLicSca(object):
                     self._repo_ = urlList[4]                  
                     self.gitCloneFile(temFileSrc)
                 else:
-                    logging.info("=============Down file==============")
+                    logging.info("=================DOWN FILE=================")
                     downUtil = Down()
                     urlSplit = urlsplit(url) 
                     fileName = basename(urlSplit[2])     
@@ -207,7 +207,7 @@ class ItemLicSca(object):
                             }
                         }
                     if downIn:
-                        logging.info("=============End Down==============")
+                        logging.info("=================END DOWN==================")
                     else:
                         scaResult = {
                             "repo_license_legal": {
@@ -302,7 +302,7 @@ class ItemLicSca(object):
                 self._type_ = "ref"#引用仓
                 maxDepth = 3           
 
-            logging.info("=============Start scan repo==============")
+            logging.info("==============START SCAN REPO==============")
             # 调用scancode
             command = shlex.split(
                 'scancode -l -c %s --max-depth %s --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80' % (self._repoSrc_, maxDepth, tempJson))
@@ -316,8 +316,7 @@ class ItemLicSca(object):
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
                 scaJson = "".join(list)
-            logging.info("=============End scan repo==============")
-
+            logging.info("===============END SCAN REPO===============")
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s: %s" % (command, e))
@@ -347,7 +346,7 @@ class ItemLicSca(object):
 
     @catch_error
     def gitCloneFile(self, temFileSrc):
-        logging.info("=============Start fetch repo==============")
+        logging.info("=============START FETCH REPO==============")
         self._gitUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_ + '.git'
         self._repoUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_
         self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(self._timestamp_) + '/' + self._repo_
@@ -399,7 +398,7 @@ class ItemLicSca(object):
                     "copyright": []
                 }
             }
-        logging.info("=============End fetch repo==============")
+        logging.info("===============END FETCH REPO==============")
 
     @catch_error
     def getFileName(self, path):
