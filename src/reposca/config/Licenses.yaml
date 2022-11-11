@@ -963,7 +963,7 @@ Software Licenses:
     identifier: BSD-3-Clause-Modification
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
@@ -3253,7 +3253,7 @@ Software Licenses:
     identifier: Linux-OpenIB
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''

@@ -54,7 +54,7 @@ def checkWrar(fileName):
 def un_tar(filePath, tarPath):
     """ungz tar file"""
     try:
-        command = shlex.split('tar xzf %s -k' % (filePath))
+        command = shlex.split('tar xf %s -k' % (filePath))
         resultCode = subprocess.Popen(command, cwd=tarPath)
         while subprocess.Popen.poll(resultCode) == None:
             time.sleep(1)                
