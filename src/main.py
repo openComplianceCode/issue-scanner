@@ -10,7 +10,7 @@ import config
 from reposca.fixSca import fixSca
 from reposca.itemLicSca import ItemLicSca
 from reposca.prSca import PrSca
-
+from reposca.resonseSca import ResonseSca
 from tornado import gen
 
 from util.postOrdered import infixToPostfix
@@ -78,9 +78,14 @@ class ItemSca(tornado.web.RequestHandler):
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')
         asyn = self.get_argument('async','False')
+        resp = self.get_argument('resp','')
+        para = self.get_argument('para','')
         if asyn == "True":
             self.finish(str({"result":True,"notice": "正在扫描中..."}))
             result = yield self.block(url)
+            if resp:
+                respon = ResonseSca(resp, para, result, url)
+                respon.httpReq()
         else:
             result = yield self.block(url)
             self.finish(result)
@@ -91,9 +96,14 @@ class ItemSca(tornado.web.RequestHandler):
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')  
         asyn = self.get_argument('async','False')  
+        resp = self.get_argument('resp','')
+        para = self.get_argument('para','')
         if asyn == "True":
             self.finish(str({"result":True,"notice": "正在扫描中..."}))
             result = yield self.block(url)
+            if resp:
+                respon = ResonseSca(resp, para, result, url)
+                respon.httpReq()
         else:
             result = yield self.block(url)
             self.finish(result)
