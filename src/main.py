@@ -81,7 +81,7 @@ class ItemSca(tornado.web.RequestHandler):
         resp = self.get_argument('resp','')
         para = self.get_argument('para','')
         if asyn == "True":
-            self.finish(str({"result":True,"notice": "scanning..."}))
+            self.finish(json.dumps({"result":True,"notice": "scanning..."}))
             result = yield self.block(url)
             if resp:
                 respon = ResonseSca(resp, para, result, url)
@@ -99,7 +99,7 @@ class ItemSca(tornado.web.RequestHandler):
         resp = self.get_argument('resp','')
         para = self.get_argument('para','')
         if asyn == "True":
-            self.finish(str({"result":True,"notice": "scanning..."}))
+            self.finish(json.dumps({"result":True,"notice": "scanning..."}))
             result = yield self.block(url)
             if resp:
                 respon = ResonseSca(resp, para, result, url)
