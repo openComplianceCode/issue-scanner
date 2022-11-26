@@ -1100,7 +1100,7 @@ Software Licenses:
     identifier: bzip2-1.0.5
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
@@ -1111,7 +1111,7 @@ Software Licenses:
     identifier: bzip2-1.0.6
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
@@ -2823,7 +2823,7 @@ Software Licenses:
     identifier: HPND-sell-variant
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
@@ -5402,6 +5402,17 @@ Software Licenses:
     black: 'N'
     blackReason: ''
     exception: 'N'
+  - alias:
+    - TUG Utopia license agreement
+    identifier: Utpoia
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'Y'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'  
+
   #exception
   - alias:
     - 389 Directory Server Exception

@@ -37,6 +37,8 @@ def infixToPostfix(infixexpr):
         token_list.append(license_set[len(license_set) - 1])
 
         for index in range(len(token_list)):  # 去除字符串首尾空格
+            if ' -or' in token_list[index].lower() or 'or- ' in token_list[index].lower():
+                token_list[index] = 'or'
             token_list[index] = token_list[index].strip()
 
         token_list = list(filter(None, token_list))

@@ -19,7 +19,6 @@ def extractCode(filePath):
                 dePath = os.path.join(deRoot,defile)
                 dePath = formateUrl(dePath)
                 wrar = checkWrar(defile)
-                #判断压缩文件
                 if wrar in COMPRESSED_LIST:
                     result = "ref"
                     if wrar == 'tar' or wrar == 'tgz':

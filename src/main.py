@@ -7,13 +7,10 @@ import tornado.httpserver
 import tornado.options
 from tornado.concurrent import run_on_executor
 import config
-from reposca.fixSca import fixSca
 from reposca.itemLicSca import ItemLicSca
 from reposca.prSca import PrSca
 from reposca.resonseSca import ResonseSca
 from tornado import gen
-
-from util.postOrdered import infixToPostfix
 exitFlag = 0
 class Main(tornado.web.RequestHandler):
     executor = ThreadPoolExecutor(1000)
@@ -115,28 +112,7 @@ class ItemSca(tornado.web.RequestHandler):
         jsonRe = json.dumps(result)
         return jsonRe
 
-class FixData(tornado.web.RequestHandler):
-    executor = ThreadPoolExecutor(1000)
-
-    @gen.coroutine
-    def get(self):
-        """get请求"""
-        self.set_header('Content-Type', 'application/json; charset=UTF-8')
-        result = yield self.block()
-        self.finish(result)
-
-    @gen.coroutine
-    def post(self):
-        '''post请求'''
-        result = yield self.block()
-        self.finish(result)
-    
-    @run_on_executor
-    def block(self):      
-        re = fixSca()
-        return re
-
-application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca),(r"/fixData", FixData),])
+application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca)])
 
 if __name__ == '__main__':
     httpServer = tornado.httpserver.HTTPServer(application)

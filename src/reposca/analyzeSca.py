@@ -100,7 +100,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
         for pathLicense in var:
             spdx_name = pathLicense['spdx_license_key']
             if 'LicenseRef-scancode-' in spdx_name:
-                if "mulanpsl" in spdx_name:
+                if "mulanpsl" in spdx_name or 'utopia' in spdx_name:
                     spdx_name = spdx_name.split("LicenseRef-scancode-")[1]
                 else:
                     continue
