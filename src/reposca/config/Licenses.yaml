@@ -2718,6 +2718,7 @@ Software Licenses:
     - GPL v2
     - GPL v2.0
     - GNU GPL v2
+    - GPL-2.0-with-classpath-exception
     identifier: GPL-2.0-only
     fsfApproved: 'Y'
     osiApproved: 'Y'
@@ -5466,7 +5467,6 @@ Software Licenses:
     exception: 'Y'
   - alias:
     - Classpath exception 2.0
-    - GPL-2.0-with-classpath-exception
     identifier: Classpath-exception-2.0
     fsfApproved: 'N'
     osiApproved: 'N'
@@ -5821,8 +5821,49 @@ Software Licenses:
     identifier: exceptions
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'Y'
+    oeApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'Y'
+  - alias:
+    - advertising
+    identifier: advertising
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'Y'
+  - alias:
+    - additional permissions
+    identifier: additional permissions
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'Y'
+  - alias:
+    - acknowledgement
+    identifier: acknowledgement
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'Y'    
+  - alias:
+    - Copyright only
+    identifier: Copyright only
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'Y' 
+    

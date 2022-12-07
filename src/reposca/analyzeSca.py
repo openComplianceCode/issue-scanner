@@ -47,8 +47,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
 
     logging.info("===========START ANALYZE RESULT============")
     fileLicenseCheck = LicenseCheck('file')
-    licenseCheck = LicenseCheck('reference')
-    indeLicChck = LicenseCheck('independent')
+    licenseCheck = LicenseCheck('repo')
     pathDepth = 3
     if type == 'ref':
         pathDepth = 4
@@ -111,10 +110,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                     haveLicense = True
                     noticeLicense = ""
                     # 判断项目License是否准入
-                    if type == 'ref':
-                        itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
-                    else:
-                        itemLicCheck = indeLicChck.check_license_safe(spdxLicenses)
+                    itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     itemLicense = itemLicCheck.get('pass')
                     noticeItemLic = itemLicCheck.get('notice')
                     itemDetial = itemLicCheck.get('detail')
@@ -124,10 +120,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                         itemLicFlag = True
                 elif path.lower().endswith(("license",)) and path not in itemPathList and itemLicFlag is False:
                     # 判断项目License是否准入
-                    if type == 'ref':
-                        itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
-                    else:
-                        itemLicCheck = indeLicChck.check_license_safe(spdxLicenses)
+                    itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     itemLicense = itemLicCheck.get('pass')
                     noticeItemLic = itemLicCheck.get('notice')
                     itemDetial = itemLicCheck.get('detail')
@@ -137,10 +130,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
                     itemPathList.append(path)
                 elif path in itemPathList and spdx_name not in itemLicList:
                     # 同一个文件的做检查
-                    if type == 'ref':
-                        itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
-                    else:
-                        itemLicCheck = indeLicChck.check_license_safe(spdxLicenses)
+                    itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     itemLicTemp = itemLicCheck.get('pass')
                     if itemLicTemp is False:
                         itemLicense = itemLicTemp

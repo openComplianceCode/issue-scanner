@@ -13,6 +13,7 @@ import urllib.request
 import pymysql
 from pathlib import Path
 from git.repo import Repo
+from reposca.licenseCheck import LicenseCheck
 from reposca.analyzeSca import getScaAnalyze, licenseSplit
 from reposca.repoDb import RepoDb
 from util.popUtil import popKill
@@ -83,12 +84,19 @@ class ItemLicSca(object):
                 for lic in reLicList:
                     spLic = licenseSplit(lic)
                     spLicList.extend(spLic)
+                licenseCheck = LicenseCheck('repo')
+                for item in range(len(spLicList) - 1, -1, -1):
+                    if licenseCheck.check_exception(spLicList[item]):
+                        del spLicList[item]
                 risksList = []
                 leLicList = []
                 if reRisks is False:
                     reRisks = []
                 for item in reRisks:
                     risksList.extend(item)
+                for item in range(len(risksList) - 1, -1, -1):
+                    if licenseCheck.check_exception(risksList[item]):
+                        del risksList[item]
                 for leLic in spLicList:
                     if leLic not in risksList:
                         leLicList.append(leLic)
@@ -355,7 +363,7 @@ class ItemLicSca(object):
         if os.path.exists(self._repoSrc_) is False:
             os.makedirs(self._repoSrc_)       
         try:
-            repo = Repo.clone_from(self._gitUrl_,to_path=self._repoSrc_)
+            repo = Repo.clone_from(self._gitUrl_,to_path=self._repoSrc_, depth = 1)
         except:
             scaResult = {
                 "repo_license_legal": {

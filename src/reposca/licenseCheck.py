@@ -29,8 +29,7 @@ class LicenseCheck(object):
 
     def __init__(self, type):
         """
-        type :  independent - 自研    
-                reference - 引用    
+        type :  repo -  仓库级
                 file -  文件级
         """
         self._white_black_list = {}
@@ -211,13 +210,7 @@ class LicenseCheck(object):
             elif res['exception'] == 'Y':
                 impResult = True
             else:
-                if self._type_ == 'independent':
-                    if (res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y') and res['lowRisk'] == 'N':
-                        impResult = True
-                    else:
-                        impResult = False
-                        impLic.append(license)  
-                elif self._type_ == 'reference':
+                if self._type_ == 'repo':
                     if (res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y') and res['lowRisk'] == 'N':
                         impResult = True
                     else:
@@ -296,3 +289,17 @@ class LicenseCheck(object):
         }
 
         return res
+
+    @catch_error
+    def check_exception(self, license):
+        result = False
+        lowLic = license.lower()
+        res = self._white_black_list.get(lowLic, "unknow")
+        if res == 'unknow':
+            result = False
+        elif res['tag'] == "licenses":
+            if res['exception'] == 'Y':
+                result = True
+        
+        return result
+                       

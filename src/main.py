@@ -11,6 +11,8 @@ from reposca.itemLicSca import ItemLicSca
 from reposca.prSca import PrSca
 from reposca.resonseSca import ResonseSca
 from tornado import gen
+
+from util.postOrdered import infixToPostfix
 exitFlag = 0
 class Main(tornado.web.RequestHandler):
     executor = ThreadPoolExecutor(1000)
