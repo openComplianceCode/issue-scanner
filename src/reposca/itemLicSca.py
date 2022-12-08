@@ -1,4 +1,3 @@
-from importlib.resources import contents
 import json
 from urllib.parse import urlsplit
 import jsonpath
