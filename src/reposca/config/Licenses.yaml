@@ -3244,7 +3244,7 @@ Software Licenses:
     identifier: Linux-man-pages-copyleft
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
@@ -5078,7 +5078,7 @@ Software Licenses:
     identifier: X11-distribute-modifications-variant
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
