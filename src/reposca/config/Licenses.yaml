@@ -1016,7 +1016,7 @@ Software Licenses:
     identifier: BSD-3-Clause-Open-MPI
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: ''
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
