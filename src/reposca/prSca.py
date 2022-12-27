@@ -147,7 +147,7 @@ class PrSca(object):
             # 调用scancode
             licInList = ("* --include=*").join(LIC_COP_LIST)
             command = shlex.split(
-                'scancode -l -c %s --max-depth %s --json %s -n 4 --timeout 10 --max-in-memory -1 \
+                'scancode -l -c %s --max-depth %s --json %s -n 4 --max-in-memory -1 \
                     --license-score 80 --include=*%s*' % (self._repoSrc_, maxDepth, tempJson, licInList))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
