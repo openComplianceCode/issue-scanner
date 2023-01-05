@@ -53,7 +53,8 @@ class ItemLicSca(object):
             self._repo_ = name
             self._commit_ = commit
             #temp
-            self._commit_ = 'master'
+            if 'openeuler' in owner.lower():
+                self._commit_ = 'master'
             self._purl_ = var
             #先查询数据是否存在
             if commit is None:
