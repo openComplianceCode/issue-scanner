@@ -365,7 +365,7 @@ class ItemLicSca(object):
         if os.path.exists(self._repoSrc_) is False:
             os.makedirs(self._repoSrc_)       
         try:
-            repo = Repo.clone_from(self._gitUrl_,to_path=self._repoSrc_, depth = 1)
+            repo = Repo.clone_from(self._gitUrl_,to_path=self._repoSrc_, depth = 1, branch = self._commit_)
         except:
             scaResult = {
                 "repo_license_legal": {
@@ -384,30 +384,6 @@ class ItemLicSca(object):
                 }
             }
             return scaResult
-        try:
-            repo.git.checkout(self._commit_)
-        except:
-            scaResult = {
-                "repo_license_legal": {
-                    "pass": False,
-                    "result_code": "",
-                    "notice": "不存在该Version/commit: "+ self._commit_,
-                    "is_legal": {
-                        "pass": False,
-                        "license": [],
-                        "notice": "",
-                        "detail": {}
-                    }
-                },
-                "spec_license_legal": {},
-                "license_in_scope": {},
-                "repo_copyright_legal": {
-                    "pass": False,
-                    "result_code": "",
-                    "notice": "不存在该Version/commit: "+ self._commit_,
-                    "copyright": []
-                }
-            }
         logging.info("===============END FETCH REPO==============")
 
     @catch_error
