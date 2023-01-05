@@ -71,21 +71,25 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
             fileUrl = anlyzeSrc + "/" + itemPath[i]
             try:
                 spec = Spec.from_file(fileUrl)
-                if spec.license is not None:
-                    licenses = infixToPostfix(spec.license)
+                specLic = spec.license
+                if  specLic is not None:
+                    if 'all_license' in specLic:
+                        licenses = infixToPostfix(spec.all_license)
+                        specLic = spec.all_license
+                    else:
+                        licenses = infixToPostfix(specLic)
                     isSpecLicense = licenseCheck.check_license_safe(licenses)
                     specLicense = isSpecLicense.get('pass')
                     noticeSpec = isSpecLicense.get('notice')
                     speLicDetial = isSpecLicense.get('detail')
-                    specLicenseList.append(spec.license)
+                    specLicenseList.append(specLic)
                     if haveLicense is False or type == 'ref':
                         specFlag = False
                         haveLicense = True
                         noticeLicense = ""
                         itemLicList.clear()
                         itemPathList.clear()
-                        # itemLicList = licenseSplit(spec.license)
-                        itemLicList.append(spec.license)
+                        itemLicList.append(specLic)
                         itemPathList.append(path)
                         itemLicense = specLicense
                         noticeItemLic = noticeSpec
@@ -99,7 +103,9 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
         for pathLicense in var:
             spdx_name = pathLicense['spdx_license_key']
             if 'LicenseRef-scancode-' in spdx_name:
-                if "mulanpsl" in spdx_name or 'utopia' in spdx_name:
+                if "public-domain" in spdx_name:
+                    spdx_name = "Public Domain"
+                elif "mulanpsl" in spdx_name or 'utopia' in spdx_name:
                     spdx_name = spdx_name.split("LicenseRef-scancode-")[1]
                 else:
                     continue
