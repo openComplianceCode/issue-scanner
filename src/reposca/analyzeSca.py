@@ -8,7 +8,7 @@ from util.postOrdered import infixToPostfix
 from pyrpm.spec import Spec
 
 noticeList = ['notice', 'third_party_open_source_software_notice','readme', 'license', 'copyright']
-repoList = ['license', 'readme', 'notice', 'copying']
+repoList = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_software_notice', 'copyright', '.spec']
 SOURTH_PATH = '/home/giteeFile'
 
 
