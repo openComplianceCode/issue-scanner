@@ -20,9 +20,10 @@ def fixSca():
     repoList = dbOb.Query_AllRepo()
 
     for item in tqdm(repoList,desc="Fix Data:", total=len(repoList),colour='green'):
+        repoOrg = item['repo_org']
         repoName = item['repo_name']
         commite = item['commite']
-        purl = "pkg:gitee/src-openeuler/"+repoName + "@"+commite
+        purl = "pkg:gitee/"+repoOrg+"/"+repoName + "@"+commite
         itemLic = ItemLicSca()
         result = itemLic.licSca(purl)
     return "F1"
