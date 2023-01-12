@@ -115,28 +115,8 @@ class ItemSca(tornado.web.RequestHandler):
         jsonRe = json.dumps(result)
         return jsonRe
 
-class FixData(tornado.web.RequestHandler):
-    executor = ThreadPoolExecutor(1000)
 
-    @gen.coroutine
-    def get(self):
-        """get请求"""
-        self.set_header('Content-Type', 'application/json; charset=UTF-8')
-        result = yield self.block()
-        self.finish(result)
-
-    @gen.coroutine
-    def post(self):
-        '''post请求'''
-        result = yield self.block()
-        self.finish(result)
-    
-    @run_on_executor
-    def block(self):      
-        re = fixSca()
-        return re
-
-application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca), (r"/fixData", FixData),])
+application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca), ])
 
 if __name__ == '__main__':
     httpServer = tornado.httpserver.HTTPServer(application)
