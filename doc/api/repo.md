@@ -4,7 +4,7 @@
 GET/POST  https://127.0.0.1:8868/doSca?url={url}&asyn={asyn}&resp={resp}&para={para}
 
 ### 路径参数
-`url`: 扫描的repo地址,可以为purl/url/软件包http下载链接     string      *必需*
+`url`: 扫描的repo地址,可以为purl/url/软件包http下载链接     string      **必需**
 
 `asyn`: 是否开启异步扫描,默认False   boolean      可选
 

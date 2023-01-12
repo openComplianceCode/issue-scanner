@@ -4,7 +4,7 @@
 GET/POST  http://127.0.0.1:8868/lic?purl=[{purl}]
 
 ### 路径参数
-`purl`: 查询的repopurl地址     list      *必需*
+`purl`: 查询的repopurl地址     list      **必需**
 
 ### HTTP状态码
 ```text

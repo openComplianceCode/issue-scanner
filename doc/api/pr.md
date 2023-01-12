@@ -4,7 +4,7 @@
 GET/POST  https://127.0.0.1:8868/sca?prUrl={prUrl}
 
 ### 路径参数
-`prUrl`: 扫描的PR链接     string      *必需*
+`prUrl`: 扫描的PR链接     string      **必需**
 
 ### HTTP状态码
 ```text
