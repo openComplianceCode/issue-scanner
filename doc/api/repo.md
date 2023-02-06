@@ -46,7 +46,7 @@ GET/POST  http://127.0.0.1:8868/doSca?url=pkg:gitee/openharmony/test@OpenHarmony
 ```json
 {
     "repo_license_legal": {
-        "pass": True,
+        "pass": true,
         "result_code": "",
         "notice": "test/LICENSE",
         "is_legal": {
@@ -73,18 +73,18 @@ GET/POST  http://127.0.0.1:8868/doSca?url=pkg:gitee/openharmony/test@OpenHarmony
         }
     },
     "spec_license_legal": {
-        "pass": False,
+        "pass": false,
         "result_code": "",
         "notice": "无spec文件",
         "detail": {}
     },
     "license_in_scope": {
-        "pass": True,
+        "pass": true,
         "result_code": "",
         "notice": "OSI/FSF认证License"
     },
     "repo_copyright_legal": {
-        "pass": True,
+        "pass": true,
         "result_code": "",
         "notice": "缺少项目级Copyright声明文件",
         "copyright": []
