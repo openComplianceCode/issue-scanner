@@ -493,6 +493,7 @@ Software Licenses:
   - alias:
     - GNU Affero General Public License v3.0 only
     - AGPLv3
+    - AGPL v3.0
     - AGPL-3.0
     identifier: AGPL-3.0-only
     fsfApproved: 'Y'
@@ -3194,7 +3195,7 @@ Software Licenses:
     identifier: libselinux-1.0
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''

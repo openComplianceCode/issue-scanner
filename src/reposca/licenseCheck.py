@@ -22,10 +22,6 @@ class LicenseCheck(object):
     LICENSE_YAML_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)),
                                    "config",
                                    "Licenses.yaml")
-    LATER_SUPPORT_LICENSE_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                   "config",
-                                   "later_support_license.yaml")
-
 
     def __init__(self, type):
         """
@@ -34,7 +30,6 @@ class LicenseCheck(object):
         """
         self._white_black_list = {}
         self._license_translation = {}
-        self._later_support_license = {}
         self.load_config()
         self._type_ = type
     
@@ -58,12 +53,6 @@ class LicenseCheck(object):
         with open(self.LICENSE_YAML_PATH, "r", encoding='utf-8') as f:
             try:
                 data = yaml.safe_load(f)
-            except yaml.YAMLError as e:
-                logger.exception("yaml load error: %s", str(e))
-                return
-        with open(self.LATER_SUPPORT_LICENSE_PATH, "r", encoding='utf-8') as f:
-            try:
-                self._later_support_license = yaml.safe_load(f)
             except yaml.YAMLError as e:
                 logger.exception("yaml load error: %s", str(e))
                 return

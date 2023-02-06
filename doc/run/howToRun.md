@@ -29,8 +29,14 @@
           value: your_gitee_password
     ```
 * 三、Run
+    
+    以服务形式
     ```
     python issue-scanner/src/main.py
+    ```
+    以指令行形式
+    ```
+    python issue-scanner/src/command.py -m pr/repo input
     ```
   
 ---

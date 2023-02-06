@@ -1,5 +1,6 @@
 
 import os
+from os.path import basename
 from tqdm import tqdm
 import requests
 
@@ -30,6 +31,7 @@ class Down(object):
             tempSize = 0
 
         #下载
+        fileName = basename(filePath)
         while count < retryTimes:
             if count != 0:
                 tempSize = os.path.getsize(filePath)
@@ -44,7 +46,7 @@ class Down(object):
             downReq = requests.get(url, stream=True, verify=False, headers=headers)
 
             tempTotal = totalSize - tempSize
-            with open(filePath, "ab") as code, tqdm(desc=filePath, total=tempTotal, unit='iB', unit_scale=True, unit_divisor=1024) as bar:
+            with open(filePath, "ab") as code, tqdm(desc="Down "+fileName, total=tempTotal, unit='iB', unit_scale=True, unit_divisor=1024) as bar:
                 if count != 1:
                     code.seek(tempSize)
                 for data in downReq.iter_content(chunk_size=1024):
