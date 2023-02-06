@@ -225,7 +225,7 @@ class CommSca(object):
     def getTypeUrl(self, type):
         typeFlag = False
         scaResult = {}
-        if type in ['gitee','github','gitlab','codehub.huawei']:
+        if type in ['gitee','github','gitlab','szv-open.codehub.huawei']:
             typeFlag = True
             self._typeUrl_ = 'https://oauth2:'+ self._oauthToken_ + '@' + type + '.com'
         else:
