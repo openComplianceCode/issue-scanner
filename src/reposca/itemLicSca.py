@@ -174,8 +174,9 @@ class ItemLicSca(object):
                 if "text/html;" in ContentType:        
                     type = urlList[2]
                     self._typeUrl_ = 'https://' + type
-                    self._owner_ = urlList[3]
-                    self._repo_ = urlList[4]                  
+                    self._owner_ =  self.getOwner(urlList)
+                    self._repo_ = urlList[len(urlList) - 1]        
+                    self._repo_ = self._repo_.strip(".git")          
                     self.gitCloneFile(temFileSrc)
                 else:
                     logging.info("=================DOWN FILE=================")
@@ -399,3 +400,10 @@ class ItemLicSca(object):
             fileName = self.getFileName(fileName)
 
         return fileName
+
+    @catch_error
+    def getOwner(self, urlList):
+        owner = ""
+        for var in urlList[3:len(urlList) - 1]:
+            owner = owner + var + "/"
+        return owner.strip('/')

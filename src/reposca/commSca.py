@@ -81,9 +81,13 @@ class CommSca(object):
                 #判断下载链接/网站链接 
                 if "text/html;" in ContentType:        
                     type = urlList[2]
-                    self._typeUrl_ = 'https://' + type
-                    self._owner_ = urlList[3]
-                    self._repo_ = urlList[4]                  
+                    if self._oauthToken_:
+                        self._typeUrl_ = 'https://oauth2:'+ self._oauthToken_ + '@' + type
+                    else:
+                        self._typeUrl_ = 'https://' + type
+                    self._owner_ = self.getOwner(urlList)
+                    self._repo_ = urlList[len(urlList) - 1]    
+                    self._repo_ = self._repo_.strip(".git")              
                     self.gitCloneFile(temFileSrc)
                 else:
                     logging.info("=================DOWN FILE=================")
@@ -227,7 +231,10 @@ class CommSca(object):
         scaResult = {}
         if type in ['gitee','github','gitlab','szv-open.codehub.huawei']:
             typeFlag = True
-            self._typeUrl_ = 'https://oauth2:'+ self._oauthToken_ + '@' + type + '.com'
+            if self._oauthToken_:
+                self._typeUrl_ = 'https://oauth2:'+ self._oauthToken_ + '@' + type + '.com'
+            else:
+                self._typeUrl_ = 'https://'+type + '.com'
         else:
             scaResult = {
                 "repo_license": ['不支持的type类型'],
@@ -284,3 +291,10 @@ class CommSca(object):
             fileName = self.getFileName(fileName)
 
         return fileName
+
+    @catch_error
+    def getOwner(self, urlList):
+        owner = ""
+        for var in urlList[3:len(urlList) - 1]:
+            owner = owner + var + "/"
+        return owner.strip('/')
