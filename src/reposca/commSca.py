@@ -47,7 +47,9 @@ class CommSca(object):
                 self._owner_ = owner
                 self._repo_ = name
                 self._commit_ = commit
-                self.gitCloneFile(temFileSrc)             
+                scaResult = self.gitCloneFile(temFileSrc)  
+                if scaResult != "":
+                    return scaResult           
             else:                                     
                 urlList = url.split("/")
                 try:
@@ -88,7 +90,9 @@ class CommSca(object):
                     self._owner_ = self.getOwner(urlList)
                     self._repo_ = urlList[len(urlList) - 1]    
                     self._repo_ = self._repo_.strip(".git")              
-                    self.gitCloneFile(temFileSrc)
+                    scaResult = self.gitCloneFile(temFileSrc)  
+                    if scaResult != "":
+                        return scaResult 
                 else:
                     logging.info("=================DOWN FILE=================")
                     downUtil = Down()
@@ -249,6 +253,7 @@ class CommSca(object):
     @catch_error
     def gitCloneFile(self, temFileSrc):
         logging.info("=============START FETCH REPO==============")
+        scaResult = ""
         self._gitUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_ + '.git'
         self._repoUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_
         self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(self._timestamp_) + '/' + self._repo_
@@ -263,7 +268,7 @@ class CommSca(object):
                 "repo_license_legal": {
                     "pass": False,
                     "result_code": "",
-                    "notice": "Git clone 失败，无效URL",
+                    "notice": "Git clone 失败，无效URL/Token",
                     "is_legal": {"pass": False,"license": [],"notice": "","detail": {}}
                 },
                 "spec_license_legal": {},
@@ -271,12 +276,12 @@ class CommSca(object):
                 "repo_copyright_legal": {
                     "pass": False,
                     "result_code": "",
-                    "notice": "Git clone 失败，无效URL",
+                    "notice": "Git clone 失败，无效URL/Token",
                     "copyright": []
                 }
             }
-            return scaResult
         logging.info("===============END FETCH REPO==============")
+        return scaResult
 
     @catch_error
     def getFileName(self, path):
