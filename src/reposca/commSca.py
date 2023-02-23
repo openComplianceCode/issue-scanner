@@ -262,7 +262,10 @@ class CommSca(object):
         if os.path.exists(self._repoSrc_) is False:
             os.makedirs(self._repoSrc_)       
         try:
-            repo = Repo.clone_from(self._gitUrl_,to_path=self._repoSrc_, depth = 1, branch = self._commit_)
+            repo = Repo.init(self._repoSrc_)
+            origin = repo.create_remote("origin", self._gitUrl_)
+            origin.fetch(self._commit_, depth=1)
+            repo.git.checkout("FETCH_HEAD")
         except:
             scaResult = {
                 "repo_license_legal": {

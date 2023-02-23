@@ -1,3 +1,4 @@
+import datetime
 import json
 from urllib.parse import urlsplit
 import jsonpath
@@ -22,6 +23,7 @@ from util.catchUtil import catch_error
 from util.downUtil import Down
 from reposca.takeRepoSca import cleanTemp
 from packageurl import PackageURL
+from scancode import cli
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 SOURTH_PATH = '/home/repo/tempRepo'
@@ -139,7 +141,9 @@ class ItemLicSca(object):
                 self._owner_ = owner
                 self._repo_ = name
                 self._commit_ = commit
-                self.gitCloneFile(temFileSrc)             
+                scaResult = self.gitCloneFile(temFileSrc)    
+                if scaResult != "":
+                    return scaResult          
             else:                                     
                 urlList = url.split("/")
                 try:
@@ -177,7 +181,9 @@ class ItemLicSca(object):
                     self._owner_ =  self.getOwner(urlList)
                     self._repo_ = urlList[len(urlList) - 1]        
                     self._repo_ = self._repo_.strip(".git")          
-                    self.gitCloneFile(temFileSrc)
+                    scaResult = self.gitCloneFile(temFileSrc)    
+                    if scaResult != "":
+                        return scaResult  
                 else:
                     logging.info("=================DOWN FILE=================")
                     downUtil = Down()
@@ -321,7 +327,6 @@ class ItemLicSca(object):
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
             popKill(resultCode)
-
             scaJson = ''
             # 获取json
             with open(tempJson, 'r+') as f:
@@ -358,6 +363,7 @@ class ItemLicSca(object):
     @catch_error
     def gitCloneFile(self, temFileSrc):
         logging.info("=============START FETCH REPO==============")
+        scaResult = ""
         self._gitUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_ + '.git'
         self._repoUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_
         self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(self._timestamp_) + '/' + self._repo_
@@ -366,8 +372,11 @@ class ItemLicSca(object):
         if os.path.exists(self._repoSrc_) is False:
             os.makedirs(self._repoSrc_)       
         try:
-            repo = Repo.clone_from(self._gitUrl_,to_path=self._repoSrc_, depth = 1, branch = self._commit_)
-        except:
+            repo = Repo.init(self._repoSrc_)
+            origin = repo.create_remote("origin", self._gitUrl_)
+            origin.fetch(self._commit_, depth=1)
+            repo.git.checkout("FETCH_HEAD")
+        except Exception as e:
             scaResult = {
                 "repo_license_legal": {
                     "pass": False,
@@ -386,6 +395,7 @@ class ItemLicSca(object):
             }
             return scaResult
         logging.info("===============END FETCH REPO==============")
+        return scaResult
 
     @catch_error
     def getFileName(self, path):
