@@ -2,7 +2,7 @@
 
 * 一、Pull dependency
     ```
-    pip install issue-scanner/requirements.txt
+    pip install -r issue-scanner/requirements.txt
     ```
 * 二、Set up system environment
     ```
