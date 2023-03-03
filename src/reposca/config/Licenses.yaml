@@ -2575,7 +2575,7 @@ Software Licenses:
     identifier: GFDL-1.3-no-invariants-only
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
@@ -5414,6 +5414,17 @@ Software Licenses:
     black: 'N'
     blackReason: ''
     exception: 'N'  
+  - alias:
+    - LBNL BSD
+    - LBNL
+    identifier: LBNL License
+    fsfApproved: 'N'
+    osiApproved: 'Y'
+    oeApproved: 'Y'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
 
   #exception
   - alias:
@@ -5731,7 +5742,7 @@ Software Licenses:
     identifier: Qt-GPL-exception-1.0
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''

@@ -1,4 +1,3 @@
-import datetime
 import json
 from urllib.parse import urlsplit
 import jsonpath
@@ -23,7 +22,6 @@ from util.catchUtil import catch_error
 from util.downUtil import Down
 from reposca.takeRepoSca import cleanTemp
 from packageurl import PackageURL
-from multiprocessing import cpu_count
 
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 SOURTH_PATH = '/home/repo/tempRepo'
@@ -122,7 +120,6 @@ class ItemLicSca(object):
     def licSca(self, url):
         try:
             self._timestamp_ = int(time.time())
-            print("start time : " + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
             # 创建临时文件
             temFileSrc = SOURTH_PATH +'/tempSrc'
             temFileSrc = formateUrl(temFileSrc)
@@ -278,7 +275,6 @@ class ItemLicSca(object):
             else:
                 repoData = (self._commit_, repoLicense,scaJson, repoLicLg, specLicLg, licScope, copyrightLg, itemLic['id'])
                 self._dbObject_.upd_ItemLic(repoData)
-            print("end time : " + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
@@ -323,9 +319,8 @@ class ItemLicSca(object):
 
             logging.info("==============START SCAN REPO==============")
             # 调用scancode
-            procount = cpu_count()
             command = shlex.split(
-                'scancode -l -c %s  --json %s -n %s --timeout 10 --max-in-memory -1 --license-score 80' % (self._repoSrc_, tempJson, procount))
+                'scancode -l -c %s --max-depth %s --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80' % (self._repoSrc_, maxDepth, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
