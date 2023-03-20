@@ -318,6 +318,23 @@ class ItemLicSca(object):
                 maxDepth = 3           
 
             logging.info("==============START SCAN REPO==============")
+             # 计算hash降维扫描
+            scaPath = os.path.dirname(self._repoSrc_)
+            os.makedirs(scaPath + "/" + self._repo_ + "_1")
+            os.makedirs(scaPath + "/" + self._repo_ + "_2")
+            for root, dirs, files in os.walk(self._repoSrc_, topdown=False):
+                if os.path.basename(root) == ".git":
+                    dirs[:] = []
+                else: 
+                    for name in files:
+                        resultHex = hash(name)  
+                        inde = resultHex % 2
+                        filePath = os.path.join(root, name)
+                        makePath = os.path.dirname(filePath)
+                        if os.path.exists(makePath) is False:
+                            os.makedirs(makePath) 
+                        filePath = formateUrl(filePath)
+                        print(inde)
             # 调用scancode
             command = shlex.split(
                 'scancode -l -c %s --max-depth %s --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80' % (self._repoSrc_, maxDepth, tempJson))
