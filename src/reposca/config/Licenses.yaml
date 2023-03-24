@@ -909,7 +909,7 @@ Software Licenses:
     identifier: BSD-2-Clause-Views
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
@@ -4753,7 +4753,7 @@ Software Licenses:
     identifier: Spencer-94
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''

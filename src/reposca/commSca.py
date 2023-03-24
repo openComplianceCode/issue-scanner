@@ -306,3 +306,52 @@ class CommSca(object):
         for var in urlList[3:len(urlList) - 1]:
             owner = owner + var + "/"
         return owner.strip('/')
+
+    
+    @catch_error
+    def locSca(self, path):
+        try:
+            temJsonSrc = SOURTH_PATH +'/tempJson'
+            temJsonSrc = formateUrl(temJsonSrc)
+            if os.path.exists(temJsonSrc) is False:
+                os.makedirs(temJsonSrc)
+
+            timestamp = int(time.time())
+            localRepo = os.path.basename(path)
+            tempJson = temJsonSrc + '/' + localRepo +str(timestamp)+'.txt'
+            tempJson = formateUrl(tempJson)
+            if os.path.exists(tempJson) is False:
+                open(tempJson, 'w')
+
+            self._type_ = "inde"#自研
+            reExt = extractCode(path)
+            if reExt == "Except":
+                logging.error("file extracCode error")
+            elif reExt == "ref":
+                self._type_ = "ref"#引用仓          
+
+            logging.info("==============START SCAN REPO==============")
+            # 调用scancode
+            command = shlex.split(
+                'scancode -l -c %s  --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80' % (path, tempJson))
+            resultCode = subprocess.Popen(command)
+            while subprocess.Popen.poll(resultCode) == None:
+                time.sleep(1)
+            popKill(resultCode)
+
+            scaJson = ''
+            # 获取json
+            with open(tempJson, 'r+') as f:
+                list = f.readlines()
+                scaJson = "".join(list)
+            logging.info("===============END SCAN REPO===============")
+            anlyzePath = os.path.dirname(path)
+            scaResult = getScaAnalyze(scaJson, anlyzePath, self._type_)
+        except Exception as e:
+            logger = logging.getLogger(__name__)
+            logger.exception("Error on %s: %s" % (command, e))
+        finally:
+            # 清空文件
+            os.chmod(tempJson, stat.S_IWUSR)
+            os.remove(tempJson)
+            return scaResult
