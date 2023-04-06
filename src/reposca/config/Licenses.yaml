@@ -3723,7 +3723,7 @@ Software Licenses:
     identifier: NIST-PD
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
