@@ -2785,7 +2785,7 @@ Software Licenses:
     identifier: gSOAP-1.3b
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
