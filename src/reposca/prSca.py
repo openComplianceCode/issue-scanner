@@ -5,11 +5,13 @@ import shlex
 import stat
 import subprocess
 import time
+import pymysql
 import urllib3
 import json
 import jsonpath
 from reposca.analyzeSca import getScaAnalyze
 from reposca.takeRepoSca import cleanTemp
+from reposca.repoDb import RepoDb
 from util.authApi import AuthApi
 from util.popUtil import popKill
 from util.extractUtil import extractCode
@@ -26,16 +28,26 @@ logging.getLogger().setLevel(logging.INFO)
 
 class PrSca(object):
 
+    def __init__(self):
+        #连接数据库
+        self._dbObject_ = RepoDb(
+            host_db = os.environ.get("MYSQL_HOST"), 
+            user_db = os.environ.get("MYSQL_USER"), 
+            password_db = os.environ.get("MYSQL_PASSWORD"), 
+            name_db = os.environ.get("MYSQL_DB_NAME"), 
+            port_db = int(os.environ.get("MYSQL_PORT")))
+
     @catch_error
     def doSca(self, url):
         try:
             delSrc = ''
+            self._prUrl_ = url
             urlList = url.split("/")
             self._owner_ = urlList[3]
             self._repo_ = urlList[4]
             self._num_ = urlList[6]
             self._branch_ = 'pr_' + self._num_
-            gitUrl = GIT_URL + '/' + self._owner_ + '/' + self._repo_ + '.git'
+            self._gitUrl_ = GIT_URL + '/' + self._owner_ + '/' + self._repo_ + '.git'
             fetchUrl = 'pull/' + self._num_ + '/head:pr_' + self._num_
             timestemp = int(time.time())
             tempSrc = self._repo_ + str(timestemp)
@@ -84,7 +96,7 @@ class PrSca(object):
             if self._file_ == 'sourth':
                 remote = self._gitRepo_.remote()
             else:
-                remote = self._gitRepo_.create_remote('origin', gitUrl)
+                remote = self._gitRepo_.create_remote('origin', self._gitUrl_)
             remote.fetch(fetchUrl, depth=1)
             # 切换分支
             self._git_.checkout(self._branch_)
@@ -94,10 +106,11 @@ class PrSca(object):
             self._diffPath_ = self.createDiff(fileList)
             logging.info("==============END FETCH REPO===============")
             
-
             # 扫描pr文件
             scaJson = self.getPrSca()
             scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_)
+            # Save Data
+            self.savePr(scaResult, scaJson)
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
@@ -262,3 +275,77 @@ class PrSca(object):
             except:
                 pass
         return diffPath
+
+
+    @catch_error
+    def savePr(self, scaResult, scaJson):
+        try:
+            status = 1
+            message = ""
+            response = self.getPrInfo()
+            repoLicense = ""
+            repoLicLg = ""
+            specLicLg = ""
+            licScope = ""
+            copyrightLg = ""
+            prCommit = ""
+            passState = 0
+            mergeState = 0
+            if response == 403 or response == 404:
+                status = 0
+                message = "GITEE API LIMIT"
+            elif response == 404:
+                status = 0
+                message = "GITEE API ERROR"
+            else:
+                prData = response.data.decode('utf-8')
+                prData = json.loads(prData)
+                prHead = prData['head']
+                prCommit = prHead['ref']
+                mergedAt = prData['merged_at']
+                if mergedAt is not None:
+                    mergeState = 1
+                # 存入数据库
+                scaJson = pymysql.escape_string(scaJson)
+                repoLicLg = scaResult['repo_license_legal']
+                specLicLg = scaResult['spec_license_legal']
+                licScope = scaResult['license_in_scope']
+                copyrightLg = scaResult['repo_copyright_legal']
+                repoLicense = ','.join(repoLicLg['is_legal']['license'])
+                if self._type_ == "inde" and repoLicLg['pass'] and licScope['pass']:
+                    passState = 1
+                elif self._type_ == "ref" and specLicLg['pass'] and licScope['pass']:
+                    passState = 1
+                repoLicLg = pymysql.escape_string(str(repoLicLg))
+                specLicLg = pymysql.escape_string(str(specLicLg))
+                licScope = pymysql.escape_string(str(licScope))
+                copyrightLg = pymysql.escape_string(str(copyrightLg))
+            
+            #检查是否存在数据
+            itemData = (self._owner_, self._repo_, self._num_)
+            itemLic = self._dbObject_.Query_PR(itemData)
+            if itemLic is None:
+                repoData = (self._repo_, self._owner_, self._gitUrl_, repoLicense, self._num_, scaJson, repoLicLg, specLicLg,\
+                    licScope, copyrightLg, prCommit, passState, mergeState, self._prUrl_ , status, message)
+                self._dbObject_.add_PR(repoData)
+            else:
+                repoData = ( repoLicense, scaJson, repoLicLg, specLicLg, licScope, copyrightLg, passState, mergeState, status,\
+                             message, itemLic['id'])
+                self._dbObject_.upd_PR(repoData)
+        finally:
+            self._dbObject_.Close_Con()
+
+    @catch_error    
+    def getPrInfo(self):
+        http = urllib3.PoolManager() 
+        apiUrl = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+self._num_+'?access_token='+ACCESS_TOKEN
+        response = http.request('GET',apiUrl)       
+        resStatus = response.status
+        if resStatus == 403:
+            logging.error("GITEE API LIMIT")
+            return 403
+        if resStatus == 404:
+            logging.error("GITEE API ERROR")
+            return 404
+        
+        return response

@@ -141,6 +141,7 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+
     
     def Query_Repo_ByTime(self, repoData):
         '''
@@ -293,7 +294,7 @@ class RepoDb(object):
     
     def upd_ItemLic(self, licData):
         '''
-        新增item_lic数据
+        更新item_lic数据
         '''
         try:
             sql = "UPDATE gitee_repo set commite = '%s', repo_license = '%s', sca_json = '%s', is_pro_license = '%s', \
@@ -306,3 +307,63 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+    
+    def add_PR(self, licData):
+        '''
+        新增pr数据
+        '''
+        try:
+            sql = "INSERT INTO repo_pr (repo_name, repo_org, repo_url, repo_license, pr_num, sca_json, is_pro_license, spec_license,\
+                is_approve_license, is_copyright, commite, is_pass, is_merg, pr_url, created_at, updated_at, status, message) VALUES\
+                ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', SYSDATE(), SYSDATE(), '%s', '%s')"
+            self.cur.execute(sql % licData)
+            self.conn.commit()
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+            self.conn.rollback()
+    
+    def upd_PR(self, licData):
+        '''
+        更新pr数据
+        '''
+        try:
+            sql = "UPDATE repo_pr set  repo_license = '%s', sca_json = '%s', is_pro_license = '%s', spec_license = '%s',\
+                is_approve_license = '%s', is_copyright = '%s', is_pass = '%s', is_merg = '%s', status = '%s', \
+                message = '%s', updated_at = SYSDATE() WHERE id = %s"
+            self.cur.execute(sql % licData)
+            self.conn.commit()
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+            self.conn.rollback()
+
+    def Query_PR(self, repoData):
+        '''
+        根据repo pr_num 查询PR数据
+        '''
+        try:
+            sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, sca_json,\
+                is_approve_license, is_copyright FROM repo_pr WHERE repo_org ='%s' and repo_name = '%s' and \
+                    pr_num = '%s' and deleted_at is null"
+            self.cur.execute(sql % repoData)
+            repoList = self.cur.fetchone()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+    
+    def Close_Con(self):
+        '''
+        关闭连接
+        '''
+        try:
+            self.cur.close()
+            self.conn.close()           
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
