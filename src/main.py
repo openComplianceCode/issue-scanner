@@ -12,7 +12,7 @@ from reposca.itemLicSca import ItemLicSca
 from reposca.prSca import PrSca
 from reposca.resonseSca import ResonseSca
 from tornado import gen
-
+from util.scheduleUtil import Scheduler
 from util.postOrdered import infixToPostfix
 exitFlag = 0
 class Main(tornado.web.RequestHandler):
@@ -119,6 +119,7 @@ class ItemSca(tornado.web.RequestHandler):
 application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca), ])
 
 if __name__ == '__main__':
+    schedOb = Scheduler()
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)

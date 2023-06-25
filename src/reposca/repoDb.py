@@ -367,3 +367,32 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+    
+    def Query_PR_Merge(self):
+        '''
+        查询未合并PR数据
+        '''
+        try:
+            sql = "SELECT id,commite, repo_name, repo_org, repo_url, pr_num FROM repo_pr WHERE is_merg = 0 and deleted_at is null \
+                 and updated_at <= DATE_SUB(NOW(),INTERVAL 1 day)"
+            self.cur.execute(sql)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+    
+    def upd_PR_State(self, licData):
+        '''
+        更新pr合并数据
+        '''
+        try:
+            sql = "UPDATE repo_pr set  is_merg = '%s', updated_at = SYSDATE() WHERE id = %s"
+            self.cur.execute(sql % licData)
+            self.conn.commit()
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+            self.conn.rollback()

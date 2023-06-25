@@ -53,6 +53,7 @@ requirements = [
   'rarfile==4.0'
   'GitPython==3.1.27'
   'DBUtils==1.3'
+  'APScheduler==3.10.1'
 ]
 
 

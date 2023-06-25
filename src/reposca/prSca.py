@@ -282,7 +282,8 @@ class PrSca(object):
         try:
             status = 1
             message = ""
-            response = self.getPrInfo()
+            apiObc = AuthApi()
+            response = apiObc.getPrInfo(self._owner_, self._repo_, self._num_)
             repoLicense = ""
             repoLicLg = ""
             specLicLg = ""
@@ -291,7 +292,7 @@ class PrSca(object):
             prCommit = ""
             passState = 0
             mergeState = 0
-            if response == 403 or response == 404:
+            if response == 403:
                 status = 0
                 message = "GITEE API LIMIT"
             elif response == 404:
@@ -334,18 +335,3 @@ class PrSca(object):
                 self._dbObject_.upd_PR(repoData)
         finally:
             self._dbObject_.Close_Con()
-
-    @catch_error    
-    def getPrInfo(self):
-        http = urllib3.PoolManager() 
-        apiUrl = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+self._num_+'?access_token='+ACCESS_TOKEN
-        response = http.request('GET',apiUrl)       
-        resStatus = response.status
-        if resStatus == 403:
-            logging.error("GITEE API LIMIT")
-            return 403
-        if resStatus == 404:
-            logging.error("GITEE API ERROR")
-            return 404
-        
-        return response
