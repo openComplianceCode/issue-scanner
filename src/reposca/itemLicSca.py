@@ -101,10 +101,11 @@ class ItemLicSca(object):
                         if licenseCheck.check_exception(risksList[item]):
                             del risksList[item]
                     for leLic in spLicList:
-                        if leLic not in risksList and licenseCheck.check_approve(leLic):
-                            leLicList.append(leLic)
-                        else:
-                            risksList.append(leLic)
+                        if leLic not in risksList: 
+                            if licenseCheck.check_approve(leLic):
+                                leLicList.append(leLic)
+                            else:
+                                risksList.append(leLic)
                     reCopy = copyrightLg['copyright']
                     scaResult['repo_license'] = reLicList
                     scaResult['repo_license_legal'] = leLicList
