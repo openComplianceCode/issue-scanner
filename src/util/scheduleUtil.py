@@ -8,15 +8,7 @@ from util.authApi import AuthApi
 
 class Scheduler(object):
 
-    def __init__(self):
-        #连接数据库
-        self._dbObject_ = RepoDb(
-            host_db = os.environ.get("MYSQL_HOST"), 
-            user_db = os.environ.get("MYSQL_USER"), 
-            password_db = os.environ.get("MYSQL_PASSWORD"), 
-            name_db = os.environ.get("MYSQL_DB_NAME"), 
-            port_db = int(os.environ.get("MYSQL_PORT")))
-        
+    def __init__(self): 
         scheduler = BackgroundScheduler()
         scheduler.start()
         
@@ -29,7 +21,14 @@ class Scheduler(object):
     @catch_error
     def prSchedule(self):
         try:
-            pr_data = self._dbObject_.Query_PR_Merge()
+            #连接数据库
+            dbObject = RepoDb(
+                host_db = os.environ.get("MYSQL_HOST"), 
+                user_db = os.environ.get("MYSQL_USER"), 
+                password_db = os.environ.get("MYSQL_PASSWORD"), 
+                name_db = os.environ.get("MYSQL_DB_NAME"), 
+                port_db = int(os.environ.get("MYSQL_PORT")))
+            pr_data = dbObject.Query_PR_Merge()
             apiObc = AuthApi()
             if pr_data is not None:
                 for var in pr_data:
@@ -45,8 +44,8 @@ class Scheduler(object):
                     mergedAt = prData['merged_at']
                     if mergedAt is not None:
                         itemData = (1, pr_id)
-                        self._dbObject_.upd_PR_State(itemData)
+                        dbObject.upd_PR_State(itemData)
         finally:
-            self._dbObject_.Close_Con()
+            dbObject.Close_Con()
         
         
