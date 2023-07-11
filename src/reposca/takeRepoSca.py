@@ -130,7 +130,7 @@ def checkWrar(filePath):
 def cleanTemp(dirUrl):
         # 清空临时解压目录   
         for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
-            for delName in delFiles:
+            for delName in delFiles: 
                 try:
                     delUrl = os.path.join(delRoot, delName)
                     delUrl = formateUrl(delUrl)

@@ -38,8 +38,6 @@ class RepoDb(object):
                 port=port_db,
                 charset = 'utf8'
             )
-            self.conn = self.POOL.connection()
-            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
             logger.exception("创建数据库连接失败|Mysql Error %d: %s" %
@@ -51,6 +49,8 @@ class RepoDb(object):
         新增repo数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "INSERT INTO gitee_repo ( gitee_id, repo_name, repo_org, repo_url, repo_license, repo_language, fork_num, star_num) VALUES (%s, %s, %s, %s, %s, %s, %s , %s )"
 
             self.cur.executemany(sql, repoData)
@@ -64,13 +64,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
 
     def Buid_OwnerData(self, ownerData):
         '''
         新增owner数据
         '''
         try:
-
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "INSERT INTO repo_owner ( repo_id, gitee_id, login, user_url, owner_name)  VALUES (%s, %s, %s, %s, %s)"
             self.cur.execute('SET character_set_connection=utf8;')
             self.cur.executemany(sql, ownerData)
@@ -81,12 +84,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
 
     def Query_AllRepo(self):
         '''
         获取repo数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT id,repo_name,repo_org, repo_url, sca_json, commite FROM gitee_repo WHERE  repo_url IS NOT NULL and sca_json is null"
             self.cur.execute(sql)
             repoList = self.cur.fetchall()
@@ -95,12 +102,16 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
 
     def Modify_Repo(self, repoData):
         '''
         更新repo数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "UPDATE gitee_repo set sca_json = '%s' WHERE repo_org = '%s' and repo_name = '%s'"
             self.cur.execute(sql % repoData)
             self.conn.commit()
@@ -110,12 +121,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
 
     def Query_Repo_ByName(self, repoData):
         '''
         根据repo name 查询repo数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, \
                 is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and deleted_at is null"
             self.cur.execute(sql % repoData)
@@ -125,12 +140,16 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
 
     def Query_Repo_ByVersion(self, repoData):
         '''
         根据repo name 查询repo数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, sca_json,\
                 is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and \
                     commite = '%s' and deleted_at is null"
@@ -141,6 +160,8 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
 
     
     def Query_Repo_ByTime(self, repoData):
@@ -148,6 +169,8 @@ class RepoDb(object):
         根据repo name 查询repo数据 获取最新一次
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, sca_json,\
                 is_approve_license, is_copyright FROM gitee_repo WHERE repo_org ='%s' and repo_name = '%s' and deleted_at is null\
                     ORDER BY updated_at DESC limit 1"
@@ -158,12 +181,16 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
 
     def Query_RepoByOrg(self, repoOrg):
         '''
         获取repo数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT * FROM gitee_repo WHERE repo_org ='%s'"
             self.cur.execute(sql % repoOrg)
             repoList = self.cur.fetchall()
@@ -172,12 +199,16 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
 
     def Check_license(self, repoData):
         '''
         检查license是否认证
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT spdx_name FROM spdx_license WHERE spdx_name ='%s' and (osi_approved = 1 or fsf_approved = 1)"
             self.cur.execute(sql % repoData)
             repoList = self.cur.fetchall()
@@ -186,12 +217,16 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
 
     def Modify_RepoSig(self, repoData):
         '''
         更新repo数据的sig组
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "UPDATE gitee_repo set repo_owner = '%s' WHERE repo_org = '%s' and repo_name = '%s'"
             self.cur.execute(sql % repoData)
             self.conn.commit()
@@ -200,12 +235,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
 
     def Modify_RepoSca(self, repoData):
         '''
         更新repo的扫描结果
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "UPDATE gitee_repo set is_pro_license = '%s',spec_license = '%s', is_approve_license = '%s', is_copyright = '%s' WHERE id = %s"
             self.cur.execute(sql % repoData)
             self.conn.commit()
@@ -214,12 +253,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con
 
     def Query_License_BySpdx(self, repoData):
         '''
         根据spdx 查询license数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT id,name,spdx_name FROM licenses WHERE spdx_name = '%s'"
             self.cur.execute(sql % repoData)
             repoList = self.cur.fetchone()
@@ -228,12 +271,16 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
 
     def Modify_License(self, repoData):
         '''
         更新license信息
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "UPDATE licenses set is_yaml = '%s',oe_approved = '%s', low_risk = '%s', black = '%s', blackReason = '%s' , alias = '%s' WHERE id = %s"
             self.cur.execute(sql % repoData)
             self.conn.commit()
@@ -242,12 +289,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
 
     def add_LicData(self, licData):
         '''
         新增license数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "INSERT INTO licenses (created_at, updated_at, name, spdx_name, osi_approved, fsf_approved, summary,\
                  full_text, full_text_plain, summary_from_spdx, web_page_from_spdx, standard_license_header_from_spdx, \
                  is_yaml, oe_approved, low_risk, black, blackReason, alias)  \
@@ -260,12 +311,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
     
     def get_ItemLic(self, itemData):
         '''
         根据url 查询项目数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license FROM item_lic WHERE \
                 repo_org = '%s' and repo_name = '%s' and deleted_at is null"
             self.cur.execute(sql % itemData)
@@ -275,12 +330,16 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
 
     def add_ItemLic(self, licData):
         '''
         新增item_lic数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "INSERT INTO gitee_repo (repo_name, repo_org, repo_url, repo_license, sca_json, is_pro_license, \
                 spec_license, is_approve_license, is_copyright, commite, purl, created_at, updated_at)\
                  VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s','%s','%s',SYSDATE(), SYSDATE())"
@@ -291,12 +350,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
     
     def upd_ItemLic(self, licData):
         '''
         更新item_lic数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "UPDATE gitee_repo set commite = '%s', repo_license = '%s', sca_json = '%s', is_pro_license = '%s', \
                 spec_license = '%s', is_approve_license = '%s', is_copyright = '%s', updated_at = SYSDATE()\
                  WHERE id = %s"
@@ -307,12 +370,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
     
     def add_PR(self, licData):
         '''
         新增pr数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "INSERT INTO repo_pr (repo_name, repo_org, repo_url, repo_license, pr_num, sca_json, is_pro_license, spec_license,\
                 is_approve_license, is_copyright, commite, is_pass, is_merg, pr_url, created_at, updated_at, status, message) VALUES\
                 ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', SYSDATE(), SYSDATE(), '%s', '%s')"
@@ -323,12 +390,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
     
     def upd_PR(self, licData):
         '''
         更新pr数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "UPDATE repo_pr set  repo_license = '%s', sca_json = '%s', is_pro_license = '%s', spec_license = '%s',\
                 is_approve_license = '%s', is_copyright = '%s', is_pass = '%s', is_merg = '%s', status = '%s', \
                 message = '%s', updated_at = SYSDATE() WHERE id = %s"
@@ -339,12 +410,16 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
 
     def Query_PR(self, repoData):
         '''
         根据repo pr_num 查询PR数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT id,commite,repo_name, repo_org, repo_url, repo_license, is_pro_license, spec_license, sca_json,\
                 is_approve_license, is_copyright FROM repo_pr WHERE repo_org ='%s' and repo_name = '%s' and \
                     pr_num = '%s' and deleted_at is null"
@@ -355,6 +430,8 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
     
     def Close_Con(self):
         '''
@@ -373,6 +450,8 @@ class RepoDb(object):
         查询未合并PR数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT id,commite, repo_name, repo_org, repo_url, pr_num FROM repo_pr WHERE is_merg = 0 and deleted_at is null \
                  and updated_at <= DATE_SUB(NOW(),INTERVAL 1 day)"
             self.cur.execute(sql)
@@ -382,12 +461,16 @@ class RepoDb(object):
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
+        finally:
+            self.Close_Con()
     
     def upd_PR_State(self, licData):
         '''
         更新pr合并数据
         '''
         try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "UPDATE repo_pr set  is_merg = '%s', updated_at = SYSDATE() WHERE id = %s"
             self.cur.execute(sql % licData)
             self.conn.commit()
@@ -396,3 +479,5 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
