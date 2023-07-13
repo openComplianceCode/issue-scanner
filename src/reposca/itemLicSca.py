@@ -41,86 +41,86 @@ class ItemLicSca(object):
 
     @catch_error
     def scaPurl(self, purlList):
-        try:
-            result = []
-            for var in purlList:
-                self._purl_ = var
-                url = PackageURL.from_string(var)
-                urlDic = url.to_dict()
-                owner = urlDic['namespace']
-                name = urlDic['name']
-                commit = urlDic['version']
-                self._owner_ = owner
-                self._repo_ = name
-                self._commit_ = commit
-                #temp
-                if 'openeuler' in owner.lower():
-                    self._commit_ = 'master'
-                self._purl_ = var
-                #先查询数据是否存在
-                if commit is None:
-                    #获取最新数据
-                    itemData = (self._owner_, self._repo_)
-                    itemLic = self._dbObject_.Query_Repo_ByTime(itemData)
-                else:
-                    itemData = (self._owner_, self._repo_, self._commit_)
-                    itemLic = self._dbObject_.Query_Repo_ByVersion(itemData)
-                scaResult = {}
-                if itemLic is None or (itemLic is not None and itemLic['sca_json'] is None):
-                    scaResult = {
-                        "repo_license": [],
-                        "repo_license_legal": [],
-                        "repo_license_illegal": [],
-                        "repo_copyright_legal": [],
-                        "repo_copyright_illegal": [],
-                        "is_sca": False
-                    }
-                else:           
-                    repoLicLg = eval(itemLic['is_pro_license']) 
-                    copyrightLg = eval(itemLic['is_copyright'])
-                    reLicList = repoLicLg['is_legal']['license']
-                    reDetial = repoLicLg['is_legal']['detail']
-                    chJson = json.dumps(reDetial)
-                    jsonData = json.loads(chJson)
-                    reRisks = jsonpath.jsonpath(jsonData, '$.[*].risks')
-                    spLicList = []
-                    for lic in reLicList:
-                        spLic = licenseSplit(lic)
-                        spLicList.extend(spLic)
-                    licenseCheck = LicenseCheck('repo')
-                    for item in range(len(spLicList) - 1, -1, -1):
-                        if licenseCheck.check_exception(spLicList[item]):
-                            del spLicList[item]
-                    risksList = []
-                    leLicList = []
-                    if reRisks is False:
-                        reRisks = []
-                    for item in reRisks:
-                        risksList.extend(item)
-                    for item in range(len(risksList) - 1, -1, -1):
-                        if licenseCheck.check_exception(risksList[item]):
-                            del risksList[item]
-                    for leLic in spLicList:
-                        if leLic not in risksList: 
-                            if licenseCheck.check_approve(leLic):
-                                leLicList.append(leLic)
-                            else:
-                                risksList.append(leLic)
-                    reCopy = copyrightLg['copyright']
-                    scaResult['repo_license'] = reLicList
-                    scaResult['repo_license_legal'] = leLicList
-                    scaResult['repo_license_illegal'] = risksList
-                    scaResult['repo_copyright_legal'] = reCopy
-                    scaResult['repo_copyright_illegal'] = []
-                    scaResult['is_sca'] = True
-                repoRe = {
-                    "purl" : var,
-                    "result": scaResult
+        result = []
+        for var in purlList:
+            self._purl_ = var
+            url = PackageURL.from_string(var)
+            urlDic = url.to_dict()
+            owner = urlDic['namespace']
+            name = urlDic['name']
+            commit = urlDic['version']
+            self._owner_ = owner
+            self._repo_ = name
+            self._commit_ = commit
+            flag = 'ot'
+            #temp
+            if 'openeuler' in owner.lower():
+                self._commit_ = 'master'
+            if 'openharmony' in owner.lower():
+                flag = 'OH'
+            self._purl_ = var
+            #先查询数据是否存在
+            if commit is None:
+                #获取最新数据
+                itemData = (self._owner_, self._repo_)
+                itemLic = self._dbObject_.Query_Repo_ByTime(itemData)
+            else:
+                itemData = (self._owner_, self._repo_, self._commit_)
+                itemLic = self._dbObject_.Query_Repo_ByVersion(itemData)
+            scaResult = {}
+            if itemLic is None or (itemLic is not None and itemLic['sca_json'] is None):
+                scaResult = {
+                    "repo_license": [],
+                    "repo_license_legal": [],
+                    "repo_license_illegal": [],
+                    "repo_copyright_legal": [],
+                    "repo_copyright_illegal": [],
+                    "is_sca": False
                 }
-                result.append(repoRe)
-            return result
-        finally:
-            self._dbObject_.Close_Con()
+            else:           
+                repoLicLg = eval(itemLic['is_pro_license']) 
+                copyrightLg = eval(itemLic['is_copyright'])
+                reLicList = repoLicLg['is_legal']['license']
+                reDetial = repoLicLg['is_legal']['detail']
+                chJson = json.dumps(reDetial)
+                jsonData = json.loads(chJson)
+                reRisks = jsonpath.jsonpath(jsonData, '$.[*].risks')
+                spLicList = []
+                for lic in reLicList:
+                    spLic = licenseSplit(lic)
+                    spLicList.extend(spLic)
+                licenseCheck = LicenseCheck('repo')
+                for item in range(len(spLicList) - 1, -1, -1):
+                    if licenseCheck.check_exception(spLicList[item]):
+                        del spLicList[item]
+                risksList = []
+                leLicList = []
+                if reRisks is False:
+                    reRisks = []
+                for item in reRisks:
+                    risksList.extend(item)
+                for item in range(len(risksList) - 1, -1, -1):
+                    if licenseCheck.check_exception(risksList[item]):
+                        del risksList[item]
+                for leLic in spLicList:
+                    if leLic not in risksList: 
+                        if licenseCheck.check_approve(leLic, flag):
+                            leLicList.append(leLic)
+                        else:
+                            risksList.append(leLic)
+                reCopy = copyrightLg['copyright']
+                scaResult['repo_license'] = reLicList
+                scaResult['repo_license_legal'] = leLicList
+                scaResult['repo_license_illegal'] = risksList
+                scaResult['repo_copyright_legal'] = reCopy
+                scaResult['repo_copyright_illegal'] = []
+                scaResult['is_sca'] = True
+            repoRe = {
+                "purl" : var,
+                "result": scaResult
+            }
+            result.append(repoRe)
+        return result
 
     @catch_error
     def licSca(self, url):
@@ -285,7 +285,6 @@ class ItemLicSca(object):
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
         finally:
-            self._dbObject_.Close_Con()
             # 清理临时文件
             if self._delSrc_ != '':
                 try:

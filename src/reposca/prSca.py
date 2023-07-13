@@ -279,59 +279,56 @@ class PrSca(object):
 
     @catch_error
     def savePr(self, scaResult, scaJson):
-        try:
-            status = 1
-            message = ""
-            apiObc = AuthApi()
-            response = apiObc.getPrInfo(self._owner_, self._repo_, self._num_)
-            repoLicense = ""
-            repoLicLg = ""
-            specLicLg = ""
-            licScope = ""
-            copyrightLg = ""
-            prCommit = ""
-            passState = 0
-            mergeState = 0
-            if response == 403:
-                status = 0
-                message = "GITEE API LIMIT"
-            elif response == 404:
-                status = 0
-                message = "GITEE API ERROR"
-            else:
-                prData = response.data.decode('utf-8')
-                prData = json.loads(prData)
-                prHead = prData['head']
-                prCommit = prHead['ref']
-                mergedAt = prData['merged_at']
-                if mergedAt is not None:
-                    mergeState = 1
-                # 存入数据库
-                scaJson = pymysql.escape_string(scaJson)
-                repoLicLg = scaResult['repo_license_legal']
-                specLicLg = scaResult['spec_license_legal']
-                licScope = scaResult['license_in_scope']
-                copyrightLg = scaResult['repo_copyright_legal']
-                repoLicense = ','.join(repoLicLg['is_legal']['license'])
-                if self._type_ == "inde" and repoLicLg['pass'] and licScope['pass']:
-                    passState = 1
-                elif self._type_ == "ref" and specLicLg['pass'] and licScope['pass']:
-                    passState = 1
-                repoLicLg = pymysql.escape_string(str(repoLicLg))
-                specLicLg = pymysql.escape_string(str(specLicLg))
-                licScope = pymysql.escape_string(str(licScope))
-                copyrightLg = pymysql.escape_string(str(copyrightLg))
+        status = 1
+        message = ""
+        apiObc = AuthApi()
+        response = apiObc.getPrInfo(self._owner_, self._repo_, self._num_)
+        repoLicense = ""
+        repoLicLg = ""
+        specLicLg = ""
+        licScope = ""
+        copyrightLg = ""
+        prCommit = ""
+        passState = 0
+        mergeState = 0
+        if response == 403:
+            status = 0
+            message = "GITEE API LIMIT"
+        elif response == 404:
+            status = 0
+            message = "GITEE API ERROR"
+        else:
+            prData = response.data.decode('utf-8')
+            prData = json.loads(prData)
+            prHead = prData['head']
+            prCommit = prHead['ref']
+            mergedAt = prData['merged_at']
+            if mergedAt is not None:
+                mergeState = 1
+            # 存入数据库
+            scaJson = pymysql.escape_string(scaJson)
+            repoLicLg = scaResult['repo_license_legal']
+            specLicLg = scaResult['spec_license_legal']
+            licScope = scaResult['license_in_scope']
+            copyrightLg = scaResult['repo_copyright_legal']
+            repoLicense = ','.join(repoLicLg['is_legal']['license'])
+            if self._type_ == "inde" and repoLicLg['pass'] and licScope['pass']:
+                passState = 1
+            elif self._type_ == "ref" and specLicLg['pass'] and licScope['pass']:
+                passState = 1
+            repoLicLg = pymysql.escape_string(str(repoLicLg))
+            specLicLg = pymysql.escape_string(str(specLicLg))
+            licScope = pymysql.escape_string(str(licScope))
+            copyrightLg = pymysql.escape_string(str(copyrightLg))
             
-            #检查是否存在数据
-            itemData = (self._owner_, self._repo_, self._num_)
-            itemLic = self._dbObject_.Query_PR(itemData)
-            if itemLic is None:
-                repoData = (self._repo_, self._owner_, self._gitUrl_, repoLicense, self._num_, scaJson, repoLicLg, specLicLg,\
-                    licScope, copyrightLg, prCommit, passState, mergeState, self._prUrl_ , status, message)
-                self._dbObject_.add_PR(repoData)
-            else:
-                repoData = ( repoLicense, scaJson, repoLicLg, specLicLg, licScope, copyrightLg, passState, mergeState, status,\
-                             message, itemLic['id'])
-                self._dbObject_.upd_PR(repoData)
-        finally:
-            self._dbObject_.Close_Con()
+        #检查是否存在数据
+        itemData = (self._owner_, self._repo_, self._num_)
+        itemLic = self._dbObject_.Query_PR(itemData)
+        if itemLic is None:
+            repoData = (self._repo_, self._owner_, self._gitUrl_, repoLicense, self._num_, scaJson, repoLicLg, specLicLg,\
+                licScope, copyrightLg, prCommit, passState, mergeState, self._prUrl_ , status, message)
+            self._dbObject_.add_PR(repoData)
+        else:
+            repoData = ( repoLicense, scaJson, repoLicLg, specLicLg, licScope, copyrightLg, passState, mergeState, status,\
+                            message, itemLic['id'])
+            self._dbObject_.upd_PR(repoData)
