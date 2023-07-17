@@ -119,7 +119,7 @@ class ItemSca(tornado.web.RequestHandler):
 application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca), ])
 
 if __name__ == '__main__':
-    # schedOb = Scheduler()
+    schedOb = Scheduler()
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)
