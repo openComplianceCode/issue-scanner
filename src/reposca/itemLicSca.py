@@ -52,12 +52,9 @@ class ItemLicSca(object):
             self._owner_ = owner
             self._repo_ = name
             self._commit_ = commit
-            flag = 'ot'
             #temp
             if 'openeuler' in owner.lower():
                 self._commit_ = 'master'
-            if 'openharmony' in owner.lower():
-                flag = 'OH'
             self._purl_ = var
             #先查询数据是否存在
             if commit is None:
@@ -104,7 +101,7 @@ class ItemLicSca(object):
                         del risksList[item]
                 for leLic in spLicList:
                     if leLic not in risksList: 
-                        if licenseCheck.check_approve(leLic, flag):
+                        if licenseCheck.check_approve(leLic):
                             leLicList.append(leLic)
                         else:
                             risksList.append(leLic)

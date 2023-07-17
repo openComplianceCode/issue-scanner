@@ -296,16 +296,14 @@ class LicenseCheck(object):
         return result
 
     @catch_error
-    def check_approve(self, license, flag):
+    def check_approve(self, license):
         result = False
         lowLic = license.lower()
         res = self._white_black_list.get(lowLic, "unknow")
         if res == 'unknow':
             result = False
         elif res['tag'] == "licenses":
-            if flag == 'OH' and res['ohApproved'] == 'Y':
-                result = True
-            elif flag != 'OH' and (res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y'):
+            if res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y':
                 result = True
         
         return result
