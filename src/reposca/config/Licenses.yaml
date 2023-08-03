@@ -693,7 +693,7 @@ Software Licenses:
     identifier: APAFML
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
@@ -5925,6 +5925,17 @@ Software Licenses:
     identifier: LBNL License
     fsfApproved: 'N'
     osiApproved: 'Y'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+  - alias:
+    - Romio License
+    identifier: Romio
+    fsfApproved: 'N'
+    osiApproved: 'N'
     oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
