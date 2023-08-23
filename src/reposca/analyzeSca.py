@@ -3,7 +3,6 @@ import logging
 import os
 import re
 import jsonpath
-from sklearn import logger
 import yaml
 from reposca.licenseCheck import LicenseCheck
 from util.catchUtil import catch_error
@@ -70,14 +69,15 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
             copyrightInfo = copyrightList[i]
             for info in copyrightInfo:
                 crInfoList.append(info['copyright'])
-        noticeCopyright = noticeCopyright + "(" + path + "), "
+            noticeCopyright = noticeCopyright + "(" + path + "), "
         
         #检查commit文件版权
-        if path in file_array and copyright_type == 'Huawei':
+        if is_in(path, file_array) and copyright_type == 'Huawei':
             if len(copyrightList[i]) > 0:
                 copyrightInfo = copyrightList[i]
                 for info in copyrightInfo:
                     if copyright_check(info['copyright']) is None:
+                        isCopyright = False
                         failCopList.append(path)
             else:
                 loseCopList.append(path)
@@ -265,6 +265,13 @@ def checkRepoLicense(path, depth):
         if item in path:
             return True
 
+    return False
+
+@catch_error
+def is_in(path, file_array):
+    for item in file_array:
+        if item in path:
+            return True
     return False
 
 

@@ -103,8 +103,7 @@ class PrSca(object):
             #获取PR增量文件目录
             fileList =  self.getDiffFiles()    
             #创建diff副本
-            self._diffPath_ = self.createDiff(fileList)
-            print(self._fileArray_)               
+            self._diffPath_ = self.createDiff(fileList)             
             #获取commit信息
             self._commit_ = self.getCommitInfo() 
             copyright_type = self.get_copyright_type(self._commit_)
