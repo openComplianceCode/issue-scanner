@@ -6,6 +6,7 @@ import tornado.ioloop
 import tornado.httpserver
 import tornado.options
 from tornado.concurrent import run_on_executor
+from reposca.analyzeSca import copyright_check
 import config
 from reposca.fixSca import fixSca
 from reposca.itemLicSca import ItemLicSca
@@ -119,7 +120,7 @@ class ItemSca(tornado.web.RequestHandler):
 application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca), ])
 
 if __name__ == '__main__':
-    # schedOb = Scheduler()
+    schedOb = Scheduler()
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)

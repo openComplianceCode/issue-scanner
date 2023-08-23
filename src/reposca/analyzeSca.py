@@ -1,19 +1,22 @@
 import json
 import logging
+import os
 import re
 import jsonpath
+from sklearn import logger
+import yaml
 from reposca.licenseCheck import LicenseCheck
 from util.catchUtil import catch_error
 from util.postOrdered import infixToPostfix
 from pyrpm.spec import Spec
 
-noticeList = ['notice', 'third_party_open_source_software_notice','readme', 'license', 'copyright']
+noticeList = ['notice', 'third_party_open_source_software_notice','readme', 'copying', 'copyright']
 repoList = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_software_notice', 'copyright', '.spec']
 SOURTH_PATH = '/home/giteeFile'
 
 
 @catch_error
-def getScaAnalyze(scaJson, anlyzeSrc, type):
+def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
     '''
     :param repoSrc: 扫描文件路径
     :param repo: 项目名
@@ -37,6 +40,9 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
     noticeScope = ''
     noticeSpec = '无spec文件'
     noticeCopyright = '缺少项目级Copyright声明文件'
+    checkCopyright = ''
+    failCopList = []
+    loseCopList = []
     crInfoList = []
     speLicDetial = {}
 
@@ -56,7 +62,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
     itemLicFlag = False
     for i, var in enumerate(licenseList):   
         path = itemPath[i]
-        # 判断是否含有notice文件
+        # 判断是否含有项目copyrgiht文件
         if checkNotice(path, pathDepth) and len(copyrightList[i]) > 0:
             if isCopyright is False:
                 isCopyright = True
@@ -64,7 +70,18 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
             copyrightInfo = copyrightList[i]
             for info in copyrightInfo:
                 crInfoList.append(info['copyright'])
-            noticeCopyright = noticeCopyright + "(" + path + "), "
+        noticeCopyright = noticeCopyright + "(" + path + "), "
+        
+        #检查commit文件版权
+        if path in file_array and copyright_type == 'Huawei':
+            if len(copyrightList[i]) > 0:
+                copyrightInfo = copyrightList[i]
+                for info in copyrightInfo:
+                    if copyright_check(info['copyright']) is None:
+                        failCopList.append(path)
+            else:
+                loseCopList.append(path)
+
 
         if path.endswith((".spec",)) and checkPath(path, 2):
             # 提取spec里的许可证声明
@@ -158,6 +175,14 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
 
     if len(itemPathList) == 0:
         itemPathList.append(noticeLicense)
+    if len(failCopList) > 0:
+        tempFail = '、'.join(failCopList)
+        checkCopyright = checkCopyright + tempFail + "文件Copyright校验不通过, "
+    if len(loseCopList) > 0:
+        tempLose = '、'.join(loseCopList)
+        checkCopyright = checkCopyright + tempLose + "文件缺失Copyright声明, "
+    if checkCopyright != '':
+        noticeCopyright = checkCopyright + " Copyright path：" + noticeCopyright
     noticeCopyright = noticeCopyright.strip(', ')
     noticeScope = noticeScope.strip(', ')
     if noticeScope == '':
@@ -165,7 +190,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type):
     else:
         noticeScope = '存在非OSI/FSF认证的License：' + noticeScope + ' License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组或chenyixiong3@huawei.com'
     #关闭copyright
-    isCopyright = True
+    # isCopyright = True
     sca_result = {
         "repo_license_legal": {
             "pass": haveLicense,
@@ -293,3 +318,9 @@ def licenseSplit(licenses):
         license_set[index] = license_set[index].strip()
     license_set = list(filter(None, license_set))
     return license_set
+
+@catch_error
+def copyright_check(copyright):
+    copyright_pattern = r'^Copyright \(c\) (\d{4}\s)*[A-Za-z\s]*(\.)*,*\s*Huawei Technologies Co., Ltd.\s*(\d{4})?(-\d{4})?(\.)?\s*(All rights reserved\.)?'
+    match = re.search(copyright_pattern, copyright)
+    return match 

@@ -91,7 +91,7 @@ class PrSca(object):
             self._gitRepo_ = repo
             self._git_ = repo.git
 
-            logging.info("=============START FETCH REPO==============")          
+            logging.info("=============START FETCH REPO==============")     
             # 拉取pr
             if self._file_ == 'sourth':
                 remote = self._gitRepo_.remote()
@@ -101,14 +101,19 @@ class PrSca(object):
             # 切换分支
             self._git_.checkout(self._branch_)
             #获取PR增量文件目录
-            fileList =  self.getDiffFiles()           
+            fileList =  self.getDiffFiles()    
             #创建diff副本
             self._diffPath_ = self.createDiff(fileList)
+            print(self._fileArray_)               
+            #获取commit信息
+            self._commit_ = self.getCommitInfo() 
+            copyright_type = self.get_copyright_type(self._commit_)
+            
             logging.info("==============END FETCH REPO===============")
             
             # 扫描pr文件
             scaJson = self.getPrSca()
-            scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_)
+            scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_, copyright_type, self._fileArray_)
             # Save Data
             self.savePr(scaResult, scaJson)
         except Exception as e:
@@ -239,6 +244,47 @@ class PrSca(object):
         return fileList
 
     @catch_error
+    def getCommitInfo(self):
+        commit_info = []
+        repoStr = "Flag"
+        http = urllib3.PoolManager()            
+        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits?access_token='+ACCESS_TOKEN
+        response = http.request('GET',url)         
+        resStatus = response.status
+        
+        if resStatus == 403:
+            api = AuthApi()
+            response = api.get_token(os.environ.get("GITEE_USER"),
+                                    os.environ.get("GITEE_PASS"),
+                                    os.environ.get("GITEE_REDIRECT_URI"),
+                                    os.environ.get("GITEE_CLIENT_ID"),
+                                    os.environ.get("GITEE_CLIENT_SECRET"),
+                                    "user_info")
+            accessToken = response["access_token"]
+            url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits?access_token='+ACCESS_TOKEN
+            response = http.request('GET',url)         
+            resStatus = response.status
+        
+        if resStatus == 404:
+            raise Exception("Gitee API Fail")
+
+        repoStr = response.data.decode('utf-8')
+        temList = json.loads(repoStr)
+        commit_info.extend(temList)     
+        return commit_info
+    
+    @catch_error
+    def get_copyright_type(self, commit_info):
+        copyright_type = "No"
+        for item in commit_info:
+            commit_email = item['commit']['committer']['email']
+            if ("huawei.com" in commit_email):
+                copyright_type = "Huawei"
+                break
+        return copyright_type
+            
+
+    @catch_error
     def mergJson(self,itemJson, scaJson):
         itemData = json.loads(itemJson)
         scaData = json.loads(scaJson)
@@ -259,9 +305,11 @@ class PrSca(object):
     
     def createDiff(self, fileList):
         diffPath = self._anlyzeSrc_ + "/diff/" + self._repo_ 
+        self._fileArray_= []
         for diff_added in fileList:
             try:
                 filePath = diff_added['filename']
+                self._fileArray_.append(filePath)
                 fileDir = os.path.dirname(filePath)
                 tempFile = diffPath + "/" + fileDir            
                 if os.path.exists(tempFile) is False:

@@ -256,7 +256,7 @@ class ItemLicSca(object):
                   
             # 扫描pr文件
             scaJson = self.getPrSca()
-            scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_)
+            scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_, "NO", [])
             # 存入数据库
             scaJson = pymysql.escape_string(scaJson)
             repoLicLg = scaResult['repo_license_legal']
