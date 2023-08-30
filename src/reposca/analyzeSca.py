@@ -189,8 +189,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
         noticeScope = 'OSI/FSF认证License'
     else:
         noticeScope = '存在非OSI/FSF认证的License：' + noticeScope + ' License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组或chenyixiong3@huawei.com'
-    #关闭copyright
-    # isCopyright = True
+
     sca_result = {
         "repo_license_legal": {
             "pass": haveLicense,
