@@ -121,6 +121,7 @@ application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/d
 
 if __name__ == '__main__':
     # schedOb = Scheduler()
+    #http request
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)
