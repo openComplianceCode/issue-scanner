@@ -358,14 +358,17 @@ class CommSca(object):
             return scaResult
         
     @catch_error
-    def scaResult(self, path, jsonPath):
+    def scaResult(self, path):
         try:
             temJsonSrc = SOURTH_PATH +'/tempJson'
             temJsonSrc = formateUrl(temJsonSrc)
             if os.path.exists(temJsonSrc) is False:
                 os.makedirs(temJsonSrc)
 
-            tempJson = formateUrl(jsonPath)
+            timestamp = int(time.time())
+            localRepo = os.path.basename(path)
+            tempJson = temJsonSrc + '/' + localRepo +str(timestamp)+'.txt'
+            tempJson = formateUrl(tempJson)
             if os.path.exists(tempJson) is False:
                 open(tempJson, 'w')
 
@@ -396,4 +399,6 @@ class CommSca(object):
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s: %s" % (command, e))
         finally:
+            os.chmod(tempJson, stat.S_IWUSR)
+            os.remove(tempJson)
             return scaResult

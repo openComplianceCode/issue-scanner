@@ -22,8 +22,6 @@ def commn():
 
     parser.add_argument("--token", default="" ,required=False, help="Specify the token,Optional input" )
 
-    parser.add_argument("--json", default="" ,required=False, help="Specify the json file path,Optional input" )
-
     args = parser.parse_args()
     method = args.method
 
@@ -44,7 +42,7 @@ def commn():
         print(jsonRe + "\n")
     else:
         comSca = CommSca()
-        result = comSca.scaResult(args.url, args.json)
+        result = comSca.scaResult(args.url)
         jsonRe = json.dumps(result)
         print(jsonRe + "\n")
     

@@ -36,7 +36,7 @@
     ```
     以指令行形式
     ```
-    python issue-scanner/src/command.py -m pr/repo input --token
+    python issue-scanner/src/command.py -m pr/repo/local input --token
     ```
   
 ---
