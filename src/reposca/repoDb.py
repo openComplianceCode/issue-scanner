@@ -481,3 +481,80 @@ class RepoDb(object):
             self.conn.rollback()
         finally:
             self.Close_Con()
+
+    def Get_Licenses(self):
+        '''
+        获取License
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT name,spdx_name,osi_approved,fsf_approved,oe_approved,low_risk,black,blackReason,alias \
+                FROM licenses deleted_at IS NULL"
+            self.cur.execute(sql)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()
+        
+    
+    def Query_License_Enter(self):
+        '''
+        非准入License统计
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg FROM repo_pr WHERE is_pass = 0\
+                AND (is_pro_license LIKE '%非OSI/FSF%' OR spec_license LIKE '%非OSI/FSF%' OR is_approve_license LIKE '%非OSI/FSF%')"
+            self.cur.execute(sql)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()
+    
+    def Query_License_Spec(self):
+        '''
+        spec License校验
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT repo_name, repo_org, pr_num, is_pass, is_merg FROM repo_pr WHERE repo_org = 'src-openeuler'\
+	            and is_pass = 0 and spec_license LIKE '%''pass'': False%'"
+            self.cur.execute(sql)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()
+    
+    def Query_License_Un(self):
+        '''
+        License规范校验
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg FROM repo_pr WHERE is_pass = 0\
+                AND (is_pro_license LIKE '%不规范%' OR spec_license LIKE '%不规范%')"
+            self.cur.execute(sql)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()

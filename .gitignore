@@ -13,3 +13,4 @@ src/reposca/csvtest.py
 .VSCodeCounter
 src/reposca/json.txt
 src/reposca/cleanData.py
+src/reposca/config/Regular.yaml

@@ -13,6 +13,7 @@ from pathlib import Path
 from git.repo import Repo
 from reposca.itemLicSca import SOURTH_PATH
 from reposca.analyzeSca import getScaAnalyze
+from reposca.sourceAnalyze import getSourceData
 from util.popUtil import popKill
 from util.extractUtil import extractCode
 from util.formateUtil import formateUrl
@@ -164,7 +165,7 @@ class CommSca(object):
                   
             # 扫描pr文件
             scaJson = self.getRepoSca()
-            scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_)
+            scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_, "None", [])
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
@@ -346,7 +347,7 @@ class CommSca(object):
                 scaJson = "".join(list)
             logging.info("===============END SCAN REPO===============")
             anlyzePath = os.path.dirname(path)
-            scaResult = getScaAnalyze(scaJson, anlyzePath, self._type_)
+            scaResult = getScaAnalyze(scaJson, anlyzePath, self._type_, "None", [])
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s: %s" % (command, e))
@@ -354,4 +355,45 @@ class CommSca(object):
             # 清空文件
             os.chmod(tempJson, stat.S_IWUSR)
             os.remove(tempJson)
+            return scaResult
+        
+    @catch_error
+    def scaResult(self, path, jsonPath):
+        try:
+            temJsonSrc = SOURTH_PATH +'/tempJson'
+            temJsonSrc = formateUrl(temJsonSrc)
+            if os.path.exists(temJsonSrc) is False:
+                os.makedirs(temJsonSrc)
+
+            tempJson = formateUrl(jsonPath)
+            if os.path.exists(tempJson) is False:
+                open(tempJson, 'w')
+
+            self._type_ = "inde"#自研
+            reExt = extractCode(path)
+            if reExt == "Except":
+                logging.error("file extracCode error")
+            elif reExt == "ref":
+                self._type_ = "ref"#引用仓          
+
+            logging.info("==============START SCAN REPO==============")
+            # 调用scancode
+            command = shlex.split(
+                'scancode -l -c %s  --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80' % (path, tempJson))
+            resultCode = subprocess.Popen(command)
+            while subprocess.Popen.poll(resultCode) == None:
+                time.sleep(1)
+            popKill(resultCode)
+
+            scaJson = ''
+            # 获取json
+            with open(tempJson, 'r+') as f:
+                list = f.readlines()
+                scaJson = "".join(list)
+            logging.info("===============END SCAN REPO===============")
+            scaResult = getSourceData(scaJson, self._type_)
+        except Exception as e:
+            logger = logging.getLogger(__name__)
+            logger.exception("Error on %s: %s" % (command, e))
+        finally:
             return scaResult
