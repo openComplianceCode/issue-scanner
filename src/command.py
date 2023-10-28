@@ -3,6 +3,7 @@ import argparse
 import json
 import sys
 import os
+import time
 sys.path.append(os.path.dirname(sys.path[0]))
 from reposca.prSca import PrSca
 from reposca.commSca import CommSca
@@ -40,11 +41,13 @@ def commn():
         result = comSca.locSca(args.url)
         jsonRe = json.dumps(result)
         print(jsonRe + "\n")
-    else:
+    else:   
+        print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))   
         comSca = CommSca()
         result = comSca.scaResult(args.url)
         jsonRe = json.dumps(result)
         print(jsonRe + "\n")
+        print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())))   
     
 
 

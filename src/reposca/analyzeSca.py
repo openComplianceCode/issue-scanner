@@ -171,7 +171,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
                 if reLicense is False and pathLicense['start_line'] != pathLicense['end_line'] and 'exception' not in spdLower and 'doc' != spdLower:
                     approved = False
                     noticeScope = noticeScope + spdx_name + "("+path + ", start_line: "+str(
-                        pathLicense['start_line'])+", end_line: "+str(pathLicense['end_line'])+"), "
+                        pathLicense['start_line'])+", end_line: "+str(pathLicense['end_line'])+"), " 
 
     if len(itemPathList) == 0:
         itemPathList.append(noticeLicense)

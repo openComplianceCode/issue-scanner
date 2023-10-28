@@ -14,6 +14,7 @@ class Scheduler(object):
         
         scheduler.add_job(
             self.prSchedule,
+            max_instances=10,
             trigger='cron',
             hour=19,
         )
@@ -28,6 +29,7 @@ class Scheduler(object):
                 password_db = os.environ.get("MYSQL_PASSWORD"), 
                 name_db = os.environ.get("MYSQL_DB_NAME"), 
                 port_db = int(os.environ.get("MYSQL_PORT")))
+            
             pr_data = dbObject.Query_PR_Merge()
             apiObc = AuthApi()
             if pr_data is not None:
