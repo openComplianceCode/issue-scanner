@@ -1,9 +1,22 @@
 import logging
+import os
+import random
 import requests
 import urllib3
 
 from util.catchUtil import catch_error
 ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
+USER_AGENT = [
+    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 OPR/26.0.1656.60',
+    'Opera/8.0 (Windows NT 5.1; U; en)',
+    'Mozilla/5.0 (Windows NT 5.1; U; en; rv:1.8.1) Gecko/20061208 Firefox/2.0.0 Opera 9.50',
+    'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; en) Opera 9.50',
+    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
+    'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.133 Safari/534.16',
+    'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0',
+    'Mozilla/5.0 (X11; U; Linux x86_64; zh-CN; rv:1.9.2.10) Gecko/20100922 Ubuntu/10.10 (maverick) Firefox/3.6.10'
+]
 logging.getLogger().setLevel(logging.INFO)
 
 class AuthApi(object):
@@ -30,6 +43,29 @@ class AuthApi(object):
             return 403
         if resStatus == 404:
             logging.error("GITEE API ERROR")
+            return 404
+        
+        return response
+
+    def getPrInfoByGithub(self, owner, repo, num):
+        http = urllib3.PoolManager() 
+        authorToken = os.environ.get("GITHUB_TOKEN")    
+        apiUrl = 'https://api.github.com/repos/'+owner+'/'+repo+'/pulls/'+num
+        response = http.request(
+            'GET',
+            apiUrl,
+            headers = {
+                'User-Agent': random.choice(USER_AGENT),
+                'Accept' : 'application/vnd.github+json',
+                'Authorization':'Bearer ' + authorToken
+            }
+        )         
+        resStatus = response.status
+        if resStatus == 403:
+            logging.error("GITHUB TOKEN LIMIT")
+            return 403
+        if resStatus == 404:
+            logging.error("GITHUB API ERROR")
             return 404
         
         return response

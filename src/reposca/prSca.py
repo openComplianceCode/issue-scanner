@@ -114,9 +114,11 @@ class PrSca(object):
             self._git_.checkout(self._branch_)
             #获取PR增量文件目录&commit信息
             if 'gitee.com' in self._domain_:
+                pr_flag = "gitee"
                 fileList =  self.getDiffFiles()    
                 self._commit_ = self.getCommitInfo() 
             else:
+                pr_flag = "github"
                 fileList = self.getDiffFilesByGithub()
                 self._commit_ = self.getCommitByGithub() 
             #创建diff副本
@@ -129,7 +131,7 @@ class PrSca(object):
             scaJson = self.getPrSca()
             scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_, copyright_type, self._fileArray_)
             # Save Data
-            self.savePr(scaResult, scaJson)
+            self.savePr(pr_flag, scaResult, scaJson)
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
@@ -399,11 +401,14 @@ class PrSca(object):
 
 
     @catch_error
-    def savePr(self, scaResult, scaJson):
+    def savePr(self, pr_flag, scaResult, scaJson):
         status = 1
         message = ""
         apiObc = AuthApi()
-        response = apiObc.getPrInfo(self._owner_, self._repo_, self._num_)
+        if pr_flag == 'gitee':
+            response = apiObc.getPrInfo(self._owner_, self._repo_, self._num_)
+        else:
+            response = apiObc.getPrInfoByGithub(self._owner_, self._repo_, self._num_)
         repoLicense = ""
         repoLicLg = ""
         specLicLg = ""
@@ -414,10 +419,10 @@ class PrSca(object):
         mergeState = 0
         if response == 403:
             status = 0
-            message = "GITEE API LIMIT"
+            message = "PR INFO API LIMIT"
         elif response == 404:
             status = 0
-            message = "GITEE API ERROR"
+            message = "PR INFO API ERROR"
         else:
             prData = response.data.decode('utf-8')
             prData = json.loads(prData)
