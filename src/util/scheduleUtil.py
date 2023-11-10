@@ -38,7 +38,11 @@ class Scheduler(object):
                     pr_owner = var['repo_org']
                     pr_repo = var['repo_name']
                     pr_num = var['pr_num']
-                    pr_response = apiObc.getPrInfo(pr_owner, pr_repo, pr_num)
+                    pr_url = var['repo_url']
+                    if 'gitee.com' in pr_url:
+                        pr_response = apiObc.getPrInfo(pr_owner, pr_repo, pr_num)
+                    else:
+                        pr_response = apiObc.getPrInfoByGithub(pr_owner, pr_repo, pr_num)
                     if pr_response == 403 or pr_response == 404:
                         continue
                     prData = pr_response.data.decode('utf-8')

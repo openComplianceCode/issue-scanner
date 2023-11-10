@@ -234,8 +234,14 @@ class PrSca(object):
         fileList = []
         repoStr = "Flag"
         http = urllib3.PoolManager()            
-        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+ACCESS_TOKEN
-        response = http.request('GET',url)         
+        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
+        response = http.request(
+            'GET',
+            url,
+            headers = {
+                'access_token': ACCESS_TOKEN
+            }
+        )         
         resStatus = response.status
         
         if resStatus == 403:
@@ -247,8 +253,14 @@ class PrSca(object):
                                     os.environ.get("GITEE_CLIENT_SECRET"),
                                     "user_info")
             accessToken = response["access_token"]
-            url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+accessToken
-            response = http.request('GET',url)         
+            url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
+            response = http.request(
+                'GET',
+                url,
+                headers = {
+                    'access_token': accessToken
+                }
+            )         
             resStatus = response.status
         
         if resStatus == 404:
@@ -294,8 +306,14 @@ class PrSca(object):
         commit_info = []
         repoStr = "Flag"
         http = urllib3.PoolManager()            
-        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits?access_token='+ACCESS_TOKEN
-        response = http.request('GET',url)         
+        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits'
+        response = http.request(
+            'GET',
+            url,
+            headers = {
+                'access_token': ACCESS_TOKEN
+            }
+        )         
         resStatus = response.status
         
         if resStatus == 403:
@@ -307,8 +325,14 @@ class PrSca(object):
                                     os.environ.get("GITEE_CLIENT_SECRET"),
                                     "user_info")
             accessToken = response["access_token"]
-            url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits?access_token='+ACCESS_TOKEN
-            response = http.request('GET',url)         
+            url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits'
+            response = http.request(
+                'GET',
+                url,
+                headers = {
+                    'access_token': accessToken
+                }
+            )         
             resStatus = response.status
         
         if resStatus == 404:
