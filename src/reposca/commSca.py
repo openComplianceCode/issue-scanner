@@ -358,7 +358,7 @@ class CommSca(object):
             return scaResult
         
     @catch_error
-    def scaResult(self, path):
+    def scaResult(self, path, threadNum):
         try:
             temJsonSrc = SOURTH_PATH +'/tempJson'
             temJsonSrc = formateUrl(temJsonSrc)
@@ -382,7 +382,7 @@ class CommSca(object):
             logging.info("==============START SCAN REPO==============")
             # 调用scancode
             command = shlex.split(
-                'scancode -l -c %s  --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80' % (path, tempJson))
+                'scancode -l -c %s  --json %s -n %s --timeout 10 --max-in-memory -1 --license-score 80' % (path, tempJson, threadNum))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
