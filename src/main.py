@@ -10,6 +10,7 @@ from reposca.analyzeSca import copyright_check
 import config
 from reposca.fixSca import fixSca
 from reposca.itemLicSca import ItemLicSca
+from reposca.queryBoard import QueryBoard
 from reposca.prSca import PrSca
 from reposca.resonseSca import ResonseSca
 from tornado import gen
@@ -115,9 +116,45 @@ class ItemSca(tornado.web.RequestHandler):
         result = itemLic.licSca(url)
         jsonRe = json.dumps(result)
         return jsonRe
+    
+
+class Query(tornado.web.RequestHandler):
+    executor = ThreadPoolExecutor(1000)
+
+    @gen.coroutine
+    def get(self):
+        """get请求"""
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        tag = self.get_argument('tag')
+        org = self.get_argument('org','')
+        repo = self.get_argument('repo','')
+        result = yield self.block(tag, org, repo)
+        self.finish(result)
+
+    @gen.coroutine
+    def post(self):
+        '''post请求'''
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        tag = self.get_argument('tag')
+        org = self.get_argument('org','')
+        repo = self.get_argument('repo','')
+        result = yield self.block(tag, org, repo)
+        self.finish(result)
+    
+    @run_on_executor
+    def block(self, tag, org, repo):      
+        boardQuery = QueryBoard()
+        result = boardQuery.query(tag, org, repo)
+        jsonRe = json.dumps(result)
+        return jsonRe
 
 
-application = tornado.web.Application([(r"/sca", Main), (r"/lic", LicSca), (r"/doSca", ItemSca), ])
+application = tornado.web.Application([
+    (r"/sca", Main), 
+    (r"/lic", LicSca), 
+    (r"/doSca", ItemSca), 
+    (r"/board", Query),
+    ])
 
 if __name__ == '__main__':
     schedOb = Scheduler()
