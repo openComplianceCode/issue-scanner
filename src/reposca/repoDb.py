@@ -703,7 +703,7 @@ class RepoDb(object):
         try:
             self.conn = self.POOL.connection()
             self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
-            sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg FROM repo_pr WHERE is_pass = 0 AND repo_org = '%s'\
+            sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg, is_copyright FROM repo_pr WHERE is_pass = 0 AND repo_org = '%s'\
                 AND repo_name = '%s' AND is_copyright LIKE '%%''pass'': False%%'"
             self.cur.execute(sql % licData)
             repoList = self.cur.fetchall()
