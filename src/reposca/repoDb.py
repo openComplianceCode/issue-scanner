@@ -656,3 +656,61 @@ class RepoDb(object):
             traceback.print_exc()
         finally:
             self.Close_Con()
+    
+
+    def Query_Copyright(self):
+        '''
+        Copyright风险统计
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg FROM repo_pr WHERE is_pass = 0 \
+                AND is_copyright LIKE '%%''pass'': False%%'"
+            self.cur.execute(sql)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()
+    
+    def Query_Copyright_Org(self, licData):
+        '''
+        Copyright风险统计-社区
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg FROM repo_pr WHERE is_pass = 0 AND repo_org = '%s'\
+                AND is_copyright LIKE '%%''pass'': False%%'"
+            self.cur.execute(sql % licData)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()
+    
+    def Query_Copyright_Repo(self, licData):
+        '''
+        Copyright风险统计-repo
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg FROM repo_pr WHERE is_pass = 0 AND repo_org = '%s'\
+                AND repo_name = '%s' AND is_copyright LIKE '%%''pass'': False%%'"
+            self.cur.execute(sql % licData)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()

@@ -35,8 +35,15 @@ class QueryBoard(object):
             result = self._dbObject_.Query_License_Un()
         elif tag == 'standardOrg':
             result = self._dbObject_.Query_License_Un_org(org)
-        else:
+        elif tag == 'standardRepo':
             queryData = (org, repo)
             result = self._dbObject_.Query_License_Un_repo(queryData)
+        elif tag == 'copyright':
+            result = self._dbObject_.Query_Copyright()
+        elif tag == 'copyrightOrg':
+            result = self._dbObject_.Query_Copyright_Org(org)
+        else:
+            queryData = (org, repo)
+            result = self._dbObject_.Query_Copyright_Repo(queryData)
 
         return result
