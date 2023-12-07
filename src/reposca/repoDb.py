@@ -510,7 +510,8 @@ class RepoDb(object):
             self.conn = self.POOL.connection()
             self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg FROM repo_pr WHERE is_pass = 0 \
-                AND (is_pro_license LIKE '%非OSI/FSF%' OR spec_license LIKE '%非OSI/FSF%' OR is_approve_license LIKE '%非OSI/FSF%')"
+                AND (is_pro_license LIKE '%非OSI/FSF%' OR spec_license LIKE '%非OSI/FSF%' OR \
+                    is_approve_license LIKE '%非OSI/FSF%' OR is_pro_license LIKE '%缺少项目%')"
             self.cur.execute(sql)
             repoList = self.cur.fetchall()
             return repoList
@@ -529,7 +530,8 @@ class RepoDb(object):
             self.conn = self.POOL.connection()
             self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg FROM repo_pr WHERE is_pass = 0 and repo_org = '%s' AND \
-                (is_pro_license LIKE '%%非OSI/FSF%%' OR spec_license LIKE '%%非OSI/FSF%%' OR is_approve_license LIKE '%%非OSI/FSF%%')"
+                (is_pro_license LIKE '%%非OSI/FSF%%' OR spec_license LIKE '%%非OSI/FSF%%' OR \
+                    is_approve_license LIKE '%%非OSI/FSF%%' OR is_pro_license LIKE '%%缺少项目%%')"
             self.cur.execute(sql % licData)
             repoList = self.cur.fetchall()
             return repoList
@@ -549,7 +551,7 @@ class RepoDb(object):
             self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg,is_pro_license,spec_license,is_approve_license FROM \
                   repo_pr WHERE is_pass = 0 and repo_org = '%s' and repo_name = '%s'AND (is_pro_license LIKE '%%非OSI/FSF%%' \
-                    OR spec_license LIKE '%%非OSI/FSF%%' OR is_approve_license LIKE '%%非OSI/FSF%%')"
+                    OR spec_license LIKE '%%非OSI/FSF%%' OR is_approve_license LIKE '%%非OSI/FSF%%'  OR is_pro_license LIKE '%%缺少项目%%')"
             self.cur.execute(sql % licData)
             repoList = self.cur.fetchall()
             return repoList
