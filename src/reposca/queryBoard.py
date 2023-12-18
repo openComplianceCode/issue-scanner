@@ -20,32 +20,20 @@ class QueryBoard(object):
     @catch_error   
     def query(self, tag, org, repo):
         result = []
-        if tag == 'admittance':
-            result = self._dbObject_.Query_License_Enter()
-        elif tag == 'admittanceOrg':
-            result = self._dbObject_.Query_License_Enter_org(org)
-        elif tag == 'admittanceRepo':
-            queryData = (org, repo)
-            result = self._dbObject_.Query_License_Enter_repo(queryData)
-        elif tag == 'spec':
-            result = self._dbObject_.Query_License_Spec()
-        elif tag == 'specRepo':
-            result = self._dbObject_.Query_License_Spec_repo(repo)
-        elif tag == 'standard':
-            result = self._dbObject_.Query_License_Un()
-        elif tag == 'standardOrg':
-            result = self._dbObject_.Query_License_Un_org(org)
-        elif tag == 'standardRepo':
-            queryData = (org, repo)
-            result = self._dbObject_.Query_License_Un_repo(queryData)
-        elif tag == 'copyright':
-            result = self._dbObject_.Query_Copyright()
-        elif tag == 'copyrightOrg':
-            result = self._dbObject_.Query_Copyright_Org(org)
-        elif tag == 'copyrightRepo':
-            queryData = (org, repo)
-            result = self._dbObject_.Query_Copyright_Repo(queryData)
-        else:
-            result = self._dbObject_.Query_PR_All()
+        metrics_switch = {
+            "admittance": lambda: self._dbObject_.Query_License_Enter(),
+            "admittanceOrg": lambda: self._dbObject_.Query_License_Enter_org(org),
+            "admittanceRepo": lambda: self._dbObject_.Query_License_Enter_repo(queryData = (org, repo)),
+            "spec": lambda: self._dbObject_.Query_License_Spec(),
+            "specRepo": lambda: self._dbObject_.Query_License_Spec_repo(repo),
+            "standard": lambda: self._dbObject_.Query_License_Un(),
+            "standardOrg": lambda: self._dbObject_.Query_License_Un_org(org),
+            "standardRepo": lambda: self._dbObject_.Query_License_Un_repo(queryData = (org, repo)),
+            "copyright": lambda: self._dbObject_.Query_Copyright(),
+            "copyrightOrg": lambda: self._dbObject_.Query_Copyright_Org(org),
+            "copyrightRepo": lambda: self._dbObject_.Query_Copyright_Repo(queryData = (org, repo)),
+            "pr": lambda: self._dbObject_.Query_PR_All(),
+        }
+        result = metrics_switch[tag]()
 
         return result
