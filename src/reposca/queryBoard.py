@@ -42,8 +42,10 @@ class QueryBoard(object):
             result = self._dbObject_.Query_Copyright()
         elif tag == 'copyrightOrg':
             result = self._dbObject_.Query_Copyright_Org(org)
-        else:
+        elif tag == 'copyrightRepo':
             queryData = (org, repo)
             result = self._dbObject_.Query_Copyright_Repo(queryData)
+        else:
+            result = self._dbObject_.Query_PR_All()
 
         return result

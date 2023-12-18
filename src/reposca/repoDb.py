@@ -714,3 +714,22 @@ class RepoDb(object):
             traceback.print_exc()
         finally:
             self.Close_Con()
+
+    def Query_PR_All(self):
+        '''
+        获取PR信息
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg,is_pro_license,spec_license,is_approve_license, is_copyright \
+                  FROM  repo_pr "
+            self.cur.execute(sql)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()
