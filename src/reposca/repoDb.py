@@ -715,7 +715,7 @@ class RepoDb(object):
         finally:
             self.Close_Con()
 
-    def Query_PR_All(self):
+    def Query_PR_All(self, org):
         '''
         获取PR信息
         '''
@@ -723,8 +723,8 @@ class RepoDb(object):
             self.conn = self.POOL.connection()
             self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
             sql = "SELECT repo_name,repo_org,pr_num,is_pass,is_merg,is_pro_license,spec_license,is_approve_license, is_copyright \
-                  FROM  repo_pr "
-            self.cur.execute(sql)
+                  FROM  repo_pr WHERE repo_org = '%s'"
+            self.cur.execute(sql % org)
             repoList = self.cur.fetchall()
             return repoList
         except pymysql.Error as e:
