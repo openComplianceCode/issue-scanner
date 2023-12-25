@@ -13,6 +13,7 @@ from reposca.itemLicSca import ItemLicSca
 from reposca.queryBoard import QueryBoard
 from reposca.prSca import PrSca
 from reposca.resonseSca import ResonseSca
+from reposca.licenseCheck import LicenseCheck
 from tornado import gen
 from util.scheduleUtil import Scheduler
 from util.postOrdered import infixToPostfix
@@ -148,12 +149,38 @@ class Query(tornado.web.RequestHandler):
         jsonRe = json.dumps(result)
         return jsonRe
 
+class Check(tornado.web.RequestHandler):
+    executor = ThreadPoolExecutor(1000)
+
+    @gen.coroutine
+    def get(self):
+        """get请求"""
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        license = self.get_argument('license')
+        result = yield self.block(license)
+        self.finish(result)
+
+    @gen.coroutine
+    def post(self):
+        '''post请求'''
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        license = self.get_argument('license')
+        result = yield self.block(license)
+        self.finish(result)
+    
+    @run_on_executor
+    def block(self, license):      
+        licCheck = LicenseCheck('repo')
+        result = licCheck.check_admittance(license)
+        jsonRe = json.dumps(result)
+        return jsonRe
 
 application = tornado.web.Application([
     (r"/sca", Main), 
     (r"/lic", LicSca), 
     (r"/doSca", ItemSca), 
     (r"/board", Query),
+    (r"/check", Check)
     ])
 
 if __name__ == '__main__':

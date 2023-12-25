@@ -308,3 +308,18 @@ class LicenseCheck(object):
         
         return result
                        
+    
+    @catch_error
+    def check_admittance(self, license):
+        result = "NOT_ALLOW"
+        lowLic = license.lower()
+        res = self._white_black_list.get(lowLic, "unknow")
+        if res == 'unknow':
+            result = "UNKNOW"
+        elif res['tag'] == "licenses":
+            if res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y' or res['oeApproved'] == 'Y':
+                result = "ALLOW"
+            elif res['lowRisk'] == 'Y':
+                result = "LIMIT"
+        
+        return result
