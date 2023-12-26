@@ -181,7 +181,7 @@ class ItemLicSca(object):
                     self._typeUrl_ = 'https://' + type
                     self._owner_ =  self.getOwner(urlList)
                     self._repo_ = urlList[len(urlList) - 1]        
-                    self._repo_ = self._repo_.strip(".git")          
+                    self._repo_ = self._repo_.split(".git")[0]         
                     scaResult = self.gitCloneFile(temFileSrc)    
                     if scaResult != "":
                         return scaResult  
