@@ -20,7 +20,6 @@ from util.formateUtil import formateUrl
 from util.catchUtil import catch_error
 from git.repo import Repo
 
-# ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 SOURTH_PATH = '/home/repo/persistentRepo'
 TEMP_PATH = '/home/repo/tempRepo'
 LIC_COP_LIST = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_software_notice', 'copyright', '.spec']
@@ -233,14 +232,15 @@ class PrSca(object):
     def getDiffFiles(self):
         fileList = []
         repoStr = "Flag"
-        http = urllib3.PoolManager()            
+        http = urllib3.PoolManager()
+        authorToken = os.environ.get("GITEE_TOKEN")            
         url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
         response = http.request(
             'GET',
             url,
-            # headers = {
-            #     'access_token': ACCESS_TOKEN
-            # }
+            headers = {
+                'access_token': authorToken
+            }
         )         
         resStatus = response.status
         
@@ -258,7 +258,7 @@ class PrSca(object):
                 'GET',
                 url,
                 # headers = {
-                #     'access_token': accessToken
+                #     'access_token': ACCESS_TOKEN
                 # }
             )         
             resStatus = response.status
@@ -305,14 +305,15 @@ class PrSca(object):
     def getCommitInfo(self):
         commit_info = []
         repoStr = "Flag"
-        http = urllib3.PoolManager()            
+        http = urllib3.PoolManager()        
+        authorToken = os.environ.get("GITEE_TOKEN")       
         url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits'
         response = http.request(
             'GET',
             url,
-            # headers = {
-            #     'access_token': ACCESS_TOKEN
-            # }
+            headers = {
+                'access_token': authorToken
+            }
         )         
         resStatus = response.status
         
@@ -330,7 +331,7 @@ class PrSca(object):
                 'GET',
                 url,
                 # headers = {
-                #     'access_token': accessToken
+                #     'access_token': ACCESS_TOKEN
                 # }
             )         
             resStatus = response.status
