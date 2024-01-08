@@ -267,6 +267,7 @@ class PrSca(object):
             raise Exception("Gitee API Fail")
 
         repoStr = response.data.decode('utf-8')
+        print("GITEE_API RES: " + repoStr)
         temList = json.loads(repoStr)
         fileList.extend(temList)     
         return fileList
