@@ -23,7 +23,6 @@ from util.downUtil import Down
 from reposca.takeRepoSca import cleanTemp
 from packageurl import PackageURL
 
-ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 SOURTH_PATH = '/home/repo/tempRepo'
 
 logging.getLogger().setLevel(logging.INFO)

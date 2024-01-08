@@ -20,7 +20,7 @@ from util.formateUtil import formateUrl
 from util.catchUtil import catch_error
 from git.repo import Repo
 
-ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
+# ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 SOURTH_PATH = '/home/repo/persistentRepo'
 TEMP_PATH = '/home/repo/tempRepo'
 LIC_COP_LIST = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_software_notice', 'copyright', '.spec']
@@ -238,28 +238,28 @@ class PrSca(object):
         response = http.request(
             'GET',
             url,
-            headers = {
-                'access_token': ACCESS_TOKEN
-            }
+            # headers = {
+            #     'access_token': ACCESS_TOKEN
+            # }
         )         
         resStatus = response.status
         
         if resStatus == 403:
-            api = AuthApi()
-            response = api.get_token(os.environ.get("GITEE_USER"),
-                                    os.environ.get("GITEE_PASS"),
-                                    os.environ.get("GITEE_REDIRECT_URI"),
-                                    os.environ.get("GITEE_CLIENT_ID"),
-                                    os.environ.get("GITEE_CLIENT_SECRET"),
-                                    "user_info")
-            accessToken = response["access_token"]
+            # api = AuthApi()
+            # response = api.get_token(os.environ.get("GITEE_USER"),
+            #                         os.environ.get("GITEE_PASS"),
+            #                         os.environ.get("GITEE_REDIRECT_URI"),
+            #                         os.environ.get("GITEE_CLIENT_ID"),
+            #                         os.environ.get("GITEE_CLIENT_SECRET"),
+                                    # "user_info")
+            # accessToken = response["access_token"]
             url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
             response = http.request(
                 'GET',
                 url,
-                headers = {
-                    'access_token': accessToken
-                }
+                # headers = {
+                #     'access_token': accessToken
+                # }
             )         
             resStatus = response.status
         
@@ -310,28 +310,28 @@ class PrSca(object):
         response = http.request(
             'GET',
             url,
-            headers = {
-                'access_token': ACCESS_TOKEN
-            }
+            # headers = {
+            #     'access_token': ACCESS_TOKEN
+            # }
         )         
         resStatus = response.status
         
         if resStatus == 403:
-            api = AuthApi()
-            response = api.get_token(os.environ.get("GITEE_USER"),
-                                    os.environ.get("GITEE_PASS"),
-                                    os.environ.get("GITEE_REDIRECT_URI"),
-                                    os.environ.get("GITEE_CLIENT_ID"),
-                                    os.environ.get("GITEE_CLIENT_SECRET"),
-                                    "user_info")
-            accessToken = response["access_token"]
+            # api = AuthApi()
+            # response = api.get_token(os.environ.get("GITEE_USER"),
+            #                         os.environ.get("GITEE_PASS"),
+            #                         os.environ.get("GITEE_REDIRECT_URI"),
+            #                         os.environ.get("GITEE_CLIENT_ID"),
+            #                         os.environ.get("GITEE_CLIENT_SECRET"),
+            #                         "user_info")
+            # accessToken = response["access_token"]
             url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits'
             response = http.request(
                 'GET',
                 url,
-                headers = {
-                    'access_token': accessToken
-                }
+                # headers = {
+                #     'access_token': accessToken
+                # }
             )         
             resStatus = response.status
         
