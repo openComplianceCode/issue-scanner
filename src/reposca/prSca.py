@@ -240,7 +240,6 @@ class PrSca(object):
         params = CONF['API_TOKEN']
         token_list = params.split(",")
         authorToken = random.choice(token_list)
-        logging.info("GITEE_API token: " + authorToken)
         url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
         response = http.request(
             'GET',
@@ -253,7 +252,6 @@ class PrSca(object):
         
         if resStatus == 403:
             authorToken = random.choice(token_list)
-            logging.info("GITEE_API token: " + authorToken)
             url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
             response = http.request(
                 'GET',
@@ -268,7 +266,6 @@ class PrSca(object):
             raise Exception("Gitee API Fail")
 
         repoStr = response.data.decode('utf-8')
-        logging.info("GITEE_API RES: " + repoStr)
         temList = json.loads(repoStr)
         fileList.extend(temList)     
         return fileList
@@ -313,8 +310,7 @@ class PrSca(object):
         CONF = yaml.safe_load(open(config_url))
         params = CONF['API_TOKEN']
         token_list = params.split(",")
-        authorToken = random.choice(token_list)
-        logging.info("GITEE_API token: " + authorToken)     
+        authorToken = random.choice(token_list) 
         url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits'
         response = http.request(
             'GET',
