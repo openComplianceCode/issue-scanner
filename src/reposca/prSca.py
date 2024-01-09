@@ -116,6 +116,8 @@ class PrSca(object):
             if 'gitee.com' in self._domain_:
                 pr_flag = "gitee"
                 fileList =  self.getDiffFiles()    
+                if fileList is None:
+                    fileList = []
                 self._commit_ = self.getCommitInfo() 
             else:
                 pr_flag = "github"
@@ -249,21 +251,29 @@ class PrSca(object):
             }
         )         
         resStatus = response.status
-        
         if resStatus == 403:
-            authorToken = random.choice(token_list)
-            url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
-            response = http.request(
-                'GET',
-                url,
-                headers = {
-                    'access_token': authorToken
-                }
-            )         
-            resStatus = response.status
+            token_list.remove(authorToken)
+            while (len(token_list) > 0):
+                authorToken = random.choice(token_list)
+                url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
+                response = http.request(
+                    'GET',
+                    url,
+                    headers = {
+                        'access_token': authorToken
+                    }
+                )         
+                resStatus = response.status
+                if resStatus == 200:
+                    break
+                else:
+                    token_list.remove(authorToken)
         
         if resStatus == 404:
             raise Exception("Gitee API Fail")
+
+        if resStatus == 403:
+            raise Exception("Gitee API LIMIT")
 
         repoStr = response.data.decode('utf-8')
         temList = json.loads(repoStr)
@@ -318,23 +328,32 @@ class PrSca(object):
             headers = {
                 'access_token': authorToken
             }
-        )         
-        resStatus = response.status
-        
+        )
+
+        resStatus = response.status       
         if resStatus == 403:
-            authorToken = random.choice(token_list)
-            url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits'
-            response = http.request(
-                'GET',
-                url,
-                headers = {
-                    'access_token': authorToken
-                }
-            )         
-            resStatus = response.status
+            token_list.remove(authorToken)
+            while (len(token_list) > 0):
+                authorToken = random.choice(token_list)
+                url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits'
+                response = http.request(
+                    'GET',
+                    url,
+                    headers = {
+                        'access_token': authorToken
+                    }
+                )         
+                resStatus = response.status
+                if resStatus == 200:
+                    break
+                else:
+                    token_list.remove(authorToken)
         
         if resStatus == 404:
             raise Exception("Gitee API Fail")
+
+        if resStatus == 403:
+            raise Exception("Gitee API LIMIT")
 
         repoStr = response.data.decode('utf-8')
         temList = json.loads(repoStr)
@@ -373,11 +392,12 @@ class PrSca(object):
     @catch_error
     def get_copyright_type(self, commit_info):
         copyright_type = "No"
-        for item in commit_info:
-            commit_email = item['commit']['committer']['email']
-            if ("huawei.com" in commit_email):
-                copyright_type = "Huawei"
-                break
+        if commit_info is not None:
+            for item in commit_info:
+                commit_email = item['commit']['committer']['email']
+                if ("huawei.com" in commit_email):
+                    copyright_type = "Huawei"
+                    break
         return copyright_type
             
 
