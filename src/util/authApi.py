@@ -3,9 +3,9 @@ import os
 import random
 import requests
 import urllib3
+import yaml
 
 from util.catchUtil import catch_error
-ACCESS_TOKEN = '694b8482b84b3704c70bceef66e87606'
 USER_AGENT = [
     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 OPR/26.0.1656.60',
     'Opera/8.0 (Windows NT 5.1; U; en)',
@@ -35,9 +35,37 @@ class AuthApi(object):
     @catch_error    
     def getPrInfo(self, owner, repo, num):
         http = urllib3.PoolManager() 
-        apiUrl = 'https://gitee.com/api/v5/repos/'+owner+'/'+repo+'/pulls/'+num+'?access_token='+ACCESS_TOKEN
-        response = http.request('GET',apiUrl)       
+        project_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))      
+        config_url = project_path + '/token.yaml'
+        CONF = yaml.safe_load(open(config_url))
+        params = CONF['API_TOKEN']
+        token_list = params.split(",")
+        authorToken = random.choice(token_list)
+        apiUrl = 'https://gitee.com/api/v5/repos/'+owner+'/'+repo+'/pulls/'+num
+        response = http.request(
+            'GET',
+            apiUrl,
+            headers = {
+                'access_token': authorToken
+            }
+        )       
         resStatus = response.status
+        if resStatus == 403:
+            token_list.remove(authorToken)
+            while (len(token_list) > 0):
+                authorToken = random.choice(token_list)
+                response = http.request(
+                    'GET',
+                    apiUrl,
+                    headers = {
+                        'access_token': authorToken
+                    }
+                )         
+                resStatus = response.status
+                if resStatus == 200:
+                    break
+                else:
+                    token_list.remove(authorToken)
         if resStatus == 403:
             logging.error("GITEE API LIMIT")
             return 403
