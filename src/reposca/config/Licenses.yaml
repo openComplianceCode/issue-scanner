@@ -287,17 +287,6 @@ Software Licenses:
     blackReason: ''
     exception: 'N'
   - alias:
-    - TTWL
-    identifier: TTWL
-    fsfApproved: 'N'
-    osiApproved: 'N'
-    oeApproved: 'N'
-    ohApproved: 'N'
-    lowRisk: 'N'
-    black: 'N'
-    blackReason: ''
-    exception: 'N'
-  - alias:
     - Unicode
     identifier: Unicode
     fsfApproved: 'N'
@@ -591,7 +580,7 @@ Software Licenses:
     identifier: AML
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
@@ -886,7 +875,7 @@ Software Licenses:
     identifier: Bitstream-Vera
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
@@ -3176,11 +3165,11 @@ Software Licenses:
     identifier: Info-ZIP
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
-    black: 'Y'
-    blackReason: '不建议引入，免费协议，但有比较多的声明义务，Fedora并没有引入该协议'
+    black: 'N'
+    blackReason: ''
     exception: 'N'
   - alias:
     - Intel Open Source License
@@ -4634,7 +4623,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
@@ -4950,7 +4939,7 @@ Software Licenses:
     identifier: RSA-MD
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
@@ -5943,6 +5932,51 @@ Software Licenses:
     black: 'N'
     blackReason: ''
     exception: 'N'
+  - alias:
+    - TTWL
+    - Text-Tabs+Wrap License
+    identifier: TTWL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+  - alias:
+    - Lucida Bitmap Fonts License
+    identifier: Lucida-Bitmap-Fonts
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+  - alias:
+    - LicenseRef-KDE-Accepted-LGPL
+    identifier: LicenseRef-KDE-Accepted-LGPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    ohApproved: 'N'
+    lowRisk: 'Y'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+  - alias:
+    - LicenseRef-KDE-Accepted-GPL
+    identifier: LicenseRef-KDE-Accepted-GPL
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    ohApproved: 'N'
+    lowRisk: 'Y'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'   
 
   #exception
   - alias:
@@ -6441,4 +6475,5 @@ Software Licenses:
     black: 'N'
     blackReason: ''
     exception: 'Y' 
+    
     
