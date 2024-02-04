@@ -46,6 +46,7 @@ class AuthApi(object):
             'GET',
             apiUrl,
             headers = {
+                'User-Agent': random.choice(USER_AGENT),
                 'access_token': authorToken
             }
         )       
@@ -58,6 +59,7 @@ class AuthApi(object):
                     'GET',
                     apiUrl,
                     headers = {
+                        'User-Agent': random.choice(USER_AGENT),
                         'access_token': authorToken
                     }
                 )         

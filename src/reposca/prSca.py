@@ -247,6 +247,7 @@ class PrSca(object):
             'GET',
             url,
             headers = {
+                'User-Agent': random.choice(USER_AGENT),
                 'access_token': authorToken
             }
         )         
@@ -260,6 +261,7 @@ class PrSca(object):
                     'GET',
                     url,
                     headers = {
+                        'User-Agent': random.choice(USER_AGENT),
                         'access_token': authorToken
                     }
                 )         
@@ -326,6 +328,7 @@ class PrSca(object):
             'GET',
             url,
             headers = {
+                'User-Agent': random.choice(USER_AGENT),
                 'access_token': authorToken
             }
         )
@@ -340,6 +343,7 @@ class PrSca(object):
                     'GET',
                     url,
                     headers = {
+                        'User-Agent': random.choice(USER_AGENT),
                         'access_token': authorToken
                     }
                 )         
