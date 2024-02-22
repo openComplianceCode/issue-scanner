@@ -16,10 +16,10 @@ repoList = ['license', 'readme', 'notice', 'copying', 'third_party_open_source_s
 @catch_error
 def getSourceData(scaJson, type):
     '''
-    :param scaJson: 扫描结果json
-    :param anlyzeSrc: 扫描文件路径
-    :param type: 层级
-    :return:分析结果json
+    :param scaJson: Scan result json
+    :param anlyzeSrc: Scan file path
+    :param type: Level
+    :return:Analysis result json
     '''
     jsonData = json.loads(scaJson)
     itemPath = jsonpath.jsonpath(jsonData, '$.files[*].path')
@@ -46,14 +46,14 @@ def getSourceData(scaJson, type):
                 else:
                     continue
             spdxLicenses = infixToPostfix(spdx_name)
-            # 判断是否项目license
+            # Determine whether the project license
             approve_status = False
             if checkRepoLicense(path, pathDepth):
-                # 判断项目License是否准入
+                # Determine whether the project license is approved
                 itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                 approve_status = itemLicCheck.get('pass')            
             else:
-                # 判断license是否属于认证
+                # Determine whether the license belongs to certification
                 fileLicense = fileLicenseCheck.check_license_safe(spdxLicenses)
                 approve_status = fileLicense.get('pass')
             pathLicense['approve_status'] = approve_status
@@ -62,7 +62,6 @@ def getSourceData(scaJson, type):
 
 @catch_error
 def checkPath(path, depth):
-    # 检查是notice文件
     path = path.lower()
 
     pathLevel = path.split("/")
@@ -74,7 +73,6 @@ def checkPath(path, depth):
 
 @catch_error
 def checkNotice(path, depth):
-    # 检查是notice文件
     path = path.lower()
 
     pathLevel = path.split("/")
@@ -105,7 +103,7 @@ def checkRepoLicense(path, depth):
 @catch_error
 def licenseSplit(licenses):
     license_set = re.split(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?[Oo][Rr]-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', licenses)
-    for index in range(len(license_set)):  # 去除字符串首尾空格
+    for index in range(len(license_set)): 
         license_set[index] = license_set[index].strip()
     license_set = list(filter(None, license_set))
     return license_set

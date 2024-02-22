@@ -22,7 +22,7 @@ class Scheduler(object):
     @catch_error
     def prSchedule(self):
         try:
-            #连接数据库
+            #Connect to the database
             dbObject = RepoDb(
                 host_db = os.environ.get("MYSQL_HOST"), 
                 user_db = os.environ.get("MYSQL_USER"), 

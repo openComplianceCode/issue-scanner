@@ -28,26 +28,26 @@ def catch_error(func):
 @catch_error
 def writeCsv(osUrl,pack):
     
-    #获取所有数据
+    #Get all data
     dbObject = RepoDb()
 
     repoList = dbObject.Query_RepoByOrg(pack)
 
     packUrl =  osUrl + pack
     
-    # 1. 创建文件对象
+    # 1. Create file object
     f = open(pack+'.csv','w',encoding='utf_8_sig',newline='')
 
-    # 2. 基于文件对象构建 csv写入对象
+    # 2. Build csv write object based on file object
     csv_writer = csv.writer(f)
 
-    # 3. 构建列表头
-    csv_writer.writerow(["source","仓库名称","仓库地址","license","是否有项目License","Spec License","非认可License","Copyright文件"])
+    # 3. Build list header
+    csv_writer.writerow(["source","repo_name","repo_url","license","repo license","Spec License","Non-approved License","Copyright file"])
 
     sca_result = []
 
     fileLicenseCheck = LicenseCheck('file')
-    # 数据处理
+    # data processing
     for item in tqdm(repoList,desc="Write repo CSV:", total=len(repoList),colour='green'):
 
         reLicensePathList = []
@@ -55,15 +55,15 @@ def writeCsv(osUrl,pack):
         scaJson = item['sca_json']
 
         haveLicense = "Un"
-        isCopyright = "否"
-        approved = '是'
+        isCopyright = "No"
+        approved = 'Yes'
         unApproved = ''
         specLicense = ''
 
 
         if scaJson is None or scaJson == '':
-            isCopyright = "未扫描"
-            approved = '未扫描'
+            isCopyright = "Not scanned"
+            approved = 'Not scanned'
             unApproved = ''
         else:
 
@@ -78,15 +78,15 @@ def writeCsv(osUrl,pack):
 
                 path = itemPath[i]
 
-                #判断是否含有notice文件
+                #Determine whether there is a notice file
                 if checkNotice(path, 3) and len(copyrightList[i]) > 0 :
-                    if isCopyright == '否':
-                        isCopyright = "是, "
+                    if isCopyright == 'No':
+                        isCopyright = "Yes, "
 
                     isCopyright = isCopyright + "("+path + "), "
                 
                 if path.endswith((".spec",)) and checkPath(path, 2):
-                    #提取spec里的许可证声明
+                    #Extract the license statement in the spec
                     fileUrl = packUrl +"/"+ path
                     spec = Spec.from_file(fileUrl)
                     if spec.license is not None:
@@ -100,20 +100,20 @@ def writeCsv(osUrl,pack):
                     if 'LicenseRef-scancode-' in spdx_name:
                         continue
                     isLicenseText = pathLicense['matched_rule']['is_license_text']
-                    #判断是否有项目license
+                    #Determine whether there is a project license
                     if checkRepoLicense(path, 3) and isLicenseText is True:
                         if haveLicense == 'Un':
-                             haveLicense = '是'
+                             haveLicense = 'Yes'
                         
                         haveLicense = haveLicense + "("+path+"),"
       
-                    #判断license是否属于认证
+                    #Determine whether the license belongs to certification
                     spdxLicenses = infixToPostfix(spdx_name) 
                     fileLicense = fileLicenseCheck.check_license_safe(spdxLicenses)
                     reLicense = fileLicense.get('pass')
 
                     if reLicense is False and path not in reLicensePathList and pathLicense['start_line'] != pathLicense['end_line']:
-                        approved = '否'
+                        approved = 'No'
                         unApproved = unApproved + spdx_name + "("+path + ", start_line: "+str(pathLicense['start_line'])+", end_line: "+str(pathLicense['end_line'])+"), "
                         reLicensePathList.append(path)
 
@@ -122,9 +122,9 @@ def writeCsv(osUrl,pack):
         repoLicense = item['repo_license']
         
         if repoLicense is None and haveLicense == 'Un':
-            haveLicense = "否"
+            haveLicense = "No"
         elif repoLicense is not None and haveLicense == 'Un':
-            haveLicense = "是"
+            haveLicense = "Yes"
 
         if len(specLicenseList) > 0:
             specLicense = "".join(specLicenseList)
@@ -132,7 +132,7 @@ def writeCsv(osUrl,pack):
         isCopyright.strip( ', ' )
         approved.strip(', ')
 
-        #更新数据
+        #Update data
         repoData = (haveLicense, specLicense, approved, isCopyright, item['id'])
         dbObject.Modify_RepoSca(repoData)
 
@@ -149,11 +149,11 @@ def writeCsv(osUrl,pack):
 
         csvData = [item['repo_org'],item['repo_name'],item['repo_url'],repoLicense,haveLicense,specLicense,approved,isCopyright]
 
-        # 4. 写入csv文件内容
+        # 4. Write csv file content
         csv_writer.writerow(csvData)
 
 
-    # 5. 关闭文件
+    # 5. close file
     f.close()
 
     sca_result.sort(key=lambda x: x['repoName'], reverse=True)

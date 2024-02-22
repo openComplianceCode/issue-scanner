@@ -3,7 +3,7 @@ import re
 import sys
 from util.stack import Stack
 
-operator = { #前后顺序代表优先级
+operator = {
     'or': 3,
     'and': 3,
     'with': ValueError ,
@@ -36,7 +36,7 @@ def infixToPostfix(infixexpr):
         
         token_list.append(license_set[len(license_set) - 1])
 
-        for index in range(len(token_list)):  # 去除字符串首尾空格
+        for index in range(len(token_list)): 
             if ' -or' in token_list[index].lower() or 'or- ' in token_list[index].lower():
                 token_list[index] = 'or'
             token_list[index] = token_list[index].strip()
@@ -45,18 +45,18 @@ def infixToPostfix(infixexpr):
     
         for token in token_list:
             
-            # 左括号入栈
+            # Push left bracket onto stack
             if token == '(':
                 operation_stack.push(token)
-            # 如果标记是右括号，反复从operation_stack栈中移除元素，
-            # 直到移除对应的左括号
+            # If the marker is a closing parenthesis, repeatedly remove elements from the operation_stack stack,
+            # until the corresponding left bracket is removed
             elif token == ')':
                 top_token = operation_stack.pop()
                 while top_token != '(':
-                    # 将从栈中取出的每一个运算符都添加到结果列表的末尾
+                    # Each operator taken from the stack is added to the end of the result list
                     postfix_list.append(top_token)
                     top_token = operation_stack.pop()
-            # 操作数添加到列表末尾
+            # Operands are added to the end of the list
             elif token.lower() in ['and', 'or', 'with']:
                 while (not operation_stack.is_empty()) and (priority[operation_stack.peek().lower()] >= priority[token.lower()]):
                     postfix_list.append(operation_stack.pop())

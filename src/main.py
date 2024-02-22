@@ -23,7 +23,7 @@ class Main(tornado.web.RequestHandler):
 
     @gen.coroutine
     def get(self):
-        """get请求"""
+        """get request"""
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         prUrl = self.get_argument('prUrl')
         result = yield self.block(prUrl)
@@ -31,7 +31,7 @@ class Main(tornado.web.RequestHandler):
 
     @gen.coroutine
     def post(self):
-        '''post请求'''
+        '''post request'''
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         prUrl = self.get_argument('prUrl')
         result = yield self.block(prUrl)
@@ -49,7 +49,7 @@ class LicSca(tornado.web.RequestHandler):
 
     @gen.coroutine
     def get(self):
-        """get请求"""
+        """get request"""
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('purl')
         url = json.loads(url)
@@ -58,7 +58,7 @@ class LicSca(tornado.web.RequestHandler):
 
     @gen.coroutine
     def post(self):
-        '''post请求'''
+        '''post request'''
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('purl')    
         url = json.loads(url)
@@ -77,7 +77,7 @@ class ItemSca(tornado.web.RequestHandler):
 
     @gen.coroutine
     def get(self):
-        """get请求"""
+        """get request"""
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')
         asyn = self.get_argument('async','False')
@@ -95,7 +95,7 @@ class ItemSca(tornado.web.RequestHandler):
 
     @gen.coroutine
     def post(self):
-        '''post请求'''
+        '''post request'''
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')  
         asyn = self.get_argument('async','False')  
@@ -124,7 +124,7 @@ class Query(tornado.web.RequestHandler):
 
     @gen.coroutine
     def get(self):
-        """get请求"""
+        """get request"""
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         tag = self.get_argument('tag')
         org = self.get_argument('org','')
@@ -134,7 +134,7 @@ class Query(tornado.web.RequestHandler):
 
     @gen.coroutine
     def post(self):
-        '''post请求'''
+        '''post request'''
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         tag = self.get_argument('tag')
         org = self.get_argument('org','')
@@ -154,7 +154,7 @@ class Check(tornado.web.RequestHandler):
 
     @gen.coroutine
     def get(self):
-        """get请求"""
+        """get request"""
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         license = self.get_argument('license')
         result = yield self.block(license)
@@ -162,7 +162,7 @@ class Check(tornado.web.RequestHandler):
 
     @gen.coroutine
     def post(self):
-        '''post请求'''
+        '''post request'''
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         license = self.get_argument('license')
         result = yield self.block(license)

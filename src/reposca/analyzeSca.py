@@ -1,9 +1,7 @@
 import json
 import logging
-import os
 import re
 import jsonpath
-import yaml
 from reposca.licenseCheck import LicenseCheck
 from util.catchUtil import catch_error
 from util.postOrdered import infixToPostfix
@@ -17,10 +15,10 @@ SOURTH_PATH = '/home/giteeFile'
 @catch_error
 def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
     '''
-    :param repoSrc: 扫描文件路径
-    :param repo: 项目名
-    :param scaJson: 扫描结果json
-    :return:分析结果json
+    :param repoSrc: scan file paths
+    :param repo: repo name
+    :param scaJson: scan result json
+    :return:analysis result json
     '''
     sca_result = {}
     specLicenseList = []
@@ -61,7 +59,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
     itemLicFlag = False
     for i, var in enumerate(licenseList):   
         path = itemPath[i]
-        # 判断是否含有项目copyrgiht文件
+        # Determine whether the project copyrgiht file is included
         if checkNotice(path, pathDepth) and len(copyrightList[i]) > 0:
             if isCopyright is False:
                 isCopyright = True
@@ -71,7 +69,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
                 crInfoList.append(info['copyright'])
             noticeCopyright = noticeCopyright + "(" + path + "), "
         
-        #检查commit文件版权
+        #Check commit file copyright
         if is_in(path, file_array) and copyright_type == 'Huawei':
             if len(copyrightList[i]) > 0:
                 copyrightInfo = copyrightList[i]
@@ -84,7 +82,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
 
 
         if path.endswith((".spec",)) and checkPath(path, 2):
-            # 提取spec里的许可证声明
+            # Extract the license statement in the spec
             fileUrl = anlyzeSrc + "/" + itemPath[i]
             try:
                 spec = Spec.from_file(fileUrl)
@@ -127,12 +125,12 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
                 else:
                     continue
             spdxLicenses = infixToPostfix(spdx_name)
-            # 判断是否有项目license
+            # Determine whether there is a repo license
             if checkRepoLicense(path, pathDepth) and specFlag:
                 if haveLicense is False:
                     haveLicense = True
                     noticeLicense = ""
-                    # 判断项目License是否准入
+                    # Determine whether the repo license is approved
                     itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     itemLicense = itemLicCheck.get('pass')
                     noticeItemLic = itemLicCheck.get('notice')
@@ -142,7 +140,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
                     if path.lower().endswith(("license",)):
                         itemLicFlag = True
                 elif path.lower().endswith(("license",)) and path not in itemPathList and itemLicFlag is False:
-                    # 判断项目License是否准入
+                    # Determine whether the repo license is approved
                     itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     itemLicense = itemLicCheck.get('pass')
                     noticeItemLic = itemLicCheck.get('notice')
@@ -152,7 +150,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
                     itemLicList.append(spdx_name)
                     itemPathList.append(path)
                 elif path in itemPathList and spdx_name not in itemLicList:
-                    # 同一个文件的做检查
+                    # Check the same file
                     itemLicCheck = licenseCheck.check_license_safe(spdxLicenses)
                     itemLicTemp = itemLicCheck.get('pass')
                     if itemLicTemp is False:
@@ -164,7 +162,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
                         itemDetial = mergDetial(itemDetial, itemLicCheck.get('detail'))
                     itemLicList.append(spdx_name)
             else:
-                # 判断license是否属于认证
+                # Determine whether the license belongs to certification
                 fileLicense = fileLicenseCheck.check_license_safe(spdxLicenses)
                 reLicense = fileLicense.get('pass')
                 spdLower = spdx_name.lower()
@@ -227,7 +225,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
 
 @catch_error
 def checkPath(path, depth):
-    # 检查是notice文件
+    # Check the notice file
     path = path.lower()
 
     pathLevel = path.split("/")
@@ -239,7 +237,7 @@ def checkPath(path, depth):
 
 @catch_error
 def checkNotice(path, depth):
-    # 检查是notice文件
+    # Check the notice file
     path = path.lower()
 
     pathLevel = path.split("/")
@@ -320,7 +318,7 @@ def mergDetial(oldDetial, lastDetial):
 @catch_error
 def licenseSplit(licenses):
     license_set = re.split(r'\(|\)|\s+\,|\s+[Aa][Nn][Dd]\s+|\s+-?[Oo][Rr]-?\s+|\s+/\s+|\s+[Ww][Ii][Tt][Hh]\s+', licenses)
-    for index in range(len(license_set)):  # 去除字符串首尾空格
+    for index in range(len(license_set)):  # Remove leading and trailing spaces from string
         license_set[index] = license_set[index].strip()
     license_set = list(filter(None, license_set))
     return license_set

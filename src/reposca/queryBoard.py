@@ -9,7 +9,7 @@ logging.getLogger().setLevel(logging.INFO)
 class QueryBoard(object):
     
     def __init__(self):
-        #连接数据库
+        #Connect to the database
         self._dbObject_ = RepoDb(
             host_db = os.environ.get("MYSQL_HOST"), 
             user_db = os.environ.get("MYSQL_USER"), 

@@ -25,8 +25,8 @@ class LicenseCheck(object):
 
     def __init__(self, type):
         """
-        type :  repo -  仓库级
-                file -  文件级
+        type :  repo -  repo-level
+                file -  file-level
         """
         self._white_black_list = {}
         self._license_translation = {}

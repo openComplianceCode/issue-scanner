@@ -1,35 +1,35 @@
 # issue-scanner
 
-以服务化方式提供扫描分析软件仓、PR 的license、Copyright功能，支持Gitee、Github、Gitlab、http、purl链接输入。
+Provides scanning analysis software, PR license and copyright functions in a service-oriented manner, and supports Gitee, Github, Gitlab, http, and purl link input.
 
 
-# License 合规问题(规则基线)
+# License Compliance issues (rules baseline)
 
-本规则旨在帮助社区开发者了解仓库中存在的合规问题，对于项目的合规而言，本规则是 License 合规的最低要求。License 的合规问题包括但不限于此，下面列出的是一些常见的 license 合规问题。
+This rule is designed to help community developers understand the compliance issues that exist in the software. For project compliance, this rule is the minimum requirement for License compliance. License compliance issues include but are not limited to these. Listed below are some common license compliance issues.
 
-| **问题**                               | **基线**                                                                                                                                                                                                                                                                         | 说明                                                                        |
+| **issues**                               | **baseline**                                                                                                                                                                                                                                                                         | explain                                                                        |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| 1. 项目缺乏整体的 License              | 在根目录（license、readme、copyright、notice 等）或者 1 层子目录（/License(s)/License, _Notice_/License 等)下有文件中有 License 的完整文本的说明。                                                                                                                               | 项目 License 文本内容应保证完整性                                           |
-| 2. 项目 spec 文件的 License 不规范     | License 名称清晰性、规范性，不产生歧义                                                                                                                                                                                                                                           | 项目的 License 名称不产生歧义，如 License 名称错误、未携带 License 版本号等 |
-| 3. 缺乏项目级的 Copyright 声明         | 在根目录或者 1 层子目录，包括但不限于以下文件：License, copyright, readme, notice 中的任何一个文件中包含 copyrights 字段描述                                                                                                                                                     | 项目级的 Copyright 声明清晰性、规范性                                       |
-| 4.项目使用非 FSF 或 OSI 认证的 License | 定义的可引入 license 合集                                                                                                                                                                                                                                                        | 建议使用经过 FSF 或 OSI 认证的许可证，非认证许可证需经过评审                |
+| 1. The project lacks an overall license              | There is a description of the complete text of the License in the file under the root directory (license, readme, copyright, notice, etc.) or the first-level subdirectory (/License(s)/License, _Notice_/License, etc.).                                                                                                                               | The project license text content should ensure completeness                                           |
+| 2. The license of the project spec file is not standardized     | The license name is clear and standardized, and does not create ambiguity.                                                                                                                                                                                                                                           | The license name of the project does not cause ambiguity, such as the license name is wrong, the license version number is not carried, etc. |
+| 3. Lack of repo-level copyright statement         | Contain copyrights field description in any file in the root directory or level 1 subdirectory, including but not limited to the following files: License, copyright, readme, notice                                                                                                                                                     | repo-level Copyright statement clarity and standardization                                       |
+| 4.The repo uses a license that is not FSF or OSI certified | Defined importable license list                                                                                                                                                                                                                                                       | It is recommended to use an FSF or OSI certified license, non-certified licenses are subject to review                |
 
 
-# License 合规实践指南（最佳实践）
+# License Compliance Practice Guide (Best Practices)
 
-本规则旨在提供项目的 License 合规优秀实践案例，是 License 合规基线要求的补充。License 的合规项目包括但不限于此，下面列出的是一些常见的 license 合规项目。
+This rule is intended to provide projects with good practice cases for License compliance and is a supplement to the License compliance baseline requirements. License compliance items include but are not limited to these. Listed below are some common license compliance items.
 
-| **描述**                   | **最佳实践**                                                                                                                     |      |
+| **describe**                   | **Best Practices**                                                                                                                     |      |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --- |
-| 1. 项目整体的 License      | 建议使用以下两种方式之一：<br> 1.在根目录下放单独的 License 文件。<br> 2.在 Licenses/License 子目录下放单独的完整 License 文件。 |
-| 2. License 名称            | 使用统一格式的 spdx-indentifier                                                                                                  |
-| 3. 项目级的 Copyright 声明 | 建议使用以下两种方式之一：<br>1. 在根目录下放单独的 Copyright Notice 文件。<br> 2.在 Notice 子目录下放单独的完整 Notice 文件。   |
-| 4 项目所使用的 License     | 项目全部使用经过 FSF 或 OSI 认证的 License        
+| 1. License for the entire repo      | It is recommended to use one of the following two methods:<br> 1. Place a separate License file in the root directory. <br> 2. Place a separate complete License file in the Licenses/License subdirectory. |
+| 2. License name            | Use unified format spdx-identifier                                                                                                  |
+| 3. Repo-level Copyright Statement | It is recommended to use one of the following two methods:<br>1. Place a separate Copyright Notice file in the root directory. <br> 2. Place a separate complete Notice file in the Notice subdirectory.   |
+| 4 License used by the repo     | All projects use licenses certified by FSF or OSI        
 
-# 许可证准入列表
-许可证准入列表参考：
+# License access list
+License Access List Reference：
 <https://compliance.openeuler.org/license-list>
 
 ---
 
-[返回目录](../../README.md)
+[Back to Contents](../../README.md)

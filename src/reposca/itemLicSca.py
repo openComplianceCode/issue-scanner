@@ -30,7 +30,7 @@ logging.getLogger().setLevel(logging.INFO)
 class ItemLicSca(object):
 
     def __init__(self):
-        #连接数据库
+        #Connect to the database
         self._dbObject_ = RepoDb(
             host_db = os.environ.get("MYSQL_HOST"), 
             user_db = os.environ.get("MYSQL_USER"), 
@@ -55,9 +55,9 @@ class ItemLicSca(object):
             if 'openeuler' in owner.lower():
                 self._commit_ = 'master'
             self._purl_ = var
-            #先查询数据是否存在
+            #First check whether the data exists
             if commit is None:
-                #获取最新数据
+                #Get the latest data
                 itemData = (self._owner_, self._repo_)
                 itemLic = self._dbObject_.Query_Repo_ByTime(itemData)
             else:
@@ -122,7 +122,7 @@ class ItemLicSca(object):
     def licSca(self, url):
         try:
             self._timestamp_ = int(time.time())
-            # 创建临时文件
+            # Create temporary files
             temFileSrc = SOURTH_PATH +'/tempSrc'
             temFileSrc = formateUrl(temFileSrc)
             self._delSrc_ = ''
@@ -153,7 +153,7 @@ class ItemLicSca(object):
                         "repo_license_legal": {
                             "pass": False,
                             "result_code": "",
-                            "notice": "下载失败:"+ url,
+                            "notice": "Download failed:"+ url,
                             "is_legal": {
                                 "pass": False,
                                 "license": [],
@@ -166,7 +166,7 @@ class ItemLicSca(object):
                         "repo_copyright_legal": {
                             "pass": False,
                             "result_code": "",
-                            "notice": "下载失败:"+ url,
+                            "notice": "Download failed:"+ url,
                             "copyright": []
                         }
                     }
@@ -174,7 +174,7 @@ class ItemLicSca(object):
                 HttpMessage = response.info()                
                 ContentType = HttpMessage.get("Content-Type")   
                 self._commit_ = "master"           
-                #判断下载链接/网站链接 
+                #Determine download link/website link 
                 if "text/html;" in ContentType:        
                     type = urlList[2]
                     self._typeUrl_ = 'https://' + type
@@ -206,7 +206,7 @@ class ItemLicSca(object):
                             "repo_license_legal": {
                                 "pass": False,
                                 "result_code": "",
-                                "notice": "下载失败:"+ url,
+                                "notice": "Download failed:"+ url,
                                 "is_legal": {
                                     "pass": False,
                                     "license": [],
@@ -219,7 +219,7 @@ class ItemLicSca(object):
                             "repo_copyright_legal": {
                                 "pass": False,
                                 "result_code": "",
-                                "notice": "下载失败:"+ url,
+                                "notice": "Download failed:"+ url,
                                 "copyright": []
                             }
                         }
@@ -230,7 +230,7 @@ class ItemLicSca(object):
                             "repo_license_legal": {
                                 "pass": False,
                                 "result_code": "",
-                                "notice": "下载失败:"+ url,
+                                "notice": "Download failed:"+ url,
                                 "is_legal": {
                                     "pass": False,
                                     "license": [],
@@ -243,7 +243,7 @@ class ItemLicSca(object):
                             "repo_copyright_legal": {
                                 "pass": False,
                                 "result_code": "",
-                                "notice": "下载失败:"+ url,
+                                "notice": "Download failed:"+ url,
                                 "copyright": []
                             }
                         }
@@ -253,10 +253,10 @@ class ItemLicSca(object):
             scaResult = ''
             self._file_ = 'temp'
                   
-            # 扫描pr文件
+            # Scan pr files
             scaJson = self.getPrSca()
             scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_, "NO", [])
-            # 存入数据库
+            # Save to database
             scaJson = pymysql.escape_string(scaJson)
             repoLicLg = scaResult['repo_license_legal']
             specLicLg = scaResult['spec_license_legal']
@@ -267,7 +267,7 @@ class ItemLicSca(object):
             specLicLg = pymysql.escape_string(str(specLicLg))
             licScope = pymysql.escape_string(str(licScope))
             copyrightLg = pymysql.escape_string(str(copyrightLg))
-            #检查是否存在数据
+            #Check if data exists
             itemData = (self._owner_, self._repo_, self._commit_)
             itemLic = self._dbObject_.Query_Repo_ByVersion(itemData)
             if itemLic is None:
@@ -281,7 +281,7 @@ class ItemLicSca(object):
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
         finally:
-            # 清理临时文件
+            # Clean temporary files
             if self._delSrc_ != '':
                 try:
                     cleanTemp(self._delSrc_)
@@ -294,9 +294,9 @@ class ItemLicSca(object):
     @catch_error
     def getPrSca(self):
         '''
-        :param repoSrc: 扫描项目路径
-        :param pathList: 扫描文件路径List
-        :return:扫描结果json
+        :param repoSrc: Scan project path
+        :param pathList: Scan file path list
+        :return: Scan result json
         '''
         try:
             temJsonSrc = SOURTH_PATH +'/tempJson'
@@ -310,17 +310,17 @@ class ItemLicSca(object):
             if os.path.exists(tempJson) is False:
                 open(tempJson, 'w')
 
-            self._type_ = "inde"#自研
+            self._type_ = "inde"
             maxDepth = 2
             reExt = extractCode(self._repoSrc_)
             if reExt == "Except":
                 logging.error("file extracCode error")
             elif reExt == "ref":
-                self._type_ = "ref"#引用仓
+                self._type_ = "ref"
                 maxDepth = 3           
 
             logging.info("==============START SCAN REPO==============")
-            # 调用scancode
+            # Call scancode
             command = shlex.split(
                 'scancode -l -c %s --max-depth %s --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80' % (self._repoSrc_, maxDepth, tempJson))
             resultCode = subprocess.Popen(command)
@@ -328,7 +328,7 @@ class ItemLicSca(object):
                 time.sleep(1)
             popKill(resultCode)
             scaJson = ''
-            # 获取json
+            # Get json
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
                 scaJson = "".join(list)
@@ -337,7 +337,7 @@ class ItemLicSca(object):
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s: %s" % (command, e))
         finally:
-            # 清空文件
+            # Clear files
             os.chmod(tempJson, stat.S_IWUSR)
             os.remove(tempJson)
             return scaJson
@@ -351,7 +351,7 @@ class ItemLicSca(object):
             self._typeUrl_ = 'https://' + type + '.com'
         else:
             scaResult = {
-                "repo_license": ['不支持的type类型'],
+                "repo_license": ['Unsupported type'],
                 "repo_license_legal": [],
                 "repo_license_illegal": [],
                 "repo_copyright_legal": [],
@@ -377,22 +377,27 @@ class ItemLicSca(object):
             origin.fetch(self._commit_, depth=1)
             repo.git.checkout("FETCH_HEAD")
         except Exception as e:
-            scaResult = {
-                "repo_license_legal": {
-                    "pass": False,
-                    "result_code": "",
-                    "notice": "Git clone 失败，无效URL",
-                    "is_legal": {"pass": False,"license": [],"notice": "","detail": {}}
-                },
-                "spec_license_legal": {},
-                "license_in_scope": {},
-                "repo_copyright_legal": {
-                    "pass": False,
-                    "result_code": "",
-                    "notice": "Git clone 失败，无效URL",
-                    "copyright": []
+            if e.status == 128:
+                self._commit_ = "main"
+                origin.fetch(self._commit_, depth=1)
+                repo.git.checkout("FETCH_HEAD")
+            else:
+                scaResult = {
+                    "repo_license_legal": {
+                        "pass": False,
+                        "result_code": "",
+                        "notice": "Git clone failed, invalid URL",
+                        "is_legal": {"pass": False,"license": [],"notice": "","detail": {}}
+                    },
+                    "spec_license_legal": {},
+                    "license_in_scope": {},
+                    "repo_copyright_legal": {
+                        "pass": False,
+                        "result_code": "",
+                        "notice": "Git clone failed, invalid URL",
+                        "copyright": []
+                    }
                 }
-            }
             return scaResult
         logging.info("===============END FETCH REPO==============")
         return scaResult

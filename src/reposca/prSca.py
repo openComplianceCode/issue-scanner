@@ -40,7 +40,7 @@ logging.getLogger().setLevel(logging.INFO)
 class PrSca(object):
 
     def __init__(self):
-        #连接数据库
+        #Connect to the database
         self._dbObject_ = RepoDb(
             host_db = os.environ.get("MYSQL_HOST"), 
             user_db = os.environ.get("MYSQL_USER"), 
@@ -104,15 +104,15 @@ class PrSca(object):
             self._git_ = repo.git
 
             logging.info("=============START FETCH REPO==============")     
-            # 拉取pr
+            # Pull pr
             if self._file_ == 'sourth':
                 remote = self._gitRepo_.remote()
             else:
                 remote = self._gitRepo_.create_remote('origin', self._gitUrl_)
             remote.fetch(fetchUrl, depth=1)
-            # 切换分支
+            # Switch branch
             self._git_.checkout(self._branch_)
-            #获取PR增量文件目录&commit信息
+            #Get PR incremental file directory & commit information
             if 'gitee.com' in self._domain_:
                 pr_flag = "gitee"
                 fileList =  self.getDiffFiles()    
@@ -123,13 +123,13 @@ class PrSca(object):
                 pr_flag = "github"
                 fileList = self.getDiffFilesByGithub()
                 self._commit_ = self.getCommitByGithub() 
-            #创建diff副本
+            #Create a diff copy
             self._diffPath_ = self.createDiff(fileList)             
             copyright_type = self.get_copyright_type(self._commit_)
             
             logging.info("==============END FETCH REPO===============")
             
-            # 扫描pr文件
+            # Scan pr files
             scaJson = self.getPrSca()
             scaResult = getScaAnalyze(scaJson, self._anlyzeSrc_, self._type_, copyright_type, self._fileArray_)
             # Save Data
@@ -138,7 +138,7 @@ class PrSca(object):
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
         finally:
-            # 清理临时文件
+            # Clean temporary files
             if delSrc != '':
                 try:
                     cleanTemp(delSrc)
@@ -152,9 +152,9 @@ class PrSca(object):
     @catch_error
     def getPrSca(self):
         '''
-        :param repoSrc: 扫描项目路径
-        :param pathList: 扫描文件路径List
-        :return:扫描结果json
+        :param repoSrc: Scan project path
+        :param pathList: Scan file path list
+        :return: Scan result json
         '''
         try:
             temJsonSrc = TEMP_PATH +'/tempJson'
@@ -168,7 +168,7 @@ class PrSca(object):
             if os.path.exists(tempJson) is False:
                 open(tempJson, 'w')
 
-            self._type_ = "inde"#自研
+            self._type_ = "inde"
             maxDepth = 2
             logging.info("============START EXTARCT CODE=============")
             reExt = extractCode(self._repoSrc_)
@@ -176,11 +176,11 @@ class PrSca(object):
             if reExt == "Except":
                 logging.error("file extracCode error")
             elif reExt == "ref":
-                self._type_ = "ref"#引用仓
+                self._type_ = "ref"
                 # maxDepth = 3
 
             logging.info("==============START SCAN REPO==============")        
-            # 调用scancode
+            # Call scancode
             licInList = ("* --include=*").join(LIC_COP_LIST)
             command = shlex.split(
                 'scancode -l -c %s --max-depth %s --json %s -n 4 --timeout 10 --max-in-memory -1 \
@@ -190,7 +190,7 @@ class PrSca(object):
                 time.sleep(1)
             popKill(resultCode)
             itemJson = ''
-            # 获取json
+            # Get json
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
                 itemJson = "".join(list)
@@ -203,7 +203,7 @@ class PrSca(object):
             popKill(resultCode)
 
             scaJson = ''
-            # 获取json
+            # Get json
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
                 scaJson = "".join(list)
@@ -215,7 +215,7 @@ class PrSca(object):
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))
         finally:
-            # 清空文件
+            # clear files
             os.chmod(tempJson, stat.S_IWUSR)
             os.remove(tempJson)
             return reJson
@@ -477,7 +477,7 @@ class PrSca(object):
             mergedAt = prData['merged_at']
             if mergedAt is not None:
                 mergeState = 1
-            # 存入数据库
+            # Save to database
             scaJson = pymysql.escape_string(scaJson)
             repoLicLg = scaResult['repo_license_legal']
             specLicLg = scaResult['spec_license_legal']
@@ -493,7 +493,7 @@ class PrSca(object):
             licScope = pymysql.escape_string(str(licScope))
             copyrightLg = pymysql.escape_string(str(copyrightLg))
             
-        #检查是否存在数据
+        #Check if data exists
         itemData = (self._owner_, self._repo_, self._num_)
         itemLic = self._dbObject_.Query_PR(itemData)
         if itemLic is None:

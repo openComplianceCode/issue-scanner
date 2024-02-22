@@ -1,10 +1,10 @@
 # issue-scanner
 
-* 一、[issue-scanner介绍](doc/scanner/issueScanner.md)
+* 1、[issue-scanner introduce](doc/scanner/issueScanner.md)
 
-* 二、[运行](doc/run/howToRun.md)
+* 2、[Run](doc/run/howToRun.md)
 
-* 三、API文档
-    1. [PR合规扫描](doc/api/pr.md)
-    2. [软件仓合规扫描](doc/api/repo.md)
-    3. [软件仓合规信息查询](doc/api/repoQuery.md)
+* 3、API doc
+    1. [PR compliance scan](doc/api/pr.md)
+    2. [Software compliance scan](doc/api/repo.md)
+    3. [Software compliance information query](doc/api/repoQuery.md)

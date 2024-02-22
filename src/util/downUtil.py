@@ -7,41 +7,40 @@ import requests
 
 class Down(object):
 
-    #断点下载
+    #Breakpoint download
     def downLoad(slef, url, filePath, retryTimes):
         '''
-        :param url: 下载连接
-        :param filePath: 下载路径
-        :param retryTimes: 重试次数
+        :param url: Download link
+        :param filePath: Download path
+        :param retryTimes: Number of retries
         :param proxies: proxy
         :retrun: filePath
         '''
-        #重计次数
+        #Recount times
         count = 0
-        #请求获取文件总大小
+        #Request to get the total file size
         requests.packages.urllib3.disable_warnings()
         topReq = requests.get(url, stream = True, verify = False)
 
         totalSize = int(topReq.headers.get('content-length', 0))
 
-        #判断本地文件是否存在，存在则获取文件数据大小
+        #Determine whether the local file exists, and obtain the file data size if it exists
         if os.path.exists(filePath):
             tempSize = os.path.getsize(filePath)
         else:
             tempSize = 0
 
-        #下载
+        #Download
         fileName = basename(filePath)
         while count < retryTimes:
             if count != 0:
                 tempSize = os.path.getsize(filePath)
 
-            #判断结束
             if tempSize >= totalSize:
                 break
 
             count += 1
-            #请求下载时,从下载过的地方开始下载
+            #When requesting a download, start downloading from the location where it was downloaded.
             headers = {"Range": f"bytes={tempSize}-{totalSize}"}
             downReq = requests.get(url, stream=True, verify=False, headers=headers)
 

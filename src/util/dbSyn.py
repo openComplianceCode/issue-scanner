@@ -11,7 +11,6 @@ sys.path.append("..")
 from reposca.repoDb import RepoDb
 
 def dbSyn():
-    # 获取所有数据
     dbObject = RepoDb(name_db='license')
     try:
         with open("../reposca/config/Licenses.yaml", "r", encoding='utf-8') as f:
@@ -28,13 +27,13 @@ def dbSyn():
             isYaml = 1
             alias = ",".join(lic["alias"])
             alias = escape_string(alias)
-            # 查询是否存在与库
+
             repoData = (lic["identifier"])
             osiApproved = 1 if lic["osiApproved"] == 'Y' else 0
             fsfApproved = 1 if lic["fsfApproved"] == 'Y' else 0
             dcLicense = dbObject.Query_License_BySpdx(repoData)
             if dcLicense is None:
-                # 补充许可证
+
                 license = crawlLicense(lic["identifier"])
                 if license is None:
                     continue
@@ -47,7 +46,6 @@ def dbSyn():
                 )
                 dbObject.add_LicData(licenseData)
             else:
-                # 修改
                 licenseData = (isYaml, oeApprove, lowRisk, black, blackReason, alias, dcLicense['id'])
                 dbObject.Modify_License(licenseData)
     except Exception as e:
@@ -61,7 +59,7 @@ def crawlLicense(licnese):
         response = requests.get(licUrl, verify=False)
         if response.status_code == 404:
             return None
-        demo = response.text  # 服务器返回响应
+        demo = response.text  
 
         soup = BeautifulSoup(demo, "lxml")
         licName = soup.find_all(attrs={'property': 'spdx:name'})[0].get_text()

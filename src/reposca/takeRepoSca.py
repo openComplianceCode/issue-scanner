@@ -26,14 +26,14 @@ def catch_error(func):
 def scaRepo(osUrl,pack):
     
     '''
-    :param osUrl: 本地存仓库目录
-    :param pack: 仓库命
-    :param isSrc: 是否是软件包  0 不是  1 是
+    :param osUrl: Local repo path
+    :param pack: Repo name
+    :param isSrc: Is it a software package?  0 No  1 Yes
     '''
 
     packUrl =  osUrl + pack
 
-    #创建临时文件
+    #Create temporary files
     current_dir = os.path.dirname(os.path.abspath(__file__))
     temFileSrc = current_dir+'/temp'
     temFileSrc = formateUrl(temFileSrc)
@@ -50,7 +50,7 @@ def scaRepo(osUrl,pack):
         for dir in tqdm(dirs,desc="SCANING REPO:",total=len(dirs),colour='green'):
             dirUrl = os.path.join(root,dir)
             dirUrl = formateUrl(dirUrl)
-            #检查是否已扫描
+            #Check if scanned
             queryDb = RepoDb()
             repoData = (dir,pack)
             repo = queryDb.Query_Repo_ByName(repoData)
@@ -58,7 +58,7 @@ def scaRepo(osUrl,pack):
             if repo is None or (repo['sca_json'] != None and repo['sca_json'] != ''):
                 continue
 
-            #调用先解压文件里得压缩文件
+            #Call the compressed file in the decompressed file first
             command = shlex.split('extractcode %s' % (dirUrl))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
@@ -75,7 +75,7 @@ def scaRepo(osUrl,pack):
             except OSError:
                 pass
 
-            #调用scancode
+            #Call scancode
             command = shlex.split('scancode -l -c %s --json %s -n 5 --timeout 3 --license-score 70' % (dirUrl, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
@@ -93,21 +93,17 @@ def scaRepo(osUrl,pack):
                 pass
             
             scaJson = ''
-            #获取json
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
                 scaJson = "".join(list)
-                #清空文件
                 f.truncate(0)
 
-            #修改数据库
             scaJson = pymysql.escape_string(scaJson)
             dir = pymysql.escape_string(dir)
             repoData = (scaJson, pack, dir)
             dbObject = RepoDb()
             dbObject.Modify_Repo(repoData)
         
-        #停止遍历子目录
         break
 
 @catch_error
@@ -128,13 +124,11 @@ def checkWrar(filePath):
         return False
 
 def cleanTemp(dirUrl):
-        # 清空临时解压目录   
         for delRoot, delDirs, delFiles in os.walk(dirUrl, topdown=False):
             for delName in delFiles: 
                 try:
                     delUrl = os.path.join(delRoot, delName)
                     delUrl = formateUrl(delUrl)
-                    #防止文件拒绝访问
                     os.chmod(delUrl, stat.S_IRWXU) 
                     os.remove(delUrl)
                 except:
@@ -143,7 +137,6 @@ def cleanTemp(dirUrl):
                 try:
                     delUrl = os.path.join(delRoot, delName)
                     delUrl = formateUrl(delUrl)
-                    #防止文件拒绝访问
                     os.chmod(delUrl, stat.S_IRWXU) 
                     os.rmdir(delUrl)
                 except:

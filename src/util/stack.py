@@ -1,28 +1,28 @@
 
 class Stack(object):
     def __init__(self, limit=1000):
-        self.stack = []  # 存放元素
-        self.limit = limit  # 栈容量极限
+        self.stack = []  # Store elements
+        self.limit = limit  # Stack capacity limit
  
     def push(self, data):
-        # 判断栈容量是否超出范围
+        # Determine whether the stack capacity exceeds the range
         if len(self.stack) >= self.limit:
-            raise IndexError('超出栈容量极限')
+            raise IndexError('Stack capacity limit exceeded')
         self.stack.append(data)
  
     def pop(self):
         if self.stack:
             return self.stack.pop()
         else:
-            # 空栈不能弹出元素
+            # Elements cannot be popped from an empty stack
             raise IndexError('pop from an empty stack')
  
-    def peek(self):  # 查看栈顶元素
+    def peek(self):  # View the top element of the stack
         if self.stack:
             return self.stack[-1]
  
-    def is_empty(self):  # 判断栈是否为空
+    def is_empty(self):  # Determine whether the stack is empty
         return not bool(self.stack)
  
-    def size(self):  # 返回栈的大小
+    def size(self):  # Return stack size
         return len(self.stack)

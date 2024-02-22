@@ -1,34 +1,34 @@
-# 查询软件仓合规信息
+# Query software compliance information
 
-## API接口
+## API interface
 GET/POST  http://127.0.0.1:8868/lic?purl=[{purl}]
 
-### 路径参数
-`purl`: 查询的repopurl地址     list      **必需**
+### Parameters
+`purl`: The purl of the repo that needs to be queried     `list`      **must**
 
-### HTTP状态码
+### HTTP status code
 ```text
 200: OK
 500: Internal Server Error
 ```
 
-### 返回字段说明
+### Result field description
 ```
-purl: purl地址   string
-result: 查询信息结果  json
-repo_license: repo许可证列表  list
-repo_license_legal: repo合规许可证列表  list
-repo_license_illegal: repo不合规许可证列表   list
-repo_copyright_legal: repo合规copyright列表    list(暂时无用)
-repo_copyright_illegal: repo不合规copyright列表    list(暂时无用)
-is_sca: 是否扫描过   boolean
+purl: purl url   string
+result: Query information results  json
+repo_license: repo license list  list
+repo_license_legal: repo compliance license list  list
+repo_license_illegal: repo non-compliant license list   list
+repo_copyright_legal: repo compliance copyright list    list(temporarily useless)
+repo_copyright_illegal: repo non-compliant copyright list    list(temporarily useless)
+is_sca: have you scanned   boolean
 ```
 
-### 样例
-#### 请求
+### Sample
+#### Request
 GET/POST  http://127.0.0.1:8868/lic?purl=["pkg:gitee/openharmony/test@OpenHarmony-v3.1-Release"]
 
-#### 返回
+#### Return
 ```json
 [
     {
@@ -51,4 +51,4 @@ GET/POST  http://127.0.0.1:8868/lic?purl=["pkg:gitee/openharmony/test@OpenHarmon
 
 ---
 
-[返回目录](../../README.md)
+[Back to Contents](../../README.md)

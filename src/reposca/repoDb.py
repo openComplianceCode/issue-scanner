@@ -8,29 +8,29 @@ import pymysql
 
 class RepoDb(object):
 
-    # 定义初始化数据库连接
+    # Define initial database connection
     def __init__(self, host_db='127.0.0.1', user_db='root', password_db='root',
                  name_db='gitee', port_db=3306):
         '''
-        :param host_db: 数据库服务主机IP
-        :param user_db: 数据库连接用户名
-        :param password_db: 数据库密码
-        :param name_db: 数据库名称
-        :param port_db: 数据库端口号，整型数据
-        :param link_type: 连接类型，用于设置输出数据是元祖还是字典，默认是字典，link_type=0
-        :return:游标
+        :param host_db: Database service host IP
+        :param user_db: Database connection user name
+        :param password_db: Database password
+        :param name_db: Name database
+        :param port_db: Database port number, integer data
+        :param link_type: Connection type, used to set whether the output data is a tuple or a dictionary. The default is a dictionary.，link_type=0
+        :return: Cursor
         '''
         try:
             self.POOL = PooledDB(
                 creator = pymysql,
-                maxconnections = 30, #连接池允许的最大连接数，0和None表示不限制连接数
-                mincached = 2, #初始化时候，连接池中至少创建的空闲的链接，0表示不创建
-                maxcached = 5, # 链接池中最多闲置的链接，0和None不限制
-                maxshared = 3,# 链接池中最多共享的链接数量，0和None表示全部共享。PS: 无用，因为pymysql和MySQLdb等模块的 threadsafety都为1，所有值无论设置为多少，_maxcached永远为0，所以永远是所有链接都共享。
-                blocking =True,#连接池中如果没有可用链接后，是否阻塞等待。True，等待；False，不等待然后报错
-                maxusage = None, #一个链接最多被重复使用的次数，None表示无限制
-                setsession=[], #开始会话前执行的命令咧白哦。如['set datastyle to ...','set time zone ... ']
-                ping = 0 , #ping MYSQL 服务端口，检查是否服务克重。 如：0 = None = Never， 1 = default = whenever it is requested, 2 = when a cursor is created，4 = when a query is excuted , 7 =always
+                maxconnections = 30, # The maximum number of connections allowed by the connection pool. 0 and None indicate no limit on the number of connections.
+                mincached = 2, # During initialization, at least the idle link created in the connection pool, 0 means not created
+                maxcached = 5, # The most idle links in the link pool, 0 and None are not limited
+                maxshared = 3,# The maximum number of shared links in the link pool, 0 and None indicate all sharing. PS: Useless, because the threadsafety of modules such as pymysql and MySQLdb is 1, no matter what value is set, _maxcached is always 0, so all links are always shared.
+                blocking =True,# Whether to block and wait if there is no available link in the connection pool. True, wait; False, do not wait and then report an error
+                maxusage = None, # The maximum number of times a link can be reused, None means unlimited
+                setsession=[], # The command executed before starting the session is blank. Such as ['set datastyle to ...', 'set time zone ... ']
+                ping = 0 , # Ping the MYSQL service port to check whether the service is heavy. For example: 0 = None = Never, 1 = default = whenever it is requested, 2 = when a cursor is created, 4 = when a query is excuted, 7 = always
                 host=host_db,
                 user=user_db,
                 password=password_db,
@@ -40,13 +40,13 @@ class RepoDb(object):
             )
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
-            logger.exception("创建数据库连接失败|Mysql Error %d: %s" %
+            logger.exception("Failed to create database connection|Mysql Error %d: %s" %
                              (e.args[0], e.args[1]))
             logger.exception(e)
 
     def Buid_data(self, repoData):
         '''
-        新增repo数据
+        Add repo data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -59,7 +59,7 @@ class RepoDb(object):
 
         except pymysql.Error as e:
             # Rollback in case there is any error
-            # 输出异常信息
+            # Output exception information
             logger = logging.getLogger(__name__)
             logger.exception(e)
             traceback.print_exc()
@@ -69,7 +69,7 @@ class RepoDb(object):
 
     def Buid_OwnerData(self, ownerData):
         '''
-        新增owner数据
+        Add owner data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -89,7 +89,7 @@ class RepoDb(object):
 
     def Query_AllRepo(self):
         '''
-        获取repo数据
+        Get repo data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -107,7 +107,7 @@ class RepoDb(object):
 
     def Modify_Repo(self, repoData):
         '''
-        更新repo数据
+        Update repo data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -126,7 +126,7 @@ class RepoDb(object):
 
     def Query_Repo_ByName(self, repoData):
         '''
-        根据repo name 查询repo数据
+        Query repo data based on repo name
         '''
         try:
             self.conn = self.POOL.connection()
@@ -145,7 +145,7 @@ class RepoDb(object):
 
     def Query_Repo_ByVersion(self, repoData):
         '''
-        根据repo name 查询repo数据
+        Query repo data based on repo name
         '''
         try:
             self.conn = self.POOL.connection()
@@ -166,7 +166,7 @@ class RepoDb(object):
     
     def Query_Repo_ByTime(self, repoData):
         '''
-        根据repo name 查询repo数据 获取最新一次
+        Query repo data based on repo name and get the latest one
         '''
         try:
             self.conn = self.POOL.connection()
@@ -186,7 +186,7 @@ class RepoDb(object):
 
     def Query_RepoByOrg(self, repoOrg):
         '''
-        获取repo数据
+        Get repo data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -204,7 +204,7 @@ class RepoDb(object):
 
     def Check_license(self, repoData):
         '''
-        检查license是否认证
+        Check whether the license is certified
         '''
         try:
             self.conn = self.POOL.connection()
@@ -222,7 +222,7 @@ class RepoDb(object):
 
     def Modify_RepoSig(self, repoData):
         '''
-        更新repo数据的sig组
+        Update the sig group of repo data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -240,7 +240,7 @@ class RepoDb(object):
 
     def Modify_RepoSca(self, repoData):
         '''
-        更新repo的扫描结果
+        Update scan results of repo
         '''
         try:
             self.conn = self.POOL.connection()
@@ -258,7 +258,7 @@ class RepoDb(object):
 
     def Query_License_BySpdx(self, repoData):
         '''
-        根据spdx 查询license数据
+        Query license data based on spdx
         '''
         try:
             self.conn = self.POOL.connection()
@@ -276,7 +276,7 @@ class RepoDb(object):
 
     def Modify_License(self, repoData):
         '''
-        更新license信息
+        Update license information
         '''
         try:
             self.conn = self.POOL.connection()
@@ -294,7 +294,7 @@ class RepoDb(object):
 
     def add_LicData(self, licData):
         '''
-        新增license数据
+        Add license data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -316,7 +316,7 @@ class RepoDb(object):
     
     def get_ItemLic(self, itemData):
         '''
-        根据url 查询项目数据
+        Query project data based on url
         '''
         try:
             self.conn = self.POOL.connection()
@@ -335,7 +335,7 @@ class RepoDb(object):
 
     def add_ItemLic(self, licData):
         '''
-        新增item_lic数据
+        Add item_lic data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -355,7 +355,7 @@ class RepoDb(object):
     
     def upd_ItemLic(self, licData):
         '''
-        更新item_lic数据
+        Update item_lic data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -375,7 +375,7 @@ class RepoDb(object):
     
     def add_PR(self, licData):
         '''
-        新增pr数据
+        Add PR data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -395,7 +395,7 @@ class RepoDb(object):
     
     def upd_PR(self, licData):
         '''
-        更新pr数据
+        Update pr data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -415,7 +415,7 @@ class RepoDb(object):
 
     def Query_PR(self, repoData):
         '''
-        根据repo pr_num 查询PR数据
+        Query PR data based on repo pr_num
         '''
         try:
             self.conn = self.POOL.connection()
@@ -435,7 +435,7 @@ class RepoDb(object):
     
     def Close_Con(self):
         '''
-        关闭连接
+        close connection
         '''
         try:
             self.cur.close()
@@ -447,7 +447,7 @@ class RepoDb(object):
     
     def Query_PR_Merge(self):
         '''
-        查询未合并PR数据
+        Query unmerged PR data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -466,7 +466,7 @@ class RepoDb(object):
     
     def upd_PR_State(self, licData):
         '''
-        更新pr合并数据
+        Update pr merged data
         '''
         try:
             self.conn = self.POOL.connection()
@@ -484,7 +484,7 @@ class RepoDb(object):
 
     def Get_Licenses(self):
         '''
-        获取License
+        Get License
         '''
         try:
             self.conn = self.POOL.connection()
@@ -504,7 +504,7 @@ class RepoDb(object):
     
     def Query_License_Enter(self):
         '''
-        非准入License统计
+        Non-admission license statistics
         '''
         try:
             self.conn = self.POOL.connection()
@@ -524,7 +524,7 @@ class RepoDb(object):
     
     def Query_License_Enter_org(self, licData):
         '''
-        非准入License统计单社区
+        Non-admission license statistics community
         '''
         try:
             self.conn = self.POOL.connection()
@@ -544,7 +544,7 @@ class RepoDb(object):
             
     def Query_License_Enter_repo(self, licData):
         '''
-        非准入License统计单仓
+        Non-admission license statistics single warehouse
         '''
         try:
             self.conn = self.POOL.connection()
@@ -564,7 +564,7 @@ class RepoDb(object):
     
     def Query_License_Spec(self):
         '''
-        spec License校验
+        spec License verification
         '''
         try:
             self.conn = self.POOL.connection()
@@ -583,7 +583,7 @@ class RepoDb(object):
     
     def Query_License_Spec_repo(self, licData):
         '''
-        spec License校验 repo维度
+        spec License verification repo dimensions
         '''
         try:
             self.conn = self.POOL.connection()
@@ -602,7 +602,7 @@ class RepoDb(object):
     
     def Query_License_Un(self):
         '''
-        License规范校验
+        License specification verification
         '''
         try:
             self.conn = self.POOL.connection()
@@ -621,7 +621,7 @@ class RepoDb(object):
 
     def Query_License_Un_org(self, licData):
         '''
-        License规范校验 社区维度
+        License Specification Verification Community Dimension
         '''
         try:
             self.conn = self.POOL.connection()
@@ -640,7 +640,7 @@ class RepoDb(object):
     
     def Query_License_Un_repo(self, licData):
         '''
-        License规范校验 repo维度
+        License specification verification repo dimensions
         '''
         try:
             self.conn = self.POOL.connection()
@@ -660,7 +660,7 @@ class RepoDb(object):
 
     def Query_Copyright(self):
         '''
-        Copyright风险统计
+        Copyright Risk Statistics
         '''
         try:
             self.conn = self.POOL.connection()
@@ -679,7 +679,7 @@ class RepoDb(object):
     
     def Query_Copyright_Org(self, licData):
         '''
-        Copyright风险统计-社区
+        Copyright Risk Statistics-Community
         '''
         try:
             self.conn = self.POOL.connection()
@@ -698,7 +698,7 @@ class RepoDb(object):
     
     def Query_Copyright_Repo(self, licData):
         '''
-        Copyright风险统计-repo
+        Copyright Risk Statistics-repo
         '''
         try:
             self.conn = self.POOL.connection()
@@ -717,7 +717,7 @@ class RepoDb(object):
 
     def Query_PR_All(self, org):
         '''
-        获取PR信息
+        Get PR information
         '''
         try:
             self.conn = self.POOL.connection()

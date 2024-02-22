@@ -34,7 +34,7 @@ def catch_error(func):
 
 @catch_error
 def refreshToken():
-    # 获取token
+    # Get token
     http = urllib3.PoolManager() 
     response = http.request('POST','https://gitee.com/oauth/token?grant_type=refresh_token&refresh_token='+ACCESS_TOKEN)
     print(response.data.decode('utf-8'))
@@ -43,7 +43,7 @@ def refreshToken():
 @catch_error
 def getRepoUrl(orgName):
 
-    # 获取url项目下的所有项目
+    # Get all items under the url item
     start = 1
     repoStr = "Flag"
     http = urllib3.PoolManager() 
@@ -71,15 +71,15 @@ def getRepoUrl(orgName):
     for item in tqdm(repoList,desc="Insert repo And Owner",total=len(repoList)):
         repoOrg = item['namespace']['name']
         tempReData = (item["id"], item["name"], repoOrg.lower(), item['html_url'], item['license'], item['language'], item['forks_count'], item['stargazers_count'])
-        # 新增repo数据
+        # Add repo data
         repoData.append(tempReData)     
-        # 获取Maintainer
+        # Get Maintainer
         maintanerList = getMiantainer(orgName, item["name"])
 
         for owner in maintanerList:          
             ownerName = pymysql.escape_string(owner['name'])
             tempOwnerData = (item["id"], owner['id'], owner['login'], owner['html_url'], ownerName )
-            #增加owner数据
+            #Add owner data
             ownerData.append(tempOwnerData)
 
     dbObject.Buid_data(repoData)
@@ -120,7 +120,7 @@ def getApiResult(url, start):
 @catch_error
 def getRepoClone(orgName, path):
 
-    # 下载repo
+    # Download repo
     dbObject = RepoDb()
     repoOrg = (orgName)
     allRepo = dbObject.Query_RepoByOrg(repoOrg)

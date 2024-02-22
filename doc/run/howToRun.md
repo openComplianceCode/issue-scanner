@@ -30,15 +30,15 @@
     ```
 * 三、Run
     
-    以服务形式
+    as a service
     ```
     python issue-scanner/src/main.py
     ```
-    以指令行形式
+    as a command
     ```
     python issue-scanner/src/command.py -m pr/repo/local input --token
     ```
   
 ---
 
-[返回目录](../../README.md)
+[Back to Contents](../../README.md)
