@@ -76,7 +76,7 @@ def scaRepo(osUrl,pack):
                 pass
 
             #Call scancode
-            command = shlex.split('scancode -l -c %s --json %s -n 5 --timeout 3 --license-score 70' % (dirUrl, tempJson))
+            command = shlex.split('scancode -l -c %s --json %s -n 5 --timeout 3 --license-score 80' % (dirUrl, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(10)

@@ -248,7 +248,7 @@ class PrSca(object):
             url,
             headers = {
                 'User-Agent': random.choice(USER_AGENT),
-                'access_token': authorToken
+                'access_token': authorToken.strip()
             }
         )         
         resStatus = response.status
@@ -262,7 +262,7 @@ class PrSca(object):
                     url,
                     headers = {
                         'User-Agent': random.choice(USER_AGENT),
-                        'access_token': authorToken
+                        'access_token': authorToken.strip()
                     }
                 )         
                 resStatus = response.status
@@ -329,7 +329,7 @@ class PrSca(object):
             url,
             headers = {
                 'User-Agent': random.choice(USER_AGENT),
-                'access_token': authorToken
+                'access_token': authorToken.strip()
             }
         )
 
@@ -344,7 +344,7 @@ class PrSca(object):
                     url,
                     headers = {
                         'User-Agent': random.choice(USER_AGENT),
-                        'access_token': authorToken
+                        'access_token': authorToken.strip()
                     }
                 )         
                 resStatus = response.status

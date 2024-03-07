@@ -265,17 +265,6 @@ Software Licenses:
     blackReason: ''
     exception: 'N'
   - alias:
-    - Sequence
-    identifier: Sequence
-    fsfApproved: 'N'
-    osiApproved: 'N'
-    oeApproved: 'N'
-    ohApproved: 'N'
-    lowRisk: 'N'
-    black: 'N'
-    blackReason: ''
-    exception: 'N'
-  - alias:
     - SSPL
     identifier: SSPL
     fsfApproved: 'N'

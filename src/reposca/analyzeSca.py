@@ -49,8 +49,8 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
     copyrightList = jsonpath.jsonpath(jsonData, '$.files[*].copyrights')
 
     logging.info("===========START ANALYZE RESULT============")
-    fileLicenseCheck = LicenseCheck('file')
-    licenseCheck = LicenseCheck('repo')
+    fileLicenseCheck = LicenseCheck('file', 'indelic')
+    licenseCheck = LicenseCheck('repo', 'indelic')
     pathDepth = 3
     if type == 'ref':
         pathDepth = 4

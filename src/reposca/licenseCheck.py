@@ -23,15 +23,18 @@ class LicenseCheck(object):
                                    "config",
                                    "Licenses.yaml")
 
-    def __init__(self, type):
+    def __init__(self, type, accesstype):
         """
         type :  repo -  repo-level
                 file -  file-level
+        accesstype:  osf - osi/fsf approve
+                     indelic - Custom access
         """
         self._white_black_list = {}
         self._license_translation = {}
         self.load_config()
         self._type_ = type
+        self._accessType_ = accesstype
     
 
     @catch_error
@@ -202,18 +205,25 @@ class LicenseCheck(object):
             elif res['exception'] == 'Y':
                 impResult = True
             else:
-                if self._type_ == 'repo':
-                    if (res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y') and res['lowRisk'] == 'N':
+                if self._accessType_ == 'osf':
+                    if res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y':
                         impResult = True
                     else:
                         impResult = False
                         impLic.append(license)
                 else:
-                    if res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y' or res['lowRisk'] == 'Y':
-                        impResult = True
+                    if self._type_ == 'repo':
+                        if (res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y') and res['lowRisk'] == 'N':
+                            impResult = True
+                        else:
+                            impResult = False
+                            impLic.append(license)
                     else:
-                        impResult = False
-                        impLic.append(license)
+                        if res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y' or res['lowRisk'] == 'Y':
+                            impResult = True
+                        else:
+                            impResult = False
+                            impLic.append(license)
         elif res['tag'] == "nonstandard":
             nstdResult = False    
             nstdLic.append(license)

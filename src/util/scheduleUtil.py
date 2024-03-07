@@ -1,10 +1,14 @@
 import json
 import os
+
 from reposca.repoDb import RepoDb
 from apscheduler.schedulers.background import BackgroundScheduler
+from reposca.scheduleSca import ScheduleSca
 from util.catchUtil import catch_error
 
 from util.authApi import AuthApi
+
+PER_PAGE = 100
 
 class Scheduler(object):
 
@@ -17,6 +21,14 @@ class Scheduler(object):
             max_instances=10,
             trigger='cron',
             hour=19,
+        )
+
+        scheduler.add_job(
+            self.sca_repo,
+            max_instances=10,
+            trigger='cron',
+	        day='4th fri',
+            hour=21
         )
 
     @catch_error
@@ -54,4 +66,8 @@ class Scheduler(object):
         finally:
             dbObject.Close_Con()
         
-        
+    @catch_error    
+    def sca_repo(self):
+        sca_obj = ScheduleSca()
+        sca_obj.sca_repo()
+

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from concurrent.futures import ThreadPoolExecutor
 import json
+import time
 import tornado.web
 import tornado.ioloop
 import tornado.httpserver
@@ -15,6 +16,7 @@ from reposca.prSca import PrSca
 from reposca.resonseSca import ResonseSca
 from reposca.licenseCheck import LicenseCheck
 from tornado import gen
+from reposca.scheduleSca import ScheduleSca
 from util.scheduleUtil import Scheduler
 from util.postOrdered import infixToPostfix
 exitFlag = 0
@@ -170,7 +172,7 @@ class Check(tornado.web.RequestHandler):
     
     @run_on_executor
     def block(self, license):      
-        licCheck = LicenseCheck('repo')
+        licCheck = LicenseCheck('repo', 'indelic')
         result = licCheck.check_admittance(license)
         jsonRe = json.dumps(result)
         return jsonRe
@@ -184,7 +186,9 @@ application = tornado.web.Application([
     ])
 
 if __name__ == '__main__':
-    # schedOb = Scheduler()
+    sca_obj = ScheduleSca()
+    sca_obj.sca_repo()
+    schedOb = Scheduler()
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)

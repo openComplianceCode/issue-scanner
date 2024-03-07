@@ -85,7 +85,7 @@ class ItemLicSca(object):
                 for lic in reLicList:
                     spLic = licenseSplit(lic)
                     spLicList.extend(spLic)
-                licenseCheck = LicenseCheck('repo')
+                licenseCheck = LicenseCheck('repo', 'indelic')
                 for item in range(len(spLicList) - 1, -1, -1):
                     if licenseCheck.check_exception(spLicList[item]):
                         del spLicList[item]
@@ -322,7 +322,7 @@ class ItemLicSca(object):
             logging.info("==============START SCAN REPO==============")
             # Call scancode
             command = shlex.split(
-                'scancode -l -c %s --max-depth %s --json %s -n 3 --timeout 10 --max-in-memory -1 --license-score 80' % (self._repoSrc_, maxDepth, tempJson))
+                'scancode -l -c %s --max-depth %s --json %s -n 5 --timeout 10 --max-in-memory -1 --license-score 80' % (self._repoSrc_, maxDepth, tempJson))
             resultCode = subprocess.Popen(command)
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)

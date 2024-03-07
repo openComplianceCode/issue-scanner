@@ -25,8 +25,8 @@ def getSourceData(scaJson, type):
     itemPath = jsonpath.jsonpath(jsonData, '$.files[*].path')
     licenseList = jsonpath.jsonpath(jsonData, '$.files[*].licenses')
 
-    fileLicenseCheck = LicenseCheck('file')
-    licenseCheck = LicenseCheck('repo')
+    fileLicenseCheck = LicenseCheck('file', 'indelic')
+    licenseCheck = LicenseCheck('repo', 'indelic')
     pathDepth = 3
     if type == 'ref':
         pathDepth = 4

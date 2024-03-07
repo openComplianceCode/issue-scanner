@@ -733,3 +733,25 @@ class RepoDb(object):
             traceback.print_exc()
         finally:
             self.Close_Con()
+
+    def add_repo_sca(self, licData):
+        '''
+        Add sca data
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "INSERT INTO repo_sca (repo_name, repo_org, repo_url, repo_license, sca_json, is_pro_license, \
+                spec_license, is_approve_license, is_copyright, commite, created_at, updated_at, data_month, \
+                    repo_lic_score, repo_approve_score, repo_cop_score)\
+                 VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s','%s',SYSDATE(), SYSDATE(),\
+                    '%s', '%s', '%s', '%s')"
+            self.cur.execute(sql % licData)
+            self.conn.commit()
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+            self.conn.rollback()
+        finally:
+            self.Close_Con()
