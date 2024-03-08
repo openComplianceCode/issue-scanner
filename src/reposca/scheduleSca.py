@@ -99,9 +99,15 @@ class ScheduleSca(object):
                 os.makedirs(TEMP_PATH)
             repo_org = itemList[0]['namespace']['name']
             desc = "SCAN " + repo_org + " REPO"
+            ticks = time.localtime()
+            monstr = str(ticks.tm_year) + str(ticks.tm_mon)
             for item in tqdm(itemList,desc=desc,total=len(itemList),colour='green'):
                 url = item['html_url']
                 repo_name = item["name"] 
+                #check
+                repo_check = self._dbObject_.Query_Repo_Sca((repo_org, repo_name, monstr))
+                if repo_check is not None:
+                    continue
                 repo_src = TEMP_PATH + '/'+repo_org + '/' + repo_name          
                 if os.path.exists(repo_src) is False:
                     os.makedirs(repo_src)
@@ -136,7 +142,7 @@ class ScheduleSca(object):
                 
                 sca_res = self.sca_analyze(sca_json)
                 # Save to database
-                sca_json = pymysql.escape_string(sca_json)
+                # sca_json = pymysql.escape_string(sca_json)
                 repoLicLg = sca_res['repo_license_legal']
                 specLicLg = sca_res['spec_license_legal']
                 licScope = sca_res['license_in_scope']
@@ -145,11 +151,9 @@ class ScheduleSca(object):
                 repoLicLg = pymysql.escape_string(str(repoLicLg))
                 specLicLg = pymysql.escape_string(str(specLicLg))
                 licScope = pymysql.escape_string(str(licScope))
-                copyrightLg = pymysql.escape_string(str(copyrightLg))
-                ticks = time.localtime()
-                monstr = str(ticks.tm_year) + str(ticks.tm_mon)
+                copyrightLg = pymysql.escape_string(str(copyrightLg))           
                 repo_score, scope_score, copy_score = self.get_score(sca_res)
-                repo_data = (repo_name, repo_org, url, repoLicense, sca_json, repoLicLg, specLicLg,\
+                repo_data = (repo_name, repo_org, url, repoLicense, repoLicLg, specLicLg,\
                     licScope, copyrightLg, "master", int(monstr), repo_score, scope_score, copy_score)
                 self._dbObject_.add_repo_sca(repo_data)
                 try:

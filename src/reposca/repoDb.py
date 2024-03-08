@@ -741,10 +741,10 @@ class RepoDb(object):
         try:
             self.conn = self.POOL.connection()
             self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
-            sql = "INSERT INTO repo_sca (repo_name, repo_org, repo_url, repo_license, sca_json, is_pro_license, \
+            sql = "INSERT INTO repo_sca (repo_name, repo_org, repo_url, repo_license, is_pro_license, \
                 spec_license, is_approve_license, is_copyright, commite, created_at, updated_at, data_month, \
                     repo_lic_score, repo_approve_score, repo_cop_score)\
-                 VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s','%s',SYSDATE(), SYSDATE(),\
+                 VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s',SYSDATE(), SYSDATE(),\
                     '%s', '%s', '%s', '%s')"
             self.cur.execute(sql % licData)
             self.conn.commit()
@@ -753,5 +753,20 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
             self.conn.rollback()
+        finally:
+            self.Close_Con()
+    
+    def Query_Repo_Sca(self, repoData):
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT id,repo_name FROM repo_sca WHERE repo_org ='%s' and repo_name = '%s' and data_month = '%s'"
+            self.cur.execute(sql % repoData)
+            repoList = self.cur.fetchone()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
         finally:
             self.Close_Con()
