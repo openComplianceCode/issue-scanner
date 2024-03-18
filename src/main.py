@@ -12,6 +12,7 @@ import config
 from reposca.fixSca import fixSca
 from reposca.itemLicSca import ItemLicSca
 from reposca.queryBoard import QueryBoard
+from reposca.queryMeasure import QueryMeasure
 from reposca.prSca import PrSca
 from reposca.resonseSca import ResonseSca
 from reposca.licenseCheck import LicenseCheck
@@ -176,19 +177,51 @@ class Check(tornado.web.RequestHandler):
         result = licCheck.check_admittance(license)
         jsonRe = json.dumps(result)
         return jsonRe
+    
+class Query_Measure(tornado.web.RequestHandler):
+    executor = ThreadPoolExecutor(1000)
+
+    @gen.coroutine
+    def get(self):
+        """get request"""
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        tag = self.get_argument('tag')
+        org = self.get_argument('org','')
+        repo = self.get_argument('repo','')
+        dataMonth = self.get_argument('date','')
+        result = yield self.block(tag, org, repo, dataMonth)
+        self.finish(result)
+
+    @gen.coroutine
+    def post(self):
+        '''post request'''
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        tag = self.get_argument('tag')
+        org = self.get_argument('org','')
+        repo = self.get_argument('repo','')
+        dataMonth = self.get_argument('date','')
+        result = yield self.block(tag, org, repo, dataMonth)
+        self.finish(result)
+    
+    @run_on_executor
+    def block(self, tag, org, repo, dataMonth):      
+        measure_query = QueryMeasure()
+        result = measure_query.query(tag, org, repo, dataMonth)
+        jsonRe = json.dumps(result)
+        return jsonRe
+
 
 application = tornado.web.Application([
     (r"/sca", Main), 
     (r"/lic", LicSca), 
     (r"/doSca", ItemSca), 
     (r"/board", Query),
-    (r"/check", Check)
+    (r"/check", Check),
+    (r"/measure", Query_Measure)
     ])
 
 if __name__ == '__main__':
-    sca_obj = ScheduleSca()
-    sca_obj.sca_repo()
-    schedOb = Scheduler()
+    # schedOb = Scheduler()
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)

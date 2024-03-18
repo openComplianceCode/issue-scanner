@@ -770,3 +770,21 @@ class RepoDb(object):
             traceback.print_exc()
         finally:
             self.Close_Con()
+    
+    def Query_measure_org(self, repoData):
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT repo_name, repo_org, repo_lic_score, repo_approve_score, repo_cop_score,\
+	                SUM(repo_lic_score+repo_approve_score+repo_cop_score) as repo_score FROM repo_sca\
+                    WHERE data_month = '%s' AND repo_org = '%s' GROUP BY repo_name,repo_org,repo_lic_score,\
+	                repo_approve_score, repo_cop_score"
+            self.cur.execute(sql % repoData)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()
