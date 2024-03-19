@@ -18,6 +18,7 @@ class QueryMeasure(object):
         result = []
         metrics_switch = {
             "org": lambda: self._dbObject_.Query_measure_org((data_month, org)),
+            "repo": lambda: self._dbObject_.Query_measure_repo((data_month, org, repo)),
         }
         result = metrics_switch[tag]()
 
