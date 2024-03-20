@@ -18,6 +18,7 @@ from reposca.resonseSca import ResonseSca
 from reposca.licenseCheck import LicenseCheck
 from tornado import gen
 from reposca.scheduleSca import ScheduleSca
+from reposca.tempSca import TempSca
 from util.scheduleUtil import Scheduler
 from util.postOrdered import infixToPostfix
 exitFlag = 0
@@ -221,7 +222,9 @@ application = tornado.web.Application([
     ])
 
 if __name__ == '__main__':
-    # schedOb = Scheduler()
+    schedOb = Scheduler()
+    sca = TempSca()
+    sca.sca_repo()
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)

@@ -16,3 +16,4 @@ src/reposca/cleanData.py
 src/reposca/config/Regular.yaml
 src/token.yaml
 src/org.yaml
+src/temporg.yaml
