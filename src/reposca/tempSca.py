@@ -104,7 +104,7 @@ class TempSca(object):
             for item in tqdm(itemList,desc=desc,total=len(itemList),colour='green'):
                 url = item['html_url']
                 repo_name = item["name"] 
-                if "third_party_" not in repo_name:
+                if "third_party_" not in repo_name or 'third_party_llvm-project' in repo_name:
                     continue 
                 #check
                 repo_check = self._dbObject_.Query_Repo_Sca((repo_org, repo_name, monstr))
