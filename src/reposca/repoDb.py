@@ -829,3 +829,18 @@ class RepoDb(object):
             self.conn.rollback()
         finally:
             self.Close_Con()
+
+    def Query_sca_json(self, repoData):
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT repo_name, repo_org, sca_json FROM repo_sca WHERE repo_org = '%s'"
+            self.cur.execute(sql % repoData)
+            repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()
