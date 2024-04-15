@@ -27,7 +27,7 @@ class Scheduler(object):
             self.sca_repo,
             max_instances=10,
             trigger='cron',
-	        day='4th fri',
+	        day='4th mon',
             hour=21
         )
 
