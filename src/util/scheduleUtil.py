@@ -1,5 +1,6 @@
 import json
 import os
+import time
 
 from reposca.repoDb import RepoDb
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -56,6 +57,7 @@ class Scheduler(object):
                     else:
                         pr_response = apiObc.getPrInfoByGithub(pr_owner, pr_repo, pr_num)
                     if pr_response == 403 or pr_response == 404:
+                        time.sleep(60)
                         continue
                     prData = pr_response.data.decode('utf-8')
                     prData = json.loads(prData)
