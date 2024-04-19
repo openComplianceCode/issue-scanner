@@ -5965,7 +5965,19 @@ Software Licenses:
     lowRisk: 'Y'
     black: 'N'
     blackReason: ''
-    exception: 'N'   
+    exception: 'N'
+  - alias:
+    - Mulan Public License，Version 2
+    - Mulan PubL v2
+    identifier: MulanPubL-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'    
 
   #exception
   - alias:
