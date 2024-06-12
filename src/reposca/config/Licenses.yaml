@@ -3586,6 +3586,7 @@ Software Licenses:
     exception: 'N'
   - alias:
     - LaTeX Project Public License v1.2
+    - LPPL 1.2
     identifier: LPPL-1.2
     fsfApproved: 'Y'
     osiApproved: 'N'
@@ -3597,6 +3598,8 @@ Software Licenses:
     exception: 'N'
   - alias:
     - LaTeX Project Public License v1.3a
+    - LPPL Version 1.3a
+    - LPPL 1.3a
     identifier: LPPL-1.3a
     fsfApproved: 'Y'
     osiApproved: 'N'
@@ -3609,6 +3612,7 @@ Software Licenses:
   - alias:
     - LaTeX Project Public License v1.3c
     - LPPL Version 1.3c
+    - LPPL 1.3c
     identifier: LPPL-1.3c
     fsfApproved: 'N'
     osiApproved: 'Y'

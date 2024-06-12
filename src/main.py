@@ -213,6 +213,29 @@ class Query_Measure(tornado.web.RequestHandler):
         jsonRe = json.dumps(result)
         return jsonRe
 
+class ScaList(tornado.web.RequestHandler):
+    executor = ThreadPoolExecutor(1000)
+
+    @gen.coroutine
+    def get(self):
+        """get request"""
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        result = yield self.block()
+        self.finish(result)
+
+    @gen.coroutine
+    def post(self):
+        '''post request'''
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        result = yield self.block()
+        self.finish(result)
+    
+    @run_on_executor
+    def block(self):
+        sca = TempSca()
+        sca.sca_repo()
+        jsonRe = json.dumps("DONE")
+        return jsonRe
 
 application = tornado.web.Application([
     (r"/sca", Main), 
@@ -220,11 +243,12 @@ application = tornado.web.Application([
     (r"/doSca", ItemSca), 
     (r"/board", Query),
     (r"/check", Check),
-    (r"/measure", Query_Measure)
+    (r"/measure", Query_Measure),
+    (r"/item", ScaList)
     ])
 
 if __name__ == '__main__':
-    # schedOb = Scheduler()
+    schedOb = Scheduler()
     httpServer = tornado.httpserver.HTTPServer(application)
     httpServer.bind(config.options["port"])   
     httpServer.start(1)

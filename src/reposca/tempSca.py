@@ -45,11 +45,12 @@ class TempSca(object):
         config_org = project_path + '/temporg.yaml'
         CONF = yaml.safe_load(open(config_org))
         params = CONF['ORG']
+        branch = CONF['BRANCH']
         org_list = params.split(",")
         for item in org_list:
             item = item.strip()
             item_list = self.get_repo_url(item)
-            self.sca_item(item_list)
+            self.sca_item(item_list, branch)
 
     
 
@@ -93,15 +94,17 @@ class TempSca(object):
         return response
 
     @catch_error
-    def sca_item(self, itemList):
+    def sca_item(self, itemList, branch):
         try:
             if os.path.exists(TEMP_PATH) is False:
                 os.makedirs(TEMP_PATH)
             repo_org = itemList[0]['namespace']['name']
-            desc = "SCAN " + repo_org + " REPO"
             ticks = time.localtime()
             monstr = str(ticks.tm_year) + str(ticks.tm_mon)
-            for item in tqdm(itemList,desc=desc,total=len(itemList),colour='green'):
+            for item in tqdm(itemList,desc=branch,total=len(itemList),colour='green'):
+                repo_org = item['namespace']['name']
+                if repo_org == 'OpenHarmony-SIG' or repo_org == 'OpenHarmony-TPC':
+                    continue
                 url = item['html_url']
                 repo_name = item["name"] 
                 if "third_party_" not in repo_name or 'third_party_llvm-project' in repo_name:
@@ -114,7 +117,7 @@ class TempSca(object):
                 if os.path.exists(repo_src) is False:
                     os.makedirs(repo_src)
                 del_src = TEMP_PATH + '/'+repo_org
-                command = shlex.split('git clone %s %s --depth=1' % (url+".git", repo_src))
+                command = shlex.split('git clone %s %s --branch=%s --depth=1' % (url+".git", repo_src, branch))
                 result_code = subprocess.Popen(command)
                 while subprocess.Popen.poll(result_code) == None:
                     time.sleep(5)
@@ -156,7 +159,7 @@ class TempSca(object):
                 copyrightLg = pymysql.escape_string(str(copyrightLg))           
                 repo_score, scope_score, copy_score = self.get_score(sca_res)
                 repo_data = (repo_name, repo_org, url, repoLicense, sca_json, repoLicLg, specLicLg,\
-                    licScope, copyrightLg, "master", int(monstr), repo_score, scope_score, copy_score)
+                    licScope, copyrightLg, branch, int(monstr), repo_score, scope_score, copy_score)
                 self._dbObject_.add_repo_scaJson(repo_data)
                 try:
                     if del_src != '':
