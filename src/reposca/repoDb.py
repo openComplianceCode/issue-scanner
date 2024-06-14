@@ -834,7 +834,7 @@ class RepoDb(object):
         try:
             self.conn = self.POOL.connection()
             self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
-            sql = "SELECT repo_name, repo_org, sca_json FROM repo_sca WHERE repo_org = '%s'"
+            sql = "SELECT repo_name, repo_org, sca_json FROM repo_sca WHERE repo_org = '%s' and commite = '%s'"
             self.cur.execute(sql % repoData)
             repoList = self.cur.fetchall()
             return repoList

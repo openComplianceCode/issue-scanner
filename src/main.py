@@ -2,6 +2,7 @@
 import calendar
 from concurrent.futures import ThreadPoolExecutor
 import json
+import logging
 import time
 import tornado.web
 import tornado.ioloop
@@ -248,8 +249,11 @@ application = tornado.web.Application([
     ])
 
 if __name__ == '__main__':
-    schedOb = Scheduler()
+    # schedOb = Scheduler()
     httpServer = tornado.httpserver.HTTPServer(application)
-    httpServer.bind(config.options["port"])   
+    port = config.options["port"]
+    httpServer.bind(port)   
     httpServer.start(1)
+    logging.info(f"Server started successfully on port {port}")
     tornado.ioloop.IOLoop.current().start()
+    
