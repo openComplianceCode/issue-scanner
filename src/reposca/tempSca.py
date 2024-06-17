@@ -296,7 +296,7 @@ class TempSca(object):
         if noticeScope == '':
             noticeScope = '准入License'
         else:
-            noticeScope = '存在非准入License：' + noticeScope + ' License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组或chenyixiong3@huawei.com'
+            noticeScope = '存在非准入License：' + noticeScope + ' License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组'
 
         sca_result = {
             "repo_license_legal": {

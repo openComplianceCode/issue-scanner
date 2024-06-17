@@ -172,7 +172,7 @@ class LicenseCheck(object):
                 notice += nstdRisks + " 声明不规范, "
             if revRisks != '':
                 notice += revRisks + " 需要Review, "
-            notice += 'License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组或chenyixiong3@huawei.com'
+            notice += 'License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组'
         else:
             notice = '通过'
 
