@@ -85,26 +85,29 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
             # Extract the license statement in the spec
             fileUrl = anlyzeSrc + "/" + itemPath[i]
             try:
-                spec = Spec.from_file(fileUrl)
-                specLic = spec.license
-                if  specLic is not None:
-                    if 'all_license' in specLic:
-                        licenses = infixToPostfix(spec.all_license)
-                        specLic = spec.all_license
-                    else:
-                        licenses = infixToPostfix(specLic)
-                    isSpecLicense = licenseCheck.check_license_safe(licenses)
-                    specLicense = isSpecLicense.get('pass')
-                    noticeSpec = isSpecLicense.get('notice')
-                    speLicDetial = isSpecLicense.get('detail')
-                    specLicenseList.append(specLic)
+                #更换读取spec
+                # spec = Spec.from_file(fileUrl)
+                # specLic = spec.license
+                spec_lic_list = run_spec(fileUrl)
+                if  len(spec_lic_list) > 0:
+                    temp_pass = []
+                    temp_notice = []
+                    temp_detial = [] 
+                    for item in spec_lic_list:
+                        licenses = infixToPostfix(item)
+                        isSpecLicense = licenseCheck.check_license_safe(licenses)
+                        temp_pass.append(isSpecLicense.get('pass'))
+                        temp_notice.append(isSpecLicense.get('notice'))
+                        temp_detial.append(isSpecLicense.get('detail'))
+                        specLicenseList.append(item)
+                    specLicense,noticeSpec,speLicDetial = get_spec_res(temp_pass, temp_notice, temp_detial)
                     if haveLicense is False or type == 'ref':
                         specFlag = False
                         haveLicense = True
                         noticeLicense = ""
                         itemLicList.clear()
                         itemPathList.clear()
-                        itemLicList.append(specLic)
+                        itemLicList = specLicenseList
                         itemPathList.append(path)
                         itemLicense = specLicense
                         noticeItemLic = noticeSpec
@@ -328,3 +331,80 @@ def copyright_check(copyright):
     copyright_pattern = r'^Copyright \(c\) (\d{4}\s)*[A-Za-z\s]*(\.)*,*\s*Huawei Technologies Co., Ltd.\s*(\d{4})?(-\d{4})?(\.)?\s*(All rights reserved\.)?'
     match = re.search(copyright_pattern, copyright)
     return match 
+
+@catch_error
+def run_spec(file_path):
+    license_list = []
+    all_license_list = []
+    with open(file_path, 'r') as file:
+        for line in file:
+            line = line.strip()
+            if line.startswith('License:') or line.startswith('license:'):
+                value = line.split(':', 1)[1].strip()
+                license_list.append(value)
+            elif line.startswith('all_license:'):
+                value = line.split(':', 1)[1].strip()
+                all_license_list.append(value)
+    result_list = []
+    if len(license_list) > 0:
+        result_list = license_list
+    else:
+        result_list = all_license_list
+    return result_list
+
+@catch_error
+def get_spec_res(temp_pass, temp_notice, temp_detial):
+    res_pass = True
+    res_notice = ''
+    if False in temp_pass:
+        res_pass = False
+    flag = True
+    for item in temp_notice:
+        if item != '通过':
+            flag = False
+            split_notice = item.split('License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组')[0]
+            if split_notice not in res_notice:
+                res_notice += split_notice
+    if flag is True:
+        res_notice = '通过'
+    else:
+        res_notice += 'License准入列表请参考 https://compliance.openeuler.org/license-list, 若需对License发起准入申请，请联系合规SIG组'
+    det_std_pass = True
+    std_list = []
+    det_imp_pass = True
+    imp_list = []
+    imp_reason = ''
+    det_review_pass = True
+    review_list = []
+    for item in temp_detial:
+        res_imp = item.get('is_white')
+        res_nstd = item.get('is_standard')
+        res_reivew = item.get('is_review')
+        if res_imp.get('pass') is False:
+            det_imp_pass = False
+            imp_list.extend(res_imp.get('risks'))
+            imp_reason += res_imp.get('blackReason')
+        if res_nstd.get('pass') is False:
+            det_std_pass = False
+            std_list.extend(res_nstd.get('risks'))
+        if res_reivew.get('pass') is False:
+            det_review_pass = False
+            review_list.extend(res_reivew.get('risks'))
+    
+    res_detail = {
+        'is_standard' : {
+            'pass': det_std_pass,
+            'risks' : std_list,
+        },
+        'is_white' : {
+            'pass': det_imp_pass,
+            'risks' : imp_list,
+            'blackReason' : imp_reason,
+        },
+        'is_review' : {
+            'pass': det_review_pass,
+            'risks' : review_list,
+        }
+    }
+
+    return res_pass, res_notice, res_detail
