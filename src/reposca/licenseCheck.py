@@ -164,10 +164,13 @@ class LicenseCheck(object):
         nstdRisks = '、'.join(resNstd.get('risks'))
         revRisks = '、'.join(resReivew.get('risks'))
         impRisks = '、'.join(resImp.get('risks'))
-
+        blackReason = resImp.get('blackReason')
         if res is False:
             if impRisks != '':
-                notice += impRisks + " 不可引入, "              
+                if '受限使用' in blackReason:
+                    notice += blackReason + ", "
+                else:
+                    notice += impRisks + " 不可引入, "              
             if nstdRisks != '':
                 notice += nstdRisks + " 声明不规范, "
             if revRisks != '':
@@ -219,6 +222,8 @@ class LicenseCheck(object):
                         else:
                             impResult = False
                             impLic.append(license)
+                            if res['lowRisk'] == 'Y':
+                                blackReason = license + " 为受限使用许可证，需要谨慎受限的使用"                         
                     else:
                         if res['oeApproved'] == 'Y' or res['fsfApproved'] == 'Y' or res['osiApproved'] == 'Y' or res['lowRisk'] == 'Y':
                             impResult = True

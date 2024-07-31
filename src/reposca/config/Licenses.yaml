@@ -1960,13 +1960,13 @@ Software Licenses:
     identifier: CC-PDDC
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Zero v1.0 Universal
     - CC0
@@ -6879,13 +6879,13 @@ Software Licenses:
     identifier: Qt-LGPL-exception-1.1
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'Y'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Qwt exception 1.0
     identifier: Qwt-exception-1.0
