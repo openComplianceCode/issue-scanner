@@ -405,13 +405,13 @@ Software Licenses:
     identifier: Abstyles
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Adobe Systems Incorporated Source Code License Agreement
     - Adobe Systems Incorporated(r) Source Code License Agreement
@@ -883,39 +883,39 @@ Software Licenses:
     identifier: Baekmuk
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Bahyph License
     - Copyright (c) GMV 1991
     identifier: Bahyph
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Barr License
     - Michael Barr
     identifier: Barr
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Beerware License
     - THE BEER-WARE LICENSE
@@ -999,13 +999,13 @@ Software Licenses:
     identifier: Borceux
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - BSD 1-Clause License
     identifier: BSD-1-Clause
@@ -1533,11 +1533,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial 3.0 Germany
     identifier: CC-BY-NC-3.0-DE
@@ -1558,11 +1558,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
     - Creative Commons Attribution-NoDerivs-NonCommercial 1.0
@@ -1610,11 +1610,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 3.0 Germany
     identifier: CC-BY-NC-ND-3.0-DE
@@ -1647,11 +1647,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
     - Creative Commons Attribution-NonCommercial-ShareAlike 1.0
@@ -1723,11 +1723,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 3.0 Germany
     identifier: CC-BY-NC-SA-3.0-DE
@@ -1760,11 +1760,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution No Derivatives 1.0 Generic
     - Creative Commons Attribution-NoDerivs 1.0
@@ -1812,11 +1812,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution No Derivatives 3.0 Germany
     identifier: CC-BY-ND-3.0-DE
@@ -1837,11 +1837,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Share Alike 1.0 Generic
     - Creative Commons Attribution-ShareAlike 1.0
@@ -1898,13 +1898,13 @@ Software Licenses:
     identifier: CC-BY-SA-2.5
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Share Alike 3.0 Unported
     - Attribution-ShareAlike 3.0
@@ -2353,13 +2353,13 @@ Software Licenses:
     identifier: Crossword
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - CrystalStacker License
     - Crystal Stacker
@@ -2467,13 +2467,13 @@ Software Licenses:
     identifier: Dotseqn
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Detection Rule License 1.0
     identifier: DRL-1.0
@@ -2727,13 +2727,13 @@ Software Licenses:
     identifier: Eurosym
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Fair License
     identifier: Fair
@@ -2775,26 +2775,26 @@ Software Licenses:
     identifier: FreeBSD-DOC
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - FreeImage Public License v1.0
     - FreeImage Public License - Version 1.0
     identifier: FreeImage
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - FSF All Permissive License
     identifier: FSFAP
@@ -3591,13 +3591,13 @@ Software Licenses:
     identifier: Latex2e
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Leptonica License
     - Leptonica
@@ -3866,25 +3866,25 @@ Software Licenses:
     identifier: LPPL-1.0
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - LaTeX Project Public License v1.1
     identifier: LPPL-1.1
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - LaTeX Project Public License v1.2
     identifier: LPPL-1.2
@@ -3927,13 +3927,13 @@ Software Licenses:
     identifier: MakeIndex
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - The MirOS Licence
     - MirOS Licence
@@ -4082,13 +4082,13 @@ Software Licenses:
     identifier: mpich2
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Mozilla Public License 1.0
     - MOZILLA PUBLIC LICENSE Version 1.0
@@ -4358,13 +4358,13 @@ Software Licenses:
     identifier: Newsletr
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Nethack General Public License
     identifier: NGPL
@@ -5219,13 +5219,13 @@ Software Licenses:
     identifier: psfrag
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - psutils License
     - PS Utilities Package
@@ -6111,13 +6111,13 @@ Software Licenses:
     identifier: Zed
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Zend License v2.0
     identifier: Zend-2.0
@@ -6487,8 +6487,251 @@ Software Licenses:
     black: 'N'
     blackReason: ''
     exception: 'N'
+    review: 'Y'
+  - alias:
+    - ulem License
+    identifier: ulem
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
     review: 'Y'    
+  - alias:
+    - Aladdin Free Public License v9
+    - Aladdin FPL v9
+    identifier: afpl-9.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'Y'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Intel MCU path license 2018
+    identifier: intel-mcu-2018
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Oasis WS Security Specification License
+    - LicenseRef-scancode-oasis-ws-security-spec
+    identifier: oasis-ws-security-spec
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Ecma Documentation License
+    - LicenseRef-scancode-ecma-documentation
+    identifier: ecma-documentation
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'   
+  - alias:
+    - GUST Font License 1.0
+    - LicenseRef-scancode-gust-font-1.0
+    identifier: gust-font-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - latex-ec-fonts
+    - Copyright notice to the ec fonts
+    - LicenseRef-scancode-ecfonts-1.0
+    identifier: ecfonts-1.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - fsf-unlimited-no-warranty
+    - FSF Unlimited License No Warranty
+    - FSF Unlimited License (With License Retention and Warranty Disclaimer)
+    identifier: FSFULLRWD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'    
+  - alias:
+    - LicenseRef-scancode-unicode-mappings
+    - Unicode Mappings License
+    identifier: unicode-mappings
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'  
+  - alias:
+    - Wsuipa License
+    identifier: Wsuipa
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'  
+  - alias:
+    - GUST Font License 2006-09-30
+    - LicenseRef-scancode-gust-font-2006-09-30
+    identifier: gust-font-2006-09-30
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - ISO 8879
+    - LicenseRef-scancode-iso-8879
+    identifier: iso-8879
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - ISO 8879
+    - LicenseRef-scancode-iso-8879
+    identifier: iso-8879
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - LicenseRef-scancode-srgb
+    - sRGB Profile Licensing Agreement
+    identifier: srgb
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - magaz License
+    identifier: magaz
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Bitstream Charter Font License
+    - Bitstream-Charter License
+    identifier: Bitstream-Charter
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - threeparttable License
+    identifier: threeparttable
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Knuth CTAN License
+    identifier: Knuth-CTAN
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Inner Net License v2.0
+    identifier: Inner-Net-2.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
 
+    
   #exception
   - alias:
     - 389 Directory Server Exception
@@ -6627,13 +6870,13 @@ Software Licenses:
     identifier: Font-exception-2.0
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'Y'
-    review: 'N'
+    review: 'Y'
   - alias:
     - FreeRTOS Exception 2.0
     identifier: freertos-exception-2.0
@@ -6855,13 +7098,13 @@ Software Licenses:
     identifier: PS-or-PDF-font-exception-20170817
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'Y'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Qt GPL exception 1.0
     identifier: Qt-GPL-exception-1.0
