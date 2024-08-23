@@ -5962,18 +5962,6 @@ Software Licenses:
     exception: 'N'
     review: 'Y'
   - alias:
-    - Wsuipa License
-    identifier: Wsuipa
-    fsfApproved: 'N'
-    osiApproved: 'N'
-    oeApproved: 'N'
-    ohApproved: 'N'
-    lowRisk: 'N'
-    black: 'N'
-    blackReason: ''
-    exception: 'N'
-    review: 'N'
-  - alias:
     - Do What The F*ck You Want To Public License
     identifier: WTFPL
     fsfApproved: 'Y'
