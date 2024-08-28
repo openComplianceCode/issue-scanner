@@ -177,7 +177,7 @@ class Check(tornado.web.RequestHandler):
     
     @run_on_executor
     def block(self, license):      
-        licCheck = LicenseCheck('repo', 'indelic')
+        licCheck = LicenseCheck('file', 'indelic')
         result = licCheck.check_admittance(license)
         jsonRe = json.dumps(result)
         return jsonRe
