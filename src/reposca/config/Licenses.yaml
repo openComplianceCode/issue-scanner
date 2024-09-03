@@ -1494,11 +1494,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial 2.0 Generic
     - Creative Commons Attribution-NonCommercial 2.0
@@ -1507,11 +1507,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial 2.5 Generic
     - Creative Commons Attribution-NonCommercial 2.5
@@ -1520,11 +1520,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial 3.0 Unported
     - Creative Commons Attribution-NonCommercial 3.0
@@ -1545,11 +1545,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial 4.0 International
     - Creative Commons Attribution-NonCommercial 4.0
@@ -1571,11 +1571,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
     - Creative Commons Attribution-NonCommercial-NoDerivs 2.0
@@ -1584,11 +1584,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
     - Creative Commons Attribution-NonCommercial-NoDerivs 2.5
@@ -1597,11 +1597,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
     - Creative Commons Attribution-NonCommercial-NoDerivs 3.0
@@ -1622,11 +1622,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 3.0 IGO
     identifier: CC-BY-NC-ND-3.0-IGO
@@ -1634,11 +1634,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial No Derivatives 4.0 International
     - Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
@@ -1660,11 +1660,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
     - Creative Commons Attribution-NonCommercial-ShareAlike 2.0
@@ -1673,11 +1673,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution-NonCommercial-ShareAlike 2.0 France
     identifier: CC-BY-NC-SA-2.0-FR
@@ -1685,11 +1685,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 2.0 England and Wales
     identifier: CC-BY-NC-SA-2.0-UK
@@ -1697,11 +1697,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 2.5 Generic
     - Creative Commons Attribution-NonCommercial-ShareAlike 2.5
@@ -1710,11 +1710,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
     - Creative Commons Attribution-NonCommercial-ShareAlike 3.0
@@ -1735,11 +1735,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 3.0 IGO
     identifier: CC-BY-NC-SA-3.0-IGO
@@ -1747,11 +1747,11 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'N'
-    lowRisk: 'N'
+    lowRisk: 'Y'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Creative Commons Attribution Non Commercial Share Alike 4.0 International
     - Creative Commons Attribution-NonCommercial-ShareAlike 4.0
