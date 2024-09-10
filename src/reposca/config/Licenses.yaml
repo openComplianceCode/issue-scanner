@@ -6718,7 +6718,19 @@ Software Licenses:
     blackReason: ''
     exception: 'N'
     review: 'Y'
-
+  - alias:
+    - DocBook XML License
+    - LicenseRef-scancode-docbook
+    identifier: DocBook-XML
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
     
   #exception
   - alias:
