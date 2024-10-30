@@ -242,28 +242,22 @@ class PrSca(object):
         params = CONF['API_TOKEN']
         token_list = params.split(",")
         authorToken = random.choice(token_list)
-        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
+        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+authorToken.strip()
         response = http.request(
             'GET',
             url,
-            headers = {
-                'User-Agent': random.choice(USER_AGENT),
-                'access_token': authorToken.strip()
-            }
+            headers = {'User-Agent': random.choice(USER_AGENT)}
         )         
         resStatus = response.status
         if resStatus == 403:
             token_list.remove(authorToken)
             while (len(token_list) > 0):
                 authorToken = random.choice(token_list)
-                url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files'
+                url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+authorToken.strip()
                 response = http.request(
                     'GET',
                     url,
-                    headers = {
-                        'User-Agent': random.choice(USER_AGENT),
-                        'access_token': authorToken.strip()
-                    }
+                    headers = {'User-Agent': random.choice(USER_AGENT)}
                 )         
                 resStatus = response.status
                 if resStatus == 200:
@@ -323,14 +317,11 @@ class PrSca(object):
         params = CONF['API_TOKEN']
         token_list = params.split(",")
         authorToken = random.choice(token_list) 
-        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits'
+        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits?access_token='+authorToken.strip()
         response = http.request(
             'GET',
             url,
-            headers = {
-                'User-Agent': random.choice(USER_AGENT),
-                'access_token': authorToken.strip()
-            }
+            headers = {'User-Agent': random.choice(USER_AGENT)}
         )
 
         resStatus = response.status       
@@ -338,14 +329,11 @@ class PrSca(object):
             token_list.remove(authorToken)
             while (len(token_list) > 0):
                 authorToken = random.choice(token_list)
-                url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits'
+                url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits?access_token='+authorToken.strip()
                 response = http.request(
                     'GET',
                     url,
-                    headers = {
-                        'User-Agent': random.choice(USER_AGENT),
-                        'access_token': authorToken.strip()
-                    }
+                    headers = {'User-Agent': random.choice(USER_AGENT)}
                 )         
                 resStatus = response.status
                 if resStatus == 200:

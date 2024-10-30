@@ -1,4 +1,6 @@
 
+import json
+import random
 from urllib.parse import urlsplit
 import logging
 import os
@@ -10,7 +12,9 @@ import time
 import urllib.request
 from pathlib import Path
 from git.repo import Repo
+import urllib3
 from reposca.itemLicSca import SOURTH_PATH
+from reposca.prSca import TEMP_PATH,USER_AGENT
 from reposca.analyzeSca import getScaAnalyze
 from reposca.sourceAnalyze import getSourceData
 from util.popUtil import popKill
@@ -401,3 +405,109 @@ class CommSca(object):
             os.chmod(tempJson, stat.S_IWUSR)
             os.remove(tempJson)
             return scaResult
+        
+    @catch_error
+    def infoSca(self, url):
+        try:
+            self._oauthToken_ = os.environ.get("GITEE_TOKEN")
+            urlList = url.split("/")           
+            self._prUrl_ = url            
+            self._domain_ = urlList[2]
+            self._owner_ = urlList[3]
+            self._repo_ = urlList[4]
+            self._tag_ = "repo"
+            if "/pulls/" in url:
+                self._tag_ = "pr"
+                self._num_ = urlList[6]
+                self._branch_ = 'pr_' + self._num_
+                fetchUrl = 'pull/' + self._num_ + '/head:pr_' + self._num_
+            self._typeUrl_ = 'https://oauth2:'+ self._oauthToken_ + '@' + self._domain_
+            self._gitUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_ + '.git'           
+            timestemp = int(time.time())
+            tempSrc = self._repo_ + str(timestemp)
+
+            if os.path.exists(TEMP_PATH) is False:
+                os.makedirs(TEMP_PATH)
+             
+            self._repoSrc_ = TEMP_PATH + '/'+self._owner_ + '/' + tempSrc + '/' + self._repo_               
+            self._anlyzeSrc_ = TEMP_PATH + '/' + self._owner_ + '/' + tempSrc
+            self._delSrc_ = TEMP_PATH + '/'+self._owner_ + '/' + tempSrc  
+
+            logging.info("=============START FETCH REPO==============")  
+            if self._tag_ == 'pr':   
+                repo = Repo.init(path=self._repoSrc_)
+                self._gitRepo_ = repo
+                self._git_ = repo.git
+                remote = self._gitRepo_.create_remote('origin', self._gitUrl_)
+                remote.fetch(fetchUrl, depth=1)
+                self._git_.checkout(self._branch_)
+
+                fileList =  self.getDiffFiles()    
+                if fileList is None:
+                    fileList = []
+                self._repoSrc_ = self.createDiff(fileList) 
+            else:
+                Repo.clone_from(self._gitUrl_, self._repoSrc_, depth=1)    
+                repo = Repo(self._repoSrc_)
+            
+            logging.info("==============END FETCH REPO===============")
+                  
+            scaResult = self.scaResult(self._repoSrc_, 3)
+        except Exception as e:
+            logger = logging.getLogger(__name__)
+            logger.exception("Error on %s" % (e))
+        finally:
+            # Clean temporary files
+            if self._delSrc_ != '':
+                try:
+                    cleanTemp(self._delSrc_)
+                    os.chmod(self._delSrc_, stat.S_IRWXU)
+                    os.rmdir(self._delSrc_)
+                except:
+                    pass
+            return scaResult
+    
+    @catch_error
+    def getDiffFiles(self):
+        fileList = []
+        repoStr = "Flag"
+        http = urllib3.PoolManager()  
+        authorToken = os.environ.get("GITEE_TOKEN")
+        url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+authorToken
+        response = http.request(
+            'GET',
+            url
+        )         
+        resStatus = response.status
+        
+        if resStatus == 404:
+            raise Exception("Gitee API Fail")
+
+        if resStatus == 403:
+            raise Exception("Gitee API LIMIT")
+
+        repoStr = response.data.decode('utf-8')
+        temList = json.loads(repoStr)
+        fileList.extend(temList)     
+        return fileList
+    
+    def createDiff(self, fileList):
+        diffPath = self._anlyzeSrc_ + "/diff/" + self._repo_ 
+        self._fileArray_= []
+        for diff_added in fileList:
+            try:
+                filePath = diff_added['filename']
+                self._fileArray_.append(filePath)
+                fileDir = os.path.dirname(filePath)
+                tempFile = diffPath + "/" + fileDir            
+                if os.path.exists(tempFile) is False:
+                    os.makedirs(tempFile)                
+                sourcePath = self._repoSrc_ + "/" + filePath
+                command = shlex.split('cp -r %s  %s' % (sourcePath, tempFile))
+                resultCode = subprocess.Popen(command)
+                while subprocess.Popen.poll(resultCode) == None:
+                    time.sleep(1)
+                popKill(resultCode)
+            except:
+                pass
+        return diffPath

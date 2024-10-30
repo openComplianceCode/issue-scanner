@@ -13,6 +13,7 @@ from reposca.analyzeSca import copyright_check
 import config
 from reposca.fixSca import fixSca
 from reposca.itemLicSca import ItemLicSca
+from reposca.commSca import CommSca
 from reposca.queryBoard import QueryBoard
 from reposca.queryMeasure import QueryMeasure
 from reposca.prSca import PrSca
@@ -238,6 +239,32 @@ class ScaList(tornado.web.RequestHandler):
         jsonRe = json.dumps("DONE")
         return jsonRe
 
+class Info(tornado.web.RequestHandler):
+    executor = ThreadPoolExecutor(1000)
+
+    @gen.coroutine
+    def get(self):
+        """get request"""
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        url = self.get_argument('url')
+        result = yield self.block(url)
+        self.finish(result)
+
+    @gen.coroutine
+    def post(self):
+        '''post request'''
+        self.set_header('Content-Type', 'application/json; charset=UTF-8')
+        url = self.get_argument('url')    
+        result = yield self.block(url)
+        self.finish(result)
+    
+    @run_on_executor
+    def block(self, url):
+        commSca = CommSca()
+        result = commSca.infoSca(url)
+        jsonRe = json.dumps(result)
+        return jsonRe
+
 application = tornado.web.Application([
     (r"/sca", Main), 
     (r"/lic", LicSca), 
@@ -245,11 +272,12 @@ application = tornado.web.Application([
     (r"/board", Query),
     (r"/check", Check),
     (r"/measure", Query_Measure),
-    (r"/item", ScaList)
+    (r"/item", ScaList),
+    (r"/info", Info)
     ])
 
 if __name__ == '__main__':
-    # schedOb = Scheduler()
+    schedOb = Scheduler()
     httpServer = tornado.httpserver.HTTPServer(application)
     port = config.options["port"]
     httpServer.bind(port)   

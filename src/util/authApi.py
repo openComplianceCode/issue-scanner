@@ -41,27 +41,22 @@ class AuthApi(object):
         params = CONF['API_TOKEN']
         token_list = params.split(",")
         authorToken = random.choice(token_list)
-        apiUrl = 'https://gitee.com/api/v5/repos/'+owner+'/'+repo+'/pulls/'+num
+        apiUrl = 'https://gitee.com/api/v5/repos/'+owner+'/'+repo+'/pulls/'+num+'?access_token='+authorToken.strip()
         response = http.request(
             'GET',
             apiUrl,
-            headers = {
-                'User-Agent': random.choice(USER_AGENT),
-                'access_token': authorToken.strip()
-            }
+            headers = {'User-Agent': random.choice(USER_AGENT)}
         )       
         resStatus = response.status
         if resStatus == 403:
             token_list.remove(authorToken)
             while (len(token_list) > 0):
                 authorToken = random.choice(token_list)
+                apiUrl = 'https://gitee.com/api/v5/repos/'+owner+'/'+repo+'/pulls/'+num+'?access_token='+authorToken.strip()
                 response = http.request(
                     'GET',
                     apiUrl,
-                    headers = {
-                        'User-Agent': random.choice(USER_AGENT),
-                        'access_token': authorToken.strip()
-                    }
+                    headers = {'User-Agent': random.choice(USER_AGENT)}
                 )         
                 resStatus = response.status
                 if resStatus == 200:
