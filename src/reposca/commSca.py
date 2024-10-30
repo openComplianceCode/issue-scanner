@@ -409,7 +409,7 @@ class CommSca(object):
     @catch_error
     def infoSca(self, url):
         try:
-            self._oauthToken_ = os.environ.get("GITEE_TOKEN")
+            self._oauthToken_ = os.environ.get("MAJUN_TOKEN")
             urlList = url.split("/")           
             self._prUrl_ = url            
             self._domain_ = urlList[2]
@@ -472,7 +472,7 @@ class CommSca(object):
         fileList = []
         repoStr = "Flag"
         http = urllib3.PoolManager()  
-        authorToken = os.environ.get("GITEE_TOKEN")
+        authorToken = os.environ.get("MAJUN_TOKEN")
         url = 'https://gitee.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+authorToken
         response = http.request(
             'GET',
