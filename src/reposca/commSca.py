@@ -441,10 +441,13 @@ class CommSca(object):
             if repo_tag == 0:
                 query_data = (self._owner_, self._repo_)
                 item_data = self._dbObject_.Query_sca_result(query_data)
-                data_id = item_data['id']
                 if item_data is None:
                     repo_data = (self._repo_, self._owner_, url, repo_tag, self._num_, '', 0)
                     data_id = self._dbObject_.add_sca_result(repo_data)
+                else:
+                    data_id = item_data['id']
+                    repoData = ('', 0, data_id)
+                    self._dbObject_.upd_sca_result(repoData)
 
             self._typeUrl_ = 'https://oauth2:'+ self._oauthToken_ + '@' + self._domain_
             self._gitUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_ + '.git'           
