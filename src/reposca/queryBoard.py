@@ -33,6 +33,7 @@ class QueryBoard(object):
             "copyrightOrg": lambda: self._dbObject_.Query_Copyright_Org(org),
             "copyrightRepo": lambda: self._dbObject_.Query_Copyright_Repo(queryData = (org, repo)),
             "pr": lambda: self._dbObject_.Query_PR_All(org),
+            "info": lambda: self._dbObject_.Query_sca_result(repoData = (org, repo))
         }
         result = metrics_switch[tag]()
 

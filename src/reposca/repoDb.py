@@ -10,7 +10,7 @@ class RepoDb(object):
 
     # Define initial database connection
     def __init__(self, host_db='127.0.0.1', user_db='root', password_db='root',
-                 name_db='gitee', port_db=3306):
+                 name_db='license', port_db=3306):
         '''
         :param host_db: Database service host IP
         :param user_db: Database connection user name
@@ -837,6 +837,61 @@ class RepoDb(object):
             sql = "SELECT repo_name, repo_org, sca_json FROM repo_sca WHERE repo_org = '%s' and commite = '%s'"
             self.cur.execute(sql % repoData)
             repoList = self.cur.fetchall()
+            return repoList
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+        finally:
+            self.Close_Con()
+   
+    def add_sca_result(self, licData):
+        '''
+        Add sca_result data
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "INSERT INTO sca_result (repo_name, repo_org, repo_url, repo_tag, pr_num, sca_json, \
+                status, created_at, updated_at) \
+                 VALUES ('%s', '%s', '%s', %s, '%s', '%s', %s, SYSDATE(), SYSDATE())"
+            self.cur.execute(sql % licData)
+            last_id = self.cur.lastrowid
+            self.conn.commit()
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+            self.conn.rollback()
+        finally:
+            self.Close_Con()
+            return last_id
+
+    def upd_sca_result(self, licData):
+        '''
+        Update sca_result data
+        '''
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "UPDATE sca_result set  sca_json = '%s', status = '%s', updated_at = SYSDATE() WHERE id = %s"
+            self.cur.execute(sql % licData)
+            self.conn.commit()
+        except pymysql.Error as e:
+            logger = logging.getLogger(__name__)
+            logger.exception(e)
+            traceback.print_exc()
+            self.conn.rollback()
+        finally:
+            self.Close_Con()
+    
+    def Query_sca_result(self, repoData):
+        try:
+            self.conn = self.POOL.connection()
+            self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
+            sql = "SELECT id, repo_name, repo_org, sca_json, status FROM sca_result WHERE repo_org = '%s' and repo_name = '%s' and repo_tag = 0"
+            self.cur.execute(sql % repoData)
+            repoList = self.cur.fetchone()
             return repoList
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)

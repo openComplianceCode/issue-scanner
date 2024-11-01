@@ -12,7 +12,9 @@ import time
 import urllib.request
 from pathlib import Path
 from git.repo import Repo
+import pymysql
 import urllib3
+from reposca.repoDb import RepoDb
 from reposca.itemLicSca import SOURTH_PATH
 from reposca.prSca import TEMP_PATH,USER_AGENT
 from reposca.analyzeSca import getScaAnalyze
@@ -27,6 +29,17 @@ from packageurl import PackageURL
 
 
 class CommSca(object):
+
+    def __init__(self):
+        #Connect to the database
+        self._dbObject_ = RepoDb(
+            host_db = os.environ.get("MYSQL_HOST"), 
+            user_db = os.environ.get("MYSQL_USER"), 
+            password_db = os.environ.get("MYSQL_PASSWORD"), 
+            name_db = os.environ.get("MYSQL_DB_NAME"), 
+            port_db = int(os.environ.get("MYSQL_PORT")))
+
+
     @catch_error
     def runSca(self, url, oauthToken):
         try:
@@ -416,11 +429,23 @@ class CommSca(object):
             self._owner_ = urlList[3]
             self._repo_ = urlList[4]
             self._tag_ = "repo"
+            repo_tag = 0
+            self._num_ = ''
             if "/pulls/" in url:
+                repo_tag = 1
                 self._tag_ = "pr"
                 self._num_ = urlList[6]
                 self._branch_ = 'pr_' + self._num_
                 fetchUrl = 'pull/' + self._num_ + '/head:pr_' + self._num_
+
+            if repo_tag == 0:
+                query_data = (self._owner_, self._repo_)
+                item_data = self._dbObject_.Query_sca_result(query_data)
+                data_id = item_data['id']
+                if item_data is None:
+                    repo_data = (self._repo_, self._owner_, url, repo_tag, self._num_, '', 0)
+                    data_id = self._dbObject_.add_sca_result(repo_data)
+
             self._typeUrl_ = 'https://oauth2:'+ self._oauthToken_ + '@' + self._domain_
             self._gitUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_ + '.git'           
             timestemp = int(time.time())
@@ -450,9 +475,13 @@ class CommSca(object):
                 Repo.clone_from(self._gitUrl_, self._repoSrc_, depth=1)    
                 repo = Repo(self._repoSrc_)
             
-            logging.info("==============END FETCH REPO===============")
-                  
+            logging.info("==============END FETCH REPO===============")                 
             scaResult = self.scaResult(self._repoSrc_, 3)
+
+            if repo_tag == 0:
+                scaJson = pymysql.escape_string(str(scaResult))
+                repoData = (scaJson, 1, data_id)
+                self._dbObject_.upd_sca_result(repoData)
         except Exception as e:
             logger = logging.getLogger(__name__)
             logger.exception("Error on %s" % (e))

@@ -247,16 +247,24 @@ class Info(tornado.web.RequestHandler):
         """get request"""
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')
-        result = yield self.block(url)
-        self.finish(result)
+        if "/pulls/" in url:
+            result = yield self.block(url)
+            self.finish(result)
+        else:
+            self.finish(json.dumps({"result":True,"notice": "scanning..."}))
+            yield self.block(url)
 
     @gen.coroutine
     def post(self):
         '''post request'''
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')    
-        result = yield self.block(url)
-        self.finish(result)
+        if "/pulls/" in url:
+            result = yield self.block(url)
+            self.finish(result)
+        else:
+            self.finish(json.dumps({"result":True,"notice": "scanning..."}))
+            yield self.block(url)
     
     @run_on_executor
     def block(self, url):
