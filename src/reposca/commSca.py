@@ -420,7 +420,7 @@ class CommSca(object):
             return scaResult
         
     @catch_error
-    def infoSca(self, url):
+    def infoSca(self, url, branch):
         try:
             self._oauthToken_ = os.environ.get("MAJUN_TOKEN")
             urlList = url.split("/")           
@@ -475,7 +475,7 @@ class CommSca(object):
                     fileList = []
                 self._repoSrc_ = self.createDiff(fileList) 
             else:
-                Repo.clone_from(self._gitUrl_, self._repoSrc_, depth=1)    
+                Repo.clone_from(self._gitUrl_, self._repoSrc_, depth=1, branch=branch)    
                 repo = Repo(self._repoSrc_)
             
             logging.info("==============END FETCH REPO===============")                 

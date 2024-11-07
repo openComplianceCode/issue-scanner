@@ -247,29 +247,32 @@ class Info(tornado.web.RequestHandler):
         """get request"""
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')
+        branch = self.get_argument('branch','')
         if "/pulls/" in url:
-            result = yield self.block(url)
+            
+            result = yield self.block(url, branch)
             self.finish(result)
         else:
             self.finish(json.dumps({"result":True,"notice": "scanning..."}))
-            yield self.block(url)
+            yield self.block(url, branch)
 
     @gen.coroutine
     def post(self):
         '''post request'''
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         url = self.get_argument('url')    
+        branch = self.get_argument('branch','')
         if "/pulls/" in url:
-            result = yield self.block(url)
+            result = yield self.block(url, branch)
             self.finish(result)
         else:
             self.finish(json.dumps({"result":True,"notice": "scanning..."}))
-            yield self.block(url)
+            yield self.block(url, branch)
     
     @run_on_executor
-    def block(self, url):
+    def block(self, url, branch):
         commSca = CommSca()
-        result = commSca.infoSca(url)
+        result = commSca.infoSca(url, branch)
         jsonRe = json.dumps(result)
         return jsonRe
 
