@@ -43,7 +43,7 @@ def checkWrar(fileName):
         return 'tar'
     elif '.tgz' in fileName:
         return 'tgz'
-    elif '.zip' in fileName:
+    elif '.zip' in fileName or '.jar' in fileName:
         return 'zip'
     elif '.rar' in fileName:
         return 'rar'

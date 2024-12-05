@@ -36,7 +36,7 @@ class RepoDb(object):
                 password=password_db,
                 database=name_db,
                 port=port_db,
-                charset = 'utf8'
+                charset = 'utf8mb4'
             )
         except pymysql.Error as e:
             logger = logging.getLogger(__name__)
@@ -898,5 +898,4 @@ class RepoDb(object):
             logger.exception(e)
             traceback.print_exc()
         finally:
-            self.Close_Con()
-    
+            self.Close_Con()   
