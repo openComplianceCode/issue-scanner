@@ -59,14 +59,8 @@ class ScheduleSca(object):
         # Get all items under the url item
         start = 1
         repoStr = "Flag"
-        http = urllib3.PoolManager() 
-        project_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))      
-        config_url = project_path + '/token.yaml'
-        CONF = yaml.safe_load(open(config_url))
-        params = CONF['API_TOKEN']
-        token_list = params.split(",")
-        authorToken = random.choice(token_list) 
-        authorToken = authorToken.strip()
+        http = urllib3.PoolManager()   
+        authorToken = os.environ.get("MAJUN_TOKEN")
         repoList = []
         while repoStr != '[]':            
             url = 'https://gitee.com/api/v5/orgs/'+orgName+'/repos?access_token='+authorToken+'&type=all'
@@ -101,6 +95,7 @@ class ScheduleSca(object):
             desc = "SCAN " + repo_org + " REPO"
             ticks = time.localtime()
             monstr = str(ticks.tm_year) + str(ticks.tm_mon)
+            authorToken = os.environ.get("MAJUN_TOKEN")
             for item in tqdm(itemList,desc=desc,total=len(itemList),colour='green'):
                 url = item['html_url']
                 repo_name = item["name"] 
@@ -112,7 +107,7 @@ class ScheduleSca(object):
                 if os.path.exists(repo_src) is False:
                     os.makedirs(repo_src)
                 del_src = TEMP_PATH + '/'+repo_org
-                command = shlex.split('git clone %s %s --depth=1' % (url+".git", repo_src))
+                command = shlex.split('git clone https://oauth2:%s@gitee.com/%s/%s.git --depth=1' % (authorToken, repo_org, repo_src))
                 result_code = subprocess.Popen(command)
                 while subprocess.Popen.poll(result_code) == None:
                     time.sleep(5)

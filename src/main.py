@@ -288,7 +288,7 @@ application = tornado.web.Application([
     ])
 
 if __name__ == '__main__':
-    # schedOb = Scheduler()
+    schedOb = Scheduler()
     httpServer = tornado.httpserver.HTTPServer(application)
     port = config.options["port"]
     httpServer.bind(port)   
