@@ -49,7 +49,7 @@ class ScheduleSca(object):
         for item in org_list:
             item = item.strip()
             item_list = self.get_repo_url(item)
-            self.sca_item(item_list)
+            self.sca_item(item_list, item)
 
     
 
@@ -87,16 +87,18 @@ class ScheduleSca(object):
         return response
 
     @catch_error
-    def sca_item(self, itemList):
+    def sca_item(self, itemList, org):
         try:
             if os.path.exists(TEMP_PATH) is False:
                 os.makedirs(TEMP_PATH)
-            repo_org = itemList[0]['namespace']['name']
-            desc = "SCAN " + repo_org + " REPO"
+            desc = "SCAN " + org + " REPO"
             ticks = time.localtime()
             monstr = str(ticks.tm_year) + str(ticks.tm_mon)
             authorToken = os.environ.get("MAJUN_TOKEN")
             for item in tqdm(itemList,desc=desc,total=len(itemList),colour='green'):
+                repo_org = item['namespace']['name']
+                if repo_org.lower() != org:
+                    continue
                 url = item['html_url']
                 repo_name = item["name"] 
                 #check
@@ -107,7 +109,7 @@ class ScheduleSca(object):
                 if os.path.exists(repo_src) is False:
                     os.makedirs(repo_src)
                 del_src = TEMP_PATH + '/'+repo_org
-                command = shlex.split('git clone https://oauth2:%s@gitee.com/%s/%s.git %s --depth=1' % (authorToken, repo_org, repo_name, repo_src))
+                command = shlex.split('git clone https://oauth2:%s@gitee.com/%s/%s.git  %s --depth=1' % (authorToken, repo_org, repo_name, repo_src))
                 result_code = subprocess.Popen(command)
                 while subprocess.Popen.poll(result_code) == None:
                     time.sleep(5)
