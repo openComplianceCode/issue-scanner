@@ -107,7 +107,7 @@ class ScheduleSca(object):
                 if os.path.exists(repo_src) is False:
                     os.makedirs(repo_src)
                 del_src = TEMP_PATH + '/'+repo_org
-                command = shlex.split('git clone https://oauth2:%s@gitee.com/%s/%s.git --depth=1' % (authorToken, repo_org, repo_src))
+                command = shlex.split('git clone https://oauth2:%s@gitee.com/%s/%s.git %s --depth=1' % (authorToken, repo_org, repo_name, repo_src))
                 result_code = subprocess.Popen(command)
                 while subprocess.Popen.poll(result_code) == None:
                     time.sleep(5)
