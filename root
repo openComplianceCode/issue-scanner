@@ -1,0 +1,1 @@
+0 3 * * * find /home/repo/tempRepo -maxdepth 2 -mindepth 2 -type d -mtime +1 | xargs rm -rf
