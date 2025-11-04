@@ -60,7 +60,7 @@ class PrSca(object):
             self._num_ = urlList[6]
             self._branch_ = 'pr_' + self._num_
             self._gitUrl_ = self._domain_ + '/' + self._owner_ + '/' + self._repo_ + '.git'
-            fetchUrl = 'pull/' + self._num_ + '/head:pr_' + self._num_
+            fetchUrl = self.fetch_pr(self._domain_) + self._num_ + '/head:pr_' + self._num_
             timestemp = int(time.time())
             tempSrc = self._repo_ + str(timestemp)
 
@@ -76,6 +76,7 @@ class PrSca(object):
                     perRepo = Repo.init(path=self._repoSrc_)
                     perRemote = perRepo.remote()
                     perRemote.pull()
+                    
                     #copy file
                     tempDir = TEMP_PATH + '/'+self._owner_ + '/' + tempSrc + '/' + self._repo_
                     os.makedirs(TEMP_PATH + '/'+self._owner_ + '/' + tempSrc)
@@ -88,7 +89,7 @@ class PrSca(object):
                 except Exception as e:
                     self._file_ = 'temp'
                     self._repoSrc_ = TEMP_PATH + '/'+self._owner_ + '/' + tempSrc + '/' + self._repo_               
-                    if os.path.exists(self._repoSrc_) is False:
+                    if os.path.exists(self._repoSrc_) is False: 
                         os.makedirs(self._repoSrc_)
                     pass  
             else:     
@@ -119,6 +120,12 @@ class PrSca(object):
                 if fileList is None:
                     fileList = []
                 self._commit_ = self.getCommitInfo() 
+            elif 'gitcode.com' in self._domain_:
+                pr_flag = "gitcode"
+                fileList =  self.getDiffFilesByGitcode()    
+                if fileList is None:
+                    fileList = []
+                self._commit_ = self.getCommitByGitcode()
             else:
                 pr_flag = "github"
                 fileList = self.getDiffFilesByGithub()
@@ -307,6 +314,51 @@ class PrSca(object):
         return fileList
 
     @catch_error
+    def getDiffFilesByGitcode(self):
+        fileList = []
+        repoStr = "Flag"
+        http = urllib3.PoolManager()  
+        project_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))      
+        config_url = project_path + '/token.yaml'
+        CONF = yaml.safe_load(open(config_url))
+        params = CONF['GITCODE_TOKEN']
+        token_list = params.split(",")
+        authorToken = random.choice(token_list)
+        url = 'https://api.gitcode.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+authorToken.strip()
+        response = http.request(
+            'GET',
+            url,
+            headers = {'User-Agent': random.choice(USER_AGENT)}
+        )         
+        resStatus = response.status
+        if resStatus == 403:
+            token_list.remove(authorToken)
+            while (len(token_list) > 0):
+                authorToken = random.choice(token_list)
+                url = 'https://api.gitcode.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/files?access_token='+authorToken.strip()
+                response = http.request(
+                    'GET',
+                    url,
+                    headers = {'User-Agent': random.choice(USER_AGENT)}
+                )         
+                resStatus = response.status
+                if resStatus == 200:
+                    break
+                else:
+                    token_list.remove(authorToken)
+        
+        if resStatus == 404:
+            raise Exception("Gitcode API Fail")
+
+        if resStatus == 403:
+            raise Exception("Gitcode API LIMIT")
+
+        repoStr = response.data.decode('utf-8')
+        temList = json.loads(repoStr)
+        fileList.extend(temList)     
+        return fileList
+
+    @catch_error
     def getCommitInfo(self):
         commit_info = []
         repoStr = "Flag"
@@ -382,6 +434,52 @@ class PrSca(object):
         return commit_info
     
     @catch_error
+    def getCommitByGitcode(self):
+        commit_info = []
+        repoStr = "Flag"
+        http = urllib3.PoolManager()        
+        project_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))      
+        config_url = project_path + '/token.yaml'
+        CONF = yaml.safe_load(open(config_url))
+        params = CONF['GITCODE_TOKEN']
+        token_list = params.split(",")
+        authorToken = random.choice(token_list) 
+        url = 'https://api.gitcode.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits?access_token='+authorToken.strip()
+        response = http.request(
+            'GET',
+            url,
+            headers = {'User-Agent': random.choice(USER_AGENT)}
+        )
+
+        resStatus = response.status       
+        if resStatus == 403:
+            token_list.remove(authorToken)
+            while (len(token_list) > 0):
+                authorToken = random.choice(token_list)
+                url = 'https://api.gitcode.com/api/v5/repos/'+self._owner_+'/'+self._repo_+'/pulls/'+ self._num_ +'/commits?access_token='+authorToken.strip()
+                response = http.request(
+                    'GET',
+                    url,
+                    headers = {'User-Agent': random.choice(USER_AGENT)}
+                )         
+                resStatus = response.status
+                if resStatus == 200:
+                    break
+                else:
+                    token_list.remove(authorToken)
+        
+        if resStatus == 404:
+            raise Exception("Gitcode API Fail")
+
+        if resStatus == 403:
+            raise Exception("Gitcode API LIMIT")
+
+        repoStr = response.data.decode('utf-8')
+        temList = json.loads(repoStr)
+        commit_info.extend(temList)     
+        return commit_info
+    
+    @catch_error
     def get_copyright_type(self, commit_info):
         copyright_type = "No"
         if commit_info is not None:
@@ -441,6 +539,8 @@ class PrSca(object):
         apiObc = AuthApi()
         if pr_flag == 'gitee':
             response = apiObc.getPrInfo(self._owner_, self._repo_, self._num_)
+        elif pr_flag == 'gitcode':
+            response = apiObc.getPrInfoByGitcode(self._owner_, self._repo_, self._num_)
         else:
             response = apiObc.getPrInfoByGithub(self._owner_, self._repo_, self._num_)
         repoLicense = ""
@@ -492,3 +592,9 @@ class PrSca(object):
             repoData = ( repoLicense, scaJson, repoLicLg, specLicLg, licScope, copyrightLg, passState, mergeState, status,\
                             message, itemLic['id'])
             self._dbObject_.upd_PR(repoData)
+        
+    def fetch_pr(self, domain):
+        if 'gitee.com' in domain:
+            return 'pull/'
+        else:
+            return 'refs/merge-requests/'

@@ -1,5 +1,4 @@
 # -- coding: utf-8 --
-from distutils import config
 from DBUtils.PooledDB import PooledDB
 import logging
 import traceback

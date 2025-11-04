@@ -317,7 +317,7 @@ class ItemLicSca(object):
                 logging.error("file extracCode error")
             elif reExt == "ref":
                 self._type_ = "ref"
-                maxDepth = 3           
+                maxDepth = 3               
 
             logging.info("==============START SCAN REPO==============")
             # Call scancode
@@ -327,7 +327,7 @@ class ItemLicSca(object):
             while subprocess.Popen.poll(resultCode) == None:
                 time.sleep(1)
             popKill(resultCode)
-            scaJson = ''
+            scaJson = ''  
             # Get json
             with open(tempJson, 'r+') as f:
                 list = f.readlines()
@@ -346,7 +346,7 @@ class ItemLicSca(object):
     def getTypeUrl(self, type):
         typeFlag = False
         scaResult = {}
-        if type in ['gitee','github','gitlab']:
+        if type in ['gitee','github','gitlab', 'gitcode']:
             typeFlag = True
             self._typeUrl_ = 'https://' + type + '.com'
         else:
@@ -363,7 +363,7 @@ class ItemLicSca(object):
     @catch_error
     def gitCloneFile(self, temFileSrc):
         logging.info("=============START FETCH REPO==============")
-        scaResult = ""
+        scaResult = "" 
         self._gitUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_ + '.git'
         self._repoUrl_ = self._typeUrl_ + '/' + self._owner_ + '/' + self._repo_
         self._repoSrc_ = temFileSrc + '/'+self._owner_ + '/' + str(self._timestamp_) + '/' + self._repo_

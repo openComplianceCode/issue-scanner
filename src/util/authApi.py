@@ -94,3 +94,43 @@ class AuthApi(object):
             return 404
         
         return response
+    
+    @catch_error    
+    def getPrInfoByGitcode(self, owner, repo, num): 
+        http = urllib3.PoolManager() 
+        project_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))      
+        config_url = project_path + '/token.yaml'     
+        CONF = yaml.safe_load(open(config_url))
+        params = CONF['GITCODE_TOKEN']
+        token_list = params.split(",")
+        authorToken = random.choice(token_list)
+        apiUrl = 'https://api.gitcode.com/api/v5/repos/'+owner+'/'+repo+'/pulls/'+num+'?access_token='+authorToken.strip()
+        response = http.request(
+            'GET',
+            apiUrl,
+            headers = {'User-Agent': random.choice(USER_AGENT)}
+        )       
+        resStatus = response.status
+        if resStatus == 403:
+            token_list.remove(authorToken)
+            while (len(token_list) > 0):
+                authorToken = random.choice(token_list)
+                apiUrl = 'https://api.gitcode.com/api/v5/repos/'+owner+'/'+repo+'/pulls/'+num+'?access_token='+authorToken.strip()
+                response = http.request(
+                    'GET',
+                    apiUrl,
+                    headers = {'User-Agent': random.choice(USER_AGENT)}
+                )         
+                resStatus = response.status
+                if resStatus == 200:
+                    break
+                else:
+                    token_list.remove(authorToken)
+        if resStatus == 403:
+            logging.error("GITCODE API LIMIT")
+            return 403
+        if resStatus == 404:
+            logging.error("GITCODE API ERROR")
+            return 404
+        
+        return response

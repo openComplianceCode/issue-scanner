@@ -24,3 +24,4 @@ spdx-tools==0.7.0a3
 attrs==22.1.0
 APScheduler==3.10.1
 pdfminer.six==20221105 
+click==8.1.7

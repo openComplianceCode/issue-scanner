@@ -68,7 +68,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
             for info in copyrightInfo:
                 crInfoList.append(info['copyright'])
             noticeCopyright = noticeCopyright + "(" + path + "), "
-        
+         
         #Check commit file copyright
         if is_in(path, file_array) and copyright_type == 'Huawei':
             if len(copyrightList[i]) > 0:

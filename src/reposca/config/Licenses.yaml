@@ -1337,16 +1337,17 @@ Software Licenses:
   - alias:
     - Caldera License
     - Caldera International, Inc.
+    - Caldera-no-preamble
     identifier: Caldera
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Computer Associates Trusted Open Source License 1.1
     - COMPUTER ASSOCIATES TRUSTED OPEN SOURCE LICENSE
@@ -2839,24 +2840,24 @@ Software Licenses:
     fsfApproved: 'Y'
     osiApproved: 'N'
     oeApproved: 'Y'
+    ohApproved: 'N' 
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias: 
+    - GD License
+    identifier: GD
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
     review: 'Y'
-  - alias:
-    - GD License
-    identifier: GD
-    fsfApproved: 'N'
-    osiApproved: 'N'
-    oeApproved: 'N'
-    ohApproved: 'N'
-    lowRisk: 'N'
-    black: 'N'
-    blackReason: ''
-    exception: 'N'
-    review: 'N'
   - alias:
     - GNU Free Documentation License v1.1 only - invariants
     identifier: GFDL-1.1-invariants-only
@@ -3018,13 +3019,13 @@ Software Licenses:
     identifier: GFDL-1.3-invariants-or-later
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - GNU Free Documentation License v1.3 only - no invariants
     identifier: GFDL-1.3-no-invariants-only
@@ -5795,13 +5796,13 @@ Software Licenses:
     identifier: TU-Berlin-2.0
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
     lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - Upstream Compatibility License v1.0
     identifier: UCL-1.0
@@ -5846,10 +5847,10 @@ Software Licenses:
     oeApproved: 'N'
     ohApproved: 'N'
     lowRisk: 'N'
-    black: 'N'
+    black: 'Y'
     blackReason: ''
     exception: 'N'
-    review: 'N'
+    review: 'Y'
   - alias:
     - The Unlicense
     identifier: Unlicense
@@ -6731,7 +6732,55 @@ Software Licenses:
     blackReason: ''
     exception: 'N'
     review: 'Y'
-    
+  - alias:
+    - Historical Permission Notice and Disclaimer - Markus Kuhn variant
+    identifier: HPND-Markus-Kuhn
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Historical Permission Notice and Disclaimer - DEC variant
+    identifier: HPND-DEC
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - BSD 3-Clause Sun Microsystems
+    identifier: BSD-3-Clause-Sun
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Unicode License v3
+    identifier: Unicode-3.0
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+
   #exception
   - alias:
     - 389 Directory Server Exception
