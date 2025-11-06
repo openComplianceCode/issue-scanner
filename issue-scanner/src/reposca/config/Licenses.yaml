@@ -2814,9 +2814,9 @@ Software Licenses:
     identifier: FSFUL
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
-    lowRisk: 'Y'
+    lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
@@ -2829,7 +2829,7 @@ Software Licenses:
     osiApproved: 'N'
     oeApproved: 'N'
     ohApproved: 'Y'
-    lowRisk: 'Y'
+    lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
@@ -5001,9 +5001,9 @@ Software Licenses:
     identifier: OPUBL-1.0
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'N'
-    lowRisk: 'Y'
+    lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
@@ -6780,6 +6780,79 @@ Software Licenses:
     blackReason: ''
     exception: 'N'
     review: 'Y'
+  - alias:
+    - BSD 3-Clause Flex variant
+    identifier: BSD-3-Clause-flex
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Independent JPEG Group License - short
+    identifier: IJG-short
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Python ldap License
+    identifier: python-ldap
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Hewlett-Packard BSD variant license
+    identifier: BSD-3-Clause-HP
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - uIP
+    identifier: uIP
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - custom
+    identifier: custom
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    ohApproved: 'N'
+    lowRisk: 'Y'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+
 
   #exception
   - alias:
