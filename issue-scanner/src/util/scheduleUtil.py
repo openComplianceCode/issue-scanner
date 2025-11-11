@@ -32,7 +32,7 @@ class Scheduler(object):
             hour=21
         )
 
-        self.sca_repo()
+        # self.sca_repo()
 
     @catch_error
     def prSchedule(self):
