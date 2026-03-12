@@ -2827,7 +2827,7 @@ Software Licenses:
     identifier: FSFULLR
     fsfApproved: 'N'
     osiApproved: 'N'
-    oeApproved: 'N'
+    oeApproved: 'Y'
     ohApproved: 'Y'
     lowRisk: 'N'
     black: 'N'
@@ -6848,6 +6848,55 @@ Software Licenses:
     oeApproved: 'N'
     ohApproved: 'N'
     lowRisk: 'Y'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - NPSL license
+    - NPSL
+    identifier: Nmap Public Source License Version 0.95
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'N'
+    ohApproved: 'N'
+    lowRisk: 'Y'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - TermReadKey
+    identifier: TermReadKey License
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - Soundex
+    identifier: Soundex License
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
+    black: 'N'
+    blackReason: ''
+    exception: 'N'
+    review: 'Y'
+  - alias:
+    - BSD-4.3TAHOE
+    identifier: BSD 4.3 TAHOE License
+    fsfApproved: 'N'
+    osiApproved: 'N'
+    oeApproved: 'Y'
+    ohApproved: 'N'
+    lowRisk: 'N'
     black: 'N'
     blackReason: ''
     exception: 'N'
