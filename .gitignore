@@ -15,3 +15,5 @@ issue-scanner/src/reposca/json.txt
 issue-scanner/src/reposca/cleanData.py
 issue-scanner/src/reposca/config/Regular.yaml
 issue-scanner/src/temporg.yaml
+issue-scanner/.venv/
+issue-scanner/src/token.yaml
