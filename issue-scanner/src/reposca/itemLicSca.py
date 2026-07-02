@@ -178,7 +178,7 @@ class ItemLicSca(object):
                 if "text/html;" in ContentType:        
                     type = urlList[2]
                     self._typeUrl_ = 'https://' + type
-                    self._owner_ =  self.getOwner(urlList)
+                    self._owner_ =  self.getOwner(urlList) 
                     self._repo_ = urlList[len(urlList) - 1]        
                     self._repo_ = self._repo_.split(".git")[0]         
                     scaResult = self.gitCloneFile(temFileSrc)    
@@ -190,7 +190,7 @@ class ItemLicSca(object):
                     urlSplit = urlsplit(url) 
                     fileName = basename(urlSplit[2])     
                     self._owner_ = urlSplit[1]
-                    self._repoUrl_ = url       
+                    self._repoUrl_ = url        
                     self._repo_ = self.getFileName(url)
                     
                     self._repoSrc_ = temFileSrc + '/'+ "downRepo" + '/' + self._repo_ + str(self._timestamp_) + "/" + self._repo_

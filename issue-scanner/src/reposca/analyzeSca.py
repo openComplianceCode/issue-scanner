@@ -89,7 +89,7 @@ def getScaAnalyze(scaJson, anlyzeSrc, type, copyright_type, file_array):
                 # spec = Spec.from_file(fileUrl)
                 # specLic = spec.license
                 spec_lic_list = run_spec(fileUrl)
-                if  len(spec_lic_list) > 0:
+                if spec_lic_list and len(spec_lic_list) > 0:
                     temp_pass = []
                     temp_notice = []
                     temp_detial = [] 
@@ -336,7 +336,7 @@ def copyright_check(copyright):
 def run_spec(file_path):
     license_list = []
     all_license_list = []
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         for line in file:
             line = line.strip()
             if line.startswith('License:') or line.startswith('license:'):

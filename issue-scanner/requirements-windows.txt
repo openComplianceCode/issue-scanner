@@ -1,0 +1,9 @@
+# Windows + Python 3.12 本地开发依赖说明
+#
+# 不要直接 pip install -r requirements.txt（scipy/pyicu 在 Windows+Py3.12 会失败）
+# 请使用一键脚本:
+#   .\setup-windows.ps1
+#
+# 或手动激活已创建的环境:
+#   .\.venv\Scripts\Activate.ps1
+#   .\run.ps1

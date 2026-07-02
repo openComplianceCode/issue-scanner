@@ -183,7 +183,7 @@ class PrSca(object):
             if reExt == "Except":
                 logging.error("file extracCode error")
             elif reExt == "ref":
-                self._type_ = "ref"
+                self._type_ = "ref" 
                 # maxDepth = 3
 
             logging.info("==============START SCAN REPO==============")        
